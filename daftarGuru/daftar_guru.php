@@ -4,48 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
     <title>Guru</title>
     <style>
         @font-face {
             font-family: 'TiltNeon' ;
-            src: url(assets/font/Tilt_Neon/static/TiltNeon-Regular.ttf);
+            src: url(../assets/font/Tilt_Neon/static/TiltNeon-Regular.ttf);
         }
         @font-face {
             font-family: 'ClimateC';
-            src: url(assets/font/Climate_Crisis/static/ClimateCrisis-Regular.ttf);
+            src: url(../assets/font/Climate_Crisis/static/ClimateCrisis-Regular.ttf);
         }
         @font-face {
             font-family: 'Anton';
-            src: url(assets/font/Anton/Anton-Regular.ttf);
+            src: url(../assets/font/Anton/Anton-Regular.ttf);
         }
         @font-face {
             font-family: 'Kanit';
-            src: url(assets/font/Kanit/Kanit-Regular.ttf);
+            src: url(../assets/font/Kanit/Kanit-Regular.ttf);
         }
         @font-face {
             font-family: 'Lobster';
-            src: url(assets/font/Lobster/Lobster-Regular.ttf);
+            src: url(../assets/font/Lobster/Lobster-Regular.ttf);
         }
         @font-face {
             font-family: 'DancingS';
-            src: url(assets/font/Dancing_Script/static/DancingScript-Regular.ttf);
+            src: url(../assets/font/Dancing_Script/static/DancingScript-Regular.ttf);
         }
         @font-face {
             font-family: 'Mynerve';
-            src: url(assets/font/Mynerve/Mynerve-Regular.ttf);
+            src: url(../assets/font/Mynerve/Mynerve-Regular.ttf);
         }
         @font-face {
             font-family: 'Oswald';
-            src: url(assets/font/Oswald/static/Oswald-Regular.ttf);
+            src: url(../assets/font/Oswald/static/Oswald-Regular.ttf);
         }
         @font-face {
             font-family: 'TiltWarp';
-            src: url(assets/font/Tilt_Warp/static/TiltWarp-Regular.ttf);
+            src: url(../assets/font/Tilt_Warp/static/TiltWarp-Regular.ttf);
         }
         @font-face {
             font-family: 'Poppins';
-            src: url(assets/font/font-poppins/Poppins-Regular.ttf);
+            src: url(../assets/font/font-poppins/Poppins-Regular.ttf);
         }
         @media (max-width: 425px){
             .navbar-pertama{
@@ -86,7 +87,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
         <div class="container-fluid ">
             <a class="navbar-brand" href="#">
-                <img src="image/logoSD.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+                <img src="../assets/imgs/Foto SD/logoSD.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
                 SDN Kramat 2
             </a>
             <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -118,10 +119,11 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="mt-3 py-3">
+                    <button class="btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
                     <h5 class="text-center mb-3">Daftar Guru :</h5>
                     <div class="guru d-flex flex-wrap justify-content-center gap-5">
                         <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="Foto Guru/g1.jpg" class="card-img-top" alt="...">
+                            <img src="../assets/imgs/Foto SD/Foto Guru/g1.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5>Nama Guru</h5>
                                 <p class="fw-light">-Guru Mapel-</p>
@@ -129,7 +131,19 @@
                             </div>
                         </div>
                         <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="Foto Guru/g2.jpg" class="card-img-top" alt="...">
+                            <img src="../assets/imgs/Foto SD/Foto Guru/g2.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5>Nama Guru</h5>
+                                <p class="fw-light">-Guru Mapel-</p>
+                                <button class="bg-transparent border-0 text-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Profile ></button>
+                                <div class="d-flex justify-content-center">
+                                    <button class="bg-transparent border-0 text-danger " data-bs-toggle="modal" data-bs-target="#exampleModal">Hapus</button>
+                                    <button class="bg-transparent border-0 text-danger " data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card border-2 text-center border-dark" style="width: 11rem;">
+                            <img src="../assets/imgs/Foto SD/Foto Guru/g3.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5>Nama Guru</h5>
                                 <p class="fw-light">-Guru Mapel-</p>
@@ -137,7 +151,7 @@
                             </div>
                         </div>
                         <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="Foto Guru/g3.jpg" class="card-img-top" alt="...">
+                            <img src="../assets/imgs/Foto SD/Foto Guru/g4.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5>Nama Guru</h5>
                                 <p class="fw-light">-Guru Mapel-</p>
@@ -145,15 +159,7 @@
                             </div>
                         </div>
                         <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="Foto Guru/g4.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5>Nama Guru</h5>
-                                <p class="fw-light">-Guru Mapel-</p>
-                                <button class="bg-transparent border-0 text-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Profile ></button>
-                            </div>
-                        </div>
-                        <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="Foto Guru/g5.jpg" class="card-img-top" alt="...">
+                            <img src="../assets/imgs/Foto SD/Foto Guru/g5.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5>Nama Guru</h5>
                                 <p class="fw-light">-Guru Mapel-</p>
@@ -172,7 +178,7 @@
                                     <!-- isi -->
                                     <div class="detail row" id="modal">
                                     <div class="col-md-4" id="detail_kanan">
-                                        <img src="Foto Guru/g1.jpg" class="m-auto mb-2 w-100" alt="">
+                                        <img src="../assets/imgs/Foto SD/Foto Guru/g1.jpg" class="m-auto mb-2 w-100" alt="">
                                     </div>
                                     <div class="col ms-auto" id="detail_kiri">
                                         <h5>Nama Guru</h5>
@@ -186,6 +192,33 @@
                             </div>
                         </div>
                         <!-- !SECTION DETAIL GURU -->
+
+                        <!-- SECTION TAMBAH GURU -->
+                        <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-md modal-dialog-centered">
+                                <div class="modal-content text-start">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Guru</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- isi -->
+                                    <div class="detail row" id="modal">
+                                    <div class="col-md-4" id="detail_kanan">
+                                        <img src="../assets/imgs/Foto SD/Foto Guru/g1.jpg" class="m-auto mb-2 w-100" alt="">
+                                    </div>
+                                    <div class="col ms-auto" id="detail_kiri">
+                                        <h5>Nama Guru</h5>
+                                        <p class="fw-light">-Guru Mapel-</p>
+                                        <p>Tahun Mengajar : ...</p>
+                                        <p>Alamat : ...</p>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- !SECTION TAMBAH GURU -->
                     </div>
                 </div>
             </div>
@@ -228,6 +261,7 @@
             </div>
         </div>
     </div>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>
