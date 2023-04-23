@@ -1,3 +1,71 @@
+<?php 
+
+include '../functions.php';
+
+$dataMapel = query("SELECT * FROM mapel");
+$dataGuru = query("SELECT * FROM guru
+                    INNER JOIN mapel ON
+                    mapel.id_mapel=guru.id_mapel");
+
+if(isset($_POST['tambah'])){
+
+    if(tambah($_POST) > 0){
+        echo "
+        <script>
+        alert('Data berhasil ditambahkan');
+        document.location.href = 'daftar_guru.php'; 
+        </script>";
+    }
+    else{
+        echo "
+        <script>
+        alert('Ada kesalahan saat menginput data');
+        document.location.href = 'daftar_guru.php'; 
+        </script>";
+    }
+    
+}
+
+if(isset($_POST['edit'])){
+
+    if(ubah($_POST) > 0){
+        echo "
+        <script>
+        alert('Data berhasil ditambahkan');
+        document.location.href = 'daftar_guru.php'; 
+        </script>";
+    }
+    else{
+        echo "
+        <script>
+        alert('Ada kesalahan saat menginput data');
+        document.location.href = 'daftar_guru.php'; 
+        </script>";
+    }
+    
+}
+
+if(isset($_POST['hapus'])){
+
+    if(hapus($_POST) > 0){
+        echo "
+        <script>
+        alert('Data berhasil ditambahkan');
+        document.location.href = 'daftar_guru.php'; 
+        </script>";
+    }
+    else{
+        echo "
+        <script>
+        alert('Ada kesalahan saat menginput data');
+        document.location.href = 'daftar_guru.php'; 
+        </script>";
+    }
+    
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,55 +187,30 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="mt-3 py-3">
-                    <button class="btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
                     <h5 class="text-center mb-3">Daftar Guru :</h5>
+                    <!-- SECTION CARD DAFTAR GURU -->
                     <div class="guru d-flex flex-wrap justify-content-center gap-5">
+                        <?php foreach($dataGuru as $data) : ?>
                         <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="../assets/imgs/Foto SD/Foto Guru/g1.jpg" class="card-img-top" alt="...">
+                            <img src="../assets/imgs/Foto SD/Foto Guru/<?= $data['gambar'] ?>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5>Nama Guru</h5>
-                                <p class="fw-light">-Guru Mapel-</p>
-                                <button class="bg-transparent border-0 text-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Profile ></button>
-                            </div>
-                        </div>
-                        <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="../assets/imgs/Foto SD/Foto Guru/g2.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5>Nama Guru</h5>
-                                <p class="fw-light">-Guru Mapel-</p>
-                                <button class="bg-transparent border-0 text-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Profile ></button>
+                                <h5><?= $data['nama_guru'] ?></h5>
+                                <p class="fw-light">-<?= $data['role'] ?>-</p>
                                 <div class="d-flex justify-content-center">
-                                    <button class="bg-transparent border-0 text-danger " data-bs-toggle="modal" data-bs-target="#exampleModal">Hapus</button>
-                                    <button class="bg-transparent border-0 text-danger " data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                                    <button class="bg-transparent border-0 text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $data['id_guru'] ?>">Profile</button>
+                                    <button class="bg-transparent border-0 text-danger " data-bs-toggle="modal" data-bs-target="#editModal<?= $data['id_guru'] ?>">Edit</button>
+                                    <form action="" method="post">
+                                        <input type="hidden" name="id_guru" value="<?= $data['id_guru'] ?>" >
+                                        <button class="bg-transparent border-0 text-danger" name="hapus" id="hapus" onclick="return confirm('Yakin ingin menghapus guru?')">Hapus</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="../assets/imgs/Foto SD/Foto Guru/g3.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5>Nama Guru</h5>
-                                <p class="fw-light">-Guru Mapel-</p>
-                                <button class="bg-transparent border-0 text-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Profile ></button>
-                            </div>
-                        </div>
-                        <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="../assets/imgs/Foto SD/Foto Guru/g4.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5>Nama Guru</h5>
-                                <p class="fw-light">-Guru Mapel-</p>
-                                <button class="bg-transparent border-0 text-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Profile ></button>
-                            </div>
-                        </div>
-                        <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="../assets/imgs/Foto SD/Foto Guru/g5.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5>Nama Guru</h5>
-                                <p class="fw-light">-Guru Mapel-</p>
-                                <button class="bg-transparent border-0 text-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Profile ></button>
-                            </div>
-                        </div>
+                    <!-- SECTION CARD DAFTAR GURU -->
+
                         <!-- SECTION POP DETAIL GURU -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal<?= $data['id_guru'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-md modal-dialog-centered">
                                 <div class="modal-content text-start">
                                 <div class="modal-header">
@@ -178,13 +221,15 @@
                                     <!-- isi -->
                                     <div class="detail row" id="modal">
                                     <div class="col-md-4" id="detail_kanan">
-                                        <img src="../assets/imgs/Foto SD/Foto Guru/g1.jpg" class="m-auto mb-2 w-100" alt="">
+                                        <img src="../assets/imgs/Foto SD/Foto Guru/<?= $data['gambar'] ?>" class="m-auto mb-2 w-100" alt="">
                                     </div>
                                     <div class="col ms-auto" id="detail_kiri">
-                                        <h5>Nama Guru</h5>
-                                        <p class="fw-light">-Guru Mapel-</p>
-                                        <p>Tahun Mengajar : ...</p>
-                                        <p>Alamat : ...</p>
+                                        <h5><?= $data['nama_guru'] ?></h5>
+                                        <p class="fw-light">-<?= $data['role'] ?>-</p>
+                                        <p>NIP : <?= $data['nip_guru'] ?></p>
+                                        <p>Jenis Kelamin : <?= $data['jk_guru'] == 'P' ? "Perempuan" : "Laki-laki" ?></p>
+                                        <p>Mata Pelajaran : <?= $data['nama_mapel'] ?></p>
+                                        <p>Alamat : <?= $data['alamat_guru'] ?></p>
                                     </div>
                                     </div>
                                 </div>
@@ -192,6 +237,68 @@
                             </div>
                         </div>
                         <!-- !SECTION DETAIL GURU -->
+
+                        <!-- SECTION Edit GURU -->
+                        <div class="modal fade" id="editModal<?= $data['id_guru'] ?>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-md modal-dialog-centered">
+                                <div class="modal-content text-start">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="editModalLabel">Detail Guru</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- isi -->
+                                    <form action="" method="post" enctype="multipart/form-data">
+                                        <input type="text" class="form-control" name="id_guru" id="id_guru" aria-describedby="helpId" placeholder="Masukan id_guru Guru..." value="<?= $data['id_guru'] ?>" hidden>
+                                        <div class="mb-3">
+                                          <label for="password" class="form-label">Password Guru</label>
+                                          <input type="text" class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="Masukan Password Guru..." value="<?= $data['password'] ?>" disabled>
+                                          <input type="text" class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="Masukan Password Guru..." value="<?= $data['password'] ?>" hidden>
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="nama" class="form-label">Nama Guru</label>
+                                          <input type="text" class="form-control" name="nama" id="nama" aria-describedby="helpId" placeholder="Masukan Nama Guru..." value="<?= $data['nama_guru'] ?>">
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="nip" class="form-label">NIP</label>
+                                          <input type="number" class="form-control" name="nip" id="nip" aria-describedby="helpId" placeholder="Masukan NIP Guru..." value="<?= $data['nip_guru'] ?>">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="jk" class="form-label">Jenis Kelamin</label>
+                                            <select class="form-select form-select-md" name="jk" id="jk">
+                                                <option value="P" <?= $data['jk_guru'] == 'P' ? "Selected" : "" ;?>>Perempuan</option>
+                                                <option value="L" <?= $data['jk_guru'] == 'P' ? "" : "Selected" ;?>>Laki-laki</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="mapel" class="form-label">Mata Pelajaran</label>
+                                            <select class="form-select form-select-md" name="mapel" id="mapel">
+                                                <?php foreach($dataMapel as $data2) : ?>
+                                                    <option value="<?= $data2['id_mapel']?>" <?= $data2['id_mapel'] == $data['id_mapel'] ? "Selected" : "" ;?>><?= $data2['nama_mapel']?></option>
+                                                <?php endforeach ; ?>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="alamat" class="form-label">Alamat</label>
+                                          <textarea class="form-control" name="alamat" id="alamat" rows="3"><?= $data['alamat_guru']?></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="role" class="form-label">Role</label>
+                                          <input type="text" class="form-control" name="role" id="role" aria-describedby="helpId" placeholder="Masukan Role Guru..." value="<?= $data['role']?>">
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="gambar" class="form-label">Choose file</label>
+                                          <input type="text" class="form-control" name="gambar_lama" id="gambar_lama" aria-describedby="fileHelpId" value="<?= $data['gambar']?>" hidden>
+                                          <input type="file" class="form-control" name="gambar" id="gambar" aria-describedby="fileHelpId">
+                                        </div>
+                                        <button type="submit" name="edit" class="btn btn-primary">Edit</button>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach ; ?>
+                        <!-- !SECTION Edit GURU -->
 
                         <!-- SECTION TAMBAH GURU -->
                         <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -203,22 +310,51 @@
                                 </div>
                                 <div class="modal-body">
                                     <!-- isi -->
-                                    <div class="detail row" id="modal">
-                                    <div class="col-md-4" id="detail_kanan">
-                                        <img src="../assets/imgs/Foto SD/Foto Guru/g1.jpg" class="m-auto mb-2 w-100" alt="">
-                                    </div>
-                                    <div class="col ms-auto" id="detail_kiri">
-                                        <h5>Nama Guru</h5>
-                                        <p class="fw-light">-Guru Mapel-</p>
-                                        <p>Tahun Mengajar : ...</p>
-                                        <p>Alamat : ...</p>
-                                    </div>
-                                    </div>
+                                    <form action="" method="post" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                          <label for="nama" class="form-label">Nama Guru</label>
+                                          <input type="text" class="form-control" name="nama" id="nama" aria-describedby="helpId" placeholder="Masukan Nama Guru...">
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="nip" class="form-label">NIP</label>
+                                          <input type="number" class="form-control" name="nip" id="nip" aria-describedby="helpId" placeholder="Masukan NIP Guru...">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="jk" class="form-label">Jenis Kelamin</label>
+                                            <select class="form-select form-select-md" name="jk" id="jk">
+                                                <option value="P" selected>Perempuan</option>
+                                                <option value="L">Laki-laki</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="mapel" class="form-label">Mata Pelajaran</label>
+                                            <select class="form-select form-select-md" name="mapel" id="mapel">
+                                                <?php foreach($dataMapel as $data) : ?>
+                                                    <option value="<?= $data['id_mapel']?>"><?= $data['nama_mapel']?></option>
+                                                <?php endforeach ; ?>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="alamat" class="form-label">Alamat</label>
+                                          <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="role" class="form-label">Role</label>
+                                          <input type="text" class="form-control" name="role" id="role" aria-describedby="helpId" placeholder="Masukan Role Guru...">
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="gambar" class="form-label">Choose file</label>
+                                          <input type="file" class="form-control" name="gambar" id="gambar" aria-describedby="fileHelpId">
+                                        </div>
+                                        <button type="submit" name="tambah" class="btn btn-primary">Tambah</button>
+                                    </form>
                                 </div>
                                 </div>
                             </div>
                         </div>
                         <!-- !SECTION TAMBAH GURU -->
+
+                        
                     </div>
                 </div>
             </div>
