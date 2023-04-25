@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 $link = new mysqli('localhost','root','','db_sdkramat2');
 
@@ -12,6 +13,25 @@ function query($sql){
   }
   return $rows;
 
+}
+
+function login($data){
+  global $link;
+
+  $username = htmlspecialchars($data['username']); 
+  $password = htmlspecialchars($data['password']); 
+
+  $query = "SELECT * FROM guru WHERE nama_guru='$username' AND password='$password'";
+  $result = mysqli_query($link, $query);
+  
+  if(mysqli_num_rows($result) === 1){
+    // var_dump($result['role']);
+    $_SESSION['loginAdmin'] = true;
+    return true;
+  }
+  else{
+    return false;
+  } 
 }
 
 function tambah($data){

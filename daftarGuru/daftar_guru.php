@@ -2,6 +2,10 @@
 
 include '../functions.php';
 
+if(!isset($_SESSION['loginAdmin'])){
+    header('Location: ../login/login.php');
+}
+
 $dataMapel = query("SELECT * FROM mapel");
 $dataGuru = query("SELECT * FROM guru
                     INNER JOIN mapel ON
