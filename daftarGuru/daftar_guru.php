@@ -11,6 +11,14 @@ $dataGuru = query("SELECT * FROM guru
                     INNER JOIN mapel ON
                     mapel.id_mapel=guru.id_mapel");
 
+$roleGuru = [
+    'Guru Mapel',
+    'Staff',
+    'Admin'
+];
+
+// $jumlahGuru = count($roleGuru);
+
 if(isset($_POST['tambah'])){
 
     if(tambah($_POST) > 0){
@@ -35,7 +43,7 @@ if(isset($_POST['edit'])){
     if(ubah($_POST) > 0){
         echo "
         <script>
-        alert('Data berhasil ditambahkan');
+        alert('Data berhasil diubah');
         document.location.href = 'daftar_guru.php'; 
         </script>";
     }
@@ -288,7 +296,12 @@ if(isset($_POST['hapus'])){
                                         </div>
                                         <div class="mb-3">
                                           <label for="role" class="form-label">Role</label>
-                                          <input type="text" class="form-control" name="role" id="role" aria-describedby="helpId" placeholder="Masukan Role Guru..." value="<?= $data['role']?>">
+                                          <!-- <input type="text" class="form-control" name="role" id="role" aria-describedby="helpId" placeholder="Masukan Role Guru..." value="<?= $data['role']?>"> -->
+                                          <select class="form-select form-select-md" name="role" id="role">
+                                            <?php foreach($roleGuru as $data3) : ?>
+                                                <option value="<?= $data3 ?>" <?= $data3 == $data['role'] ? "Selected" : "" ;?>><?= $data3 ?></option>
+                                            <?php endforeach ; ?>
+                                          </select>
                                         </div>
                                         <div class="mb-3">
                                           <label for="gambar" class="form-label">Choose file</label>
@@ -344,7 +357,12 @@ if(isset($_POST['hapus'])){
                                         </div>
                                         <div class="mb-3">
                                           <label for="role" class="form-label">Role</label>
-                                          <input type="text" class="form-control" name="role" id="role" aria-describedby="helpId" placeholder="Masukan Role Guru...">
+                                          <!-- <input type="text" class="form-control" name="role" id="role" aria-describedby="helpId" placeholder="Masukan Role Guru..."> -->
+                                          <select class="form-select form-select-md" name="role" id="role">
+                                            <?php foreach($roleGuru as $data3) : ?>
+                                                <option value="<?= $data3 ?>"><?= $data3 ?></option>
+                                            <?php endforeach ; ?>
+                                          </select>
                                         </div>
                                         <div class="mb-3">
                                           <label for="gambar" class="form-label">Choose file</label>

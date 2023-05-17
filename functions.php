@@ -44,6 +44,17 @@ function tambah($data){
   $mapel = htmlspecialchars($data['mapel']);
   $role = htmlspecialchars($data['role']);
 
+  // Cek apakah NIP sudah pernah digunakan atau belom
+  $cekGuru = mysqli_query($link,"SELECT * FROM guru WHERE nip_guru='$nip'");
+  if(mysqli_num_rows($cekGuru) > 0){
+    echo "
+      <script>
+      alert('NIP Sudah Pernah Digunakan');
+      document.location.href = '../daftarGuru/daftar_guru.php'; 
+      </script>";
+      return false;
+  }
+
   // Password Ngacak
   $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $randomString = '';
@@ -85,7 +96,21 @@ function ubah($data){
   $password = htmlspecialchars($data['password']);
   $gambar_lama = htmlspecialchars($data['gambar_lama']);
 
-  
+  // Cek apakah NIP sudah pernah digunakan atau belom
+  $nipLama = mysqli_fetch_assoc(mysqli_query($link,"SELECT nip_guru FROM guru WHERE id_guru='$id'"))['nip_guru'];
+  if($nipLama != $nip){
+    $cekGuru = mysqli_query($link,"SELECT * FROM guru WHERE nip_guru='$nip'");
+    if(mysqli_num_rows($cekGuru) > 0){
+      echo "
+        <script>
+        alert('NIP Sudah Pernah Digunakan');
+        document.location.href = '../daftarGuru/daftar_guru.php'; 
+        </script>";
+        return false;
+    }
+  }
+
+  // Bagian Gambar
   if ($_FILES['gambar']['error'] === 4) {
     $gambar = $gambar_lama;
   } else {
