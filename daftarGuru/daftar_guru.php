@@ -88,7 +88,7 @@ if(isset($_POST['hapus'])){
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
     <title>Guru</title>
     <style>
-        @font-face {
+        /* @font-face {
             font-family: 'TiltNeon' ;
             src: url(../assets/font/Tilt_Neon/static/TiltNeon-Regular.ttf);
         }
@@ -123,7 +123,7 @@ if(isset($_POST['hapus'])){
         @font-face {
             font-family: 'TiltWarp';
             src: url(../assets/font/Tilt_Warp/static/TiltWarp-Regular.ttf);
-        }
+        } */
         @font-face {
             font-family: 'Poppins';
             src: url(../assets/font/font-poppins/Poppins-Regular.ttf);
@@ -150,51 +150,55 @@ if(isset($_POST['hapus'])){
         <!-- COPY DARI SINI -->
     <!-- awal navbar pertama -->
     <div class="navbar-pertama">
-      <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
-        <div class="container-fluid">
-          <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
-          <div class="d-flex me-2">
-            <span class="nav-link active me-4 text-light" aria-current="page">Jl. Siliwangi No. 44Kota Cirebon </span>
-            <span class="nav-link active text-light" aria-current="page">Telp. (0231) 202998</span>
-          </div>
-        </div>
-      </nav>
-    </div>
-    <!-- akhir navbar pertama -->
-
-
-    <!-- awal navbar kedua -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
-        <div class="container-fluid ">
-            <a class="navbar-brand" href="#">
-                <img src="../assets/imgs/Foto SD/logoSD.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
-                SDN Kramat 2
-            </a>
-            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>    
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-5">
-                    <a class="nav-link active ms-4" aria-current="page" href="#">Home</a>
-                    <a class="nav-link ms-4" href="#">Profil</a>
-                    <a class="nav-link ms-4" href="#">Berita</a>
-                    <a class="nav-link ms-4" href="#">PPDB</a>
-                    <a class="nav-link ms-4" href="#">Galeri</a>
-                    <a class="nav-link ms-4" href="#">Informasi</a>
-                    <li class="nav-item dropdown ms-4">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Modifikasi Data
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="modifikasi_carousel.php">Carousel</a></li>
-                            <li><a class="dropdown-item" href="#">Silahkan Isi Yang Lain</a></li>
-                        </ul>
-                    </li>
-                </div>
+          <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
+            <div class="container-fluid">
+              <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
+              <div class="d-flex me-2">
+                <span class="nav-link active me-4 text-light" aria-current="page">Jl. Siliwangi No. 44Kota Cirebon </span>
+                <span class="nav-link active text-light" aria-current="page">Telp. (0231) 202998</span>
+              </div>
             </div>
+          </nav>
         </div>
-    </nav>
-<!-- akhir navbar kedua -->
+      <!-- akhir navbar pertama -->
+      
+      
+        <!-- awal navbar kedua -->
+            <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+                <div class="container-fluid ">
+                    <a class="navbar-brand p-0" href="home.html">
+                        <img src="image/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+                    </a>
+                    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>    
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav ms-5 gap-4">
+                            <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
+                            <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
+                            <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
+                            <a class="nav-link text-white" href="#">PPDB</a>
+                            <a class="nav-link text-white" href="#">Galeri</a>
+                            <a class="nav-link text-info" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Edit Website
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-white" href="#">Carousel</a></li>
+                                    <li><a class="dropdown-item text-white" href="../daftarGuru/daftar_guru.php">Guru</a></li>
+                                    <li><a class="dropdown-item text-white" href="../profile/edit_sejarah.php">Sejarah</a></li>
+                                    <li><a class="dropdown-item text-white" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
+                                    <li><a class="dropdown-item text-white" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+                                    <li><a class="dropdown-item text-white" href="#">Galeri</a></li>
+                                    <li><a class="dropdown-item text-white" href="../daftarBerita/crud_berita.php">Berita</a></li>
+                                </ul>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+          <!-- akhir navbar kedua -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">

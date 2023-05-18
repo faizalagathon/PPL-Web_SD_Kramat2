@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
     <style>
         @font-face {
             font-family: 'Poppins';
@@ -60,12 +60,12 @@
                     </button>    
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav ms-5 gap-4">
-                            <a class="nav-link text-info" aria-current="page" href="home.html">Home</a>
-                            <a class="nav-link text-white" href="profile.html">Profil</a>
-                            <a class="nav-link text-white" href="berita.html">Berita</a>
+                            <a class="nav-link text-info" aria-current="page" href="home.php">Home</a>
+                            <a class="nav-link text-white" href="profile/profile.php">Profil</a>
+                            <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
                             <a class="nav-link text-white" href="#">PPDB</a>
                             <a class="nav-link text-white" href="#">Galeri</a>
-                            <a class="nav-link text-white" href="#">Daftar Guru</a>
+                            <a class="nav-link text-white" href="daftarGuru/daftar_guru.php">Daftar Guru</a>
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Edit Website
@@ -73,11 +73,11 @@
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item text-white" href="#">Carousel</a></li>
                                     <li><a class="dropdown-item text-white" href="#">Guru</a></li>
-                                    <li><a class="dropdown-item text-white" href="edit_sejarah.html">Sejarah</a></li>
-                                    <li><a class="dropdown-item text-white" href="edit_visi_misi.html">Visi Misi</a></li>
-                                    <li><a class="dropdown-item text-white" href="crud_eskull.html">Ekstrakulikuler</a></li>
+                                    <li><a class="dropdown-item text-white" href="profile/edit_sejarah.php">Sejarah</a></li>
+                                    <li><a class="dropdown-item text-white" href="profile/edit_visi_misi.php">Visi Misi</a></li>
+                                    <li><a class="dropdown-item text-white" href="daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
                                     <li><a class="dropdown-item text-white" href="#">Galeri</a></li>
-                                    <li><a class="dropdown-item text-white" href="crud_berita.html">Berita</a></li>
+                                    <li><a class="dropdown-item text-white" href="daftarBerita/crud_berita.php">Berita</a></li>
                                 </ul>
                             </li>
                         </div>
@@ -239,6 +239,6 @@
             </div>
           </div>
           <!-- !SECTION FOOTER -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Eskull</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <title>Tambah Eskull</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
     <style>
         @font-face {
             font-family: 'Poppins';
-            src: url(assets/font/font-poppins/Poppins-Regular.ttf);
+            src: url(../assets/font/font-poppins/Poppins-Regular.ttf);
         }
         @media (max-width: 425px){
             .navbar-pertama{
@@ -46,23 +46,24 @@
             </button>    
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-5 gap-4">
-                    <a class="nav-link text-white" href="home.html">Home</a>
-                    <a class="nav-link text-white" href="profile.html">Profil</a>
-                    <a class="nav-link text-white" href="berita.html">Berita</a>
+                    <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
+                    <a class="nav-link text-info" href="../profile/profile.php">Profil</a>
+                    <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
                     <a class="nav-link text-white" href="#">PPDB</a>
                     <a class="nav-link text-white" href="#">Galeri</a>
-                    <a class="nav-link text-white" href="#">Informasi</a>
+                    <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Edit Website
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item text-white" href="#">Carousel</a></li>
-                            <li><a class="dropdown-item text-white" href="edit_sejarah.html">Sejarah</a></li>
-                            <li><a class="dropdown-item text-white" href="edit_visi_misi.html">Visi Misi</a></li>
-                            <li><a class="dropdown-item text-white" href="crud_eskull.html">Ekstrakulikuler</a></li>
+                            <li><a class="dropdown-item text-white" href="../daftarGuru/daftar_guru.php">Guru</a></li>
+                            <li><a class="dropdown-item text-white" href="../profile/edit_sejarah.php">Sejarah</a></li>
+                            <li><a class="dropdown-item text-white" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
+                            <li><a class="dropdown-item text-white" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
                             <li><a class="dropdown-item text-white" href="#">Galeri</a></li>
-                            <li><a class="dropdown-item text-white" href="crud_berita.html">Berita</a></li>
+                            <li><a class="dropdown-item text-white" href="../daftarBerita/crud_berita.php">Berita</a></li>
                         </ul>
                     </li>
                 </div>
@@ -73,13 +74,12 @@
     <div class="container-fluid">
         <div class="justify-content-center d-flex mb-4 mt-3">
             <div class="border-dark border rounded-3" style="width: 70%;">
-                <h3 class="border-bottom border-dark py-2 m-3">Edit Ekstrakulikuler</h3>
+                <h3 class="border-bottom border-dark py-2 m-3">Tambah Ekstrakulikuler</h3>
                 <div class="p-3">
                     <form action="">
-                        <div class="mb-3 text-center">
-                            <label for="" class="form-label">Ubah Gambar :</label><br>
-                            <img src="sample_img/img4.jpg" class="w-50 mb-2" alt="">
-                            <input type="file" class="form-control m-auto w-25">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Sertakan Gambar :</label>
+                            <input type="file" class="form-control w-25">
                         </div>
                         <div class="mb-3">                            
                             <label for="" class="form-label">Nama Eskull :</label>
@@ -119,6 +119,6 @@
             </div>
         </div>
     <!-- !SECTION FOOTER -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>
