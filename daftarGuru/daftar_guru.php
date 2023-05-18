@@ -1,3 +1,83 @@
+<?php 
+
+include '../functions.php';
+
+if(!isset($_SESSION['loginAdmin'])){
+    header('Location: ../login/login.php');
+}
+
+$dataMapel = query("SELECT * FROM mapel");
+$dataGuru = query("SELECT * FROM guru
+                    INNER JOIN mapel ON
+                    mapel.id_mapel=guru.id_mapel");
+
+$roleGuru = [
+    'Guru Mapel',
+    'Staff',
+    'Admin'
+];
+
+// $jumlahGuru = count($roleGuru);
+
+if(isset($_POST['tambahGuru'])){
+
+    if(tambah($_POST) > 0){
+        echo "
+        <script>
+        alert('Data berhasil ditambahkan');
+        document.location.href = 'daftar_guru.php'; 
+        </script>";
+    }
+    else{
+        echo "
+        <script>
+        alert('Ada kesalahan saat menginput data');
+        document.location.href = 'daftar_guru.php'; 
+        </script>";
+    }
+    
+}
+
+if(isset($_POST['ubahGuru'])){
+
+    if(ubah($_POST) > 0){
+        echo "
+        <script>
+        alert('Data berhasil diubah');
+        document.location.href = 'daftar_guru.php'; 
+        </script>";
+    }
+    else{
+        echo "
+        <script>
+        alert('Ada kesalahan saat menginput data');
+        document.location.href = 'daftar_guru.php'; 
+        </script>";
+    }
+    
+}
+
+if(isset($_POST['hapus'])){
+
+    if(hapus($_POST) > 0){
+        echo "
+        <script>
+        alert('Data berhasil ditambahkan');
+        document.location.href = 'daftar_guru.php'; 
+        </script>";
+    }
+    else{
+        echo "
+        <script>
+        alert('Ada kesalahan saat menginput data');
+        document.location.href = 'daftar_guru.php'; 
+        </script>";
+    }
+    
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +88,7 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
     <title>Guru</title>
     <style>
-        @font-face {
+        /* @font-face {
             font-family: 'TiltNeon' ;
             src: url(../assets/font/Tilt_Neon/static/TiltNeon-Regular.ttf);
         }
@@ -43,7 +123,7 @@
         @font-face {
             font-family: 'TiltWarp';
             src: url(../assets/font/Tilt_Warp/static/TiltWarp-Regular.ttf);
-        }
+        } */
         @font-face {
             font-family: 'Poppins';
             src: url(../assets/font/font-poppins/Poppins-Regular.ttf);
@@ -70,104 +150,83 @@
         <!-- COPY DARI SINI -->
     <!-- awal navbar pertama -->
     <div class="navbar-pertama">
-      <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
-        <div class="container-fluid">
-          <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
-          <div class="d-flex me-2">
-            <span class="nav-link active me-4 text-light" aria-current="page">Jl. Siliwangi No. 44Kota Cirebon </span>
-            <span class="nav-link active text-light" aria-current="page">Telp. (0231) 202998</span>
-          </div>
-        </div>
-      </nav>
-    </div>
-    <!-- akhir navbar pertama -->
-
-
-    <!-- awal navbar kedua -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
-        <div class="container-fluid ">
-            <a class="navbar-brand" href="#">
-                <img src="../assets/imgs/Foto SD/logoSD.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
-                SDN Kramat 2
-            </a>
-            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>    
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-5">
-                    <a class="nav-link active ms-4" aria-current="page" href="#">Home</a>
-                    <a class="nav-link ms-4" href="#">Profil</a>
-                    <a class="nav-link ms-4" href="#">Berita</a>
-                    <a class="nav-link ms-4" href="#">PPDB</a>
-                    <a class="nav-link ms-4" href="#">Galeri</a>
-                    <a class="nav-link ms-4" href="#">Informasi</a>
-                    <li class="nav-item dropdown ms-4">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Modifikasi Data
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="modifikasi_carousel.php">Carousel</a></li>
-                            <li><a class="dropdown-item" href="#">Silahkan Isi Yang Lain</a></li>
-                        </ul>
-                    </li>
-                </div>
+          <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
+            <div class="container-fluid">
+              <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
+              <div class="d-flex me-2">
+                <span class="nav-link active me-4 text-light" aria-current="page">Jl. Siliwangi No. 44Kota Cirebon </span>
+                <span class="nav-link active text-light" aria-current="page">Telp. (0231) 202998</span>
+              </div>
             </div>
+          </nav>
         </div>
-    </nav>
-<!-- akhir navbar kedua -->
+      <!-- akhir navbar pertama -->
+      
+      
+        <!-- awal navbar kedua -->
+            <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+                <div class="container-fluid ">
+                    <a class="navbar-brand p-0" href="home.html">
+                        <img src="image/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+                    </a>
+                    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>    
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav ms-5 gap-4">
+                            <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
+                            <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
+                            <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
+                            <a class="nav-link text-white" href="#">PPDB</a>
+                            <a class="nav-link text-white" href="#">Galeri</a>
+                            <a class="nav-link text-info" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Edit Website
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item text-white" href="#">Carousel</a></li>
+                                    <li><a class="dropdown-item text-white" href="../daftarGuru/daftar_guru.php">Guru</a></li>
+                                    <li><a class="dropdown-item text-white" href="../profile/edit_sejarah.php">Sejarah</a></li>
+                                    <li><a class="dropdown-item text-white" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
+                                    <li><a class="dropdown-item text-white" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+                                    <li><a class="dropdown-item text-white" href="#">Galeri</a></li>
+                                    <li><a class="dropdown-item text-white" href="../daftarBerita/crud_berita.php">Berita</a></li>
+                                </ul>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+          <!-- akhir navbar kedua -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
                 <div class="mt-3 py-3">
-                    <button class="btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
                     <h5 class="text-center mb-3">Daftar Guru :</h5>
+                    <!-- SECTION CARD DAFTAR GURU -->
                     <div class="guru d-flex flex-wrap justify-content-center gap-5">
+                        <?php foreach($dataGuru as $data) : ?>
                         <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="../assets/imgs/Foto SD/Foto Guru/g1.jpg" class="card-img-top" alt="...">
+                            <img src="../assets/imgs/Foto SD/Foto Guru/<?= $data['gambar'] ?>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5>Nama Guru</h5>
-                                <p class="fw-light">-Guru Mapel-</p>
-                                <button class="bg-transparent border-0 text-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Profile ></button>
-                            </div>
-                        </div>
-                        <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="../assets/imgs/Foto SD/Foto Guru/g2.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5>Nama Guru</h5>
-                                <p class="fw-light">-Guru Mapel-</p>
-                                <button class="bg-transparent border-0 text-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Profile ></button>
+                                <h5><?= $data['nama_guru'] ?></h5>
+                                <p class="fw-light">-<?= $data['role'] ?>-</p>
                                 <div class="d-flex justify-content-center">
-                                    <button class="bg-transparent border-0 text-danger " data-bs-toggle="modal" data-bs-target="#exampleModal">Hapus</button>
-                                    <button class="bg-transparent border-0 text-danger " data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                                    <button class="bg-transparent border-0 text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $data['id_guru'] ?>">Profile</button>
+                                    <button class="bg-transparent border-0 text-danger " data-bs-toggle="modal" data-bs-target="#editModal<?= $data['id_guru'] ?>">Edit</button>
+                                    <form action="" method="post">
+                                        <input type="hidden" name="id_guru" value="<?= $data['id_guru'] ?>" >
+                                        <button class="bg-transparent border-0 text-danger" name="hapus" id="hapus" onclick="return confirm('Yakin ingin menghapus guru?')">Hapus</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="../assets/imgs/Foto SD/Foto Guru/g3.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5>Nama Guru</h5>
-                                <p class="fw-light">-Guru Mapel-</p>
-                                <button class="bg-transparent border-0 text-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Profile ></button>
-                            </div>
-                        </div>
-                        <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="../assets/imgs/Foto SD/Foto Guru/g4.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5>Nama Guru</h5>
-                                <p class="fw-light">-Guru Mapel-</p>
-                                <button class="bg-transparent border-0 text-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Profile ></button>
-                            </div>
-                        </div>
-                        <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="../assets/imgs/Foto SD/Foto Guru/g5.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5>Nama Guru</h5>
-                                <p class="fw-light">-Guru Mapel-</p>
-                                <button class="bg-transparent border-0 text-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Profile ></button>
-                            </div>
-                        </div>
+                    <!-- SECTION CARD DAFTAR GURU -->
+
                         <!-- SECTION POP DETAIL GURU -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal<?= $data['id_guru'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-md modal-dialog-centered">
                                 <div class="modal-content text-start">
                                 <div class="modal-header">
@@ -178,13 +237,15 @@
                                     <!-- isi -->
                                     <div class="detail row" id="modal">
                                     <div class="col-md-4" id="detail_kanan">
-                                        <img src="../assets/imgs/Foto SD/Foto Guru/g1.jpg" class="m-auto mb-2 w-100" alt="">
+                                        <img src="../assets/imgs/Foto SD/Foto Guru/<?= $data['gambar'] ?>" class="m-auto mb-2 w-100" alt="">
                                     </div>
                                     <div class="col ms-auto" id="detail_kiri">
-                                        <h5>Nama Guru</h5>
-                                        <p class="fw-light">-Guru Mapel-</p>
-                                        <p>Tahun Mengajar : ...</p>
-                                        <p>Alamat : ...</p>
+                                        <h5><?= $data['nama_guru'] ?></h5>
+                                        <p class="fw-light">-<?= $data['role'] ?>-</p>
+                                        <p>NIP : <?= $data['nip_guru'] ?></p>
+                                        <p>Jenis Kelamin : <?= $data['jk_guru'] == 'P' ? "Perempuan" : "Laki-laki" ?></p>
+                                        <p>Mata Pelajaran : <?= $data['nama_mapel'] ?></p>
+                                        <p>Alamat : <?= $data['alamat_guru'] ?></p>
                                     </div>
                                     </div>
                                 </div>
@@ -192,6 +253,73 @@
                             </div>
                         </div>
                         <!-- !SECTION DETAIL GURU -->
+
+                        <!-- SECTION Edit GURU -->
+                        <div class="modal fade" id="editModal<?= $data['id_guru'] ?>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-md modal-dialog-centered">
+                                <div class="modal-content text-start">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="editModalLabel">Detail Guru</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- isi -->
+                                    <form action="" method="post" enctype="multipart/form-data">
+                                        <input type="text" class="form-control" name="id_guru" id="id_guru" aria-describedby="helpId" placeholder="Masukan id_guru Guru..." value="<?= $data['id_guru'] ?>" hidden>
+                                        <div class="mb-3">
+                                          <label for="password" class="form-label">Password Guru</label>
+                                          <input type="text" class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="Masukan Password Guru..." value="<?= $data['password'] ?>" disabled>
+                                          <input type="text" class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="Masukan Password Guru..." value="<?= $data['password'] ?>" hidden>
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="nama" class="form-label">Nama Guru</label>
+                                          <input type="text" class="form-control" name="nama" id="nama" aria-describedby="helpId" placeholder="Masukan Nama Guru..." value="<?= $data['nama_guru'] ?>">
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="nip" class="form-label">NIP</label>
+                                          <input type="number" class="form-control" name="nip" id="nip" aria-describedby="helpId" placeholder="Masukan NIP Guru..." value="<?= $data['nip_guru'] ?>">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="jk" class="form-label">Jenis Kelamin</label>
+                                            <select class="form-select form-select-md" name="jk" id="jk">
+                                                <option value="P" <?= $data['jk_guru'] == 'P' ? "Selected" : "" ;?>>Perempuan</option>
+                                                <option value="L" <?= $data['jk_guru'] == 'P' ? "" : "Selected" ;?>>Laki-laki</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="mapel" class="form-label">Mata Pelajaran</label>
+                                            <select class="form-select form-select-md" name="mapel" id="mapel">
+                                                <?php foreach($dataMapel as $data2) : ?>
+                                                    <option value="<?= $data2['id_mapel']?>" <?= $data2['id_mapel'] == $data['id_mapel'] ? "Selected" : "" ;?>><?= $data2['nama_mapel']?></option>
+                                                <?php endforeach ; ?>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="alamat" class="form-label">Alamat</label>
+                                          <textarea class="form-control" name="alamat" id="alamat" rows="3"><?= $data['alamat_guru']?></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="role" class="form-label">Role</label>
+                                          <!-- <input type="text" class="form-control" name="role" id="role" aria-describedby="helpId" placeholder="Masukan Role Guru..." value="<?= $data['role']?>"> -->
+                                          <select class="form-select form-select-md" name="role" id="role">
+                                            <?php foreach($roleGuru as $data3) : ?>
+                                                <option value="<?= $data3 ?>" <?= $data3 == $data['role'] ? "Selected" : "" ;?>><?= $data3 ?></option>
+                                            <?php endforeach ; ?>
+                                          </select>
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="gambar" class="form-label">Choose file</label>
+                                          <input type="text" class="form-control" name="gambar_lama" id="gambar_lama" aria-describedby="fileHelpId" value="<?= $data['gambar']?>" hidden>
+                                          <input type="file" class="form-control" name="gambar" id="gambar" aria-describedby="fileHelpId">
+                                        </div>
+                                        <button type="submit" name="ubahGuru" class="btn btn-primary">Edit</button>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach ; ?>
+                        <!-- !SECTION Edit GURU -->
 
                         <!-- SECTION TAMBAH GURU -->
                         <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -203,22 +331,56 @@
                                 </div>
                                 <div class="modal-body">
                                     <!-- isi -->
-                                    <div class="detail row" id="modal">
-                                    <div class="col-md-4" id="detail_kanan">
-                                        <img src="../assets/imgs/Foto SD/Foto Guru/g1.jpg" class="m-auto mb-2 w-100" alt="">
-                                    </div>
-                                    <div class="col ms-auto" id="detail_kiri">
-                                        <h5>Nama Guru</h5>
-                                        <p class="fw-light">-Guru Mapel-</p>
-                                        <p>Tahun Mengajar : ...</p>
-                                        <p>Alamat : ...</p>
-                                    </div>
-                                    </div>
+                                    <form action="" method="post" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                          <label for="nama" class="form-label">Nama Guru</label>
+                                          <input type="text" class="form-control" name="nama" id="nama" aria-describedby="helpId" placeholder="Masukan Nama Guru...">
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="nip" class="form-label">NIP</label>
+                                          <input type="number" class="form-control" name="nip" id="nip" aria-describedby="helpId" placeholder="Masukan NIP Guru...">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="jk" class="form-label">Jenis Kelamin</label>
+                                            <select class="form-select form-select-md" name="jk" id="jk">
+                                                <option value="P" selected>Perempuan</option>
+                                                <option value="L">Laki-laki</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="mapel" class="form-label">Mata Pelajaran</label>
+                                            <select class="form-select form-select-md" name="mapel" id="mapel">
+                                                <?php foreach($dataMapel as $data) : ?>
+                                                    <option value="<?= $data['id_mapel']?>"><?= $data['nama_mapel']?></option>
+                                                <?php endforeach ; ?>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="alamat" class="form-label">Alamat</label>
+                                          <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="role" class="form-label">Role</label>
+                                          <!-- <input type="text" class="form-control" name="role" id="role" aria-describedby="helpId" placeholder="Masukan Role Guru..."> -->
+                                          <select class="form-select form-select-md" name="role" id="role">
+                                            <?php foreach($roleGuru as $data3) : ?>
+                                                <option value="<?= $data3 ?>"><?= $data3 ?></option>
+                                            <?php endforeach ; ?>
+                                          </select>
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="gambar" class="form-label">Choose file</label>
+                                          <input type="file" class="form-control" name="gambar" id="gambar" aria-describedby="fileHelpId">
+                                        </div>
+                                        <button type="submit" name="tambahGuru" class="btn btn-primary">Tambah</button>
+                                    </form>
                                 </div>
                                 </div>
                             </div>
                         </div>
                         <!-- !SECTION TAMBAH GURU -->
+
+                        
                     </div>
                 </div>
             </div>
