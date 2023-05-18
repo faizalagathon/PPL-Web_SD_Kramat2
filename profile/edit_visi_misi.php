@@ -1,3 +1,32 @@
+<?php 
+
+include '../functions.php';
+
+if(isset($_POST['ubahVisi']) || isset($_POST['ubahMisi'])){
+
+    if(ubah($_POST) > 0){
+        echo "
+        <script>
+        alert('Data berhasil diubah
+        ');
+        document.location.href = 'edit_visi_misi.php'; 
+        </script>";
+    }
+    else{
+        echo "
+        <script>
+        alert('Ada kesalahan saat menginput data');
+        document.location.href = 'edit_visi_misi.php'; 
+        </script>";
+    }
+    
+}
+
+$daftarVisi = query("SELECT * FROM visi");
+$daftarMisi = query("SELECT * FROM misi");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,13 +105,16 @@
             <div class="border-dark border rounded-3" style="width: 70%;">
                 <h3 class="border-bottom border-dark py-2 m-3">Edit Visi</h3>
                 <div class="p-3">
-                    <form action="">
-                        <div class="mb-3">                            
-                            <label for="" class="form-label">Masukkan Visi :</label>
-                            <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
-                        </div>
+                    <form action="" method="post">
+                        <?php foreach($daftarVisi as $data) : ?>
+                            <div class="mb-3">                            
+                                <label for="teksVisi" class="form-label">Masukkan Visi :</label>
+                                <input type="text" value="<?= $data['idVisi'] ?>" name="idVisi" hidden>
+                                <textarea name="teksVisi" class="form-control" id="teksVisi" cols="30" rows="10"><?= $data['teksVisi'] ?></textarea>
+                            </div>
+                        <?php endforeach ; ?>
                         <div class="text-end">
-                            <button type="submit" class="btn btn-info text-white">Update</button>
+                            <button name="ubahVisi" type="submit" class="btn btn-info text-white" onclick="return confirm('Yakin ingin Mengedit Visi Sekolah?')">Update</button>
                         </div>
                     </form>
                 </div>
@@ -92,13 +124,16 @@
             <div class="border-dark border rounded-3" style="width: 70%;">
                 <h3 class="border-bottom border-dark py-2 m-3">Edit Misi</h3>
                 <div class="p-3">
-                    <form action="">
-                        <div class="mb-3">                            
-                            <label for="" class="form-label">Masukkan Misi :</label>
-                            <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
-                        </div>
+                    <form action="" method="post">
+                        <?php foreach($daftarMisi as $data) : ?>
+                            <div class="mb-3">                            
+                                <label for="teksMisi" class="form-label">Masukkan Misi :</label>
+                                <input type="text" value="<?= $data['idMisi'] ?>" name="idMisi" hidden>
+                                <textarea name="teksMisi" class="form-control" id="teksMisi" cols="30" rows="10"><?= $data['teksMisi'] ?></textarea>
+                            </div>
+                        <?php endforeach ; ?>
                         <div class="text-end">
-                            <button type="submit" class="btn btn-info text-white">Update</button>
+                            <button name="ubahMisi" type="submit" class="btn btn-info text-white" onclick="return confirm('Yakin ingin Mengedit Misi Sekolah?')">Update</button>
                         </div>
                     </form>
                 </div>

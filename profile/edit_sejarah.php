@@ -1,3 +1,30 @@
+<?php
+
+include '../functions.php';
+
+if(isset($_POST['ubahSejarah'])){
+
+    if(ubah($_POST) > 0){
+        echo "
+        <script>
+        alert('Data berhasil diubah');
+        document.location.href = 'edit_sejarah.php'; 
+        </script>";
+    }
+    else{
+        echo "
+        <script>
+        alert('Ada kesalahan saat menginput data');
+        document.location.href = 'edit_visi_misi.php'; 
+        </script>";
+    }
+    
+}
+
+$dataSejarah = query('SELECT * FROM sejarah');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,13 +103,16 @@
             <div class="border-dark border rounded-3" style="width: 70%;">
                 <h3 class="border-bottom border-dark py-2 m-3">Edit Sejarah</h3>
                 <div class="p-3">
-                    <form action="">
-                        <div class="mb-3">                            
-                            <label for="" class="form-label">Masukkan Sejarah :</label>
-                            <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
-                        </div>
+                    <form action="" method="post">
+                        <?php foreach($dataSejarah as $data) : ?>
+                            <div class="mb-3">                            
+                                <label for="teksSejarah" class="form-label">Masukkan Sejarah :</label>
+                                <input type="text" value="<?= $data['idSejarah'] ?>" name="idSejarah" hidden>
+                                <textarea name="teksSejarah" class="form-control" id="teksSejarah" cols="30" rows="10"><?= $data['teksSejarah'] ?></textarea>
+                            </div>
+                        <?php endforeach ; ?>
                         <div class="text-end">
-                            <button type="submit" class="btn btn-info text-white">Update</button>
+                            <button type="submit" name="ubahSejarah" class="btn btn-info text-white" onclick="return confirm('Yakin ingin Mengedit Sejarah Sekolah?')">Update</button>
                         </div>
                     </form>
                 </div>

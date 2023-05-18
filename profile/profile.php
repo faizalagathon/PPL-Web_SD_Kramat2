@@ -1,3 +1,13 @@
+<?php 
+
+include '../functions.php';
+
+$daftarVisi = query("SELECT * FROM visi");
+$daftarMisi = query("SELECT * FROM misi");
+$daftarSejarah = query("SELECT * FROM sejarah");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,15 +92,11 @@
                     <!-- SECTION SEJARAH -->
                     <div class="border-bottom border-dark pb-4">
                         <h4>Sejarah</h4>
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit, repellendus 
-                            doloremque ab dolor dolorum nulla adipisci ullam deleniti quas eum beatae, minima 
-                            fugit maxime quia placeat doloribus iste pariatur dignissimos iusto! Accusantium quae 
-                            tempora, omnis expedita quam totam. Maiores, facere ipsam. Laudantium officiis qui suscipit 
-                            numquam, ex magni voluptatem explicabo? fugit maxime quia placeat doloribus iste pariatur dignissimos 
-                            iusto! Accusantium quae tempora, omnis expedita quam totam. Maiores, facere ipsam. Laudantium officiis 
-                            qui suscipit numquam, ex magni voluptatem explicabo?
-                        </p>
+                        <?php foreach($daftarSejarah as $data) : ?>
+                            <p>
+                                <?= $data['teksSejarah'] ?>
+                            </p>
+                        <?php endforeach ; ?>
                     </div>
                     <!-- !SECTION SEJARAH -->
                     <!-- SECTION VISI MISI -->
@@ -98,21 +104,21 @@
                         <div class="col-md-6">
                             <div class="py-5 px-5 text-start">
                                 <h4>VISI</h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam commodi amet quod dolores corrupti, voluptates 
-                                    nulla tempore quae ex reiciendis, cupiditate architecto quasi exercitationem unde, nesciunt repellendus. Aperiam
-                                    ,voluptatibus hic.
-                                </p>
+                                <?php foreach($daftarVisi as $data) : ?>
+                                    <p>
+                                        <?= $data['teksVisi'] ?>
+                                    </p>
+                                <?php endforeach ; ?>
                             </div>
                         </div>
                         <div class="col-md-6 ms-auto">
                             <div class="py-5 px-5 text-start">
                                 <h4>MISI</h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam commodi amet quod dolores corrupti, voluptates 
-                                    nulla tempore quae ex reiciendis, cupiditate architecto quasi exercitationem unde, nesciunt repellendus. Aperiam
-                                    ,voluptatibus hic.
-                                </p>
+                                <?php foreach($daftarMisi as $data) : ?>
+                                    <p>
+                                        <?= $data['teksMisi'] ?>
+                                    </p>
+                                <?php endforeach ; ?>
                             </div>
                         </div>
                     </div>

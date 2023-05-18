@@ -19,7 +19,7 @@ $roleGuru = [
 
 // $jumlahGuru = count($roleGuru);
 
-if(isset($_POST['tambah'])){
+if(isset($_POST['tambahGuru'])){
 
     if(tambah($_POST) > 0){
         echo "
@@ -38,7 +38,7 @@ if(isset($_POST['tambah'])){
     
 }
 
-if(isset($_POST['edit'])){
+if(isset($_POST['ubahGuru'])){
 
     if(ubah($_POST) > 0){
         echo "
@@ -312,7 +312,7 @@ if(isset($_POST['hapus'])){
                                           <input type="text" class="form-control" name="gambar_lama" id="gambar_lama" aria-describedby="fileHelpId" value="<?= $data['gambar']?>" hidden>
                                           <input type="file" class="form-control" name="gambar" id="gambar" aria-describedby="fileHelpId">
                                         </div>
-                                        <button type="submit" name="edit" class="btn btn-primary">Edit</button>
+                                        <button type="submit" name="ubahGuru" class="btn btn-primary">Edit</button>
                                     </form>
                                 </div>
                                 </div>
@@ -372,7 +372,7 @@ if(isset($_POST['hapus'])){
                                           <label for="gambar" class="form-label">Choose file</label>
                                           <input type="file" class="form-control" name="gambar" id="gambar" aria-describedby="fileHelpId">
                                         </div>
-                                        <button type="submit" name="tambah" class="btn btn-primary">Tambah</button>
+                                        <button type="submit" name="tambahGuru" class="btn btn-primary">Tambah</button>
                                     </form>
                                 </div>
                                 </div>
