@@ -6,11 +6,6 @@ if(!isset($_SESSION['loginAdmin'])){
     header('Location: ../login/login.php');
 }
 
-$dataMapel = query("SELECT * FROM mapel");
-$dataGuru = query("SELECT * FROM guru
-                    INNER JOIN mapel ON
-                    mapel.id_mapel=guru.id_mapel");
-
 $roleGuru = [
     'Guru Mapel',
     'Staff',
@@ -74,6 +69,56 @@ if(isset($_POST['hapus'])){
         </script>";
     }
     
+}
+
+
+
+
+$dataMapel = query("SELECT * FROM mapel");
+
+if(isset($_GET['keyword'])){
+    $keyword = $_GET['keyword'];
+}
+else{
+    $keyword = "none";
+}
+if(isset($_GET['urut'])){
+    $urut = $_GET['urut'];
+}
+else{
+    $urut = "default";
+}
+
+$query = "SELECT * FROM guru 
+            INNER JOIN mapel ON
+            mapel.id_mapel=guru.id_mapel 
+            WHERE
+            nip_guru LIKE '%$keyword%' OR 
+            nama_guru LIKE '%$keyword%' OR 
+            alamat_guru LIKE '%$keyword%' OR 
+            jk_guru LIKE '%$keyword%'";
+
+// SECTION pagination Peminjaman
+    
+$dataPerhalaman = 6;
+$jumlahData =  count(query($query));
+
+$jumlahHalaman = ceil($jumlahData / $dataPerhalaman);
+
+$halamanAktif = isset( $_GET['halamanUser']) ? $_GET['halamanUser'] : 1;
+
+$awalData = ($dataPerhalaman * $halamanAktif) - $dataPerhalaman;
+
+// !SECTION pagination Peminjaman
+
+$query .= "LIMIT $awalData, $dataPerhalaman";
+
+$dataGuru = query($query);
+
+$jumlahDataQueryGuru = count($dataGuru);
+
+if($jumlahDataQueryGuru == 0){
+    $dataGuruKosong = true;
 }
 
 ?>
@@ -203,8 +248,21 @@ if(isset($_POST['hapus'])){
         <div class="row">
             <div class="col-md-8">
                 <div class="mt-3 py-3">
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
+                    <div>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
+                        <form action="" method="get">
+                            <div class="input-group w-25 ms-auto">
+                                <input type="text" class="form-control rounded-pill rounded-end" name="keyword">
+                                <button class="btn btn-primary rounded-pill rounded-start">Cari</button>
+                            </div>
+                        </form>
+                    </div>
                     <h5 class="text-center mb-3">Daftar Guru :</h5>
+                    <!-- SECTION KALO KOSONG KELUAR INI -->
+                    <?php if(isset($dataGuruKosong) && $dataGuruKosong == true) : ?>
+                        <h3 class="text-center">Tidak Ada Data Guru</h3>
+                    <?php endif ; ?>
+                    
                     <!-- SECTION CARD DAFTAR GURU -->
                     <div class="guru d-flex flex-wrap justify-content-center gap-5">
                         <?php foreach($dataGuru as $data) : ?>
@@ -383,6 +441,31 @@ if(isset($_POST['hapus'])){
                         
                     </div>
                 </div>
+
+                <!-- SECTION pagination peminjaman-->
+                <div aria-label="Page navigation example" > 
+                        <ul class="pagination">
+                            <?php if($jumlahHalaman != 1 || isset($_GET['keyword']) > 1) : ?>
+                                <?php if ( $halamanAktif > 1 ) : ?>
+                                    <li class="page-item"><a class="page-link" href="?halamanUser=<?=$halamanAktif - 1 ?>&keyword=<?= $keyword ?>&urut=<?= $urut ?>">Previous</a></li>
+                                <?php endif ; ?>
+
+                                <?php for( $i=1; $i<=$jumlahHalaman; $i++) : ?>
+                                    <?php if ( $i == $halamanAktif ) : ?>
+                                        <li class="page-item active"><a class="page-link" href="?halamanUser=<?= $i ?>&keyword=<?= $keyword ?>&urut=<?= $urut ?>"><?= $i ?></a></li>
+                                    <?php else : ?>
+                                        <li class="page-item"><a class="page-link" href="?halamanUser=<?= $i ?>&keyword=<?= $keyword ?>&urut=<?= $urut ?>"><?= $i ?></a></li>
+                                    <?php endif ; ?>
+                                <?php endfor ; ?>
+                                
+                                <?php if ( $halamanAktif < $jumlahHalaman ) : ?>
+                                    <li class="page-item"><a class="page-link" href="?halamanUser=<?=$halamanAktif + 1 ?>&keyword=<?= $keyword ?>&urut=<?= $urut ?>">Next</a></li>
+                                <?php endif ; ?>
+                            <?php endif ; ?>
+                        </ul>
+                    </div>
+                <!-- !SECTION pagination peminjaman-->
+                
             </div>
             <div class="col ms-auto">
                 <div class="">
