@@ -52,8 +52,8 @@ if(isset($_POST["cari"])){
   <link rel="stylesheet" href="../../../assets/css/bootstrap/bootstrap.min.css">
 
   <link rel="stylesheet" href="../asset/css/galeri.css">
+  <link rel="stylesheet" href="../asset/fontawesome/css/all.css">
 </head>
-<link rel="stylesheet" href="../asset/fontawesome/css/all.css">
 
 <body>
     <!-- awal navbar pertama -->
@@ -113,7 +113,12 @@ if(isset($_POST["cari"])){
        <!-- SECTION CARI -->
        <form class="mt-3 w-50 d-flex" action="" style="z-index: 0; display: block;" method="get">
         <div class="input-group">
-          <input type="text" class="form-control form-control-md w-50"  name="cari"  id="keyword"   placeholder="masuikan keyword pencaharian..." autocomplete="off">
+          <input  type="text" class="form-control form-control-md w-50"  name="cari"  id="keyword"   placeholder="masuikan keyword pencaharian..." autocomplete="off" list="datalist">
+          <datalist id="datalist" <?=$datalist['id_k_acara']?>>
+            <?php foreach ($acara as $datalist) :?>
+            <option value="<?=$datalist['nama_k_acara']?>"></option>
+            <?php endforeach;?>
+          </datalist>
           <button type="submit" class="btn btn-primary" id="cari">cari</button>
         </div>
       </form>
