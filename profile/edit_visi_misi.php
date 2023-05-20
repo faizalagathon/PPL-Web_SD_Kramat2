@@ -7,8 +7,7 @@ if(isset($_POST['ubahVisi']) || isset($_POST['ubahMisi'])){
     if(ubah($_POST) > 0){
         echo "
         <script>
-        alert('Data berhasil diubah
-        ');
+        alert('Data berhasil diubah');
         document.location.href = 'edit_visi_misi.php'; 
         </script>";
     }
@@ -22,8 +21,25 @@ if(isset($_POST['ubahVisi']) || isset($_POST['ubahMisi'])){
     
 }
 
-$daftarVisi = query("SELECT * FROM visi");
-$daftarMisi = query("SELECT * FROM misi");
+// $daftarVisi = query("SELECT * FROM visi");
+// $daftarMisi = query("SELECT * FROM misi");
+
+$dataVisi = mysqli_fetch_assoc(mysqli_query($link, 'SELECT * FROM visi'));
+$dataMisi = mysqli_fetch_assoc(mysqli_query($link, 'SELECT * FROM misi'));
+
+if(!isset($dataVisi)){
+    $dataVisi = [
+        'idVisi' => 0,
+        'teksVisi' => 'Belom Menuliskan Visi',    
+    ];
+}
+
+if(!isset($dataMisi)){
+    $dataMisi = [
+        'idMisi' => 0,
+        'teksMisi' => 'Belom Menuliskan Misi',    
+    ];
+}
 
 ?>
 
@@ -106,13 +122,11 @@ $daftarMisi = query("SELECT * FROM misi");
                 <h3 class="border-bottom border-dark py-2 m-3">Edit Visi</h3>
                 <div class="p-3">
                     <form action="" method="post">
-                        <?php foreach($daftarVisi as $data) : ?>
-                            <div class="mb-3">                            
-                                <label for="teksVisi" class="form-label">Masukkan Visi :</label>
-                                <input type="text" value="<?= $data['idVisi'] ?>" name="idVisi" hidden>
-                                <textarea name="teksVisi" class="form-control" id="teksVisi" cols="30" rows="10"><?= $data['teksVisi'] ?></textarea>
-                            </div>
-                        <?php endforeach ; ?>
+                        <div class="mb-3">                            
+                            <label for="teksVisi" class="form-label">Masukkan Visi :</label>
+                            <input type="text" value="<?= $dataVisi['idVisi'] ?>" name="idVisi" hidden>
+                            <textarea name="teksVisi" class="form-control" id="teksVisi" cols="30" rows="10"><?= $dataVisi['teksVisi'] ?></textarea>
+                        </div>
                         <div class="text-end">
                             <button name="ubahVisi" type="submit" class="btn btn-info text-white" onclick="return confirm('Yakin ingin Mengedit Visi Sekolah?')">Update</button>
                         </div>
@@ -125,13 +139,11 @@ $daftarMisi = query("SELECT * FROM misi");
                 <h3 class="border-bottom border-dark py-2 m-3">Edit Misi</h3>
                 <div class="p-3">
                     <form action="" method="post">
-                        <?php foreach($daftarMisi as $data) : ?>
-                            <div class="mb-3">                            
-                                <label for="teksMisi" class="form-label">Masukkan Misi :</label>
-                                <input type="text" value="<?= $data['idMisi'] ?>" name="idMisi" hidden>
-                                <textarea name="teksMisi" class="form-control" id="teksMisi" cols="30" rows="10"><?= $data['teksMisi'] ?></textarea>
-                            </div>
-                        <?php endforeach ; ?>
+                        <div class="mb-3">                            
+                            <label for="teksMisi" class="form-label">Masukkan Misi :</label>
+                            <input type="text" value="<?= $dataMisi['idMisi'] ?>" name="idMisi" hidden>
+                            <textarea name="teksMisi" class="form-control" id="teksMisi" cols="30" rows="10"><?= $dataMisi['teksMisi'] ?></textarea>
+                        </div>
                         <div class="text-end">
                             <button name="ubahMisi" type="submit" class="btn btn-info text-white" onclick="return confirm('Yakin ingin Mengedit Misi Sekolah?')">Update</button>
                         </div>

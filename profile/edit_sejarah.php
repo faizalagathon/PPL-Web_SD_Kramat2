@@ -21,7 +21,14 @@ if(isset($_POST['ubahSejarah'])){
     
 }
 
-$dataSejarah = query('SELECT * FROM sejarah');
+$dataSejarah = mysqli_fetch_assoc(mysqli_query($link, 'SELECT * FROM sejarah'));
+
+if(!isset($dataSejarah)){
+    $dataSejarah = [
+        'idSejarah' => 0,
+        'teksSejarah' => 'Belom Menuliskan Sejarah',    
+    ];
+}
 
 ?>
 
@@ -104,13 +111,11 @@ $dataSejarah = query('SELECT * FROM sejarah');
                 <h3 class="border-bottom border-dark py-2 m-3">Edit Sejarah</h3>
                 <div class="p-3">
                     <form action="" method="post">
-                        <?php foreach($dataSejarah as $data) : ?>
-                            <div class="mb-3">                            
-                                <label for="teksSejarah" class="form-label">Masukkan Sejarah :</label>
-                                <input type="text" value="<?= $data['idSejarah'] ?>" name="idSejarah" hidden>
-                                <textarea name="teksSejarah" class="form-control" id="teksSejarah" cols="30" rows="10"><?= $data['teksSejarah'] ?></textarea>
-                            </div>
-                        <?php endforeach ; ?>
+                        <div class="mb-3">                            
+                            <label for="teksSejarah" class="form-label">Masukkan Sejarah :</label>
+                            <input type="text" value="<?= $dataSejarah['idSejarah'] ?>" name="idSejarah" hidden>
+                            <textarea name="teksSejarah" class="form-control" id="teksSejarah" cols="30" rows="10"><?= $dataSejarah['teksSejarah'] ?></textarea>
+                        </div>
                         <div class="text-end">
                             <button type="submit" name="ubahSejarah" class="btn btn-info text-white" onclick="return confirm('Yakin ingin Mengedit Sejarah Sekolah?')">Update</button>
                         </div>

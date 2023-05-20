@@ -92,21 +92,37 @@ function ubah($data){
     $idSejarah = $data['idSejarah'];
     $teksSejarah = $data['teksSejarah'];
     
-    $query = "UPDATE sejarah SET teksSejarah = '$teksSejarah' WHERE idSejarah='$idSejarah'";
+    if($idSejarah == 0){
+      $query = "INSERT INTO sejarah VALUES(NULL, '$teksSejarah')";
+    }
+    else{
+      $query = "UPDATE sejarah SET teksSejarah = '$teksSejarah' WHERE idSejarah='$idSejarah'";
+    }
+    
   }
 
   if(isset($data['ubahVisi'])){
     $idVisi = $data['idVisi'];
     $teksVisi = $data['teksVisi'];
-    
-    $query = "UPDATE visi SET teksVisi = '$teksVisi' WHERE idVisi='$idVisi'";
+
+    if($idVisi == 0){
+      $query = "INSERT INTO visi VALUES(NULL, '$teksVisi')";
+    }
+    else{
+      $query = "UPDATE visi SET teksVisi = '$teksVisi' WHERE idVisi='$idVisi'";
+    }
   }
 
   if(isset($data['ubahMisi'])){
     $idMisi = $data['idMisi'];
     $teksMisi = $data['teksMisi'];
-    
-    $query = "UPDATE misi SET teksMisi = '$teksMisi' WHERE idMisi='$idMisi'";
+
+    if($idMisi == 0){
+      $query = "INSERT INTO misi VALUES(NULL, '$teksMisi')";
+    }
+    else{
+      $query = "UPDATE misi SET teksMisi = '$teksMisi' WHERE idMisi='$idMisi'";
+    }
   }
   
   if(isset($data['ubahGuru'])){
