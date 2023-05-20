@@ -39,7 +39,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
         <div class="container-fluid ">
             <a class="navbar-brand p-0" href="home.html">
-                <img src="image/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+                <img src="../assets/imgs/Foto SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,23 +47,23 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-5 gap-4">
                     <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
-                    <a class="nav-link text-info" href="../profile/profile.php">Profil</a>
+                    <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
                     <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
                     <a class="nav-link text-white" href="#">PPDB</a>
-                    <a class="nav-link text-white" href="#">Galeri</a>
+                    <a class="nav-link text-white" href="../GALERI/galeri/admin/galeri.php">Galeri</a>
                     <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Edit Website
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item text-white" href="#">Carousel</a></li>
-                            <li><a class="dropdown-item text-white" href="../daftarGuru/daftar_guru.php">Guru</a></li>
-                            <li><a class="dropdown-item text-white" href="../profile/edit_sejarah.php">Sejarah</a></li>
-                            <li><a class="dropdown-item text-white" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
-                            <li><a class="dropdown-item text-white" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                            <li><a class="dropdown-item text-white" href="#">Galeri</a></li>
-                            <li><a class="dropdown-item text-white" href="../daftarBerita/crud_berita.php">Berita</a></li>
+                            <li><a class="dropdown-item" href="#">Carousel</a></li>
+                            <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
+                            <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
+                            <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
+                            <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+                            <li><a class="dropdown-item" href="../GALERI/galeri/admin/galeri.php">Galeri</a></li>
+                            <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
                         </ul>
                     </li>
                 </div>
@@ -75,11 +75,11 @@
         <!-- SECTION BERITA -->
         <div class="mt-3">
             <div class="d-flex flex-wrap">
-                <a href="tambah_berita.html" class="btn btn-primary m-auto w-75 mb-3">Tambah berita</a>
+                <a href="tambah_berita.php" class="btn btn-primary m-auto w-75 mb-3">Tambah berita</a>
                 <div class="card mb-3 m-auto w-75">
                     <div class="row">
                     <div class="col-md-3">
-                        <img src="sample_img/b1.jpg" class="img-fluid" alt="...">
+                        <img src="../sample_img/b1.jpg" class="img-fluid" alt="...">
                     </div>
                     <div class="col-md-9">
                         <div class="card-body">
@@ -92,7 +92,7 @@
                             </p>
                         </div>
                         <div class="card-footer bg-white border-0 text-end">
-                            <a href="edit_berita.html" class="btn btn-warning text-white">edit</a>
+                            <a href="edit_berita.php" class="btn btn-warning text-white">edit</a>
                             <a href="" class="btn btn-info text-white">Hapus</a>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                 <div class="card mb-3 m-auto w-75 ">
                     <div class="row">
                         <div class="col-md-3">
-                            <img src="sample_img/b2.jpg" class="img-fluid" alt="...">
+                            <img src="../sample_img/b2.jpg" class="img-fluid" alt="...">
                         </div>
                         <div class="col-md-9">
                             <div class="card-body">
@@ -114,7 +114,7 @@
                                 </p>
                             </div>
                             <div class="card-footer bg-white border-0 text-end">
-                                <a href="edit_berita.html" class="btn btn-warning text-white">edit</a>
+                                <a href="edit_berita.php" class="btn btn-warning text-white">edit</a>
                                 <a href="" class="btn btn-info text-white">Hapus</a>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                 <div class="card mb-3 m-auto w-75">
                     <div class="row">
                         <div class="col-md-3">
-                            <img src="sample_img/b3.jpg" class="img-fluid" alt="...">
+                            <img src="../sample_img/b3.jpg" class="img-fluid" alt="...">
                         </div>
                         <div class="col-md-9">
                             <div class="card-body">
@@ -136,7 +136,7 @@
                                 </p>
                             </div>
                             <div class="card-footer bg-white border-0 text-end">
-                                <a href="edit_berita.html" class="btn btn-warning text-white">edit</a>
+                                <a href="edit_berita.php" class="btn btn-warning text-white">edit</a>
                                 <a href="" class="btn btn-info text-white">Hapus</a>
                             </div>
                         </div>
