@@ -27,7 +27,7 @@ if (isset($_POST['addEkskul'])) {
     $_SESSION['fAdd'] = "Gambar yang diinputkan lebih dari 10 mb";
     header("Location: crud_eskull.php");
   } else {
-    move_uploaded_file($_FILES["gambar"]["tmp_name"], "fotoEkskul/" . $namaGambar);
+    move_uploaded_file($_FILES["gambar"]["tmp_name"], "../assets/imgs/ekskul/" . $namaGambar);
     mysqli_query($link, "INSERT INTO ekskul VALUES
       (NULL,'$pembimbingEkskul','$namaEkskul','$jadwalEkskul','$namaGambar')");
     $_SESSION['tAdd'] = true;
@@ -58,7 +58,7 @@ if (isset($_POST['addEkskul'])) {
     $_SESSION['fEdit'] = "Gambar yang diinputkan lebih dari 10 mb";
     header("Location: crud_eskull.php");
   } else {
-    move_uploaded_file($_FILES["gambar"]["tmp_name"], "fotoEkskul/" . $namaGambar);
+    move_uploaded_file($_FILES["gambar"]["tmp_name"], "../assets/imgs/ekskul/" . $namaGambar);
     mysqli_query($link, "UPDATE ekskul SET 
     idPembimbing = '$pembimbingEkskul',
     namaEkskul = '$namaEkskul', 
@@ -70,8 +70,15 @@ if (isset($_POST['addEkskul'])) {
   }
 } if (isset($_POST['delEkskul'])) {
 
-  mysqli_query($link, "DELETE FROM ekskul WHERE idEkskul = $_POST[delEkskul]");
+  $gambar = query("SELECT gambarEkskul FROM ekskul WHERE idEkskul = $_POST[delEkskul]")[0]['gambarEkskul'];
+  $imagePath = "../assets/imgs/ekskul/" . $gambar;
 
+  if ($gambar == 'noImg.png'){
+    mysqli_query($link, "DELETE FROM ekskul WHERE idEkskul = $_POST[delEkskul]");
+  } else if (unlink($imagePath)){
+    mysqli_query($link, "DELETE FROM ekskul WHERE idEkskul = $_POST[delEkskul]");
+  }
+  mysqli_query($link, "DELETE FROM ekskul WHERE idEkskul = $_POST[delEkskul]");
   $_SESSION['tDel'] = true;
 
 }

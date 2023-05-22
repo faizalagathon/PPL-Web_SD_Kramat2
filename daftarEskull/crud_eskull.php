@@ -36,11 +36,18 @@
     <div class="mt-3">
       <div class="d-flex flex-wrap">
         <a href="tambah_eskull.php" class="btn btn-primary m-auto w-75 mb-3">Tambah Eskull</a>
+
+        <?php if (!$daftarEkskul) : ?>
+          <div class="card alert alert-danger text-center" role="alert">
+            Tidak ada Ekskul
+          </div>
+        <?php endif ?>
+
         <?php foreach ($daftarEkskul as $ekskul) : ?>
           <div class="card mb-3 m-auto w-75">
             <div class="row">
               <div class="col-md-3">
-                <img src="fotoEkskul/<?= $ekskul['gambarEkskul'] ?>" class="img-fluid" alt="...">
+                <img src="../assets/imgs/ekskul/<?= $ekskul['gambarEkskul'] ?>" class="img-fluid" alt="...">
               </div>
               <div class="col-md-9">
                 <div class="card-body">
@@ -231,7 +238,7 @@
     </script>
   <?php endif ?>
 
-  <?php unset($_SESSION['tDel'],$_SESSION['tAdd'],$_SESSION['fAdd'],$_SESSION['tEdit'],$_SESSION['fEdit']) ?>
+  <?php unset($_SESSION['tDel'], $_SESSION['tAdd'], $_SESSION['fAdd'], $_SESSION['tEdit'], $_SESSION['fEdit']) ?>
 
 </body>
 
