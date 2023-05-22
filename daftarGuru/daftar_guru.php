@@ -2,8 +2,11 @@
 
 include '../functions.php';
 
-if(!isset($_SESSION['loginAdmin'])){
-    header('Location: ../login/login.php');
+if(isset($_SESSION['loginAdmin'])){
+    $admin = true;
+}
+else{
+    $admin = false;
 }
 
 $roleGuru = [
@@ -76,8 +79,19 @@ if(isset($_POST['hapus'])){
 
 $dataMapel = query("SELECT * FROM mapel");
 
-if(isset($_GET['keyword'])){
+
+$query = "SELECT * FROM guru 
+            INNER JOIN mapel ON
+            mapel.id_mapel=guru.id_mapel ";
+
+if(isset($_GET['keyword']) && $_GET['keyword'] != 'none'){
     $keyword = $_GET['keyword'];
+
+    $query .= " WHERE
+                nip_guru LIKE '%$keyword%' OR 
+                nama_guru LIKE '%$keyword%' OR 
+                alamat_guru LIKE '%$keyword%' OR 
+                jk_guru LIKE '%$keyword%'";
 }
 else{
     $keyword = "none";
@@ -89,14 +103,7 @@ else{
     $urut = "default";
 }
 
-$query = "SELECT * FROM guru 
-            INNER JOIN mapel ON
-            mapel.id_mapel=guru.id_mapel 
-            WHERE
-            nip_guru LIKE '%$keyword%' OR 
-            nama_guru LIKE '%$keyword%' OR 
-            alamat_guru LIKE '%$keyword%' OR 
-            jk_guru LIKE '%$keyword%'";
+
 
 // SECTION pagination Peminjaman
     
@@ -111,7 +118,7 @@ $awalData = ($dataPerhalaman * $halamanAktif) - $dataPerhalaman;
 
 // !SECTION pagination Peminjaman
 
-$query .= "LIMIT $awalData, $dataPerhalaman";
+$query .= " LIMIT $awalData, $dataPerhalaman";
 
 $dataGuru = query($query);
 
@@ -249,11 +256,17 @@ if($jumlahDataQueryGuru == 0){
             <div class="col-md-8">
                 <div class="mt-3 py-3">
                     <div>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
+                        <?php if(isset($admin) && $admin == true) : ?>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
+                            <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="btn btn-secondary" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                        <?php endif ; ?>
+                        <?php if(isset($admin) && $admin == false) : ?>
+                            <a href="../login/login.php" class="btn btn-info">Login Admin</a>
+                        <?php endif ; ?>
                         <form action="" method="get">
                             <div class="input-group w-25 ms-auto">
                                 <input type="text" class="form-control rounded-pill rounded-end" name="keyword">
-                                <button class="btn btn-primary rounded-pill rounded-start">Cari</button>
+                                <button name="urut" value="cari" class="btn btn-primary rounded-pill rounded-start">Cari</button>
                             </div>
                         </form>
                     </div>
@@ -273,11 +286,13 @@ if($jumlahDataQueryGuru == 0){
                                 <p class="fw-light">-<?= $data['role'] ?>-</p>
                                 <div class="d-flex justify-content-center">
                                     <button class="bg-transparent border-0 text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $data['id_guru'] ?>">Profile</button>
-                                    <button class="bg-transparent border-0 text-danger " data-bs-toggle="modal" data-bs-target="#editModal<?= $data['id_guru'] ?>">Edit</button>
-                                    <form action="" method="post">
-                                        <input type="hidden" name="id_guru" value="<?= $data['id_guru'] ?>" >
-                                        <button class="bg-transparent border-0 text-danger" name="hapus" id="hapus" onclick="return confirm('Yakin ingin menghapus guru?')">Hapus</button>
-                                    </form>
+                                    <?php if(isset($admin) && $admin == true) : ?>
+                                        <button class="bg-transparent border-0 text-danger " data-bs-toggle="modal" data-bs-target="#editModal<?= $data['id_guru'] ?>">Edit</button>
+                                        <form action="" method="post">
+                                            <input type="hidden" name="id_guru" value="<?= $data['id_guru'] ?>" >
+                                            <button class="bg-transparent border-0 text-danger" name="hapus" id="hapus" onclick="return confirm('Yakin ingin menghapus guru?')">Hapus</button>
+                                        </form>
+                                    <?php endif ; ?>
                                 </div>
                             </div>
                         </div>
