@@ -53,7 +53,7 @@
             <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
                 <div class="container-fluid ">
                     <a class="navbar-brand p-0" href="home.html">
-                        <img src="image/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+                        <img src="assets/imgs/Foto SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
                     </a>
                     <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -64,7 +64,7 @@
                             <a class="nav-link text-white" href="profile/profile.php">Profil</a>
                             <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
                             <a class="nav-link text-white" href="#">PPDB</a>
-                            <a class="nav-link text-white" href="#">Galeri</a>
+                            <a class="nav-link text-white" href="galeri/galeri/user/galeri.php">Galeri</a>
                             <a class="nav-link text-white" href="daftarGuru/daftar_guru.php">Daftar Guru</a>
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
