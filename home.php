@@ -71,13 +71,13 @@
                                     Edit Website
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item text-white" href="daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
-                                    <li><a class="dropdown-item text-white" href="#">Guru</a></li>
-                                    <li><a class="dropdown-item text-white" href="profile/edit_sejarah.php">Sejarah</a></li>
-                                    <li><a class="dropdown-item text-white" href="profile/edit_visi_misi.php">Visi Misi</a></li>
-                                    <li><a class="dropdown-item text-white" href="daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                                    <li><a class="dropdown-item text-white" href="#">Galeri</a></li>
-                                    <li><a class="dropdown-item text-white" href="daftarBerita/crud_berita.php">Berita</a></li>
+                                    <li><a class="dropdown-item" href="#">Carousel</a></li>
+                                    <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
+                                    <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
+                                    <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
+                                    <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+                                    <li><a class="dropdown-item" href="../GALERI/galeri/admin/galeri.php">Galeri</a></li>
+                                    <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
                                 </ul>
                             </li>
                         </div>

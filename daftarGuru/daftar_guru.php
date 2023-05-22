@@ -237,16 +237,23 @@ if($jumlahDataQueryGuru == 0){
                                     Edit Website
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item text-white" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
-                                    <li><a class="dropdown-item text-white" href="../daftarGuru/daftar_guru.php">Guru</a></li>
-                                    <li><a class="dropdown-item text-white" href="../profile/edit_sejarah.php">Sejarah</a></li>
-                                    <li><a class="dropdown-item text-white" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
-                                    <li><a class="dropdown-item text-white" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                                    <li><a class="dropdown-item text-white" href="#">Galeri</a></li>
-                                    <li><a class="dropdown-item text-white" href="../daftarBerita/crud_berita.php">Berita</a></li>
+                                    <li><a class="dropdown-item" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
+                                    <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
+                                    <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
+                                    <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
+                                    <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+                                    <li><a class="dropdown-item" href="#">Galeri</a></li>
+                                    <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
                                 </ul>
                             </li>
                         </div>
+                        <?php if(isset($admin) && $admin == true) : ?>
+                            <button class="btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
+                            <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                        <?php endif ; ?>
+                        <?php if(isset($admin) && $admin == false) : ?>
+                            <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
+                        <?php endif ; ?>
                     </div>
                 </div>
             </nav>
@@ -255,20 +262,24 @@ if($jumlahDataQueryGuru == 0){
         <div class="row">
             <div class="col-md-8">
                 <div class="mt-3 py-3">
-                    <div>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <form action="" method="get">
+                                <div class="input-group ms-auto">
+                                    <input type="text" class="form-control rounded-pill rounded-end" name="keyword">
+                                    <button name="urut" value="cari" class="btn btn-primary rounded-pill rounded-start">Cari</button>
+                                </div>
+                            </form>
+                        </div>
                         <?php if(isset($admin) && $admin == true) : ?>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
-                            <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="btn btn-secondary" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                            <div class="col text-end">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
+                                <a href="../login/logout.php?halamanAsal=daftar_guru.php" style="display: none;" class="btn btn-secondary" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                            </div>
                         <?php endif ; ?>
                         <?php if(isset($admin) && $admin == false) : ?>
-                            <a href="../login/login.php" class="btn btn-info">Login Admin</a>
+                            <!-- <a href="../login/login.php" class="btn btn-info">Login Admin</a> -->
                         <?php endif ; ?>
-                        <form action="" method="get">
-                            <div class="input-group w-25 ms-auto">
-                                <input type="text" class="form-control rounded-pill rounded-end" name="keyword">
-                                <button name="urut" value="cari" class="btn btn-primary rounded-pill rounded-start">Cari</button>
-                            </div>
-                        </form>
                     </div>
                     <h5 class="text-center mb-3">Daftar Guru :</h5>
                     <!-- SECTION KALO KOSONG KELUAR INI -->

@@ -88,8 +88,8 @@
   
   <section>
   <!--for demo wrap-->
-  <h1>Edit Data Carousel</h1>
   <div class="tbl-header">
+    <h1>Edit Data Carousel</h1>
     <table cellpadding="0" cellspacing="0" border="0">
       <thead>
         <tr>

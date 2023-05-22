@@ -29,6 +29,9 @@ $daftarSejarah = query("SELECT * FROM sejarah");
         *{
           font-family: 'Poppins';
         }
+        .feedback{
+            position: sticky;
+        }
     </style>
 </head>
 <body>
@@ -66,7 +69,7 @@ $daftarSejarah = query("SELECT * FROM sejarah");
                             <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Edit Website
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="z-index: 9999;">
                                 <li><a class="dropdown-item" href="#">Carousel</a></li>
                                 <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
                                 <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
@@ -96,14 +99,13 @@ $daftarSejarah = query("SELECT * FROM sejarah");
                             <textarea class="form-control" name="" id="" cols="30" rows="10">
                                 <?= $data['teksSejarah'] ?>
                             </textarea>
-                            </p>
                         <?php endforeach ; ?>
                     </div>
                     <!-- !SECTION SEJARAH -->
                     <!-- SECTION VISI MISI -->
                     <div class="row text-center py-5 border-bottom border-dark border-1 mb-5">
                         <div class="col-md-6">
-                            <div class="py-5 px-5 text-start">
+                            <div class="py-5 px-5">
                                 <h4>VISI</h4>
                                 <?php foreach($daftarVisi as $data) : ?>
                                     <textarea class="form-control" name="" id="" cols="30" rows="10">
@@ -113,12 +115,12 @@ $daftarSejarah = query("SELECT * FROM sejarah");
                             </div>
                         </div>
                         <div class="col-md-6 ms-auto">
-                            <div class="py-5 px-5 text-start">
+                            <div class="py-5 px-5">
                                 <h4>MISI</h4>
                                 <?php foreach($daftarMisi as $data) : ?>
-                                    <textarea class="form-control" name="" id="" cols="30" rows="10">
+                                    <p>
                                         <?= $data['teksMisi'] ?>
-                                    </textarea>
+                                    </p>
                                 <?php endforeach ; ?>
                             </div>
                         </div>
@@ -219,7 +221,7 @@ $daftarSejarah = query("SELECT * FROM sejarah");
                 </div>
             </div>
             <div class="col ms-auto">
-                <div class="">
+                <div class="feedback sticky-top">
                     <form action="" class="m-auto mt-3 p-3 bg-dark border border-white border-2" method="POST">
                         <h3 class="text-white border-bottom border-2 border-white mb-5">FeedBack</h3>
                         <div class="mb-2">
