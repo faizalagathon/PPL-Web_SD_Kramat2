@@ -1,7 +1,6 @@
 <?php
-require "../koneksi.php";
-
-$gambar = mysqli_query($conn, "SELECT * FROM galeri
+require "../../koneksi.php";
+$gambar = mysqli_query($link, "SELECT * FROM galeri
 INNER JOIN kategori_acara
 ON galeri.id_k_acara=kategori_acara.id_k_acara
 ORDER by kategori_acara.nama_k_acara;
@@ -10,7 +9,7 @@ ORDER by kategori_acara.nama_k_acara;
 if(isset($_GET['cari'])){
   $cari = $_GET['cari'];
   $sql = "SELECT * FROM kategori_acara WHERE nama_k_acara LIKE '%$cari%'";
-  $result = $conn->query($sql);
+  $result = $link->query($sql);
 
 // Memeriksa hasil query
 if ($result->num_rows > 0) {
@@ -45,8 +44,8 @@ if(isset($_POST["cari"])){
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galeri Sekolah</title>
-  <link rel="stylesheet" href="../../../assets/css/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="../asset/css/galeri.css">
+  <link rel="stylesheet" href="../../assets/css/bootstrap-5.3.0/bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/css/galeri.css">
 </head>
 <!-- <link rel="stylesheet" href="../asset/fontawesome/css/all.css"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -217,7 +216,7 @@ if(isset($_POST["cari"])){
       <br>
       <div class="d-flex gap-2 ms-auto button pe-2" style="position: absolute; right: 0;">
         <!-- SECTION FORM TAMBAH KATEGORI -->
-        <form action="../aksi_crud.php?ParamAksi=tambah_kategori&ParamTable=kategori_acara&ParamCek=required" method="post" enctype="multipart/form-data">
+        <form action="../../aksi_crud_galeri.php?ParamAksi=tambah_kategori&ParamTable=kategori_acara&ParamCek=required" method="post" enctype="multipart/form-data">
           <!-- //SECTION start modal -->
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -252,7 +251,7 @@ if(isset($_POST["cari"])){
         </form>
         <!-- //!SECTION end TAMBAH KATEGORI -->
         <!-- SECTION TAMBAH GAMBAR -->
-        <form action="../aksi_crud.php?ParamAksi=tambah_gambar&ParamTable=galeri" method="post" enctype="multipart/form-data">
+        <form action="../../aksi_crud_galeri.php?ParamAksi=tambah_gambar&ParamTable=galeri" method="post" enctype="multipart/form-data">
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-warning text-white" data-bs-toggle="modal" data-bs-target="#tambah_gambar">
             Tambah Gambar
@@ -300,7 +299,7 @@ if(isset($_POST["cari"])){
     </div>
     <!--SECTION TIDAK ADA GAMBAR  -->
     <?php if (isset($not_found)):?>
-        <img src="../../../assets/imgs/illustrasi/logo 2.png" style="width: 35%; margin: auto 0rem 2rem;" alt="">
+        <img src="../../assets/imgs/illustrasi/logo 2.png" style="width: 35%; margin: auto 0rem 2rem;" alt="">
     <?php endif;?>
     <!--!SECTION END TIDAK ADA GAMBAR  -->
       <!--SECTION Gambar -->
@@ -326,7 +325,7 @@ if(isset($_POST["cari"])){
         <!-- SECTION MODAL HAPUS KATEGORI ACARA -->
         <div class="modal fade" id="hapus_kategori_acara<?=$cr['id_k_acara']?>" tabindex="-1" aria-labelledby="hapus_kategori_acaraLabel" aria-hidden="true">
             <div class="modal-dialog">
-              <form action="../aksi_crud.php?ParamAksi=hapus_k_acara&ParamTable=kategori_acara&ParamCek=ada_gambar" method="post" enctype="multipart/form-data">
+              <form action="../../aksi_crud_galeri.php?ParamAksi=hapus_k_acara&ParamTable=kategori_acara&ParamCek=ada_gambar" method="post" enctype="multipart/form-data">
               <div class="modal-content">
                 <input type="hidden" name="id_k_acara" value="<?= $cr['id_k_acara'] ?>">
                 <div class="modal-header">
@@ -353,7 +352,7 @@ if(isset($_POST["cari"])){
         <!-- SECTION MODAL UBAH KATEGORI ACARA -->   
         <div class="modal fade" id="ubah_kategori_acara<?=$cr['id_k_acara']?>" tabindex="-1" aria-labelledby="hapus_kategori_acaraLabel" aria-hidden="true">
             <div class="modal-dialog">
-              <form action="../aksi_crud.php?ParamAksi=ubah_k_acara&ParamTable=kategori_acara" method="post" enctype="multipart/form-data">
+              <form action="../../aksi_crud_galeri.php?ParamAksi=ubah_k_acara&ParamTable=kategori_acara" method="post" enctype="multipart/form-data">
               <div class="modal-content">
                 <input type="hidden" name="id_k_acara" value="<?= $cr['id_k_acara'] ?>">
                 <div class="modal-header">
@@ -400,7 +399,7 @@ if(isset($_POST["cari"])){
                 <div class="modal fade" id="ubah_foto<?= $gbr['idGaleri'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
-                      <form action="../aksi_crud.php?ParamAksi=ubah_foto&ParamTable=galeri" method="post" enctype="multipart/form-data">
+                      <form action="../../aksi_crud_galeri.php?ParamAksi=ubah_foto&ParamTable=galeri" method="post" enctype="multipart/form-data">
                       <input type="hidden" name="gambarLama" value="<?= $gbr["gambarGaleri"]; ?>">
                       <input type="hidden" name="idGaleri" value="<?= $gbr["idGaleri"]; ?>">
                       <input type="hidden" name="id_k_acara" value="<?= $gbr["id_k_acara"]; ?>">
@@ -441,7 +440,7 @@ if(isset($_POST["cari"])){
                   <div class="modal fade" id="hapus_foto<?= $gbr['idGaleri'] ?>" tabindex="-1" aria-labelledby="hapus_fotoLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
-                        <form action="../aksi_crud.php?ParamAksi=hapus_foto&ParamTable=galeri" method="post" enctype="multipart/form-data">
+                        <form action="../../aksi_crud_galeri.php?ParamAksi=hapus_foto&ParamTable=galeri" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="idGaleri" value="<?= $gbr['idGaleri'] ?>">
                         <input type="hidden" name="gambarGaleri" value="<?= $gbr['gambarGaleri'] ?>">
                           <div class="modal-header">

@@ -6,7 +6,7 @@ if(isset($_GET["ParamAksi"])){
     $table=$_GET['ParamTable'];
     $cek=$_GET['ParamCek'];
 }
-global $conn;
+global $link;
 // SECTION AKSI TAMBAH KATEGORI
 if($aksi=='tambah_kategori'){
     
@@ -17,16 +17,16 @@ if($aksi=='tambah_kategori'){
 
             if($cek=='required'){
             if(!$required){
-                header("Location: admin/galeri.php?gagal");
+                header("Location:  daftarGaleri/admin/galeri.php?gagal");
                 exit;
             }
         } 
         $query="INSERT INTO $table
         VALUES
         ('','$nama_k_acara','$tanggal_k_acara')";
-        mysqli_query($conn,$query);
+        mysqli_query($link,$query);
         if($query){
-            header("Location: admin/galeri.php?sukses");
+            header("Location:  daftarGaleri/admin/galeri.php?sukses");
             exit;
         }
     }
@@ -42,20 +42,20 @@ if($aksi =='tambah_gambar'){
         $gambar = upload();
        
         if ($gambar === false) {
-            header("Location: admin/galeri.php?gagal_t_gambar");
+            header("Location: daftarGaleri/admin/galeri.php?gagal_t_gambar");
             exit;
         }
         if(!$id_k_acara){
-            header("Location: admin/galeri.php?mohon_isi_k_a");
+            header("Location: daftarGaleri/admin/galeri.php?mohon_isi_k_a");
         }
         // query insert data
         $tambah_gambar="INSERT INTO $table
         VALUES
         ('','$id_k_acara','$gambar')";
-        mysqli_query($conn,$tambah_gambar);
+        mysqli_query($link,$tambah_gambar);
         
         if($tambah_gambar){
-            header("Location: admin/galeri.php?sukses_t_gambar");
+            header("Location: daftarGaleri/admin/galeri.php?sukses_t_gambar");
             exit;
         }
     }
@@ -66,14 +66,14 @@ if($aksi =='tambah_gambar'){
 // SECTION HAPUS
 if($aksi == 'hapus_foto'){
     if($table=='galeri'){
-        unlink('../upload/' . $_POST['gambarGaleri']);
-        $hapus=mysqli_query($conn,"DELETE FROM $table WHERE idGaleri='$_POST[idGaleri]'");
+        unlink('upload/' . $_POST['gambarGaleri']);
+        $hapus=mysqli_query($link,"DELETE FROM $table WHERE idGaleri='$_POST[idGaleri]'");
         if($hapus){
-            header("Location: admin/galeri.php?sukses_h_g");
+            header("Location: daftarGaleri/admin/galeri.php?sukses_h_g");
             exit;
         }
         else{
-            header("Location: admin/galeri.php?gagal_h_g");
+            header("Location: daftarGaleri/admin/galeri.php?gagal_h_g");
         }
         exit;
     }
@@ -85,12 +85,12 @@ if($aksi == 'hapus_k_acara'){
         $gambar =$_POST['gambarGaleri'];
         if($cek=='ada_gambar'){
             if($gambar >= 0){
-                    header("Location: admin/galeri.php?gagal_h_k_a");
+                    header("Location: daftarGaleri/admin/galeri.php?gagal_h_k_a");
             }
         }
-        $hapus=mysqli_query($conn,"DELETE FROM $table WHERE id_k_acara='$_POST[id_k_acara]'");
+        $hapus=mysqli_query($link,"DELETE FROM $table WHERE id_k_acara='$_POST[id_k_acara]'");
         if($hapus){
-            header("Location: admin/galeri.php?sukses_h_k_a");
+            header("Location: daftarGaleri/admin/galeri.php?sukses_h_k_a");
             exit;
         }
      
@@ -109,20 +109,20 @@ if($aksi=='ubah_foto'){
             }
           
          if($gambar != $gambar_lama){
-            unlink('../upload/' . $gambar_lama);
+            unlink('upload/' . $gambar_lama);
             }
        
-        $ubah_gambar=mysqli_query ($conn,"UPDATE $table SET
+        $ubah_gambar=mysqli_query ($link,"UPDATE $table SET
         id_k_acara='$id_k_acara',
         gambarGaleri='$gambar'
         WHERE idGaleri =$idgaleri
         ");
         if($ubah_gambar){
-            header("Location: admin/galeri.php?sukses_u_g");
+            header("Location: daftarGaleri/admin/galeri.php?sukses_u_g");
             exit;
         }
         else{
-            header("Location: admin/galeri.php?gagal_u_g");
+            header("Location: daftarGaleri/admin/galeri.php?gagal_u_g");
             exit;
         }
     }
@@ -132,17 +132,17 @@ if($aksi=='ubah_k_acara'){
         $id_k_acara=htmlspecialchars($_POST['id_k_acara']);
         $nama_k_acara=htmlspecialchars($_POST['nama_k_acara']);
         $tanggal_k_acara=htmlspecialchars($_POST['tanggal_k_acara']);
-        $ubah_k_acara=mysqli_query ($conn,"UPDATE $table SET
+        $ubah_k_acara=mysqli_query ($link,"UPDATE $table SET
         nama_k_acara='$nama_k_acara',
         tanggal_k_acara='$tanggal_k_acara'
         WHERE id_k_acara =$id_k_acara
         ");
         if($ubah_k_acara){
-            header("Location: admin/galeri.php?sukses_u_k");
+            header("Location: daftarGaleri/admin/galeri.php?sukses_u_k");
             exit;
         }
         else{
-            header("Location: admin/galeri.php?gagal_u_k");
+            header("Location: daftarGaleri/admin/galeri.php?gagal_u_k");
             exit;
         }
     }
@@ -166,12 +166,12 @@ function upload(){
     $ektensigambar= explode('.',$namafile);
     $ektensigambar=strtolower(end($ektensigambar));
     if(!in_array($ektensigambar,$ekstensigambarvalid)){
-        header("Location: admin/galeri.php?bukan_gambar");
+        header("Location: daftarGaleri/admin/galeri.php?bukan_gambar");
         exit;
     }
     // cek jika ukuran terlalu besar
     if($ukuranfile>5000000){
-        header("Location: admin/galeri.php?gambar_terlalu_besar");
+        header("Location: daftarGaleri/admin/galeri.php?gambar_terlalu_besar");
         exit;
     }
 
@@ -181,7 +181,7 @@ function upload(){
     $namafilebaru .='.';
     $namafilebaru .=$ektensigambar;
 
-    move_uploaded_file($tmpname,"../upload/".$namafilebaru);
+    move_uploaded_file($tmpname,"upload/".$namafilebaru);
     return $namafilebaru;
 }
 // !SECTION UPLOAD
