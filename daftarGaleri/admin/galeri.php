@@ -44,8 +44,10 @@ if(isset($_POST["cari"])){
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galeri Sekolah</title>
-  <link rel="stylesheet" href="../../assets/css/bootstrap-5.3.0/bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/css/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="../../assets/css/galeri.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script> -->
 </head>
 <!-- <link rel="stylesheet" href="../asset/fontawesome/css/all.css"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -336,7 +338,9 @@ if(isset($_POST["cari"])){
                   <center>
                     <h3><?=$cr['nama_k_acara']?></h3>
                     <p><?=$cr['tanggal_k_acara']?></p>
-                    <input type="hidden" name="gambarGaleri" value="<?=$gbr['gambarGaleri']?>" >
+                    <?php foreach ($gambar as $gbr_lama):?>
+                    <input type="hidden" name="gambarGaleri" value="<?=$gbr_lama['gambarGaleri']?>" >
+                    <?php endforeach ;?>
                   </center>
                 </div>
                 <div class="modal-footer">
@@ -478,7 +482,7 @@ if(isset($_POST["cari"])){
             </div>
           </div>
           <!-- !SECTION FOOTER -->
-<script src="../../../assets/js/bootstrap/bootstrap.min.js"></script>
+<script src="../../assets/js/bootstrap/bootstrap.min.js"></script>
 
 <script>
     function tampilkanGambar() {
