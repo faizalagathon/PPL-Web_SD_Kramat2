@@ -1,0 +1,10 @@
+1. https://github.com/jamiewilson/form-to-google-sheets.git (ini link klu km mau pelajari lebih lanjut).
+2. Hasil Dari Feedback ini Ada di google sheet.BUka G.Sheet terus Kasih nama G.Sheet nya bebas
+3.Setelah masuk Isi Baris pertam dengan timestamp ini untuk waktu saat feedback ny masuk
+4. lansung Keintinya masukkan code a untuk G.Apps Scrpit untuk yg nggak ad(cari di extension lalu dibagian paling bawah ad Apps Script)
+5. nah klik bagian atas initialSetup kemudian klik run
+6. kemudian langsung add triggers di dropdown klik dopost di event from spreadsheet dan on from submit lalu dibagian notifikasi klik anyone
+7. clik deploy new deploy descriptiny bebas untuk access select anyone, deploy
+8.  kemuadian copy link url script yg ad di GIT kemudian taruh di paling masih dalam bagian body
+9. sesuai nama yg di G.sheet dengan nama di input nya
+10. Klu mau lebih di vidio NGOBAR#29 WPU

@@ -1,0 +1,43 @@
+/* Navbar */
+.display1{
+    flex-wrap: nowrap;
+}
+
+.dropdown-item:hover{
+    background-color: #3d96df;
+    color: white;
+}
+
+.ukuran-selamat-datang{
+    font-weight: 300;
+}
+
+/* -Navbar */
+
+/* Carousel */
+.ukuran{
+    width: 100%;
+    height: 400px;
+
+}
+
+/* -Carousel */
+
+  /* Tablet */
+  @media (max-width: 769px) {
+
+  }
+
+
+  /* HandPhone */
+  @media (max-width: 425px) {
+    .navbar-pertama{
+        display: none;
+    }
+
+    .ukuran{
+        width: 100%;
+        height: 300px;
+    }
+  }
+

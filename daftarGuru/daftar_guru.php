@@ -60,14 +60,14 @@ if(isset($_POST['hapus'])){
     if(hapus($_POST) > 0){
         echo "
         <script>
-        alert('Data berhasil ditambahkan');
+        alert('Data berhasil dihapus');
         document.location.href = 'daftar_guru.php'; 
         </script>";
     }
     else{
         echo "
         <script>
-        alert('Ada kesalahan saat menginput data');
+        alert('Ada kesalahan saat menghapus data');
         document.location.href = 'daftar_guru.php'; 
         </script>";
     }
@@ -237,7 +237,7 @@ if($jumlahDataQueryGuru == 0){
                                     Edit Website
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item text-white" href="#">Carousel</a></li>
+                                    <li><a class="dropdown-item text-white" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
                                     <li><a class="dropdown-item text-white" href="../daftarGuru/daftar_guru.php">Guru</a></li>
                                     <li><a class="dropdown-item text-white" href="../profile/edit_sejarah.php">Sejarah</a></li>
                                     <li><a class="dropdown-item text-white" href="../profile/edit_visi_misi.php">Visi Misi</a></li>

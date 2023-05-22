@@ -220,15 +220,26 @@ function upload(){
 }
 
 function hapus($id){
-  $id = htmlspecialchars($id['id_guru']);
-
   global $link;
-  $file = mysqli_fetch_assoc(mysqli_query($link,"SELECT * FROM guru WHERE id_guru='$id'"));
-  if($file['gambar'] != 'default_gambar.png'){
-    unlink('../assets/imgs/Foto SD/Foto Guru/' . $file["gambar"]);
+  // var_dump($id['idCarousel']);
+  // exit;
+
+  if(isset($id['idCarousel'])){
+    $id = $id['idCarousel'];
+    $query= "DELETE FROM carousel where idCarousel='$id'";
   }
-  $hapus = "DELETE FROM guru WHERE id_guru='$id'";
-  mysqli_query($link,$hapus);
+  
+  if(isset($id['id_guru'])){
+    $id = htmlspecialchars($id['id_guru']);
+    
+    $file = mysqli_fetch_assoc(mysqli_query($link,"SELECT * FROM guru WHERE id_guru='$id'"));
+    if($file['gambar'] != 'default_gambar.png'){
+      unlink('../assets/imgs/Foto SD/Foto Guru/' . $file["gambar"]);
+    }
+    $query = "DELETE FROM guru WHERE id_guru='$id'";
+  }
+
+  mysqli_query($link,$query);
   return mysqli_affected_rows($link);
 }
 
