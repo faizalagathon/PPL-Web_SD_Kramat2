@@ -87,9 +87,6 @@ if (isset($_POST['addEkskul'])) {
 
 
 
-
-
-
 $daftarHari = ['Senin', 'Selasa', 'Rabu', 'Kamis', "Jumat", 'Sabtu', 'Minggu'];
 $daftarGuru = query("SELECT * FROM guru");
 $daftarEkskul = query("SELECT * FROM ekskul
