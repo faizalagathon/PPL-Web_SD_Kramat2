@@ -2,9 +2,15 @@
 require 'koneksi.php';
 
 if(isset($_GET["ParamAksi"])){
-    $aksi=$_GET["ParamAksi"];
-    $table=$_GET['ParamTable'];
-    $cek=$_GET['ParamCek'];
+    if(isset($_GET["ParamAksi"])){
+        $aksi=$_GET["ParamAksi"];
+    }
+    if(isset($_GET['ParamTable'])){
+        $table=$_GET['ParamTable'];
+    }
+    if(isset($_GET['ParamCek'])){
+        $cek=$_GET['ParamCek'];
+    }
 }
 global $link;
 // SECTION AKSI TAMBAH KATEGORI
@@ -23,7 +29,7 @@ if($aksi=='tambah_kategori'){
         } 
         $query="INSERT INTO $table
         VALUES
-        ('','$nama_k_acara','$tanggal_k_acara')";
+        (NULL,'$nama_k_acara','$tanggal_k_acara')";
         mysqli_query($link,$query);
         if($query){
             header("Location:  daftarGaleri/admin/galeri.php?sukses");
@@ -51,7 +57,7 @@ if($aksi =='tambah_gambar'){
         // query insert data
         $tambah_gambar="INSERT INTO $table
         VALUES
-        ('','$id_k_acara','$gambar')";
+        (NULL,'$id_k_acara','$gambar')";
         mysqli_query($link,$tambah_gambar);
         
         if($tambah_gambar){

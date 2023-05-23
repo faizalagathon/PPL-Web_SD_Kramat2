@@ -1,6 +1,6 @@
 <?php
-    // include "../Koneksi.php";
-    include '../koneksi.php';
+    include "../functions.php";
+    // include '../koneksi.php';
 
     $carousel = query("SELECT * FROM carousel");
 
@@ -109,7 +109,7 @@
               </td>
               <div class="">
                 <a  class="btn btn-primary" href="edit_carousel.php?idCarousel=<?php echo $c['idCarousel']; ?>&aksi=edit"> Edit </a>
-                <a  class="btn btn-primary" href="<?php echo $c['idCarousel']; ?>&aksi=hapus" onclick="return confirm('Anda Yakin Ingin Menghapus Data ini?')"> Hapus </a>
+                <a  class="btn btn-primary" href="?idCarousel=<?php echo $c['idCarousel']; ?>&aksi=hapus" onclick="return confirm('Anda Yakin Ingin Menghapus Data ini?')"> Hapus </a>
               </div>
           </tr>
           <?php endforeach ?>
