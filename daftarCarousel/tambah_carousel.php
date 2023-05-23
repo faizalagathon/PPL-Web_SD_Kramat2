@@ -79,12 +79,12 @@
           <!-- akhir navbar kedua -->
     <form method="post" class="mb-5" action="aksi_tambah_carousel.php" enctype="multipart/form-data">
       
-      <div class="card border-2 m-3 mb-5" style="">
+      <div class="card border-1 border-dark m-3 mb-5 mt-5">
         <!-- <img src="https://th.bing.com/th?id=OIP.cUUf67YH-hex_XPKWlnZ1QHaLF&w=204&h=305&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" class="card-img-top" alt="No-Image" style="width: 286px; height:200px;"> -->
         <div class="card-body">
-          <h5 class="card-title border-bottom border-2 mb-5 pb-2" style="">Tambah Gambar Carousel</h5>
+          <h5 class="card-title border-bottom border-2 mb-5 pb-2">Tambah Gambar Carousel</h5>
           <input class="form-control" type="file" name="foto" required="required">
-          <small class="card-text" style="color: red;">*Ekstensi yang diperbolehkan .png | .jpg | .jpeg</small>
+          <small class="card-text" style="color: red;">*Format yang diperbolehkan .png | .jpg | .jpeg</small>
           <div class="text-end mt-3">
             <button class="btn btn-primary text-white" type="submit">Tambah</button>
             <!-- <button class="btn btn-primary" type="reset" >Reset</button> -->
