@@ -91,3 +91,5 @@ $daftarHari = ['Senin', 'Selasa', 'Rabu', 'Kamis', "Jumat", 'Sabtu', 'Minggu'];
 $daftarGuru = query("SELECT * FROM guru");
 $daftarEkskul = query("SELECT * FROM ekskul
   INNER JOIN guru ON ekskul.idPembimbing = guru.id_guru");
+
+
