@@ -193,7 +193,7 @@ $acara =query('SELECT * FROM kategori_acara LIMIT 1');
                   <!--!SECTION end Gambar -->
               </div>
               <div class="text-center mb-3">
-                <a href="daftarGaleri/admin/galeri.php" class="">Read More ></a>
+                <a href="daftarGaleri/user/galeri.php" class="">Read More ></a>
               </div>
             </div>
             <!-- !SECTION GALERI -->
