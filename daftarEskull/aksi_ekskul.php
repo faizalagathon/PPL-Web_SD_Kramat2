@@ -82,6 +82,8 @@ if (isset($_POST['addEkskul'])) {
   $_SESSION['tDel'] = true;
 
 }
+//rendi gantenng banget
+// sangat amat ganteng
 
 
 
