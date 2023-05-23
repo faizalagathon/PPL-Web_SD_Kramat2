@@ -93,39 +93,37 @@
             </nav>
           <!-- akhir navbar kedua -->
   
-  <section>
     <!--for demo wrap-->
-    <div class="">
-      <h1>Data Carousel</h1>
-    </div>
-    <div class="tbl-content">
-      <table>
-        <tbody>
+    <div class="container-fluid">
+      <div class="d-flex gap-4">
+        <div class="">
+          <h1>Data Carousel</h1>
+        </div>
+        <div class="position-absolute mt-3" style="right: 12px;">
+          <a class="button-24 btn btn-primary" href="tambah_carousel.php">Tambah</a>
+        </div>
+      </div>
+      <div class="tbl-content">
+        <div class="d-flex flex-wrap pt-4 mb-5">
         <?php foreach($carousel as $c) : ?>
-          <tr>
-              <td>
-                <!-- <img src="../sample_img/img3.jpg" class="gambar" alt=""> -->
-                <img class="gambar" src="../assets/imgs/fotocarousel/<?php echo $c["gambarCarousel"]; ?>">
-              </td>
-              <div class="">
-                <a  class="btn btn-primary" href="edit_carousel.php?idCarousel=<?php echo $c['idCarousel']; ?>&aksi=edit"> Edit </a>
-                <a  class="btn btn-primary" href="?idCarousel=<?php echo $c['idCarousel']; ?>&aksi=hapus" onclick="return confirm('Anda Yakin Ingin Menghapus Data ini?')"> Hapus </a>
+              <div class="m-auto mb-3">
+                  <div class="">
+                    <img class="gambar" class="ms-auto" src="../assets/imgs/fotocarousel/<?php echo $c["gambarCarousel"]; ?>">
+                  </div>
+                  <div class="text-center">
+                    <a  class="btn btn-primary" href="edit_carousel.php?idCarousel=<?php echo $c['idCarousel']; ?>&aksi=edit"> Edit </a>
+                    <a  class="btn btn-primary" href="?idCarousel=<?php echo $c['idCarousel']; ?>&aksi=hapus" onclick="return confirm('Anda Yakin Ingin Menghapus Data ini?')"> Hapus </a>
+                  </div>
               </div>
-          </tr>
           <?php endforeach ?>
-        </tbody>
-      </table>
-      <div class="card-footer text-end">
-        <!-- <button class="button-24" role="button"><a href="tambah_carousel.php">Tambah</a></button> -->
-        <a class="button-24 btn btn-primary" href="tambah_carousel.php">Tambah</a>
-        <a class="button-24-back btn btn-outline-dark" href="../home.php">Kembali</a>
+        </div>
+        <!-- <div class="text-end">
+          <a class="button-24-back btn btn-outline-dark" href="../home.php">Kembali</a>
+        </div> -->
       </div>
     </div>
-
-  </section>
-
     <!-- SECTION FOOTER -->
-      <div class="footer">
+      <div class="footer" style="bottom: 0;">
         <div class="text-center bg-dark" style="padding: 5%;">
           <p class="text-white mb-0 mt-0">
             Coypright By @SD_Keramat2023
@@ -133,7 +131,7 @@
         </div>
       </div>
     <!-- !SECTION FOOTER -->
-
+    <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
 
         // '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
