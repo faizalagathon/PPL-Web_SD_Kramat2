@@ -82,24 +82,24 @@ if(isset($_POST["cari"])){
             </button>    
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-5 gap-4">
-                    <a class="nav-link text-info" aria-current="page" href="home.html">Home</a>
-                    <a class="nav-link text-white" href="profile.html">Profil</a>
-                    <a class="nav-link text-white" href="berita.html">Berita</a>
+                    <a class="nav-link text-white" aria-current="page" href="../../home.php">Home</a>
+                    <a class="nav-link text-white" href="../../profile/profile.php">Profil</a>
+                    <a class="nav-link text-white" href="../../daftarBerita/berita.php">Berita</a>
                     <a class="nav-link text-white" href="#">PPDB</a>
-                    <a class="nav-link text-white" href="#">Galeri</a>
-                    <a class="nav-link text-white" href="#">Daftar Guru</a>
+                    <a class="nav-link text-info" href="galeri.php">Galeri</a>
+                    <a class="nav-link text-white" href="../../daftarGuru/daftar_guru.php">Daftar Guru</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Edit Website
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item text-white" href="#">Carousel</a></li>
-                            <li><a class="dropdown-item text-white" href="#">Guru</a></li>
-                            <li><a class="dropdown-item text-white" href="edit_sejarah.html">Sejarah</a></li>
-                            <li><a class="dropdown-item text-white" href="edit_visi_misi.html">Visi Misi</a></li>
+                            <li><a class="dropdown-item text-white" href="../../daftarGuru/daftar_guru.php">Guru</a></li>
+                            <li><a class="dropdown-item text-white" href="../../profile/edit_sejarah.php">Sejarah</a></li>
+                            <li><a class="dropdown-item text-white" href="../../profile/edit_visi_misi.php">Visi Misi</a></li>
                             <li><a class="dropdown-item text-white" href="crud_eskull.html">Ekstrakulikuler</a></li>
-                            <li><a class="dropdown-item text-white" href="#">Galeri</a></li>
-                            <li><a class="dropdown-item text-white" href="crud_berita.html">Berita</a></li>
+                            <li><a class="dropdown-item text-info" href="../galeri/admin/galeri.php">Galeri</a></li>
+                            <li><a class="dropdown-item text-white" href="../../daftarBerita/crud_berita.php">Berita</a></li>
                         </ul>
                     </li>
                 </div>

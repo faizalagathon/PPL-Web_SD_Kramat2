@@ -64,7 +64,7 @@
                             <a class="nav-link text-white" href="profile/profile.php">Profil</a>
                             <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
                             <a class="nav-link text-white" href="#">PPDB</a>
-                            <a class="nav-link text-white" href="galeri/galeri/user/galeri.php">Galeri</a>
+                            <a class="nav-link text-white" href="daftarGaleri/admin/galeri.php">Galeri</a>
                             <a class="nav-link text-white" href="daftarGuru/daftar_guru.php">Daftar Guru</a>
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,7 +76,7 @@
                                     <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
                                     <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
                                     <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                                    <li><a class="dropdown-item" href="../GALERI/galeri/admin/galeri.php">Galeri</a></li>
+                                    <li><a class="dropdown-item" href="daftarGaleri/admin/galeri.php">Galeri</a></li>
                                     <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
                                 </ul>
                             </li>
