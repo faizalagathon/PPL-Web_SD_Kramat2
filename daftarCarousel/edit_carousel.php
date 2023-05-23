@@ -28,7 +28,7 @@
   <body>
     
   <?php
-    require  "../Koneksi.php";
+    require  "../koneksi.php";
     $idcarousel=$_GET['idCarousel'];
     $sql= "SELECT * FROM carousel WHERE idCarousel like '$idcarousel'";
     $carousel = query($sql);
@@ -37,7 +37,7 @@
     <form action="" method="post" enctype="multipart/form-data">
 
         <div class="card mx-auto" style="width: 18rem;">
-            <img class="card-img-top" alt="..." src="../fotocarousel/<?= $carousel[0]['gambarCarousel'] ?>">
+            <img class="card-img-top" alt="..." src="../assets/imgs/fotocarousel/<?= $carousel[0]['gambarCarousel'] ?>">
             <div class="card-body">
                 <h5 class="card-title">Edit Gambar Carousel</h5>
 
@@ -75,9 +75,9 @@
                     SET
                         gambarCarousel='$xx'
                     WHERE idCarousel = '$idcarousel'";
-                    move_uploaded_file($_FILES['foto']['tmp_name'], 'fotocarousel/'.$xx);
+                    move_uploaded_file($_FILES['foto']['tmp_name'], '../assets/imgs/fotocarousel/'.$xx);
 
-                    mysqli_query($db_link,$sqlU);
+                    mysqli_query($link,$sqlU);
                     echo "
                     <script>
                     alert('Data Berhasil di Edit');

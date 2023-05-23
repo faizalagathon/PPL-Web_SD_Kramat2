@@ -1,6 +1,6 @@
 <?php
     // include "../Koneksi.php";
-    include '../functions.php';
+    include '../koneksi.php';
 
     $carousel = query("SELECT * FROM carousel");
 
@@ -104,12 +104,12 @@
         <?php foreach($carousel as $c) : ?>
           <tr>
               <td>
-                <img src="../sample_img/img3.jpg" class="gambar" alt="">
-                <!-- <img class="gambar" src="../tugas ppl/../fotocarousel/<?php echo $c["gambarCarousel"]; ?>"> -->
+                <!-- <img src="../sample_img/img3.jpg" class="gambar" alt=""> -->
+                <img class="gambar" src="../assets/imgs/fotocarousel/<?php echo $c["gambarCarousel"]; ?>">
               </td>
               <div class="">
                 <a  class="btn btn-primary" href="edit_carousel.php?idCarousel=<?php echo $c['idCarousel']; ?>&aksi=edit"> Edit </a>
-                <a  class="btn btn-primary" href="?idCarousel=<?php echo $c['idCarousel']; ?>&aksi=hapus" onclick="return confirm('Anda Yakin Ingin Menghapus Data ini?')"> Hapus </a>
+                <a  class="btn btn-primary" href="<?php echo $c['idCarousel']; ?>&aksi=hapus" onclick="return confirm('Anda Yakin Ingin Menghapus Data ini?')"> Hapus </a>
               </div>
           </tr>
           <?php endforeach ?>
@@ -118,7 +118,7 @@
       <div class="card-footer text-end">
         <!-- <button class="button-24" role="button"><a href="tambah_carousel.php">Tambah</a></button> -->
         <a class="button-24 btn btn-primary" href="tambah_carousel.php">Tambah</a>
-        <a class="button-24-back btn btn-outline-dark" href="modifikasi_carousel.php">Kembali</a>
+        <a class="button-24-back btn btn-outline-dark" href="../home.php">Kembali</a>
       </div>
     </div>
 

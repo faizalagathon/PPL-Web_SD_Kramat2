@@ -1,5 +1,5 @@
 <?php 
-include '../Koneksi.php';
+include '../koneksi.php';
 
 $rand = rand();
 $ekstensi =  array('png','jpg','jpeg');
@@ -17,8 +17,8 @@ if(!in_array($ext,$ekstensi) ) {
 }else{
 	if($ukuran < 1044070){		
 		$xx = $rand.'_'.$filename;
-		move_uploaded_file($_FILES['foto']['tmp_name'], '../fotocarousel/'.$rand.'_'.$filename);
-		mysqli_query($db_link, "INSERT INTO carousel VALUES(NULL,'$xx')");
+		move_uploaded_file($_FILES['foto']['tmp_name'], '../assets/imgs/fotocarousel/'.$rand.'_'.$filename);
+		mysqli_query($link, "INSERT INTO carousel VALUES(NULL,'$xx')");
 		echo" 
 		<script>
 		alert('Data Berhasil di Tambah');

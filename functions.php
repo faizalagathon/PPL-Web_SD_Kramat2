@@ -1,19 +1,21 @@
 <?php 
 session_start();
 
-$link = new mysqli('localhost','root','','db_sdkramat2');
+include '../koneksi.php';
 
-function query($sql){
+// $link = new mysqli('localhost','root','','db_sdkramat2');
 
-  global $link;
-  $rows = [];
-  $hasil = $link->query($sql);
-  while($row = $hasil->fetch_assoc()){
-    $rows[] = $row;
-  }
-  return $rows;
+// function query($sql){
 
-}
+//   global $link;
+//   $rows = [];
+//   $hasil = $link->query($sql);
+//   while($row = $hasil->fetch_assoc()){
+//     $rows[] = $row;
+//   }
+//   return $rows;
+
+// }
 
 function login($data){
   global $link;

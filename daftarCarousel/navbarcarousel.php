@@ -62,7 +62,7 @@
 
     <!-- AWAL CAROUSEL -->
     <?php
-    include "../Koneksi.php";
+    include "../koneksi.php";
     $data = mysqli_query($db_link,"select * from carousel ORDER BY idCarousel ASC");
     ?>
 
