@@ -84,6 +84,8 @@ if (isset($_POST['addEkskul'])) {
 }
 //rendi gantenng banget
 // sangat amat ganteng
+// rendi aku sange banget
+
 
 
 
