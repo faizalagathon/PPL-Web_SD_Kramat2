@@ -7,6 +7,21 @@ ORDER by kategori_acara.nama_k_acara;
 ;");
 $acara =query('SELECT * FROM kategori_acara LIMIT 1');
 
+// Menampilkan Visi dan Misi
+$dataVisi = mysqli_fetch_assoc(mysqli_query($link, 'SELECT * FROM visi'));
+$dataMisi = mysqli_fetch_assoc(mysqli_query($link, 'SELECT * FROM misi'));
+if(!isset($dataVisi)){
+  $dataVisi = [
+      'idVisi' => 0,
+      'teksVisi' => 'Belom Menuliskan Visi',    
+  ];
+}
+if(!isset($dataMisi)){
+  $dataMisi = [
+      'idMisi' => 0,
+      'teksMisi' => 'Belom Menuliskan Misi',    
+  ];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -144,9 +159,7 @@ $acara =query('SELECT * FROM kategori_acara LIMIT 1');
                 <div class="bg-info py-5 px-5 text-start mb-3">
                   <h4>VISI</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam commodi amet quod dolores corrupti, voluptates 
-                    nulla tempore quae ex reiciendis, cupiditate architecto quasi exercitationem unde, nesciunt repellendus. Aperiam
-                    ,voluptatibus hic.
+                    <?= $dataVisi['teksVisi'] ?>
                   </p>
                 </div>
               </div>
@@ -154,9 +167,7 @@ $acara =query('SELECT * FROM kategori_acara LIMIT 1');
                 <div class="bg-info py-5 px-5 text-start">
                   <h4>MISI</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam commodi amet quod dolores corrupti, voluptates 
-                    nulla tempore quae ex reiciendis, cupiditate architecto quasi exercitationem unde, nesciunt repellendus. Aperiam
-                    ,voluptatibus hic.
+                    <?= $dataMisi['teksMisi'] ?>
                   </p>
                 </div>
               </div>
