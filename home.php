@@ -1,3 +1,13 @@
+<?php
+require 'koneksi.php';
+$gambar = mysqli_query($link, "SELECT * FROM galeri
+INNER JOIN kategori_acara
+ON galeri.id_k_acara=kategori_acara.id_k_acara
+ORDER by kategori_acara.nama_k_acara;
+;");
+$acara =query('SELECT * FROM kategori_acara LIMIT 1');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda</title>
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
+    
     <style>
         @font-face {
             font-family: 'Poppins';
@@ -153,7 +164,37 @@
             <!-- !SECTION VISI MISI -->
             <!-- SECTION GALERI -->
             <div class="text-center py-4 border-bottom border-dark border-1">
+            <div style="  scroll-snap-type: y mandatory;">
               <h3>GALERI</h3>
+                  <!--SECTION Gambar -->
+                  <?php foreach ($acara as $cr) : ?>
+                    <div class="judul">
+                      <h3><?= $cr['nama_k_acara'] ?></h3>
+                      <p class="">
+                        <small>
+                          <?= $cr['tanggal_k_acara'] ?>
+                        </small>
+                      </p>
+                    </div>
+                    <!-- SECTION CARD-->
+                    <div class="card mb-5 py-3 gap-3" style=" width: 100%;scroll-snap-type: x mandatory;overflow:auto;display: flex;flex-direction: row;">
+                      <?php foreach ($gambar as $gbr) : ?>
+                        <?php if ($cr['id_k_acara'] == $gbr['id_k_acara']) : ?>
+                          <!-- SECTION FOTO -->
+                          <div class="foto">
+                            <img src="upload/<?=$gbr['gambarGaleri']?>" alt="" style=" scroll-snap-align: start;min-width: 380px;min-height: 240px;max-width: 380px;max-height: 240px;object-fit: cover;object-position: center; padding: 0px 2px;">
+                          </div>
+                          <!-- !SECTION FOTO -->
+                        <?php endif; ?>
+                      <?php endforeach; ?>
+                    </div>
+                    <!-- !SECTION CARD -->
+                  <?php endforeach; ?>
+                  <!--!SECTION end Gambar -->
+              </div>
+              <div class="text-center mb-3">
+                <a href="daftarGaleri/admin/galeri.php" class="">Read More ></a>
+              </div>
             </div>
             <!-- !SECTION GALERI -->
             <!-- SECTION BERITA -->
