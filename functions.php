@@ -228,6 +228,8 @@ function hapus($id){
 
   if(isset($id['idCarousel'])){
     $id = $id['idCarousel'];
+    $file = mysqli_fetch_assoc(mysqli_query($link,"SELECT * FROM carousel WHERE idCarousel='$id'"));
+    unlink('../assets/imgs/fotocarousel/' . $file["gambarCarousel"]);
     $query= "DELETE FROM carousel where idCarousel='$id'";
   }
   
