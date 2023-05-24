@@ -50,19 +50,19 @@
                     <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
                     <a class="nav-link text-info" href="../daftarBerita/berita.php">Berita</a>
                     <a class="nav-link text-white" href="#">PPDB</a>
-                    <a class="nav-link text-white" href="../GALERI/galeri/admin/galeri.php">Galeri</a>
+                    <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
                     <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Edit Website
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Carousel</a></li>
+                        <ul class="dropdown-menu" style="z-index: 99999;">
+                            <li><a class="dropdown-item" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
                             <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
                             <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
                             <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
                             <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                            <li><a class="dropdown-item" href="../GALERI/galeri/admin/galeri.php">Galeri</a></li>
+                            <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
                             <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
                         </ul>
                     </li>
@@ -152,7 +152,7 @@
                 </div>
             </div>
             <div class="col ms-auto">
-                <div class="">
+                <div class="sticky-top">
                     <form action="" class="m-auto mt-3 p-3 bg-dark border border-white border-2" method="POST">
                         <h3 class="text-white border-bottom border-2 border-white mb-5">FeedBack</h3>
                         <div class="mb-2">
