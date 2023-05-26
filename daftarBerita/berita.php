@@ -1,3 +1,6 @@
+<?php
+require '../functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,60 +91,30 @@
                                         <img src="../sample_img/b1.jpg" class="img-fluid" alt="...">
                                     </div>
                                         <div class="col-md-9">
-                                            <div class="card-body">
-                                                <small>29 Desember 2022</small>
-                                                <h5 class="card-title">Judul berita</h5>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
-                                                    quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
-                                                    dolores fugit quisquam recusandae culpa molestiae id, ab voluptas reprehenderit tempore!
-                                                </p>
+                                        <?php
+                                            $data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC"); 
+                                            foreach ( $data as $d ) :
+                                            ?>
+                                            <div class="card mb-3 m-auto">
+                                                <div class="row">
+                                                <div class="col-md-3">
+                                                    <img src="../sample_img/<?= $d['gambarBerita'] ?>" class="img-fluid" alt="...">
+                                                </div>
+                                                    <div class="col-md-9">
+                                                        <div class="card-body">
+                                                            <small><?= $d['tgldibuatBerita'] ?></small>
+                                                            <h5 class="card-title"><?= $d['judulBerita'] ?></h5>
+                                                            <p>
+                                                                <?= $d['isiBerita'] ?>
+                                                            </p>
+                                                        </div>
+                                                        <div class="card-footer bg-white border-0">
+                                                            <a href="detail_berita.php?id=<?= $d['idBerita'] ?>">Selengkapnya></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="card-footer bg-white border-0">
-                                                <a href="detail_berita.php">Selengkapnya></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mb-3 m-auto">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <img src="../sample_img/b2.jpg" class="img-fluid" alt="...">
-                                        </div>
-                                        <div class="col-md-9">
-                                            <div class="card-body">
-                                                <small>29 Desember 2022</small>
-                                                <h5 class="card-title">Judul berita</h5>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
-                                                    quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
-                                                    dolores fugit quisquam recusandae culpa molestiae id, ab voluptas reprehenderit tempore!
-                                                </p>
-                                            </div>
-                                            <div class="card-footer bg-white border-0">
-                                                <a href="detail_berita.php">Selengkapnya></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mb-3 m-auto">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <img src="../sample_img/b3.jpg" class="img-fluid" alt="...">
-                                        </div>
-                                        <div class="col-md-9">
-                                            <div class="card-body">
-                                                <small>29 Desember 2022</small>
-                                                <h5 class="card-title">Judul berita</h5>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
-                                                    quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
-                                                    dolores fugit quisquam recusandae culpa molestiae id, ab voluptas reprehenderit tempore!
-                                                </p>
-                                            </div>
-                                            <div class="card-footer bg-white border-0">
-                                                <a href="detail_berita.php">Selengkapnya></a>
-                                            </div>
+                                            <?php endforeach; ?>
                                         </div>
                                     </div>
                                 </div>
