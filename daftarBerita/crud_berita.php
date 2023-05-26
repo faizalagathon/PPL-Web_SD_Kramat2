@@ -134,8 +134,8 @@ require '../functions.php';
                                 </p>
                             </div>
                             <div class="card-footer bg-white border-0 text-end">
-                                <a href="edit_berita.php?id=<?= $d['idBerita'] ?>" class="btn btn-warning text-white">edit</a>
-                                <a href="hapus_berita.php?id=<?= $d['idBerita'] ?>" class="btn btn-info text-white">Hapus</a>
+                                <a href="edit_berita.php?id=<?php echo $d['idBerita'];?>" class="btn btn-warning text-white">edit</a>
+                                <a href="hapus_berita.php?id=<?php echo $d['idBerita'];?>" class="btn btn-info text-white" onclick="return confirm('Anda yakin akan menghapus data ini?')">Hapus</a>
                             </div>
                         </div>
                     </div>
