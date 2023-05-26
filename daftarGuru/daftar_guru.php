@@ -233,7 +233,7 @@ if($jumlahDataQueryGuru == 0){
                             <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
                             <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
                             <a class="nav-link text-white" href="#">PPDB</a>
-                            <a class="nav-link text-white" href="#">Galeri</a>
+                            <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
                             <a class="nav-link text-info" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
                             <?php if(isset($admin) && $admin == true) : ?>
                                 <li class="nav-item dropdown">
@@ -246,7 +246,7 @@ if($jumlahDataQueryGuru == 0){
                                         <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
                                         <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
                                         <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                                        <li><a class="dropdown-item" href="#">Galeri</a></li>
+                                        <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
                                         <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
                                     </ul>
                                 </li>

@@ -56,63 +56,59 @@
       <!-- akhir navbar pertama -->
       
       
-        <!-- awal navbar kedua -->
-            <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
-                <div class="container-fluid ">
-                    <a class="navbar-brand p-0" href="home.html">
-                        <img src="../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
-                    </a>
-                    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>    
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav ms-5 gap-4">
-                            <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
-                            <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
-                            <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
-                            <a class="nav-link text-white" href="#">PPDB</a>
-                            <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
-                            <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Edit Website
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="modifikasi_carousel.php">Carousel</a></li>
-                                    <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
-                                    <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
-                                    <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
-                                    <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                                    <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
-                                    <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
-                                </ul>
-                            </li>
-                        </div>
+      <!-- awal navbar kedua -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+            <div class="container-fluid ">
+                <a class="navbar-brand p-0" href="home.html">
+                    <img src="../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>    
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-5 gap-4">
+                        <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
+                        <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
+                        <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
+                        <a class="nav-link text-white" href="#">PPDB</a>
+                        <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
+                        <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Edit Website
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="modifikasi_carousel.php">Carousel</a></li>
+                                <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
+                                <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
+                                <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
+                                <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+                                <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
+                                <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
+                            </ul>
+                        </li>
                     </div>
                 </div>
-            </nav>
-          <!-- akhir navbar kedua -->
+            </div>
+          </nav>
+      <!-- akhir navbar kedua -->
   
     <!--for demo wrap-->
     <div class="container-fluid">
-      <div class="d-flex gap-4">
-        <div class="">
-          <h1>Data Carousel</h1>
-        </div>
-        <div class="position-absolute mt-3" style="right: 12px;">
-          <a class="button-24 btn btn-primary" href="tambah_carousel.php">Tambah</a>
-        </div>
+      <div class="mt-4">
+        <h3>Data Carousel</h3>
       </div>
-      <div class="tbl-content">
-        <div class="d-flex flex-wrap pt-4 mb-5">
+      <div class="tbl-content p-3 border border-1 border-dark mb-2" style="border-radius: 20px;">
+        <a class="button-24 btn btn-primary w-100" href="tambah_carousel.php">Tambah</a>
+        <div class="d-flex flex-wrap pt-4">
         <?php foreach($carousel as $c) : ?>
-              <div class="m-auto mb-3">
+              <div class="card m-auto mb-5">
                   <div class="">
                     <img class="gambar" class="ms-auto" src="../assets/imgs/fotocarousel/<?php echo $c["gambarCarousel"]; ?>">
                   </div>
-                  <div class="text-center">
-                    <a  class="btn btn-primary" href="edit_carousel.php?idCarousel=<?php echo $c['idCarousel']; ?>&aksi=edit"> Edit </a>
-                    <a  class="btn btn-primary" href="?idCarousel=<?php echo $c['idCarousel']; ?>&aksi=hapus" onclick="return confirm('Anda Yakin Ingin Menghapus Data ini?')"> Hapus </a>
+                  <div class="text-end p-2">
+                    <a  class="btn btn-warning text-white" href="edit_carousel.php?idCarousel=<?php echo $c['idCarousel']; ?>&aksi=edit"> Edit </a>
+                    <a  class="btn btn-danger" href="?idCarousel=<?php echo $c['idCarousel']; ?>&aksi=hapus" onclick="return confirm('Anda Yakin Ingin Menghapus Data ini?')"> Hapus </a>
                   </div>
               </div>
           <?php endforeach ?>
@@ -125,13 +121,13 @@
     <!-- SECTION FOOTER -->
       <div class="footer" style="bottom: 0;">
         <div class="text-center bg-dark" style="padding: 5%;">
-          <p class="text-white mb-0 mt-0">
+          <p class="text-white mb-0">
             Coypright By @SD_Keramat2023
           </p>
         </div>
       </div>
     <!-- !SECTION FOOTER -->
-    <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+    <!-- <script src="../assets/js/bootstrap/bootstrap.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
 
         // '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
