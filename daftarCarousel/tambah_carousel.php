@@ -1,3 +1,6 @@
+<?php
+require "Koneksi.php"; 
+?>
 <!doctype html>
 <html lang="en">
   <head>
