@@ -87,9 +87,6 @@ require '../functions.php';
                             <div class="d-flex flex-wrap">
                                 <div class="card mb-3 m-auto">
                                     <div class="row">
-                                    <div class="col-md-3">
-                                        <img src="../sample_img/b1.jpg" class="img-fluid" alt="...">
-                                    </div>
                                         <div class="col-md-9">
                                         <?php
                                             $data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC"); 
