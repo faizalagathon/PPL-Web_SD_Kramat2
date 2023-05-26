@@ -76,18 +76,18 @@
             <div class="border-dark border rounded-3" style="width: 70%;">
                 <h3 class="border-bottom border-dark py-2 m-3">Tambah Berita</h3>
                 <div class="p-3">
-                    <form action="">
+                    <form action="tambah_act_berita.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="" class="form-label">Sertakan Gambar :</label>
-                            <input type="file" class="form-control w-25">
+                            <input type="file" name="foto" class="form-control w-25">
                         </div>
                         <div class="mb-3">                            
                             <label for="" class="form-label">judul :</label>
-                            <input type="text" class="form-control" name="">
+                            <input type="text" class="form-control" name="judul">
                         </div>
                         <div class="mb-3">                            
                             <label for="" class="form-label">Isi Berita :</label>
-                            <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
+                            <textarea name="isi" class="form-control" id="" cols="30" rows="5"></textarea>
                         </div>
                         <div class="text-end">
                             <button type="submit" class="btn btn-warning text-white">Batal</button>
