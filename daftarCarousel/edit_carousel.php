@@ -1,3 +1,11 @@
+<?php 
+if(isset($_GET["ParamAksi"])){
+    $aksi=$_GET["ParamAksi"];
+    $table=$_GET['ParamTable'];
+    $cek=$_GET['ParamCek'];
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,7 +24,7 @@
   <body>
     
   <?php
-    require  "../koneksi.php";
+    require  "Koneksi.php";
     $idcarousel=$_GET['idCarousel'];
     $sql= "SELECT * FROM carousel WHERE idCarousel like '$idcarousel'";
     $carousel = query($sql);
@@ -74,6 +82,20 @@
       <!-- akhir navbar kedua -->
     <form action="" method="POST" enctype="multipart/form-data">
 
+<<<<<<< HEAD
+    <form action="aksiedit.php?ParamAksi=ubah_foto&ParamTable=carousel" method="post" enctype="multipart/form-data">
+            
+        <div class="card mx-auto" style="width: 18rem;">
+        <input type="hidden" name="gambarLama" value="<?= $carousel[0]['gambarCarousel'] ?>">
+        <input type="hidden" name="idCarousel" value="<?= $carousel[0]['idCarousel']?>">
+            <img class="card-img-top" alt="..." src="../assets/imgs/fotocarousel/<?= $carousel[0]['gambarCarousel'] ?>">
+            <div class="card-body">
+                <h5 class="card-title">Edit Gambar Carousel</h5>
+
+                <p class="card-text" style="color: red;">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
+                <input type="file" name="gambarCarousel" id="foto" required>
+                <div style="padding: 5px;">
+=======
         <div class="card mx-auto my-3" style="width: 20rem;">
             <div class="">
                 <img class="card-img-top" alt="..." src="../assets/imgs/fotocarousel/<?= $carousel[0]['gambarCarousel'] ?>">
@@ -84,6 +106,7 @@
                 <smaller class="" style="color: red; font-size: 13px;">*Format yang diperbolehkan .png | .jpg | .jpeg | .gif</smaller>
             </div>
             <div class="p-2 text-end gap-2">
+>>>>>>> b7302c2ac5d8caf9f23301c27bc908a5d2252ae3
                 <input type="hidden" name="hidden">
                 <button type="submit" class="btn btn-warning text-white">Save</button>
                 <a href="modifikasi_carousel.php" class="btn btn-secondary">Kembali</a>
@@ -91,40 +114,41 @@
         </div>
 
     <?php
-            if ( isset($_POST['hidden']) ){
+            // if ( isset($_POST['hidden']) ){
                 
-                $rand = rand();
-                $ekstensi =  array('png','jpg','jpeg','gif');
-                $filename = $_FILES['foto']['name'];
-                $ukuran = $_FILES['foto']['size'];
-                $ext = pathinfo($filename, PATHINFO_EXTENSION);
+            //     $rand = rand();
+            //     $ekstensi =  array('png','jpg','jpeg','gif');
+            //     $filename = $_FILES['foto']['name'];
+            //     $ukuran = $_FILES['foto']['size'];
+            //     $ext = pathinfo($filename, PATHINFO_EXTENSION);
                 
-                if ( ($filename && $ukuran) == NULL ){
-                    echo "
-                    <script>
-                    alert('Data Gagal di Edit');
-                    document.location.href = 'modifikasi_carousel.php';
-                    </script>
-                    ";
+            //     if ( ($filename && $ukuran) == NULL ){
+            //         echo "
+            //         <script>
+            //         alert('Data Gagal di Edit');
+            //         document.location.href = 'modifikasi_carousel.php';
+            //         </script>
+            //         ";
                     
-                } else {
-                    $xx = $rand.'_'.$filename;
-                    $sqlU= "UPDATE carousel
-                    SET
-                        gambarCarousel='$xx'
-                    WHERE idCarousel = '$idcarousel'";
-                    move_uploaded_file($_FILES['foto']['tmp_name'], '../assets/imgs/fotocarousel/'.$xx);
+            //     } else {
+            //         $xx = $rand.'_'.$filename;
+            //         $sqlU= "UPDATE carousel
+            //         SET
+            //             gambarCarousel='$xx'
+            //         WHERE idCarousel = '$idcarousel'";
+            //         move_uploaded_file($_FILES['foto']['tmp_name'], 'fotocarousel/'.$xx);
 
-                    mysqli_query($link,$sqlU);
-                    echo "
-                    <script>
-                    alert('Data Berhasil di Edit');
-                            document.location.href = 'modifikasi_carousel.php';
-                    </script>
-                    ";
+            //         mysqli_query($db_link,$sqlU);
+            //         echo "
+            //         <script>
+            //         alert('Data Berhasil di Edit');
+            //                 document.location.href = 'modifikasi_carousel.php';
+            //         </script>
+            //         ";
 
-                }
-            }
+            //     }
+            // }
+
         ?>
     </form>
     <!-- SECTION FOOTER -->
