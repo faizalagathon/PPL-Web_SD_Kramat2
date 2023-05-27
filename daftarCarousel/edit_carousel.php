@@ -80,79 +80,65 @@ if(isset($_GET["ParamAksi"])){
             </div>
           </nav>
       <!-- akhir navbar kedua -->
-    <form action="" method="POST" enctype="multipart/form-data">
+        <form action="aksiedit.php?ParamAksi=ubah_foto&ParamTable=carousel" method="post" enctype="multipart/form-data">
+            <div class="row mt-2">
+                <div class="card mx-auto" style="width: 18rem;">
+                    <input type="hidden" name="gambarLama" value="<?= $carousel[0]['gambarCarousel'] ?>">
+                    <input type="hidden" name="idCarousel" value="<?= $carousel[0]['idCarousel']?>">
+                    <img class="card-img-top" alt="..." src="../assets/imgs/fotocarousel/<?= $carousel[0]['gambarCarousel'] ?>">
+                    <div class="card-body">
+                        <h5 class="card-title">Edit Gambar Carousel</h5>
 
-<<<<<<< HEAD
-    <form action="aksiedit.php?ParamAksi=ubah_foto&ParamTable=carousel" method="post" enctype="multipart/form-data">
-            
-        <div class="card mx-auto" style="width: 18rem;">
-        <input type="hidden" name="gambarLama" value="<?= $carousel[0]['gambarCarousel'] ?>">
-        <input type="hidden" name="idCarousel" value="<?= $carousel[0]['idCarousel']?>">
-            <img class="card-img-top" alt="..." src="../assets/imgs/fotocarousel/<?= $carousel[0]['gambarCarousel'] ?>">
-            <div class="card-body">
-                <h5 class="card-title">Edit Gambar Carousel</h5>
+                        <p class="card-text" style="color: red;">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
+                        <input type="file" name="gambarCarousel" id="foto" required>
+                        <div style="padding: 5px;">
 
-                <p class="card-text" style="color: red;">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
-                <input type="file" name="gambarCarousel" id="foto" required>
-                <div style="padding: 5px;">
-=======
-        <div class="card mx-auto my-3" style="width: 20rem;">
-            <div class="">
-                <img class="card-img-top" alt="..." src="../assets/imgs/fotocarousel/<?= $carousel[0]['gambarCarousel'] ?>">
+                        <button type="submit" class="btn btn-warning text-white">Save</button>
+                        <a href="modifikasi_carousel.php" class="btn btn-secondary">Kembali</a>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <h5 class="card-title">Edit Gambar Carousel</h5>
-                <input class="form-control" type="file" name="foto" id="foto">
-                <smaller class="" style="color: red; font-size: 13px;">*Format yang diperbolehkan .png | .jpg | .jpeg | .gif</smaller>
-            </div>
-            <div class="p-2 text-end gap-2">
->>>>>>> b7302c2ac5d8caf9f23301c27bc908a5d2252ae3
-                <input type="hidden" name="hidden">
-                <button type="submit" class="btn btn-warning text-white">Save</button>
-                <a href="modifikasi_carousel.php" class="btn btn-secondary">Kembali</a>
-            </div>
-        </div>
 
-    <?php
-            // if ( isset($_POST['hidden']) ){
-                
-            //     $rand = rand();
-            //     $ekstensi =  array('png','jpg','jpeg','gif');
-            //     $filename = $_FILES['foto']['name'];
-            //     $ukuran = $_FILES['foto']['size'];
-            //     $ext = pathinfo($filename, PATHINFO_EXTENSION);
-                
-            //     if ( ($filename && $ukuran) == NULL ){
-            //         echo "
-            //         <script>
-            //         alert('Data Gagal di Edit');
-            //         document.location.href = 'modifikasi_carousel.php';
-            //         </script>
-            //         ";
+            <?php
+                // if ( isset($_POST['hidden']) ){
                     
-            //     } else {
-            //         $xx = $rand.'_'.$filename;
-            //         $sqlU= "UPDATE carousel
-            //         SET
-            //             gambarCarousel='$xx'
-            //         WHERE idCarousel = '$idcarousel'";
-            //         move_uploaded_file($_FILES['foto']['tmp_name'], 'fotocarousel/'.$xx);
+                //     $rand = rand();
+                //     $ekstensi =  array('png','jpg','jpeg','gif');
+                //     $filename = $_FILES['foto']['name'];
+                //     $ukuran = $_FILES['foto']['size'];
+                //     $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                    
+                //     if ( ($filename && $ukuran) == NULL ){
+                //         echo "
+                //         <script>
+                //         alert('Data Gagal di Edit');
+                //         document.location.href = 'modifikasi_carousel.php';
+                //         </script>
+                //         ";
+                        
+                //     } else {
+                //         $xx = $rand.'_'.$filename;
+                //         $sqlU= "UPDATE carousel
+                //         SET
+                //             gambarCarousel='$xx'
+                //         WHERE idCarousel = '$idcarousel'";
+                //         move_uploaded_file($_FILES['foto']['tmp_name'], 'fotocarousel/'.$xx);
 
-            //         mysqli_query($db_link,$sqlU);
-            //         echo "
-            //         <script>
-            //         alert('Data Berhasil di Edit');
-            //                 document.location.href = 'modifikasi_carousel.php';
-            //         </script>
-            //         ";
+                //         mysqli_query($db_link,$sqlU);
+                //         echo "
+                //         <script>
+                //         alert('Data Berhasil di Edit');
+                //                 document.location.href = 'modifikasi_carousel.php';
+                //         </script>
+                //         ";
 
-            //     }
-            // }
+                //     }
+                // }
 
-        ?>
-    </form>
+            ?>
+        </form>
     <!-- SECTION FOOTER -->
-        <div class="footer" style="bottom: 0;">
+        <div class="footer mt-2" style="bottom: 0;">
             <div class="text-center bg-dark" style="padding: 5%;">
                 <p class="text-white mb-0">
                     Coypright By @SD_Keramat2023
