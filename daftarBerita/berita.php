@@ -91,18 +91,19 @@ require '../functions.php';
                                         <?php
                                             $data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC"); 
                                             foreach ( $data as $d ) :
+                                                $part= substr($d['isiBerita'],0,50);
                                             ?>
                                             <div class="card mb-3 m-auto">
                                                 <div class="row">
                                                 <div class="col-md-3">
-                                                    <img src="../sample_img/<?= $d['gambarBerita'] ?>" class="img-fluid" alt="...">
+                                                    <img src="../assets/imgs/berita/<?= $d['gambarBerita'] ?>" class="img-fluid" alt="...">
                                                 </div>
                                                     <div class="col-md-9">
                                                         <div class="card-body">
                                                             <small><?= $d['tgldibuatBerita'] ?></small>
                                                             <h5 class="card-title"><?= $d['judulBerita'] ?></h5>
                                                             <p>
-                                                                <?= $d['isiBerita'] ?>
+                                                                <?= $part ?>...
                                                             </p>
                                                         </div>
                                                         <div class="card-footer bg-white border-0">
