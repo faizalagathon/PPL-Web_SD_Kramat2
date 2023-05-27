@@ -79,7 +79,7 @@ require '../functions.php';
 			if($_GET['alert']=='gagal_ekstensi'){
 				?>
 				<div class="alert alert-warning alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
 					<h4><i class="icon fa fa-warning"></i> Peringatan !</h4>
 					Ekstensi Tidak Diperbolehkan
 				</div>								
@@ -87,7 +87,7 @@ require '../functions.php';
 			}elseif($_GET['alert']=="gagal_ukuran"){
 				?>
 				<div class="alert alert-warning alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
 					<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
 					Ukuran File terlalu Besar
 				</div> 								
@@ -95,7 +95,7 @@ require '../functions.php';
 			}elseif($_GET['alert']=="berhasil"){
 				?>
 				<div class="alert alert-success alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
 					<h4><i class="icon fa fa-check"></i> Success</h4>
 					Berhasil Disimpan
 				</div> 								
@@ -103,7 +103,7 @@ require '../functions.php';
 			}elseif($_GET['alert']=="berhasilhapus"){
 				?>
 				<div class="alert alert-success alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
 					<h4><i class="icon fa fa-check"></i> Success</h4>
 					Berhasil Dihapus
 				</div> 								
@@ -119,6 +119,7 @@ require '../functions.php';
                 <?php
                 $data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC"); 
                 foreach ( $data as $d ) :
+                    $part= substr($d['isiBerita'],0,90);
                 ?>
                 <div class="card mb-3 m-auto w-75">
                     <div class="row">
@@ -130,7 +131,7 @@ require '../functions.php';
                                 <small><?= $d['tgldibuatBerita'] ?></small>
                                 <h5 class="card-title"><?= $d['judulBerita'] ?></h5>
                                 <p>
-                                    <?= $d['isiBerita'] ?>
+                                    <?= $part ?>...
                                 </p>
                             </div>
                             <div class="card-footer bg-white border-0 text-end">
