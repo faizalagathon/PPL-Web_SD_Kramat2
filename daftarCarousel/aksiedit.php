@@ -71,6 +71,7 @@ function upload(){
                     document.location.href = 'modifikasi_carousel.php';
                     </script>
                     ";
+                    return false;
     }
     // cek jika ukuran terlalu besar
     if($ukuranfile>5000000){
