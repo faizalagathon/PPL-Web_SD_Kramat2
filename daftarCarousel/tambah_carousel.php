@@ -1,9 +1,13 @@
+<?php
+require "Koneksi.php"; 
+?>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>tambah carousel</title>
+    <!-- <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
         /* body{
@@ -38,7 +42,7 @@
             <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
                 <div class="container-fluid ">
                     <a class="navbar-brand p-0" href="home.html">
-                        <img src="image/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+                        <img src="../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
                     </a>
                     <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>

@@ -1,20 +1,20 @@
 <?php 
-session_start();
+// session_start();
 
 include '../koneksi.php';
 
 // $link = new mysqli('localhost','root','','db_sdkramat2');
 
 // function query($sql){
-
 //   global $link;
-//   $rows = [];
-//   $hasil = $link->query($sql);
-//   while($row = $hasil->fetch_assoc()){
-//     $rows[] = $row;
+
+//   $hsl=mysqli_query($link,$sql);
+//   $rows=[];
+
+//   while($row= mysqli_fetch_assoc($hsl)){
+//       $rows[]=$row;
 //   }
 //   return $rows;
-
 // }
 
 function login($data){
@@ -228,8 +228,10 @@ function hapus($id){
 
   if(isset($id['idCarousel'])){
     $id = $id['idCarousel'];
+    $file = mysqli_fetch_assoc(mysqli_query($link,"SELECT * FROM carousel WHERE idCarousel='$id'"));
+    unlink('../assets/imgs/fotocarousel/' . $file["gambarCarousel"]);
     $query= "DELETE FROM carousel where idCarousel='$id'";
-  }
+  } 
   
   if(isset($id['id_guru'])){
     $id = htmlspecialchars($id['id_guru']);

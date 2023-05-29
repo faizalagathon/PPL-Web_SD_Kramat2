@@ -1,5 +1,5 @@
 <?php 
-include '../koneksi.php';
+include '../functions.php';
 
 $rand = rand();
 $ekstensi =  array('png','jpg','jpeg');

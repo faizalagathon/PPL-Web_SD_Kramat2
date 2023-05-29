@@ -7,7 +7,28 @@ ORDER by kategori_acara.nama_k_acara;
 ;");
 $acara =query('SELECT * FROM kategori_acara LIMIT 1');
 
+// Menampilkan Visi dan Misi
+$dataVisi = mysqli_fetch_assoc(mysqli_query($link, 'SELECT * FROM visi'));
+$dataMisi = mysqli_fetch_assoc(mysqli_query($link, 'SELECT * FROM misi'));
+if(!isset($dataVisi)){
+  $dataVisi = [
+      'idVisi' => 0,
+      'teksVisi' => 'Belom Menuliskan Visi',    
+  ];
+}
+if(!isset($dataMisi)){
+  $dataMisi = [
+      'idMisi' => 0,
+      'teksMisi' => 'Belom Menuliskan Misi',    
+  ];
+}
+
+//Carousel
+$datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel ASC");
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +37,6 @@ $acara =query('SELECT * FROM kategori_acara LIMIT 1');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda</title>
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
-    
     <style>
         @font-face {
             font-family: 'Poppins';
@@ -58,8 +78,6 @@ $acara =query('SELECT * FROM kategori_acara LIMIT 1');
           </nav>
         </div>
       <!-- akhir navbar pertama -->
-      
-      
         <!-- awal navbar kedua -->
             <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
                 <div class="container-fluid ">
@@ -99,22 +117,19 @@ $acara =query('SELECT * FROM kategori_acara LIMIT 1');
           <div class="container-fluid">
             <!-- SECTION CAROUSEL -->
               <div id="carouselExampleControls" data-bs-ride="carousel" class="carousel slide auto">
-                <div class="carousel-indicators">
+                <!-- <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                   <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
                   <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
+                </div> -->
                 <!-- NOTE Maksimal Tinggi Gambar Carousel diatas 500px -->
+                <!-- ini yg tadi ilang -->
                 <div class="carousel-inner slide">
-                  <div class="carousel-item active item" style="max-height: 30rem;">
-                    <img src="sample_img/img4.jpg" class="d-block w-100 gambar" style="max-height: max-content;" alt="...">
-                  </div>
-                  <div class="carousel-item item"  style="max-height: 30rem;">
-                    <img src="sample_img/img5.png" class="d-block w-100 gambar" style="max-height: max-content;" alt="...">
-                  </div>
-                  <div class="carousel-item item"  style="max-height: 30rem;">
-                    <img src="sample_img/img2.jpg" class="d-block w-100 gambar" style="max-height: max-content;" alt="...">
-                  </div>
+                  <?php while($d = mysqli_fetch_assoc($datacarousel)) : ?>
+                    <div class="carousel-item active" style="max-height: 30rem;">
+                      <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block " style="width:100%; height:500px;" alt="...">
+                    </div>
+                  <?php endwhile; ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -144,9 +159,7 @@ $acara =query('SELECT * FROM kategori_acara LIMIT 1');
                 <div class="bg-info py-5 px-5 text-start mb-3">
                   <h4>VISI</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam commodi amet quod dolores corrupti, voluptates 
-                    nulla tempore quae ex reiciendis, cupiditate architecto quasi exercitationem unde, nesciunt repellendus. Aperiam
-                    ,voluptatibus hic.
+                    <?= $dataVisi['teksVisi'] ?>
                   </p>
                 </div>
               </div>
@@ -154,30 +167,20 @@ $acara =query('SELECT * FROM kategori_acara LIMIT 1');
                 <div class="bg-info py-5 px-5 text-start">
                   <h4>MISI</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam commodi amet quod dolores corrupti, voluptates 
-                    nulla tempore quae ex reiciendis, cupiditate architecto quasi exercitationem unde, nesciunt repellendus. Aperiam
-                    ,voluptatibus hic.
+                    <?= $dataMisi['teksMisi'] ?>
                   </p>
                 </div>
               </div>
             </div>
             <!-- !SECTION VISI MISI -->
             <!-- SECTION GALERI -->
-            <div class="text-center py-4 border-bottom border-dark border-1">
+            <div class="py-4 border-bottom border-dark border-1">
             <div style="  scroll-snap-type: y mandatory;">
-              <h3>GALERI</h3>
+              <h3 class="text-center">GALERI</h3>
                   <!--SECTION Gambar -->
                   <?php foreach ($acara as $cr) : ?>
-                    <div class="judul">
-                      <h3><?= $cr['nama_k_acara'] ?></h3>
-                      <p class="">
-                        <small>
-                          <?= $cr['tanggal_k_acara'] ?>
-                        </small>
-                      </p>
-                    </div>
                     <!-- SECTION CARD-->
-                    <div class="card mb-5 py-3 gap-3" style=" width: 100%;scroll-snap-type: x mandatory;overflow:auto;display: flex;flex-direction: row;">
+                    <div class="card border-0 py-3 gap-3" style=" width: 100%;scroll-snap-type: x mandatory;overflow:auto;display: flex;flex-direction: row;">
                       <?php foreach ($gambar as $gbr) : ?>
                         <?php if ($cr['id_k_acara'] == $gbr['id_k_acara']) : ?>
                           <!-- SECTION FOTO -->
@@ -189,6 +192,14 @@ $acara =query('SELECT * FROM kategori_acara LIMIT 1');
                       <?php endforeach; ?>
                     </div>
                     <!-- !SECTION CARD -->
+                    <div class="judul">
+                      <h3><?= $cr['nama_k_acara'] ?></h3>
+                      <p class="">
+                        <small>
+                          <?= $cr['tanggal_k_acara'] ?>
+                        </small>
+                      </p>
+                    </div>
                   <?php endforeach; ?>
                   <!--!SECTION end Gambar -->
               </div>
@@ -217,7 +228,7 @@ $acara =query('SELECT * FROM kategori_acara LIMIT 1');
                         </p>
                       </div>
                       <div class="card-footer bg-white border-0">
-                        <a href="detail_berita.html">Selengkapnya></a>
+                        <a href="daftarberita/detail_berita.php">Selengkapnya></a>
                       </div>
                     </div>
                   </div>
@@ -238,7 +249,7 @@ $acara =query('SELECT * FROM kategori_acara LIMIT 1');
                         </p>
                       </div>
                       <div class="card-footer bg-white border-0">
-                        <a href="detail_berita.html">Selengkapnya></a>
+                        <a href="daftarberita/detail_berita.php">Selengkapnya></a>
                       </div>
                     </div>
                   </div>
@@ -259,7 +270,7 @@ $acara =query('SELECT * FROM kategori_acara LIMIT 1');
                         </p>
                       </div>
                       <div class="card-footer bg-white border-0">
-                        <a href="detail_berita.html">Selengkapnya></a>
+                        <a href="daftarberita/detail_berita.php">Selengkapnya></a>
                       </div>
                     </div>
                   </div>
@@ -280,6 +291,7 @@ $acara =query('SELECT * FROM kategori_acara LIMIT 1');
             </div>
           </div>
           <!-- !SECTION FOOTER -->
-    <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

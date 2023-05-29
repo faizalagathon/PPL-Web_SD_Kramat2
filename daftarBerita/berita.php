@@ -1,3 +1,6 @@
+<?php
+require '../functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,19 +53,19 @@
                     <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
                     <a class="nav-link text-info" href="../daftarBerita/berita.php">Berita</a>
                     <a class="nav-link text-white" href="#">PPDB</a>
-                    <a class="nav-link text-white" href="../GALERI/galeri/admin/galeri.php">Galeri</a>
+                    <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
                     <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Edit Website
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Carousel</a></li>
+                        <ul class="dropdown-menu" style="z-index: 99999;">
+                            <li><a class="dropdown-item" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
                             <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
                             <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
                             <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
                             <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                            <li><a class="dropdown-item" href="../GALERI/galeri/admin/galeri.php">Galeri</a></li>
+                            <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
                             <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
                         </ul>
                     </li>
@@ -84,64 +87,32 @@
                             <div class="d-flex flex-wrap">
                                 <div class="card mb-3 m-auto">
                                     <div class="row">
-                                    <div class="col-md-3">
-                                        <img src="../sample_img/b1.jpg" class="img-fluid" alt="...">
-                                    </div>
                                         <div class="col-md-9">
-                                            <div class="card-body">
-                                                <small>29 Desember 2022</small>
-                                                <h5 class="card-title">Judul berita</h5>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
-                                                    quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
-                                                    dolores fugit quisquam recusandae culpa molestiae id, ab voluptas reprehenderit tempore!
-                                                </p>
+                                        <?php
+                                            $data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC"); 
+                                            foreach ( $data as $d ) :
+                                                $part= substr($d['isiBerita'],0,50);
+                                            ?>
+                                            <div class="card mb-3 m-auto">
+                                                <div class="row">
+                                                <div class="col-md-3">
+                                                    <img src="../assets/imgs/berita/<?= $d['gambarBerita'] ?>" class="img-fluid" alt="...">
+                                                </div>
+                                                    <div class="col-md-9">
+                                                        <div class="card-body">
+                                                            <small><?= $d['tgldibuatBerita'] ?></small>
+                                                            <h5 class="card-title"><?= $d['judulBerita'] ?></h5>
+                                                            <p>
+                                                                <?= $part ?>...
+                                                            </p>
+                                                        </div>
+                                                        <div class="card-footer bg-white border-0">
+                                                            <a href="detail_berita.php?id=<?= $d['idBerita'] ?>">Selengkapnya></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="card-footer bg-white border-0">
-                                                <a href="detail_berita.php">Selengkapnya></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mb-3 m-auto">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <img src="../sample_img/b2.jpg" class="img-fluid" alt="...">
-                                        </div>
-                                        <div class="col-md-9">
-                                            <div class="card-body">
-                                                <small>29 Desember 2022</small>
-                                                <h5 class="card-title">Judul berita</h5>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
-                                                    quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
-                                                    dolores fugit quisquam recusandae culpa molestiae id, ab voluptas reprehenderit tempore!
-                                                </p>
-                                            </div>
-                                            <div class="card-footer bg-white border-0">
-                                                <a href="detail_berita.php">Selengkapnya></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card mb-3 m-auto">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <img src="../sample_img/b3.jpg" class="img-fluid" alt="...">
-                                        </div>
-                                        <div class="col-md-9">
-                                            <div class="card-body">
-                                                <small>29 Desember 2022</small>
-                                                <h5 class="card-title">Judul berita</h5>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
-                                                    quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
-                                                    dolores fugit quisquam recusandae culpa molestiae id, ab voluptas reprehenderit tempore!
-                                                </p>
-                                            </div>
-                                            <div class="card-footer bg-white border-0">
-                                                <a href="detail_berita.php">Selengkapnya></a>
-                                            </div>
+                                            <?php endforeach; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +123,7 @@
                 </div>
             </div>
             <div class="col ms-auto">
-                <div class="">
+                <div class="sticky-top">
                     <form action="" class="m-auto mt-3 p-3 bg-dark border border-white border-2" method="POST">
                         <h3 class="text-white border-bottom border-2 border-white mb-5">FeedBack</h3>
                         <div class="mb-2">

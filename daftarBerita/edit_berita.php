@@ -1,3 +1,7 @@
+<?php
+include '../functions.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,22 +80,32 @@
             <div class="border-dark border rounded-3" style="width: 70%;">
                 <h3 class="border-bottom border-dark py-2 m-3">Edit Berita</h3>
                 <div class="p-3">
-                    <form action="">
+                    <?php 
+                    if(isset($_GET['id'])){
+                        $id = ($_GET['id']);
+                        $data = mysqli_query($link,"select * from berita where idBerita = '$id' ");
+                        $d = mysqli_fetch_array($data);
+                    }
+                    ?>
+                    <form action="edit_act_berita.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3 text-center">
                             <label for="" class="form-label">Ubah Gambar :</label><br>
-                            <img src="sample_img/img4.jpg" class="w-50 mb-2" alt="">
-                            <input type="file" class="form-control w-25 m-auto">
+                            <img src="../assets/imgs/berita/<?php echo $d['gambarBerita'] ?>" class="w-50 mb-2" alt="">
+                            <input type="file" name="foto" class="form-control w-25 m-auto">
                         </div>
                         <div class="mb-3">                            
                             <label for="" class="form-label">judul :</label>
-                            <input type="text" class="form-control" name="">
+                            <input type="text" class="form-control" VALUE="<?php echo $d['judulBerita'] ?>" name="judul">
                         </div>
                         <div class="mb-3">                            
                             <label for="" class="form-label">Isi Berita :</label>
-                            <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
+                            <textarea name="isi" class="form-control" id="isi" cols="30" rows="5" required=""><?php echo $d['isiBerita'] ?></textarea>
+                        </div>
+                        <div class="mb-3 visually-hidden">
+                            <input type="text" name="id" id="" value="<?php echo $id ?>">
                         </div>
                         <div class="text-end">
-                            <button type="submit" class="btn btn-warning text-white">Batal</button>
+                            <button href="crud_berita.php" class="btn btn-warning text-white">Batal</button>
                             <button type="submit" class="btn btn-info text-white">Update</button>
                         </div>
                     </form>
@@ -108,6 +122,7 @@
             </div>
         </div>
     <!-- !SECTION FOOTER -->
+
     <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>

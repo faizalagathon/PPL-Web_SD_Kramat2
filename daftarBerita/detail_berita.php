@@ -1,3 +1,11 @@
+<?php
+require '../functions.php';
+if(isset($_GET['id'])){
+    $id = ($_GET['id']);
+    $data = mysqli_query($link,"SELECT * FROM berita where idBerita='$id'"); 
+    $d = mysqli_fetch_array($data);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,25 +82,13 @@
     <div class="container-fluid">
         <div class="justify-content-center d-flex mb-4 mt-3">
             <div class="card" style="width: 70%;">
-                <img src="../sample_img/img5.png" class="card-img-top" alt="...">
+                <img src="../assets/imgs/berita/<?= $d['gambarBerita'] ?>" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h3 class="card-title">Judul Berita</h3>
+                    <h3 class="card-title"><?= $d['judulBerita'] ?></h3>
                     <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                        <?= $d['isiBerita'] ?>
                     </p>
-                    <small>29 Desember 2022</small>
+                    <small><?= $d['tgldibuatBerita'] ?></small>
                 </div>
             </div>
         </div>

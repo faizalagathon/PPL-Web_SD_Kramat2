@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Berita</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-5.3.0/bootstrap.min.css">
     <style>
         @font-face {
             font-family: 'Poppins';
@@ -39,7 +39,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
         <div class="container-fluid ">
             <a class="navbar-brand p-0" href="home.html">
-                <img src="../assets/imgs/Foto SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+                <img src="../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -76,18 +76,18 @@
             <div class="border-dark border rounded-3" style="width: 70%;">
                 <h3 class="border-bottom border-dark py-2 m-3">Tambah Berita</h3>
                 <div class="p-3">
-                    <form action="">
+                    <form action="tambah_act_berita.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="" class="form-label">Sertakan Gambar :</label>
-                            <input type="file" class="form-control w-25">
+                            <input type="file" name="foto" class="form-control w-25">
                         </div>
                         <div class="mb-3">                            
                             <label for="" class="form-label">judul :</label>
-                            <input type="text" class="form-control" name="">
+                            <input type="text" class="form-control" name="judul">
                         </div>
                         <div class="mb-3">                            
                             <label for="" class="form-label">Isi Berita :</label>
-                            <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
+                            <textarea name="isi" class="form-control" id="" cols="30" rows="5"></textarea>
                         </div>
                         <div class="text-end">
                             <button type="submit" class="btn btn-warning text-white">Batal</button>
@@ -107,6 +107,6 @@
             </div>
         </div>
     <!-- !SECTION FOOTER -->
-    <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/bootstrap-5.3.0/bootstrap.bundle.min.js"></script>
 </body>
 </html>

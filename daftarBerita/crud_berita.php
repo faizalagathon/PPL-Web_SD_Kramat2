@@ -1,3 +1,6 @@
+<?php
+require '../functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,77 +74,74 @@
         </div>
     </nav>
     <!-- !SECTION akhir navbar kedua -->
+    <?php 
+		if(isset($_GET['alert'])){
+			if($_GET['alert']=='gagal_ekstensi'){
+				?>
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+					<h4><i class="icon fa fa-warning"></i> Peringatan !</h4>
+					Ekstensi Tidak Diperbolehkan
+				</div>								
+				<?php
+			}elseif($_GET['alert']=="gagal_ukuran"){
+				?>
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+					<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
+					Ukuran File terlalu Besar
+				</div> 								
+				<?php
+			}elseif($_GET['alert']=="berhasil"){
+				?>
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+					<h4><i class="icon fa fa-check"></i> Success</h4>
+					Berhasil Disimpan
+				</div> 								
+				<?php
+			}elseif($_GET['alert']=="berhasilhapus"){
+				?>
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+					<h4><i class="icon fa fa-check"></i> Success</h4>
+					Berhasil Dihapus
+				</div> 								
+				<?php
+			}
+		}
+	?>
     <div class="container-fluid">
         <!-- SECTION BERITA -->
         <div class="mt-3">
             <div class="d-flex flex-wrap">
                 <a href="tambah_berita.php" class="btn btn-primary m-auto w-75 mb-3">Tambah berita</a>
-                <div class="card mb-3 m-auto w-75">
-                    <div class="row">
-                    <div class="col-md-3">
-                        <img src="../sample_img/b1.jpg" class="img-fluid" alt="...">
-                    </div>
-                    <div class="col-md-9">
-                        <div class="card-body">
-                            <small>29 Desember 2022</small>
-                            <h5 class="card-title">Judul berita</h5>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
-                                quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
-                                dolores fugit quisquam recusandae culpa molestiae id, ab voluptas reprehenderit tempore!
-                            </p>
-                        </div>
-                        <div class="card-footer bg-white border-0 text-end">
-                            <a href="edit_berita.php" class="btn btn-warning text-white">edit</a>
-                            <a href="" class="btn btn-info text-white">Hapus</a>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="card mb-3 m-auto w-75 ">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="../sample_img/b2.jpg" class="img-fluid" alt="...">
-                        </div>
-                        <div class="col-md-9">
-                            <div class="card-body">
-                                <small>29 Desember 2022</small>
-                                <h5 class="card-title">Judul berita</h5>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
-                                    quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
-                                    dolores fugit quisquam recusandae culpa molestiae id, ab voluptas reprehenderit tempore!
-                                </p>
-                            </div>
-                            <div class="card-footer bg-white border-0 text-end">
-                                <a href="edit_berita.php" class="btn btn-warning text-white">edit</a>
-                                <a href="" class="btn btn-info text-white">Hapus</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                $data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC"); 
+                foreach ( $data as $d ) :
+                    $part= substr($d['isiBerita'],0,90);
+                ?>
                 <div class="card mb-3 m-auto w-75">
                     <div class="row">
                         <div class="col-md-3">
-                            <img src="../sample_img/b3.jpg" class="img-fluid" alt="...">
+                            <img src="../assets/imgs/berita/<?= $d['gambarBerita'] ?>" class="img-fluid" alt="...">
                         </div>
                         <div class="col-md-9">
                             <div class="card-body">
-                                <small>29 Desember 2022</small>
-                                <h5 class="card-title">Judul berita</h5>
+                                <small><?= $d['tgldibuatBerita'] ?></small>
+                                <h5 class="card-title"><?= $d['judulBerita'] ?></h5>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
-                                    quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
-                                    dolores fugit quisquam recusandae culpa molestiae id, ab voluptas reprehenderit tempore!
+                                    <?= $part ?>...
                                 </p>
                             </div>
                             <div class="card-footer bg-white border-0 text-end">
-                                <a href="edit_berita.php" class="btn btn-warning text-white">edit</a>
-                                <a href="" class="btn btn-info text-white">Hapus</a>
+                                <a href="edit_berita.php?id=<?php echo $d['idBerita'];?>" class="btn btn-warning text-white">edit</a>
+                                <a href="hapus_berita.php?id=<?php echo $d['idBerita'];?>" class="btn btn-info text-white" onclick="return confirm('Anda yakin akan menghapus data ini?')">Hapus</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php endforeach; ?>
             </div>
         </div>
         <!-- !SECTION BERITA -->

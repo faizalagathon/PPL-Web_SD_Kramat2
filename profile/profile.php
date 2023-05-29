@@ -41,80 +41,80 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
 </head>
 
 <body>
-  <!-- SECTION awal navbar pertama -->
-  <div class="navbar-pertama">
-    <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
-      <div class="container-fluid">
-        <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
-        <div class="d-flex me-2">
-          <span class="nav-link active me-4 text-light" aria-current="page">Jl. Siliwangi No. 44Kota Cirebon </span>
-          <span class="nav-link active text-light" aria-current="page">Telp. (0231) 202998</span>
-        </div>
-      </div>
-    </nav>
-  </div>
-  <!-- !SECTION akhir navbar pertama -->
-  <!-- SECTION awal navbar kedua -->
-  <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
-    <div class="container-fluid ">
-      <a class="navbar-brand p-0" href="home.html">
-        <img src="../assets/imgs/Foto SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
-      </a>
-      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-5 gap-4">
-          <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
-          <a class="nav-link text-info" href="../profile/profile.php">Profil</a>
-          <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
-          <a class="nav-link text-white" href="#">PPDB</a>
-          <a class="nav-link text-white" href="../GALERI/galeri/admin/galeri.php">Galeri</a>
-          <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
-          <li class="nav-item dropdown">
-            <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Edit Website
-            </a>
-            <ul class="dropdown-menu" style="z-index: 9999;">
-              <li><a class="dropdown-item" href="#">Carousel</a></li>
-              <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
-              <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
-              <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
-              <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-              <li><a class="dropdown-item" href="../GALERI/galeri/admin/galeri.php">Galeri</a></li>
-              <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
-            </ul>
-          </li>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!-- !SECTION akhir navbar kedua -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="">
-          <h3 class="text-center mt-3">Profile Sekolah :</h3>
-          <div class="text-center mb-5">
-            <img src="../assets/imgs/Foto SD/logoSD.png" class="" width="150" height="150" alt="">
-          </div>
-          <!-- SECTION SEJARAH -->
-          <div class="border-bottom border-dark pb-4">
-            <h4>Sejarah</h4>
-            <?php foreach ($daftarSejarah as $data) : ?>
-              <textarea class="form-control" name="" id="" cols="30" rows="10">
+    <!-- SECTION awal navbar pertama -->
+        <div class="navbar-pertama">
+            <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
+                <div class="container-fluid">
+                    <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
+                    <div class="d-flex me-2">
+                        <span class="nav-link active me-4 text-light" aria-current="page">Jl. Siliwangi No. 44Kota Cirebon </span>
+                        <span class="nav-link active text-light" aria-current="page">Telp. (0231) 202998</span>
+                    </div>
+                </div>
+            </nav>
+        </div> 
+    <!-- !SECTION akhir navbar pertama -->
+    <!-- SECTION awal navbar kedua -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+            <div class="container-fluid ">
+                <a class="navbar-brand p-0" href="home.html">
+                    <img src="../assets/imgs/Foto SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>    
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-5 gap-4">
+                        <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
+                        <a class="nav-link text-info" href="../profile/profile.php">Profil</a>
+                        <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
+                        <a class="nav-link text-white" href="#">PPDB</a>
+                        <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
+                        <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Edit Website
+                            </a>
+                            <ul class="dropdown-menu" style="z-index: 9999;">
+                                <li><a class="dropdown-item" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
+                                <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
+                                <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
+                                <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
+                                <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+                                <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
+                                <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    <!-- !SECTION akhir navbar kedua -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="">
+                    <h3 class="text-center mt-3">Profile Sekolah :</h3>
+                    <div class="text-center mb-5">
+                        <img src="../assets/imgs/Foto SD/logoSD.png" class="" width="150" height="150" alt="">
+                    </div>
+                    <!-- SECTION SEJARAH -->
+                    <div class="border-bottom border-dark pb-4">
+                        <h4>Sejarah</h4>
+                        <?php foreach($daftarSejarah as $data) : ?>
+                            <p class="form-control" name="" id="" cols="30" rows="10">
                                 <?= $data['teksSejarah'] ?>
-                            </textarea>
-            <?php endforeach; ?>
-          </div>
-          <!-- !SECTION SEJARAH -->
-          <!-- SECTION VISI MISI -->
-          <div class="row text-center py-5 border-bottom border-dark border-1 mb-5">
-            <div class="col-md-6">
-              <div class="py-5 px-5">
-                <h4>VISI</h4>
-                <?php foreach ($daftarVisi as $data) : ?>
-                  <textarea class="form-control" name="" id="" cols="30" rows="10">
+                            </p>
+                        <?php endforeach ; ?>
+                    </div>
+                    <!-- !SECTION SEJARAH -->
+                    <!-- SECTION VISI MISI -->
+                    <div class="row text-center py-5 border-bottom border-dark border-1 mb-5">
+                        <div class="col-md-6">
+                            <div class="py-5 px-5">
+                                <h4>VISI</h4>
+                                <?php foreach($daftarVisi as $data) : ?>
+                                    <textarea class="form-control" name="" id="" cols="30" rows="10">
                                         <?= $data['teksVisi'] ?>
                                     </textarea>
                 <?php endforeach; ?>

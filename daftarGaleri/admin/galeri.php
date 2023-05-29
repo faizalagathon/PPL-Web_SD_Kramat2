@@ -52,6 +52,13 @@ if(isset($_POST["cari"])){
 <!-- <link rel="stylesheet" href="../asset/fontawesome/css/all.css"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
+    @font-face {
+      font-family: 'Poppins';
+      src: url(../../assets/font/font-poppins/Poppins-Regular.ttf);
+    }
+    *{
+      font-family: 'Poppins';
+    }
     @media (max-width: 425px){
       .navbar-pertama{
           display: none;
@@ -186,13 +193,13 @@ if(isset($_POST["cari"])){
                             Edit Website
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item text-white" href="../../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
-                            <li><a class="dropdown-item text-white" href="../../daftarGuru/daftar_guru.php">Guru</a></li>
-                            <li><a class="dropdown-item text-white" href="../../profile/edit_sejarah.php">Sejarah</a></li>
-                            <li><a class="dropdown-item text-white" href="../../profile/edit_visi_misi.php">Visi Misi</a></li>
-                            <li><a class="dropdown-item text-white" href="../../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                            <li><a class="dropdown-item text-info" href="galeri.php">Galeri</a></li>
-                            <li><a class="dropdown-item text-white" href="../../daftarBerita/crud_berita.php">Berita</a></li>
+                            <li><a class="dropdown-item" href="../../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
+                            <li><a class="dropdown-item" href="../../daftarGuru/daftar_guru.php">Guru</a></li>
+                            <li><a class="dropdown-item" href="../../profile/edit_sejarah.php">Sejarah</a></li>
+                            <li><a class="dropdown-item" href="../../profile/edit_visi_misi.php">Visi Misi</a></li>
+                            <li><a class="dropdown-item" href="../../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+                            <li><a class="dropdown-item" href="galeri.php">Galeri</a></li>
+                            <li><a class="dropdown-item" href="../../daftarBerita/crud_berita.php">Berita</a></li>
                         </ul>
                     </li>
                 </div>
@@ -205,18 +212,16 @@ if(isset($_POST["cari"])){
         <h2>Galeri</h2>
       </div>
 
-    <div class="d-flex mt-3 mb-5">
+    <div class="mt-3 mb-3">
       <!-- SECTION CARI -->
-      <form class="mt-3 w-50 d-flex" action="" style="z-index: 0; display: block;" method="get">
-        <div class="input-group">
-          <input type="text" class="form-control form-control-md w-50"  name="cari"  id="keyword"   placeholder="masuikan keyword pencaharian..." autocomplete="off">
-          <button type="submit" class="btn btn-primary" id="cari">cari</button>
+      <form class="mt-3 d-flex mb-3" action="" method="get">
+        <div class="input-group w-100">
+          <input type="text" class="form-control  rounded-pill rounded-end"  name="cari"  id="keyword"   placeholder="masukkan keyword pencarian..." autocomplete="off">
+          <button type="submit" class="btn btn-primary rounded-pill rounded-start" id="cari">cari</button>
         </div>
       </form>
-      <br>
       <!-- !SECTION END CARI -->
-      <br>
-      <div class="d-flex gap-2 ms-auto button pe-2" style="position: absolute; right: 0;">
+      <div class="d-flex gap-2 ms-auto button pe-2" style="">
         <!-- SECTION FORM TAMBAH KATEGORI -->
         <form action="../../aksi_crud_galeri.php?ParamAksi=tambah_kategori&ParamTable=kategori_acara&ParamCek=required" method="post" enctype="multipart/form-data">
           <!-- //SECTION start modal -->
@@ -301,28 +306,117 @@ if(isset($_POST["cari"])){
     </div>
     <!--SECTION TIDAK ADA GAMBAR  -->
     <?php if (isset($not_found)):?>
-        <img src="../../assets/imgs/illustrasi/logo 2.png" style="width: 35%; margin: auto 0rem 2rem;" alt="">
+      <div class="text-center">
+        <img src="../../assets/imgs/illustrasi/logo 2.png" style="width: 35%;" alt="">
+      </div>
     <?php endif;?>
     <!--!SECTION END TIDAK ADA GAMBAR  -->
       <!--SECTION Gambar -->
       <?php foreach ($acara as $cr) : ?>
-        <div class="judul d-flex">
-          <div class="">
-            <h3><?= $cr['nama_k_acara'] ?></h3>
-            <p><?= $cr['tanggal_k_acara'] ?></p>
+        <!-- SECTION CARD-->
+          <div class="card border-0 gap-3">
+          <?php foreach ($gambar as $gbr) : ?>
+            <?php if ($cr['id_k_acara'] == $gbr['id_k_acara']) : ?>
+              <div class="foto py-3">
+                <img src="../../upload/<?= $gbr['gambarGaleri']?>" alt="">
+                <!-- SECTION DIV AKSI -->
+                <div class="aksi gap-4" id="aksi">
+                  <a href="<?= $gbr["idGaleri"] ?>" type="button" data-bs-toggle="modal" data-bs-target="#ubah_foto<?= $gbr['idGaleri'] ?>">
+                    <i class="fa-regular fa-pen-to-square fa-2x"></i> 
+                  </a>
+                  <a type="button"data-bs-toggle="modal" data-bs-target="#hapus_foto<?= $gbr['idGaleri'] ?>">
+                  <i class="fa-regular fa-trash-can fa-2x"></i>
+                  </a>
+                </div>
+                <!-- !SECTION DIV AKSI -->
+                <!-- SECTION Modal UBAH FOTO-->
+                <div class="modal fade" id="ubah_foto<?= $gbr['idGaleri'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <form action="../../aksi_crud_galeri.php?ParamAksi=ubah_foto&ParamTable=galeri" method="post" enctype="multipart/form-data">
+                      <input type="hidden" name="gambarLama" value="<?= $gbr["gambarGaleri"]; ?>">
+                      <input type="hidden" name="idGaleri" value="<?= $gbr["idGaleri"]; ?>">
+                      <input type="hidden" name="id_k_acara" value="<?= $gbr["id_k_acara"]; ?>">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Foto</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class=" text-center">
+                          <i style="color:red;">Ganti foto saat ini</i>
+                          <img src="../../upload/<?= $gbr["gambarGaleri"];  ?>" class="mb-3 previewGambar" width="auto">
+                        </div>
+                        <div class="">
+                          <div class="mb-3">
+                            <label for="">Pilih gambar :</label>
+                            <input type="file" class="form-control inputGambar" name="gambarGaleri" onchange="tampilkanGambar()"  id="">
+                          </div>
+                          <div class="">
+                            <label>Kategori :</label>
+                            <select name="id_k_acara"  class="form-control text-center" id="id_k_acara">
+                            <?php foreach ($acara as $cr_2) : ?>
+                              <option value="<?= $cr_2['id_k_acara']?>"<?= $cr_2['id_k_acara'] == $gbr["id_k_acara"] ? 'selected' : '' ; ?>><?= $cr_2['nama_k_acara'] ?></option>
+                            <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" name="ubah_foto"  class="btn btn-warning text-white">Update</button>
+                      </form>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+                  <!-- //!SECTION end modal UBAH -->
+                  <!-- //SECTION modal hapus -->
+                  <div class="modal fade" id="hapus_foto<?= $gbr['idGaleri'] ?>" tabindex="-1" aria-labelledby="hapus_fotoLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <form action="../../aksi_crud_galeri.php?ParamAksi=hapus_foto&ParamTable=galeri" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="idGaleri" value="<?= $gbr['idGaleri'] ?>">
+                        <input type="hidden" name="gambarGaleri" value="<?= $gbr['gambarGaleri'] ?>">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="hapus_fotoLabel">Hapus gambar</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <center>
+                              <img src="../../upload/<?= $gbr["gambarGaleri"];?>" alt=""> 
+                              <h5>Yakin menghapus foto ini?</h5>
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                              <button type="submit" class="btn btn-danger" name="hapus_foto">Delete</button>
+                            </center>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+          
+                <!-- //!SECTION modal hapus -->
+            </div>
+              <?php endif; ?>
+            <?php endforeach; ?>
           </div>
-          <div class="pt-3 pe-2" style="position: absolute; right: 0; z-index: 0;">
-
-            <a href="" class="btn btn-info text-white fw-semibold" type="button" data-bs-toggle="modal" data-bs-target="#ubah_kategori_acara<?=$cr['id_k_acara']?>">
-              <!-- <i class="fa-regular fa-pen-to-square fa-2x"></i>  --> 
-              Edit
-            </a>
-            <a href="" class="btn btn-warning text-white fw-semibold" type="button"data-bs-toggle="modal" data-bs-target="#hapus_kategori_acara<?=$cr['id_k_acara']?>">
-              <!-- <i class="fa-regular fa-trash-can fa-2x"></i> -->
-              Hapus
-            </a>
+          <div class="judul d-flex">
+            <div class="">
+              <h3><?= $cr['nama_k_acara'] ?></h3>
+              <p><?= $cr['tanggal_k_acara'] ?></p>
+            </div>
+            <div class="pt-3 pe-2" style="position: absolute; right: 0; z-index: 0;">
+  
+              <a href="" class="btn btn-info text-white fw-semibold" type="button" data-bs-toggle="modal" data-bs-target="#ubah_kategori_acara<?=$cr['id_k_acara']?>">
+                <!-- <i class="fa-regular fa-pen-to-square fa-2x"></i>  --> 
+                Edit
+              </a>
+              <a href="" class="btn btn-warning text-white fw-semibold" type="button"data-bs-toggle="modal" data-bs-target="#hapus_kategori_acara<?=$cr['id_k_acara']?>">
+                <!-- <i class="fa-regular fa-trash-can fa-2x"></i> -->
+                Hapus
+              </a>
+            </div>
           </div>
-        </div>
+            <!-- !SECTION CARD -->
 
         <!-- SECTION MODAL HAPUS KATEGORI ACARA -->
         <div class="modal fade" id="hapus_kategori_acara<?=$cr['id_k_acara']?>" tabindex="-1" aria-labelledby="hapus_kategori_acaraLabel" aria-hidden="true">
@@ -382,97 +476,9 @@ if(isset($_POST["cari"])){
             </div>
           </div>
         <!-- !SECTION END MODAL UBAH KATEGORI ACARA -->
-        <!-- SECTION CARD-->
-        <div class="card mb-5 gap-3">
-          <?php foreach ($gambar as $gbr) : ?>
-            <?php if ($cr['id_k_acara'] == $gbr['id_k_acara']) : ?>
-              <div class="foto py-3">
-                <img src="../../upload/<?= $gbr['gambarGaleri']?>" alt="">
-                <!-- SECTION DIV AKSI -->
-                <div class="aksi gap-4" id="aksi">
-                  <a href="<?= $gbr["idGaleri"] ?>" type="button" data-bs-toggle="modal" data-bs-target="#ubah_foto<?= $gbr['idGaleri'] ?>">
-                    <i class="fa-regular fa-pen-to-square fa-2x"></i> 
-                  </a>
-                  <a type="button"data-bs-toggle="modal" data-bs-target="#hapus_foto<?= $gbr['idGaleri'] ?>">
-                  <i class="fa-regular fa-trash-can fa-2x"></i>
-                  </a>
-                </div>
-                <!-- !SECTION DIV AKSI -->
-                <!-- SECTION Modal UBAH FOTO-->
-            
-                <div class="modal fade" id="ubah_foto<?= $gbr['idGaleri'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <form action="../../aksi_crud_galeri.php?ParamAksi=ubah_foto&ParamTable=galeri" method="post" enctype="multipart/form-data">
-                      <input type="hidden" name="gambarLama" value="<?= $gbr["gambarGaleri"]; ?>">
-                      <input type="hidden" name="idGaleri" value="<?= $gbr["idGaleri"]; ?>">
-                      <input type="hidden" name="id_k_acara" value="<?= $gbr["id_k_acara"]; ?>">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Foto</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <div class=" text-center">
-                          <i style="color:red;">Ganti foto saat ini</i>
-                          <img src="../../upload/<?= $gbr["gambarGaleri"];  ?>" class="mb-3 previewGambar" width="auto">
-                        </div>
-                        <div class="d-flex gap-3">
-                          <div class="">
-                            <label for="">Pilih gambar :</label>
-                            <input type="file" class="form-control inputGambar" name="gambarGaleri" onchange="tampilkanGambar()"  id="">
-                          </div>
-                          <div class="">
-                            <label>Kategori acara :</label>
-                            <select name="id_k_acara"  class="form-control text-center" id="id_k_acara">
-                            <?php foreach ($acara as $cr_2) : ?>
-                              <option value="<?= $cr_2['id_k_acara']?>"<?= $cr_2['id_k_acara'] == $gbr["id_k_acara"] ? 'selected' : '' ; ?>><?= $cr_2['nama_k_acara'] ?></option>
-                            <?php endforeach; ?>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" name="ubah_foto"  class="btn btn-warning text-white">Update</button>
-                      </form>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-                  <!-- //!SECTION end modal UBAH -->
-                  <!-- //SECTION modal hapus -->
-                  <div class="modal fade" id="hapus_foto<?= $gbr['idGaleri'] ?>" tabindex="-1" aria-labelledby="hapus_fotoLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <form action="../../aksi_crud_galeri.php?ParamAksi=hapus_foto&ParamTable=galeri" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="idGaleri" value="<?= $gbr['idGaleri'] ?>">
-                        <input type="hidden" name="gambarGaleri" value="<?= $gbr['gambarGaleri'] ?>">
-                          <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="hapus_fotoLabel">Hapus gambar</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <center>
-                              <img src="../../upload/<?= $gbr["gambarGaleri"];?>" alt=""> 
-                              <h5>Yakin menghapus foto ini?</h5>
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                              <button type="submit" class="btn btn-danger" name="hapus_foto">Delete</button>
-                            </center>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-          
-                <!-- //!SECTION modal hapus -->
-              </div>
-            <?php endif; ?>
             <?php endforeach; ?>
             </div>
-            <!-- !SECTION CARD -->
-            <?php endforeach; ?>
-            </div>
-<!-- //!SECTION end gambar -->
+        <!-- //!SECTION end gambar -->
           <!-- SECTION FOOTER -->
           <div class="footer">
             <div class="text-center bg-dark" style="padding: 5%;">

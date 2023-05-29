@@ -11,7 +11,7 @@
   <style>
     @font-face {
       font-family: 'Poppins';
-      src: url(assets/font/font-poppins/Poppins-Regular.ttf);
+      src: url(../assets/font/font-poppins/Poppins-Regular.ttf);
     }
 
     @media (max-width: 425px) {
@@ -37,11 +37,11 @@
       <div class="d-flex flex-wrap">
         <a href="tambah_eskull.php" class="btn btn-primary m-auto w-75 mb-3">Tambah Eskull</a>
 
-        <?php if (!$daftarEkskul) : ?>
+        <!-- <?php if (!$daftarEkskul) : ?>
           <div class="card alert alert-danger text-center" role="alert">
             Tidak ada Ekskul
           </div>
-        <?php endif ?>
+        <?php endif ?> -->
 
         <?php foreach ($daftarEkskul as $ekskul) : ?>
           <div class="card mb-3 m-auto w-75">
@@ -72,6 +72,9 @@
           </div>
         <?php endforeach ?>
       </div>
+    </div>
+    <div class="">
+      <img src="../assets/imgs/illustrasi/logo 3_2.png" alt="">
     </div>
     <!-- !SECTION BERITA -->
   </div>

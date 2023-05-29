@@ -39,7 +39,12 @@ if(isset($_POST['login'])){
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
     <title>Login Admin</title>
     <style type="text/css">
-        @keyframes bg-pan-top{
+        body{
+            background: url(../assets/imgs/background.png);
+            background-size: cover;
+
+        }
+        /* @keyframes bg-pan-top{
             0%{
                 background-color: rgb(0, 179, 255);
                 background-position: 50% 100%;
@@ -52,50 +57,14 @@ if(isset($_POST['login'])){
                 background-color: #ae00ff;
                 background-position: 50% 100%;
             }
-        }
+        } */
         .bg-pan-top{
             -webkit-animation: bg-pan-top 8s infinite both;
             animation: bg-pan-top 8s infinite both;
         }
         @font-face {
-            font-family: 'TiltNeon' ;
-            src: url(assets/font/Tilt_Neon/static/TiltNeon-Regular.ttf);
-        }
-        @font-face {
-            font-family: 'ClimateC';
-            src: url(assets/font/Climate_Crisis/static/ClimateCrisis-Regular.ttf);
-        }
-        @font-face {
-            font-family: 'Anton';
-            src: url(assets/font/Anton/Anton-Regular.ttf);
-        }
-        @font-face {
-            font-family: 'Kanit';
-            src: url(assets/font/Kanit/Kanit-Regular.ttf);
-        }
-        @font-face {
-            font-family: 'Lobster';
-            src: url(assets/font/Lobster/Lobster-Regular.ttf);
-        }
-        @font-face {
-            font-family: 'DancingS';
-            src: url(assets/font/Dancing_Script/static/DancingScript-Regular.ttf);
-        }
-        @font-face {
-            font-family: 'Mynerve';
-            src: url(assets/font/Mynerve/Mynerve-Regular.ttf);
-        }
-        @font-face {
-            font-family: 'Oswald';
-            src: url(assets/font/Oswald/static/Oswald-Regular.ttf);
-        }
-        @font-face {
-            font-family: 'TiltWarp';
-            src: url(assets/font/Tilt_Warp/static/TiltWarp-Regular.ttf);
-        }
-        @font-face {
             font-family: 'Poppins';
-            src: url(assets/font/font-poppins/Poppins-Regular.ttf);
+            src: url(../assets/font/font-poppins/Poppins-Regular.ttf);
         }
         form{
             border-radius: 2rem;
@@ -103,11 +72,11 @@ if(isset($_POST['login'])){
             /* background: url(assets/background/bg1.jpg);
             background-size: cover;
             background-attachment: scroll; */
-            background-color: rgb(0, 0, 0, 50%);
+            /* background-color: rgb(0, 0, 0, 50%); */
             /* background-color: white; */
         }
         .footer{
-            font-family: 'tiltwarp';
+            font-family: 'poppins';
         }
         @media (max-width: 425px){
             .gambar{
@@ -126,9 +95,35 @@ if(isset($_POST['login'])){
 </head>
 <body class="bg-pan-top">
     
-    <div class="container p-2 mb-auto">
-        <form action="" class="m-auto mt-4 w-auto rounded-4" method="POST">
-            <h3 class="text-white bg-dark  p-2 ps-3 border-bottom border-2 border-white">Login Admin</h3>
+    <div class="container mb-auto">
+        <form action="" class="m-auto mt-3 w-auto rounded-4" method="POST">
+            <div class="text-center py-4 bg-white w-50 m-auto" style="border-radius: 2rem;">
+                <h2>Selamat Datang</h2>
+                <div class="gambar mb-3">
+                    <img src="../assets/imgs/Foto SD/logoSD.png" class="p-3 mb-2" width="160px" style="border-radius: 5%;" alt="">
+                </div>
+                <div class="data">
+                    <div class="">                        
+                        <div class="mb-3 w-75 m-auto">
+                            <label class="form-label text-start" for="username" style="display: block;">Username :</label>
+                            <input type="text" class="form-control bg-white border-1" name="username" id="username">
+                        </div>
+                        <div class="mb-5 w-75 m-auto">
+                            <label class="form-label text-start" for="password" style="display: block;">Password :</label>
+                            <input type="password" class="form-control bg-white border-1" name="password" id="password">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary w-75 border-0 fw-bold mb-3" data-bs-target="" 
+                            data-bs-toggle="modal" style="background: linear-gradient(120deg,#a800a8,#00c8ff);" name="login">Login!</button>
+                        </div>
+                        
+                        <footer class="main-footer">
+                            <p class="text-center"><small class="footer">- Created By Nurfajari -</small></p>
+                        </footer>
+                    </div>
+                </div>    
+            </div>
+            <!-- <h3 class="text-white bg-dark  p-2 ps-3 border-bottom border-2 border-white">Login Admin</h3>
             <div class="row gap-2 p-3">
                 <div class="col-md-4">
                     <div class="gambar">
@@ -147,7 +142,7 @@ if(isset($_POST['login'])){
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary rounded-pill w-50 border-0 fw-bold mb-3" data-bs-target="" 
-                            data-bs-toggle="modal" style="background: linear-gradient(120deg,#a800a8,#00c8ff);box-shadow: 3px 3px 0 white;" name="login">Login!</button>
+                            data-bs-toggle="modal" style="background: linear-gradient(120deg,#a800a8,#00c8ff);" name="login">Login!</button>
                         </div>
                 
                         <footer class="main-footer">
@@ -155,7 +150,7 @@ if(isset($_POST['login'])){
                         </footer>
                     </div>
                 </div>                
-            </div>
+            </div> -->
         </form>
     </div>
 
