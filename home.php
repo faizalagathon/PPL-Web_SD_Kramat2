@@ -22,7 +22,13 @@ if(!isset($dataMisi)){
       'teksMisi' => 'Belom Menuliskan Misi',    
   ];
 }
+
+//Carousel
+$datacarousel = mysqli_query($link,"select * from carousel ORDER BY idCarousel ASC");
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,15 +127,11 @@ if(!isset($dataMisi)){
                 </div>
                 <!-- NOTE Maksimal Tinggi Gambar Carousel diatas 500px -->
                 <div class="carousel-inner slide">
-                  <div class="carousel-item active item" style="max-height: 30rem;">
-                    <img src="sample_img/img4.jpg" class="d-block w-100 gambar" style="max-height: max-content;" alt="...">
-                  </div>
-                  <div class="carousel-item item"  style="max-height: 30rem;">
-                    <img src="sample_img/img5.png" class="d-block w-100 gambar" style="max-height: max-content;" alt="...">
-                  </div>
-                  <div class="carousel-item item"  style="max-height: 30rem;">
-                    <img src="sample_img/img2.jpg" class="d-block w-100 gambar" style="max-height: max-content;" alt="...">
-                  </div>
+                  <?php while($d = mysqli_fetch_assoc($datacarousel)) : ?>
+                  <div class="carousel-item active" style="max-height: 30rem;">
+                      <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block " style="width:100%; height:500px;" alt="...">
+                    </div>
+                    <?php endwhile; ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -291,6 +293,7 @@ if(!isset($dataMisi)){
             </div>
           </div>
           <!-- !SECTION FOOTER -->
-    <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
