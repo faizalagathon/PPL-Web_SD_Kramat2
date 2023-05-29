@@ -96,9 +96,9 @@ $daftarSejarah = query("SELECT * FROM sejarah");
                     <div class="border-bottom border-dark pb-4">
                         <h4>Sejarah</h4>
                         <?php foreach($daftarSejarah as $data) : ?>
-                            <textarea class="form-control" name="" id="" cols="30" rows="10">
+                            <p class="form-control" name="" id="" cols="30" rows="10">
                                 <?= $data['teksSejarah'] ?>
-                            </textarea>
+                            </p>
                         <?php endforeach ; ?>
                     </div>
                     <!-- !SECTION SEJARAH -->

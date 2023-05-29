@@ -38,6 +38,10 @@
                 display: none;
             }
         }
+        .gambarcarousel {
+            width: 100%;
+            height: 100px;
+        }
     </style>
   </head>
   <body>
@@ -104,7 +108,7 @@
         <?php foreach($carousel as $c) : ?>
               <div class="card m-auto mb-5">
                   <div class="">
-                    <img class="gambar" class="ms-auto" src="../assets/imgs/fotocarousel/<?php echo $c["gambarCarousel"]; ?>">
+                    <img class="gambarcarousel ms-auto" src="../assets/imgs/fotocarousel/<?php echo $c["gambarCarousel"]; ?>">
                   </div>
                   <div class="text-end p-2">
                     <a  class="btn btn-warning text-white" href="edit_carousel.php?idCarousel=<?php echo $c['idCarousel']; ?>&aksi=edit"> Edit </a>
