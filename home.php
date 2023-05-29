@@ -37,7 +37,6 @@ $datacarousel = mysqli_query($link,"select * from carousel ORDER BY idCarousel A
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda</title>
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
-    
     <style>
         @font-face {
             font-family: 'Poppins';
@@ -79,8 +78,6 @@ $datacarousel = mysqli_query($link,"select * from carousel ORDER BY idCarousel A
           </nav>
         </div>
       <!-- akhir navbar pertama -->
-      
-      
         <!-- awal navbar kedua -->
             <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
                 <div class="container-fluid ">
@@ -126,12 +123,13 @@ $datacarousel = mysqli_query($link,"select * from carousel ORDER BY idCarousel A
                   <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <!-- NOTE Maksimal Tinggi Gambar Carousel diatas 500px -->
+                <!-- ini yg tadi ilang -->
                 <div class="carousel-inner slide">
                   <?php while($d = mysqli_fetch_assoc($datacarousel)) : ?>
-                  <div class="carousel-item active" style="max-height: 30rem;">
+                    <div class="carousel-item active" style="max-height: 30rem;">
                       <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block " style="width:100%; height:500px;" alt="...">
                     </div>
-                    <?php endwhile; ?>
+                  <?php endwhile; ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
