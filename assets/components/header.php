@@ -25,7 +25,6 @@
         <a class="nav-link text-white" href="../../home.html">Home</a>
         <a class="nav-link text-white" href="../../profile/profile.html">Profil</a>
         <a class="nav-link text-white" href="../../daftarBerita/berita.php">Berita</a>
-        <a class="nav-link text-white" href="#">PPDB</a>
         <a class="nav-link text-white" href="../../daftarGaleri/admin/galeri.php">Galeri</a>
         <a class="nav-link text-white" href="../../daftarGaleri/admin/galeri.php">Daftar Guru</a>
         <li class="nav-item dropdown">
