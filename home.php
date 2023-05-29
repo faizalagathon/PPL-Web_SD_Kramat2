@@ -24,7 +24,7 @@ if(!isset($dataMisi)){
 }
 
 //Carousel
-$datacarousel = mysqli_query($link,"select * from carousel ORDER BY idCarousel ASC");
+$datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel DESC");
 ?>
 
 
@@ -120,11 +120,11 @@ $datacarousel = mysqli_query($link,"select * from carousel ORDER BY idCarousel A
           <div class="container-fluid">
             <!-- SECTION CAROUSEL -->
               <div id="carouselExampleControls" data-bs-ride="carousel" class="carousel slide auto">
-                <div class="carousel-indicators">
+                <!-- <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                   <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
                   <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
+                </div> -->
                 <!-- NOTE Maksimal Tinggi Gambar Carousel diatas 500px -->
                 <div class="carousel-inner slide">
                   <?php while($d = mysqli_fetch_assoc($datacarousel)) : ?>
