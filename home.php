@@ -24,7 +24,7 @@ if(!isset($dataMisi)){
 }
 
 //Carousel
-$datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel DESC");
+$datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel ASC");
 ?>
 
 
