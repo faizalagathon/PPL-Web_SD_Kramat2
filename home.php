@@ -37,7 +37,6 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel D
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda</title>
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
-    
     <style>
         @font-face {
             font-family: 'Poppins';
@@ -79,8 +78,6 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel D
           </nav>
         </div>
       <!-- akhir navbar pertama -->
-      
-      
         <!-- awal navbar kedua -->
             <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
                 <div class="container-fluid ">
@@ -126,12 +123,13 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel D
                   <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div> -->
                 <!-- NOTE Maksimal Tinggi Gambar Carousel diatas 500px -->
+                <!-- ini yg tadi ilang -->
                 <div class="carousel-inner slide">
                   <?php while($d = mysqli_fetch_assoc($datacarousel)) : ?>
-                  <div class="carousel-item active" style="max-height: 30rem;">
+                    <div class="carousel-item active" style="max-height: 30rem;">
                       <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block " style="width:100%; height:500px;" alt="...">
                     </div>
-                    <?php endwhile; ?>
+                  <?php endwhile; ?>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -176,21 +174,13 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel D
             </div>
             <!-- !SECTION VISI MISI -->
             <!-- SECTION GALERI -->
-            <div class="text-center py-4 border-bottom border-dark border-1">
+            <div class="py-4 border-bottom border-dark border-1">
             <div style="  scroll-snap-type: y mandatory;">
-              <h3>GALERI</h3>
+              <h3 class="text-center">GALERI</h3>
                   <!--SECTION Gambar -->
                   <?php foreach ($acara as $cr) : ?>
-                    <div class="judul">
-                      <h3><?= $cr['nama_k_acara'] ?></h3>
-                      <p class="">
-                        <small>
-                          <?= $cr['tanggal_k_acara'] ?>
-                        </small>
-                      </p>
-                    </div>
                     <!-- SECTION CARD-->
-                    <div class="card mb-5 py-3 gap-3" style=" width: 100%;scroll-snap-type: x mandatory;overflow:auto;display: flex;flex-direction: row;">
+                    <div class="card border-0 py-3 gap-3" style=" width: 100%;scroll-snap-type: x mandatory;overflow:auto;display: flex;flex-direction: row;">
                       <?php foreach ($gambar as $gbr) : ?>
                         <?php if ($cr['id_k_acara'] == $gbr['id_k_acara']) : ?>
                           <!-- SECTION FOTO -->
@@ -202,6 +192,14 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel D
                       <?php endforeach; ?>
                     </div>
                     <!-- !SECTION CARD -->
+                    <div class="judul">
+                      <h3><?= $cr['nama_k_acara'] ?></h3>
+                      <p class="">
+                        <small>
+                          <?= $cr['tanggal_k_acara'] ?>
+                        </small>
+                      </p>
+                    </div>
                   <?php endforeach; ?>
                   <!--!SECTION end Gambar -->
               </div>
@@ -230,7 +228,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel D
                         </p>
                       </div>
                       <div class="card-footer bg-white border-0">
-                        <a href="detail_berita.html">Selengkapnya></a>
+                        <a href="daftarberita/detail_berita.php">Selengkapnya></a>
                       </div>
                     </div>
                   </div>
@@ -251,7 +249,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel D
                         </p>
                       </div>
                       <div class="card-footer bg-white border-0">
-                        <a href="detail_berita.html">Selengkapnya></a>
+                        <a href="daftarberita/detail_berita.php">Selengkapnya></a>
                       </div>
                     </div>
                   </div>
@@ -272,7 +270,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel D
                         </p>
                       </div>
                       <div class="card-footer bg-white border-0">
-                        <a href="detail_berita.html">Selengkapnya></a>
+                        <a href="daftarberita/detail_berita.php">Selengkapnya></a>
                       </div>
                     </div>
                   </div>

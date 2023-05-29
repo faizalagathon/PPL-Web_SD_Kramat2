@@ -80,21 +80,25 @@ if(isset($_GET["ParamAksi"])){
             </div>
           </nav>
       <!-- akhir navbar kedua -->
+      <div class="container-fluid">
+        
+      </div>
         <form action="aksiedit.php?ParamAksi=ubah_foto&ParamTable=carousel" method="post" enctype="multipart/form-data">
-            <div class="row mt-2">
-                <div class="card mx-auto" style="width: 18rem;">
+            <div class="mt-2">
+                <div class="card m-auto" style="width: 30rem;">
                     <input type="hidden" name="gambarLama" value="<?= $carousel[0]['gambarCarousel'] ?>">
                     <input type="hidden" name="idCarousel" value="<?= $carousel[0]['idCarousel']?>">
                     <img class="card-img-top" alt="..." src="../assets/imgs/fotocarousel/<?= $carousel[0]['gambarCarousel'] ?>">
                     <div class="card-body">
-                        <h5 class="card-title">Edit Gambar Carousel</h5>
-
-                        <p class="card-text" style="color: red;">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
-                        <input type="file" name="gambarCarousel" id="foto" required>
+                        <div class="mb-3">
+                            <h5 class="card-title">Edit Gambar Carousel</h5>
+                            <small class="card-text" style="color: red;">*Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</small>
+                            <input class="form-control mt-4" type="file" name="gambarCarousel" id="foto" required>
+                        </div>
                         <div style="padding: 5px;">
-
-                        <button type="submit" class="btn btn-warning text-white">Save</button>
-                        <a href="modifikasi_carousel.php" class="btn btn-secondary">Kembali</a>
+                            <button type="submit" class="btn btn-warning text-white">Save</button>
+                            <a href="modifikasi_carousel.php" class="btn btn-secondary">Kembali</a>
+                        </div>
                     </div>
                 </div>
             </div>
