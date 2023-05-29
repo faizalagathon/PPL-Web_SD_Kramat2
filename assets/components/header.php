@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-5 gap-4">
         <a class="nav-link text-white" href="home.html">Home</a>
-        <a class="nav-link text-white" href="profile.html">Profil</a>
+        <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
         <a class="nav-link text-white" href="berita.html">Berita</a>
         <a class="nav-link text-white" href="#">PPDB</a>
         <a class="nav-link text-white" href="#">Galeri</a>
