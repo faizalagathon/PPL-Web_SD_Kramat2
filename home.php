@@ -92,7 +92,6 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                             <a class="nav-link text-info" aria-current="page" href="home.php">Home</a>
                             <a class="nav-link text-white" href="profile/profile.php">Profil</a>
                             <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
-                            <a class="nav-link text-white" href="#">PPDB</a>
                             <a class="nav-link text-white" href="daftarGaleri/admin/galeri.php">Galeri</a>
                             <a class="nav-link text-white" href="daftarGuru/daftar_guru.php">Daftar Guru</a>
                             <li class="nav-item dropdown">
@@ -114,7 +113,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                 </div>
             </nav>
           <!-- akhir navbar kedua -->
-          <div class="container-fluid">
+          <div class="container-fluid mt-2">
             <!-- SECTION CAROUSEL -->
               <div id="carouselExampleControls" data-bs-ride="carousel" class="carousel slide auto">
                 <!-- <div class="carousel-indicators">
@@ -145,10 +144,8 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             <div class="text-center py-4 border-bottom border-dark border-1">
               <h3>Sambutan</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet placeat impedit dicta atque ipsam, consequatur 
-                at natus a nostrum maiores, iusto sequi consequuntur esse et eius. Corporis id blanditiis molestias qui. Dolore 
-                recusandae, veniam ipsam laudantium placeat, voluptatum aliquam, quod perferendis fugiat dolor ut eaque molestiae 
-                quo dolorem animi facere? placeat, voluptatum aliquam, quod perferendis fugiat dolor ut eaque molestiae 
+              Selamat datang di halaman Website Resmi Sekolah kami. Website ini dibuat untuk memberikan informasi yang lengkap dan terkini mengenai Kegiatan sekolah, Prestasi Siswa, Visi Misi, dan berbagai berita terkini tentang sekolah. Dan kami berkomitmen untuk memberikan pendidikan berkualitas, menciptakan lingkungan belajar yang inspiratif, serta mengembangkan potensi dan bakat setiap siswa. Kami percaya bahwa setiap individu memiliki keunikan dan kami berupaya untuk membantu mereka tumbuh dan berkembang dengan baik. <br><br>
+              Website ini adalah sumber informasi yang penting bagi orang tua, siswa, dan masyarakat sekitar. Kami mengundang Anda sekalian untuk menjelajahi setiap bagian dari website kami, mempelajari kegiatan dan prestasi yang telah kami dan murid kami capai.
               </p>
               <!-- <a href="#">Read More ></a> -->
             </div>

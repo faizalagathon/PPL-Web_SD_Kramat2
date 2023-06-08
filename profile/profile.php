@@ -68,7 +68,6 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                         <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
                         <a class="nav-link text-info" href="../profile/profile.php">Profil</a>
                         <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
-                        <a class="nav-link text-white" href="#">PPDB</a>
                         <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
                         <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
                         <li class="nav-item dropdown">
