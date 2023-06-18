@@ -118,7 +118,7 @@ if(isset($_POST['login'])){
                         </div>
                         
                         <footer class="main-footer">
-                            <p class="text-center"><small class="footer">- Created By Nurfajari -</small></p>
+                            <p class="text-center"><small class="footer">- Created By RPL 2 SMKN1 Kota Cirebon -</small></p>
                         </footer>
                     </div>
                 </div>    

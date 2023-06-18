@@ -80,6 +80,9 @@ require '../functions.php';
                     <div class="my-4">
                         <h5>berita :</h5>
                     </div>
+                    <div class="text-center">
+                        <img src="../assets/imgs/illustrasi/logo 4.png" width="50%" alt="">
+                    </div>
                     <div class="">
                         <!-- SECTION BERITA -->
                         <div class="">

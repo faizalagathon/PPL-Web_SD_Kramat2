@@ -109,13 +109,13 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                     <!-- !SECTION SEJARAH -->
                     <!-- SECTION VISI MISI -->
                     <div class="row text-center py-5 border-bottom border-dark border-1 mb-5">
-                        <div class="col-md-6">
-                            <div class="py-5 px-5">
-                                <h4>VISI</h4>
-                                <?php foreach($daftarVisi as $data) : ?>
-                                    <textarea class="form-control" name="" id="" cols="30" rows="10">
-                                        <?= $data['teksVisi'] ?>
-                                    </textarea>
+            <div class="col-md-6">
+              <div class="py-5 px-5">
+                <h4>VISI</h4>
+                <?php foreach($daftarVisi as $data) : ?>
+                  <p class="form-control">
+                    <?= $data['teksVisi'] ?>
+                  </p>
                 <?php endforeach; ?>
               </div>
             </div>
@@ -123,7 +123,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
               <div class="py-5 px-5">
                 <h4>MISI</h4>
                 <?php foreach ($daftarMisi as $data) : ?>
-                  <p>
+                  <p class="form-control">
                     <?= $data['teksMisi'] ?>
                   </p>
                 <?php endforeach; ?>
