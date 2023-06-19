@@ -35,10 +35,6 @@
     <!-- SECTION BERITA -->
     <div class="mt-3">
       <div class="d-flex flex-wrap">
-        <div class="d-flex mb-2 gap-2">
-          <a href="tambah_eskull.php" class="btn btn-primary">Tambah Eskull</a>
-          <a href="../profile/profile.php" class="btn btn-danger">Kembali</a>
-        </div>
 
         <?php if (!$daftarEkskul) : ?>
           <div class="text-center">
@@ -62,13 +58,6 @@
                   <h3 class="card-title"><?= $ekskul['namaEkskul'] ?></h3>
                   <p>Hari : <?= $ekskul['jadwalHari'] ?></p>
                   <p>Pembimbing : <?= $ekskul['nama_guru'] ?></p>
-                </div>
-                <div class="card-footer bg-white border-0 text-end">
-                  <a href="edit_eskull.php?idEkskul=<?= $ekskul['idEkskul'] ?>" class="btn btn-warning text-white">edit</a>
-                  <form action="" method="post">
-                    <button type="submit" class="btn btn-info text-white">Hapus</button>
-                    <input type="hidden" name="delEkskul" value="<?= $ekskul['idEkskul'] ?>">
-                  </form>
                 </div>
               </div>
             </div>

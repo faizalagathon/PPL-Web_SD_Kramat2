@@ -30,8 +30,11 @@ if(isset($_GET['id'])){
     </style>
 </head>
 <body>
+
+<?php include "../assets/components/header.php" ?>
+
     <!-- SECTION awal navbar pertama -->
-    <div class="navbar-pertama">
+    <!-- <div class="navbar-pertama">
         <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
             <div class="container-fluid">
                 <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
@@ -41,10 +44,10 @@ if(isset($_GET['id'])){
                 </div>
             </div>
         </nav>
-    </div> 
+    </div>  -->
     <!-- !SECTION akhir navbar pertama -->
     <!-- SECTION awal navbar kedua -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+    <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
         <div class="container-fluid ">
             <a class="navbar-brand p-0" href="home.html">
                 <img src="../assets/imgs/Foto SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
@@ -77,7 +80,7 @@ if(isset($_GET['id'])){
                 </div>
             </div>
         </div>
-    </nav>
+    </nav> -->
     <!-- !SECTION akhir navbar kedua -->
     <div class="container-fluid">
         <div class="justify-content-center d-flex mb-4 mt-3">

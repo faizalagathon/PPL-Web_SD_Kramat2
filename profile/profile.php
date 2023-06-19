@@ -184,7 +184,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
               <?php endforeach ?>
             </div>
             <div class="text-center mb-3">
-              <a href="../daftarEskull/crud_eskull.php" class="">Read More ></a>
+              <a href="../daftarEskull/read_eskull.php" class="">Read More ></a>
             </div>
           </div>
           <!-- !SECTION ESKULL -->
