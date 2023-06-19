@@ -83,7 +83,10 @@
     <!-- SECTION BERITA -->
     <div class="mt-3">
       <div class="d-flex flex-wrap">
-        <a href="tambah_eskull.php" class="btn btn-primary m-auto w-75 mb-2">Tambah Eskull</a>
+        <div class="d-flex mb-2 gap-2">
+          <a href="tambah_eskull.php" class="btn btn-primary">Tambah Eskull</a>
+          <a href="../profile/profile.php" class="btn btn-danger">Kembali</a>
+        </div>
 
         <!-- <?php if (!$daftarEkskul) : ?>
           <div class="card alert alert-danger text-center" role="alert">
