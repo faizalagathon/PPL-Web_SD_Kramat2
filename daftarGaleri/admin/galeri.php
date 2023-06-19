@@ -220,7 +220,7 @@ if(isset($_POST["cari"])){
         </div>
       </form>
       <!-- !SECTION END CARI -->
-      <div class="d-flex gap-2 ms-auto button pe-2" style="">
+      <div class="d-flex gap-2 ms-auto button pe-2">
         <!-- SECTION FORM TAMBAH KATEGORI -->
         <form action="../../aksi_crud_galeri.php?ParamAksi=tambah_kategori&ParamTable=kategori_acara&ParamCek=required" method="post" enctype="multipart/form-data">
           <!-- //SECTION start modal -->
