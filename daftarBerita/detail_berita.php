@@ -1,5 +1,6 @@
 <?php
 require '../functions.php';
+
 if(isset($_GET['id'])){
     $id = ($_GET['id']);
     $data = mysqli_query($link,"SELECT * FROM berita where idBerita='$id'"); 
@@ -57,9 +58,8 @@ if(isset($_GET['id'])){
                     <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
                     <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
                     <a class="nav-link text-info" href="../daftarBerita/berita.php">Berita</a>
-                    <a class="nav-link text-white" href="#">PPDB</a>
-                    <a class="nav-link text-white" href="../GALERI/galeri/admin/galeri.php">Galeri</a>
-                    <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
+                    <a class="nav-link text-white" href="../daftarGaleri/user/galeri.php">Galeri</a>
+                    <a class="nav-link text-white" href="../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Edit Website
@@ -70,7 +70,7 @@ if(isset($_GET['id'])){
                             <li><a class="dropdown-item text-white" href="../profile/edit_sejarah.php">Sejarah</a></li>
                             <li><a class="dropdown-item text-white" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
                             <li><a class="dropdown-item text-white" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                            <li><a class="dropdown-item text-white" href="../GALERI/galeri/admin/galeri.php">Galeri</a></li>
+                            <li><a class="dropdown-item text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
                             <li><a class="dropdown-item text-white" href="../daftarBerita/crud_berita.php">Berita</a></li>
                         </ul>
                     </li>

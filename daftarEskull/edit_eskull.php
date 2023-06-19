@@ -41,7 +41,6 @@
               <img src="fotoEkskul/<?= $ekskul['gambarEkskul'] ?>" class="w-50 mb-2" alt="">
               <input type="file" class="form-control m-auto w-25" name="gambar">
             </div>
-<<<<<<< HEAD
         </nav>
     </div> 
     <!-- !SECTION akhir navbar pertama -->
@@ -61,7 +60,7 @@
                     <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
                     <a class="nav-link text-white" href="#">PPDB</a>
                     <a class="nav-link text-white" href="../GALERI/galeri/admin/galeri.php">Galeri</a>
-                    <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
+                    <a class="nav-link text-white" href="../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Edit Website
@@ -118,11 +117,6 @@
                         </div>
                     </form>
                 </div>
-=======
-            <div class="mb-3">
-              <label for="" class="form-label">Nama Eskull :</label>
-              <input type="text" class="form-control" name="nama" value="<?= $ekskul['namaEkskul'] ?>">
->>>>>>> 5bf1e4653dba2858d896c6136602a848c90405bf
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Hari :</label>

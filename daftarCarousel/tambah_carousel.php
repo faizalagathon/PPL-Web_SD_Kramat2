@@ -54,7 +54,7 @@ require "Koneksi.php";
                             <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
                             <a class="nav-link text-white" href="#">PPDB</a>
                             <a class="nav-link text-white" href="#">Galeri</a>
-                            <a class="nav-link text-info" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
+                            <a class="nav-link text-info" href="../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Edit Website

@@ -27,8 +27,9 @@ function login($data){
   $result = mysqli_query($link, $query);
   
   if(mysqli_num_rows($result) === 1){
-    // var_dump($result['role']);
-    $_SESSION['loginAdmin'] = true;
+    $role_guru = mysqli_fetch_assoc($result)['role'];
+
+    $_SESSION['login'] = $role_guru;
     return true;
   }
   else{

@@ -1,5 +1,13 @@
 <?php
 require 'koneksi.php';
+
+if(isset($_SESSION['login'])){
+    $login = $_SESSION['login'];
+}
+else{
+    $login = false;
+}
+
 $gambar = mysqli_query($link, "SELECT * FROM galeri
 INNER JOIN kategori_acara
 ON galeri.id_k_acara=kategori_acara.id_k_acara
@@ -92,8 +100,9 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                             <a class="nav-link text-info" aria-current="page" href="home.php">Home</a>
                             <a class="nav-link text-white" href="profile/profile.php">Profil</a>
                             <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
-                            <a class="nav-link text-white" href="daftarGaleri/admin/galeri.php">Galeri</a>
+                            <a class="nav-link text-white" href="daftarGaleri/user/galeri.php">Galeri</a>
                             <a class="nav-link text-white" href="daftarGuru/daftar_guru.php">Daftar Guru</a>
+                            <?php if(isset($login) && $login == true) : ?>
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Edit Website
@@ -108,7 +117,14 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                                     <li><a class="dropdown-item" href="daftarBerita/crud_berita.php">Berita</a></li>
                                 </ul>
                             </li>
+                            <?php endif ; ?>
                         </div>
+                        <?php if(isset($login) && $login != false) : ?>
+                            <a href="login/logout.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                        <?php endif ; ?>
+                        <?php if(isset($login) && $login == false) : ?>
+                            <a href="login/login.php" class="nav-link text-white">Login Admin</a>
+                        <?php endif ; ?>
                     </div>
                 </div>
             </nav>

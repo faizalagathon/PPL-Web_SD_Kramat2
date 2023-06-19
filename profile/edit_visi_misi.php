@@ -2,6 +2,10 @@
 
 include '../functions.php';
 
+if(!isset($_SESSION['login']) || (isset($_SESSION['login']) && $_SESSION['login'] != 'admin') ){
+    header("Location: ../login/login.php");
+}
+
 if(isset($_POST['ubahVisi']) || isset($_POST['ubahMisi'])){
 
     if(ubah($_POST) > 0){
@@ -94,8 +98,8 @@ if(!isset($dataMisi)){
                     <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
                     <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
                     <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
-                    <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
-                    <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
+                    <a class="nav-link text-white" href="../daftarGaleri/user/galeri.php">Galeri</a>
+                    <a class="nav-link text-white" href="../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Edit Website

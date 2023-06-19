@@ -3,7 +3,7 @@
 include '../functions.php';
 
 if(isset($_SESSION['loginAdmin'])){
-    header('Location: ../daftarGuru/daftar_guru.php');
+    header('Location: ../home.php');
 } 
 
 if(isset($_POST['login'])){
@@ -14,7 +14,7 @@ if(isset($_POST['login'])){
         echo "
         <script>
         alert('Berhasil Login');
-        document.location.href = '../daftarGuru/daftar_guru.php'; 
+        document.location.href = '../home.php'; 
         </script>";
     }
     else{
