@@ -9,6 +9,12 @@ else{
     $login = false;
 }
 
+$roleGuru = [
+    'Guru Mapel',
+    'Staff',
+    'Admin'
+];
+
 // $jumlahGuru = count($roleGuru);
 
 if(isset($_POST['tambahGuru'])){

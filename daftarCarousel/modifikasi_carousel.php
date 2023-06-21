@@ -57,7 +57,7 @@
 
        <!-- awal navbar pertama -->
        <!-- <div class="navbar-pertama"> -->
-          <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
+          <!-- <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
             <div class="container-fluid">
               <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
               <div class="d-flex me-2">
@@ -66,7 +66,7 @@
               </div>
             </div>
           </nav>
-        </div>
+        </div> -->
       <!-- akhir navbar pertama -->
         <!-- awal navbar kedua -->
             <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">

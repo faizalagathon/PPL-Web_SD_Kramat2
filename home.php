@@ -345,7 +345,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                 </div>
               </div>
               <div class="text-center mb-3">
-                <a href="berita.html" class="">Read More ></a>
+                <a href="daftarBerita/berita.php" class="">Read More ></a>
               </div>
             </div>
             <!-- !SECTION BERITA -->

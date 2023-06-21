@@ -201,6 +201,7 @@ if(isset($_POST["cari"])){
                             <li><a class="dropdown-item" href="../../daftarBerita/crud_berita.php">Berita</a></li>
                         </ul>
                     </li>
+                    <a href="../../login/logout.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ else{
     $login = false;
 }
 
-// $jumlahGuru = count($roleGuru);
+$jumlahGuru = count($roleGuru);
 
 if(isset($_POST['tambahGuru'])){
 
