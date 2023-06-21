@@ -34,7 +34,7 @@
   if (!isset($_GET['ekskul'])) {
     header("Location: ../profile/profile.php");
   } else {
-    $data = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbing = guru.id_guru")[0];
+    $data = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbing = guru.id_guru WHERE idEkskul = $_GET[ekskul]")[0];
   }
   ?>
 

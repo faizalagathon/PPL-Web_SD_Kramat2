@@ -67,6 +67,10 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
         /* @media (max-width: 425px){
 
         } */
+        /* body{
+          background: url(assets/imgs/bg3.jpg);
+          background-size: cover;
+        } */
         *{
           font-family: 'Poppins';
         }
@@ -78,7 +82,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
           <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
             <div class="container-fluid">
               <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
-              <div class="d-flex me-2">
+              <div class="d-flex">
                 <span class="nav-link active me-4 text-light" aria-current="page">Jl. Siliwangi No. 44Kota Cirebon </span>
                 <span class="nav-link active text-light" aria-current="page">Telp. (0231) 202998</span>
               </div>
@@ -129,34 +133,85 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                 </div>
             </nav>
           <!-- akhir navbar kedua -->
-          <div class="container-fluid mt-2">
-            <!-- SECTION CAROUSEL -->
-              <div id="carouselExampleControls" data-bs-ride="carousel" class="carousel slide auto">
-                <!-- <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div> -->
-                <!-- NOTE Maksimal Tinggi Gambar Carousel diatas 500px -->
-                <!-- ini yg tadi ilang -->
-                <div class="carousel-inner slide">
-                  <?php while($d = mysqli_fetch_assoc($datacarousel)) : ?>
-                    <div class="carousel-item active" style="max-height: 30rem;">
-                      <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block " style="width:100%; height:500px;" alt="...">
+          <div class="container-fluid">
+            <div class="" style="background: url(assets/imgs/bg4.jpg);background-size: cover;">
+              <!-- SECTION SEMENTARA -->
+              <!-- NOTE DESIGN HOME SEMENTARA -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mt-5 pt-5 ms-5">
+                    <div class="greet p-2 pb-5 text-white">
+                      <h2>Selamat Datang di</h2>
+                      <h1 class="fw-bold ">SDN 2 Kramat</h1>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, nulla?</p>
+                      <div class="">
+                        <button class="btn btn-primary px-5">Jelajahi</button>
+                        <!-- <button class="btn btn-outline-light">Jelajahi</button> -->
+                      </div>
                     </div>
-                  <?php endwhile; ?>
+                  </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
+                <div class="col-md-6 ms-auto">
+                  <div class="px-5 py-4">
+                    <!-- SECTION CAROUSEL -->
+                      <div id="carouselExampleControls" data-bs-ride="carousel" class="carousel slide auto">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <!-- NOTE Maksimal Tinggi Gambar Carousel diatas 500px -->
+                        <!-- ini yg tadi ilang -->
+                        <div class="carousel-inner slide">
+                          <?php while($d = mysqli_fetch_assoc($datacarousel)) : ?>
+                            <div class="carousel-item active" style="max-height: 30rem;">
+                              <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block " style="width:100%; height:400px;" alt="...">
+                            </div>
+                          <?php endwhile; ?>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                    <!-- !SECTION CAROUSEL -->
+                  </div>
+                </div>
               </div>
-            <!-- !SECTION CAROUSEL -->
+              <!-- !SECTION SEMENTARA -->
+              <!-- SECTION CAROUSEL -->
+                <!-- <div id="carouselExampleControls" data-bs-ride="carousel" class="carousel slide auto">
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  </div> -->
+                  <!-- NOTE Maksimal Tinggi Gambar Carousel diatas 500px -->
+                  <!-- ini yg tadi ilang -->
+                  <!-- <div class="carousel-inner slide">
+                    <?php while($d = mysqli_fetch_assoc($datacarousel)) : ?>
+                      <div class="carousel-item active" style="max-height: 30rem;">
+                        <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block " style="width:100%; height:500px;" alt="...">
+                      </div>
+                    <?php endwhile; ?>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div> -->
+              <!-- !SECTION CAROUSEL -->
+            </div>
             <!-- SECTION SAMBUTAN -->
+
             <div class="text-center py-4 border-bottom border-dark border-1">
               <h3>Sambutan</h3>
               <p>

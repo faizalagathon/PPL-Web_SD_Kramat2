@@ -38,7 +38,7 @@
           <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-3 text-center">
               <label for="" class="form-label">Ubah Gambar :</label><br>
-              <img src="fotoEkskul/<?= $ekskul['gambarEkskul'] ?>" class="w-50 mb-2" alt="">
+              <img src="../assets/imgs/ekskul/<?= $ekskul['gambarEkskul'] ?>" class="w-50 mb-2">
               <input type="file" class="form-control m-auto w-25" name="gambar">
             </div>
         </nav>
@@ -120,10 +120,9 @@
             </div>
             <div class="mb-3">
               <label for="" class="form-label">Hari :</label>
-              <select class="form-select" aria-label="Default select example" name="jadwal">
-                <option selected> - </option>
+              <select class="form-control" aria-label="Default select example" name="jadwal">
                 <?php foreach ($daftarHari as $hari) : ?>
-                  <option value="<?= $hari ?>" <?= ($hari == $ekskul['jadwalHari']) ? 'selected' : '' ?> >
+                  <option value="<?= $hari ?>" <?= ($hari == $ekskul['jadwalHari']) ? 'selected' : '' ?>>
                     <?= $hari ?>
                   </option>
                 <?php endforeach ?>
@@ -132,36 +131,32 @@
             <div class="mb-3">
               <label for="" class="form-label">Pembimbing :</label>
               <select class="form-select" aria-label="Default select example" name="pembimbing">
-                <option selected> - </option>
                 <?php foreach ($daftarGuru as $guru) : ?>
-                  <option value="<?= $guru['id_guru'] ?>" <?= ($guru['id_guru'] == $ekskul['idPembimbing']) ? 'selected' : '' ?> >
+                  <option value="<?= $guru['id_guru'] ?>" <?= ($guru['id_guru'] == $ekskul['idPembimbing']) ? 'selected' : '' ?>>
                     <?= $guru['nama_guru'] ?>
                   </option>
                 <?php endforeach ?>
               </select>
             </div>
-            <input type="hidden" name="editEkskul" value="<?= $ekskul['idEkskul'] ?>">
             <div class="text-end">
-              <a href="crud_eskull.php">
-                <button type="button" class="btn btn-warning text-white">Batal</button>
-              </a>
+              <input type="hidden" name="editEkskul" value="<?= $ekskul['idEkskul'] ?>">
+              <a href="crud_eskull.php" class="btn btn-warning text-white">Batal</a>
               <button type="submit" class="btn btn-info text-white">Tambahkan</button>
             </div>
           </form>
         </div>
       </div>
     </div>
-  </div>
-  <!-- SECTION FOOTER -->
-  <div class="footer">
-    <div class="text-center bg-dark" style="padding: 5%;">
-      <p class="text-white mb-0 mt-0">
-        Coypright By @SD_Keramat2023
-      </p>
+    <!-- SECTION FOOTER -->
+    <div class="footer">
+      <div class="text-center bg-dark" style="padding: 5%;">
+        <p class="text-white mb-0 mt-0">
+          Coypright By @SD_Keramat2023
+        </p>
+      </div>
     </div>
-  </div>
-  <!-- !SECTION FOOTER -->
-  <script src="../assets/js/bootstrap-5.3.0/bootstrap.bundle.js"></script>
+    <!-- !SECTION FOOTER -->
+    <script src="../assets/js/bootstrap-5.3.0/bootstrap.bundle.js"></script>
 </body>
 
 </html>

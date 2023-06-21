@@ -220,7 +220,7 @@ if(isset($_POST["cari"])){
         </div>
       </form>
       <!-- !SECTION END CARI -->
-      <div class="d-flex gap-2 ms-auto button pe-2" style="">
+      <div class="d-flex gap-2 ms-auto button pe-2">
         <!-- SECTION FORM TAMBAH KATEGORI -->
         <form action="../../aksi_crud_galeri.php?ParamAksi=tambah_kategori&ParamTable=kategori_acara&ParamCek=required" method="post" enctype="multipart/form-data">
           <!-- //SECTION start modal -->
@@ -284,7 +284,7 @@ if(isset($_POST["cari"])){
                   <label for="" class="form-label">
                     Pilih Kategori Acara :
                   </label>
-                  <select name="id_k_acara" class="form-control" id="id_k_acara">
+                  <select name="id_k_acara" class="form-select" id="id_k_acara">
                     <?php foreach ($acara as $cr) : ?>
                       <option value="<?= $cr['id_k_acara'] ?>"><?= $cr['nama_k_acara'] ?></option>
                     <?php endforeach; ?>
@@ -352,7 +352,7 @@ if(isset($_POST["cari"])){
                           </div>
                           <div class="">
                             <label>Kategori :</label>
-                            <select name="id_k_acara"  class="form-control text-center" id="id_k_acara">
+                            <select name="id_k_acara"  class="form-select" id="id_k_acara">
                             <?php foreach ($acara as $cr_2) : ?>
                               <option value="<?= $cr_2['id_k_acara']?>"<?= $cr_2['id_k_acara'] == $gbr["id_k_acara"] ? 'selected' : '' ; ?>><?= $cr_2['nama_k_acara'] ?></option>
                             <?php endforeach; ?>

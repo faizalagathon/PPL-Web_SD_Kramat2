@@ -2,8 +2,11 @@
 
 include '../functions.php';
 
-if(!isset($_SESSION['login']) || (isset($_SESSION['login']) && $_SESSION['login'] != 'admin') ){
-    header("Location: ../login/login.php");
+if(isset($_SESSION['login'])){
+    $login = $_SESSION['login'];
+}
+else{
+    $login = false;
 }
 
 if(isset($_POST['ubahVisi']) || isset($_POST['ubahMisi'])){

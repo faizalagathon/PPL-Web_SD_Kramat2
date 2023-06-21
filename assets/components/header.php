@@ -22,23 +22,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-5 gap-4">
-        <a class="nav-link text-white" href="../../home.html">Home</a>
-        <a class="nav-link text-white" href="../../profile/profile.html">Profil</a>
-        <a class="nav-link text-white" href="../../daftarBerita/berita.php">Berita</a>
-        <a class="nav-link text-white" href="../../daftarGaleri/admin/galeri.php">Galeri</a>
-        <a class="nav-link text-white" href="../../daftarGaleri/admin/galeri.php">Daftar Guru</a>
+        <a class="nav-link text-white" href="../home.php">Home</a>
+        <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
+        <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
+        <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
+        <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Daftar Guru</a>
         <li class="nav-item dropdown">
           <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Edit Website
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item text-white" href="../../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
-            <li><a class="dropdown-item text-white" href="../../daftarGuru/daftar_guru.php">Guru</a></li>
-            <li><a class="dropdown-item text-white" href="../../profile/profile.php">Sejarah</a></li>
-            <li><a class="dropdown-item text-white" href="../../profile/edit_visi_misi.php">Visi Misi</a></li>
-            <li><a class="dropdown-item text-white" href="../../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-            <li><a class="dropdown-item text-white" href="../../daftarGaleri/admin/galeri.php">Galeri</a></li>
-            <li><a class="dropdown-item text-white" href="../../daftarBerita/berita.php">Berita</a></li>
+            <li><a class="dropdown-item text-white" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
+            <li><a class="dropdown-item text-white" href="../daftarGuru/daftar_guru.php">Guru</a></li>
+            <li><a class="dropdown-item text-white" href="../profile/profile.php">Sejarah</a></li>
+            <li><a class="dropdown-item text-white" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
+            <li><a class="dropdown-item text-white" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+            <li><a class="dropdown-item text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
+            <li><a class="dropdown-item text-white" href="../daftarBerita/berita.php">Berita</a></li>
           </ul>
         </li>
       </div>
