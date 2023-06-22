@@ -11,6 +11,10 @@
   </nav>
 </div>
 <!-- !SECTION akhir navbar pertama -->
+<?php function halAktif($hal)
+{
+  return array_search($hal, explode('/', $_SERVER['REQUEST_URI']));
+} ?>
 <!-- SECTION awal navbar kedua -->
 <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
   <div class="container-fluid ">
@@ -23,22 +27,22 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-5 gap-4">
         <a class="nav-link text-white" href="../home.php">Home</a>
-        <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
-        <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
+        <a class="nav-link text-<?= (halAktif('profile.php') != false) ? 'info' : 'white' ?>" href="../profile/profile.php">Profil</a>
+        <a class="nav-link text-<?= (halAktif('berita.php') != false) ? 'info' : 'white' ?>" href="../daftarBerita/berita.php">Berita</a>
         <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
-        <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Daftar Guru</a>
+        <a class="nav-link text-<?= (halAktif('daftar_guru.php') != false) ? 'info' : 'white' ?>" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
         <li class="nav-item dropdown">
           <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Edit Website
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item text-white" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
-            <li><a class="dropdown-item text-white" href="../daftarGuru/daftar_guru.php">Guru</a></li>
-            <li><a class="dropdown-item text-white" href="../profile/profile.php">Sejarah</a></li>
-            <li><a class="dropdown-item text-white" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
-            <li><a class="dropdown-item text-white" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+            <li><a class="dropdown-item text-<?= (halAktif('profile.php') != false) ? 'info' : 'white' ?>" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
+            <li><a class="dropdown-item text-<?= (halAktif('daftar_guru.php') != false) ? 'info' : 'white' ?>" href="../daftarGuru/daftar_guru.php">Guru</a></li>
+            <li><a class="dropdown-item text-<?= (halAktif('profile.php') != false) ? 'info' : 'white' ?>" href="../profile/profile.php">Sejarah</a></li>
+            <li><a class="dropdown-item text-<?= (halAktif('edit_visi_misi.php') != false) ? 'info' : 'white' ?>" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
+            <li><a class="dropdown-item text-<?= (halAktif('crud_eskull.php') != false) ? 'info' : 'white' ?>" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
             <li><a class="dropdown-item text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
-            <li><a class="dropdown-item text-white" href="../daftarBerita/berita.php">Berita</a></li>
+            <li><a class="dropdown-item text-<?= (halAktif('berita.php') != false) ? 'info' : 'white' ?>" href="../daftarBerita/berita.php">Berita</a></li>
           </ul>
         </li>
       </div>
