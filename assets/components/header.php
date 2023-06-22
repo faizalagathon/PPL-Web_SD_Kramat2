@@ -31,14 +31,14 @@
           <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Edit Website
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item text-white" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
-            <li><a class="dropdown-item text-white" href="../daftarGuru/daftar_guru.php">Guru</a></li>
-            <li><a class="dropdown-item text-white" href="../profile/profile.php">Sejarah</a></li>
-            <li><a class="dropdown-item text-white" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
-            <li><a class="dropdown-item text-white" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-            <li><a class="dropdown-item text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
-            <li><a class="dropdown-item text-white" href="../daftarBerita/berita.php">Berita</a></li>
+          <ul class="dropdown-menu" style="z-index: 9999;">
+            <li><a class="dropdown-item" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
+            <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
+            <li><a class="dropdown-item" href="../profile/profile.php">Sejarah</a></li>
+            <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
+            <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+            <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
+            <li><a class="dropdown-item" href="../daftarBerita/berita.php">Berita</a></li>
           </ul>
         </li>
       </div>

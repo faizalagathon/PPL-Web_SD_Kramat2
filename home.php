@@ -134,12 +134,12 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             </nav>
           <!-- akhir navbar kedua -->
           <div class="container-fluid">
-            <div class="" style="background: url(assets/imgs/bg7.jpg);background-size: cover;">
+            <div class="py-5" style="background: url(assets/imgs/Foto_SD/hari_pgri/IMG-20221202-WA0095.jpg);background-size: cover;">
               <!-- SECTION SEMENTARA -->
               <!-- NOTE DESIGN HOME SEMENTARA -->
               <div class="row">
                 <div class="col-md-6">
-                  <div class="mt-5 pt-5 ms-5">
+                  <div class="mt-5 pt-3 ms-5">
                     <div class="greet p-2 pb-5 text-white">
                       <h2>Selamat Datang di</h2>
                       <h1 class="fw-bold text-primary">SDN 2 Kramat</h1>
@@ -165,7 +165,8 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                         <div class="carousel-inner slide">
                           <?php while($d = mysqli_fetch_assoc($datacarousel)) : ?>
                             <div class="carousel-item active" style="max-height: 30rem;">
-                              <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block " style="width:100%; height:400px;" alt="...">
+                              <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block " 
+                              style="min-width: 100%;min-height: 100%;max-width: 100%;max-height: 280px;object-fit: cover;object-position: center;" alt="...">
                             </div>
                           <?php endwhile; ?>
                         </div>
