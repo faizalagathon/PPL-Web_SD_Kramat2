@@ -32,7 +32,7 @@
   <?php include "../assets/components/header.php" ?>
 
   <!-- awal navbar pertama -->
-    <div class="navbar-pertama">
+    <!-- <div class="navbar-pertama">
       <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
         <div class="container-fluid">
           <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
@@ -42,13 +42,13 @@
           </div>
         </div>
       </nav>
-    </div>
+    </div> -->
   <!-- akhir navbar pertama -->
     <!-- awal navbar kedua -->
-        <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+        <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
             <div class="container-fluid ">
                 <a class="navbar-brand p-0" href="home.html">
-                    <img src="../assets/imgs/Foto SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+                    <img src="../assets/imgs/Foto_SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
                 </a>
                 <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -77,16 +77,16 @@
                     </div>
                 </div>
             </div>
-        </nav>
+        </nav> -->
       <!-- akhir navbar kedua -->
   <div class="container-fluid">
     <!-- SECTION BERITA -->
     <div class="mt-3">
+      <div class="d-flex mb-2 gap-2">
+        <a href="tambah_eskull.php" class="btn btn-primary">Tambah Eskull</a>
+        <a href="../profile/profile.php" class="btn btn-danger">Kembali</a>
+      </div>
       <div class="d-flex flex-wrap">
-        <div class="d-flex mb-2 gap-2">
-          <a href="tambah_eskull.php" class="btn btn-primary">Tambah Eskull</a>
-          <a href="../profile/profile.php" class="btn btn-danger">Kembali</a>
-        </div>
 
         <?php if (!$daftarEkskul) : ?>
           <div class="text-center">

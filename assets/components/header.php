@@ -38,7 +38,7 @@
             <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
             <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
             <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
-            <li><a class="dropdown-item" href="../daftarBerita/berita.php">Berita</a></li>
+            <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
           </ul>
         </li>
       </div>

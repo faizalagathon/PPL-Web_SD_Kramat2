@@ -94,7 +94,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
                 <div class="container-fluid ">
                     <a class="navbar-brand p-0" href="home.html">
-                        <img src="assets/imgs/Foto SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+                        <img src="assets/imgs/Foto_SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
                     </a>
                     <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -207,27 +207,33 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             </div>
             <!-- !SECTION SAMBUTAN -->
             <!-- SECTION VISI MISI -->
-            <div class="row text-center text-white py-5 border-bottom border-dark border-1">
-              <div class="col-md-6">
-                <div class="bg-info py-5 px-5 text-start mb-3">
-                  <h4>VISI</h4>
-                  <p>
-                    <?= $dataVisi['teksVisi'] ?>
-                  </p>
+            <!-- NOTE MASIH PROTOTYPE -->
+            <div class="bg-dark text-white py-5 border-bottom border-dark border-1">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="py-5 px-5 text-start mb-3">
+                    <h4>VISI</h4>
+                    <p>
+                      <?= $dataVisi['teksVisi'] ?>
+                    </p>
+                  </div>
+                  <div class="py-5 px-5 text-start">
+                    <h4>MISI</h4>
+                    <p>
+                      <?= $dataMisi['teksMisi'] ?>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-6 ms-auto">
-                <div class="bg-info py-5 px-5 text-start">
-                  <h4>MISI</h4>
-                  <p>
-                    <?= $dataMisi['teksMisi'] ?>
-                  </p>
+                <div class="col-md-6 ms-auto">
+                  <div class="text-center">
+                      <img src="assets/imgs/illustrasi/illustrasi_vm.png" width="400px" height="400px" alt="">
+                  </div>
                 </div>
               </div>
             </div>
             <!-- !SECTION VISI MISI -->
             <!-- SECTION GALERI -->
-            <div class="py-4 border-bottom border-dark border-1">
+            <div class="py-4">
             <div style="scroll-snap-type: y mandatory;">
               <h3 class="text-center">GALERI</h3>
                   <!--SECTION Gambar -->
@@ -263,72 +269,62 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             <!-- !SECTION GALERI -->
             <!-- SECTION BERITA -->
             <div class="">
-              <h3 class="text-center pt-4">BERITA</h3>
-              <div class="d-flex flex-wrap">
-                <div class="card mb-3 m-auto">
-                  <div class="row">
-                    <div class="col-md-2">
-                      <img src="sample_img/b1.jpg" class="img-fluid" alt="...">
-                    </div>
-                    <div class="col-md-10">
+              <div class="m-auto">
+                  <h3 class="pt-4">BERITA</h3>
+                  <div class="d-flex flex-wrap justify-content-center mb-3 gap-3">
+                    <div class="card" style="width: 15rem;">
+                      <img src="assets/imgs/Foto_SD/IMG-20221202-WA0079.jpg" class="card-img-top" alt="..." style="min-width: 100%;min-height: 100px;max-width: 100%;max-height: 130px;object-fit: cover;object-position: center;">
                       <div class="card-body">
-                        <small>29 Desember 2022</small>
-                        <h5 class="card-title">Judul berita</h5>
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
-                          quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
-                          dolores fugit quisquam recusandae culpa molestiae id, ab voluptas reprehenderit tempore!
-                        </p>
+                        <h5 class="card-title">Judul Berita</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                       </div>
-                      <div class="card-footer bg-white border-0">
-                        <a href="daftarberita/detail_berita.php">Selengkapnya></a>
+                      <div class="card-footer">
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 15rem;">
+                      <img src="assets/imgs/Foto_SD/IMG-20221202-WA0027.jpg" class="card-img-top" alt="..." style="min-width: 100%;min-height: 100px;max-width: 100%;max-height: 130px;object-fit: cover;object-position: center;">
+                      <div class="card-body">
+                        <h5 class="card-title">Judul Berita</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                      <div class="card-footer">
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+                    <div class="card" style="width: 15rem;">
+                      <img src="assets/imgs/Foto_SD/IMG-20221202-WA0089.jpg" class="card-img-top" alt="..." style="min-width: 100%;min-height: 100px;max-width: 100%;max-height: 130px;object-fit: cover;object-position: center;">
+                      <div class="card-body">
+                        <h5 class="card-title">Judul Berita</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                      <div class="card-footer">
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="card mb-3 m-auto">
-                  <div class="row">
-                    <div class="col-md-2">
-                      <img src="sample_img/b2.jpg" class="img-fluid" alt="...">
-                    </div>
-                    <div class="col-md-10">
-                      <div class="card-body">
-                        <small>29 Desember 2022</small>
-                        <h5 class="card-title">Judul berita</h5>
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
-                          quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
-                          dolores fugit quisquam recusandae culpa molestiae id, ab voluptas reprehenderit tempore!
-                        </p>
+                    <!-- <div class="card mb-3 m-auto">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <img src="sample_img/b1.jpg" class="img-fluid" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <small>29 Desember 2022</small>
+                            <h5 class="card-title">Judul berita</h5>
+                            <p>
+                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
+                              quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
+                            </p>
+                          </div>
+                          <div class="card-footer bg-white border-0">
+                            <a href="daftarberita/detail_berita.php">Selengkapnya></a>
+                          </div>
+                        </div>
                       </div>
-                      <div class="card-footer bg-white border-0">
-                        <a href="daftarberita/detail_berita.php">Selengkapnya></a>
-                      </div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
-                <div class="card mb-3 m-auto">
-                  <div class="row">
-                    <div class="col-md-2">
-                      <img src="sample_img/b3.jpg" class="img-fluid" alt="...">
-                    </div>
-                    <div class="col-md-10">
-                      <div class="card-body">
-                        <small>29 Desember 2022</small>
-                        <h5 class="card-title">Judul berita</h5>
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
-                          quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
-                          dolores fugit quisquam recusandae culpa molestiae id, ab voluptas reprehenderit tempore!
-                        </p>
-                      </div>
-                      <div class="card-footer bg-white border-0">
-                        <a href="daftarberita/detail_berita.php">Selengkapnya></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
               <div class="text-center mb-3">
                 <a href="daftarBerita/berita.php" class="">Read More ></a>
               </div>

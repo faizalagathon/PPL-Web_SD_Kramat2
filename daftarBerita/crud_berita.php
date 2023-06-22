@@ -105,7 +105,7 @@ require '../functions.php';
 			}elseif($_GET['alert']=="berhasilhapus"){
 				?>
 				<div class="alert alert-success alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+					<button type="button" class="btn-close" data-dismiss="alert" aria-hidden="true">X</button>
 					<h4><i class="icon fa fa-check"></i> Success</h4>
 					Berhasil Dihapus
 				</div> 								

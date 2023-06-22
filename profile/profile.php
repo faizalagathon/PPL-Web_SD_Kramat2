@@ -65,7 +65,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
         <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
             <div class="container-fluid ">
                 <a class="navbar-brand p-0" href="home.html">
-                    <img src="../assets/imgs/Foto SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+                    <img src="../assets/imgs/Foto_SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
                 </a>
                 <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -110,7 +110,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                 <div class="">
                     <h3 class="text-center mt-3">Profile Sekolah :</h3>
                     <div class="text-center mb-5">
-                        <img src="../assets/imgs/Foto SD/logoSD.png" class="" width="150" height="150" alt="">
+                        <img src="../assets/imgs/Foto_SD/logoSD.png" class="" width="150" height="150" alt="">
                     </div>
                     <!-- SECTION SEJARAH -->
                     <div class="border-bottom border-dark pb-4">
