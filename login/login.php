@@ -3,7 +3,7 @@
 include '../functions.php';
 
 if(isset($_SESSION['loginAdmin'])){
-    header('Location: ../daftarGuru/daftar_guru.php');
+    header('Location: ../home.php');
 } 
 
 if(isset($_POST['login'])){
@@ -14,7 +14,7 @@ if(isset($_POST['login'])){
         echo "
         <script>
         alert('Berhasil Login');
-        document.location.href = '../daftarGuru/daftar_guru.php'; 
+        document.location.href = '../home.php'; 
         </script>";
     }
     else{
@@ -44,20 +44,6 @@ if(isset($_POST['login'])){
             background-size: cover;
 
         }
-        /* @keyframes bg-pan-top{
-            0%{
-                background-color: rgb(0, 179, 255);
-                background-position: 50% 100%;
-            }
-            50%{
-                background-color: #ffd000;
-                background-position: 50% 0%;
-            }
-            100%{
-                background-color: #ae00ff;
-                background-position: 50% 100%;
-            }
-        } */
         .bg-pan-top{
             -webkit-animation: bg-pan-top 8s infinite both;
             animation: bg-pan-top 8s infinite both;
@@ -69,11 +55,6 @@ if(isset($_POST['login'])){
         form{
             border-radius: 2rem;
             font-family: 'poppins';
-            /* background: url(assets/background/bg1.jpg);
-            background-size: cover;
-            background-attachment: scroll; */
-            /* background-color: rgb(0, 0, 0, 50%); */
-            /* background-color: white; */
         }
         .footer{
             font-family: 'poppins';
@@ -83,7 +64,6 @@ if(isset($_POST['login'])){
                 width: 40%;
                 margin: auto;
                 background-color: white;
-                /* border: 2px solid; */
                 border-radius: 20%;
             }
             .data{

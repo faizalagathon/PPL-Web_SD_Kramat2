@@ -2,11 +2,11 @@
 
 include '../functions.php';
 
-if(isset($_SESSION['loginAdmin'])){
-    $admin = true;
+if(isset($_SESSION['login'])){
+    $login = $_SESSION['login'];
 }
 else{
-    $admin = false;
+    $login = false;
 }
 
 $roleGuru = [
@@ -232,9 +232,9 @@ if($jumlahDataQueryGuru == 0){
                             <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
                             <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
                             <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
-                            <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
-                            <a class="nav-link text-info" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
-                            <?php if(isset($admin) && $admin == true) : ?>
+                            <a class="nav-link text-white" href="../daftarGaleri/user/galeri.php">Galeri</a>
+                            <a class="nav-link text-info" href="../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
+                            <?php if(isset($login) && $login != false) : ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Edit Website
@@ -251,11 +251,11 @@ if($jumlahDataQueryGuru == 0){
                                 </li>
                             <?php endif ; ?>
                         </div>
-                        <?php if(isset($admin) && $admin == true) : ?>
+                        <?php if(isset($login) && $login != false) : ?>
                             <button class="btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
                             <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                         <?php endif ; ?>
-                        <?php if(isset($admin) && $admin == false) : ?>
+                        <?php if(isset($login) && $login == false) : ?>
                             <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
                         <?php endif ; ?>
                     </div>
@@ -275,13 +275,13 @@ if($jumlahDataQueryGuru == 0){
                                 </div>
                             </form>
                         </div>
-                        <?php if(isset($admin) && $admin == true) : ?>
+                        <?php if(isset($login) && $login != false) : ?>
                             <div class="col text-end">
                                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
                                 <a href="../login/logout.php?halamanAsal=daftar_guru.php" style="display: none;" class="btn btn-secondary" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                             </div>
                         <?php endif ; ?>
-                        <?php if(isset($admin) && $admin == false) : ?>
+                        <?php if(isset($login) && $login == false) : ?>
                             <!-- <a href="../login/login.php" class="btn btn-info">Login Admin</a> -->
                         <?php endif ; ?>
                     </div>
@@ -301,7 +301,7 @@ if($jumlahDataQueryGuru == 0){
                                 <p class="fw-light">-<?= $data['role'] ?>-</p>
                                 <div class="d-flex justify-content-center">
                                     <button class="bg-transparent border-0 text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $data['id_guru'] ?>">Profile</button>
-                                    <?php if(isset($admin) && $admin == true) : ?>
+                                    <?php if(isset($login) && $login != false) : ?>
                                         <button class="bg-transparent border-0 text-danger " data-bs-toggle="modal" data-bs-target="#editModal<?= $data['id_guru'] ?>">Edit</button>
                                         <form action="" method="post">
                                             <input type="hidden" name="id_guru" value="<?= $data['id_guru'] ?>" >

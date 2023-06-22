@@ -2,7 +2,11 @@
 
 include '../functions.php';
 
-if (isset($_POST['ubahSejarah'])) {
+if(!isset($_SESSION['login']) || (isset($_SESSION['login']) && $_SESSION['login'] == 'admin') ){
+    header("Location: ../login/login.php");
+}
+
+if(isset($_POST['ubahSejarah'])){
 
   if (ubah($_POST) > 0) {
     echo "
