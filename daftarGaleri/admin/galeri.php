@@ -185,8 +185,8 @@ if(isset($_POST["cari"])){
                     <a class="nav-link text-white" aria-current="page" href="../../home.php">Home</a>
                     <a class="nav-link text-white" href="../../profile/profile.php">Profil</a>
                     <a class="nav-link text-white" href="../../daftarBerita/berita.php">Berita</a>
-                    <a class="nav-link text-info" href="galeri.php">Galeri</a>
-                    <a class="nav-link text-white" href="../../daftarGuru/daftar_guru.php">Daftar Guru</a>
+                    <a class="nav-link text-info" href="../galeri/user/galeri.php">Galeri</a>
+                    <a class="nav-link text-white" href="../../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Edit Website
@@ -201,6 +201,7 @@ if(isset($_POST["cari"])){
                             <li><a class="dropdown-item" href="../../daftarBerita/crud_berita.php">Berita</a></li>
                         </ul>
                     </li>
+                    <a href="../../login/logout.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                 </div>
             </div>
         </div>

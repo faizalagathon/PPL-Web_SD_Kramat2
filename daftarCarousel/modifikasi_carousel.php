@@ -57,7 +57,7 @@
 
        <!-- awal navbar pertama -->
        <!-- <div class="navbar-pertama"> -->
-          <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
+          <!-- <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
             <div class="container-fluid">
               <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
               <div class="d-flex me-2">
@@ -66,7 +66,7 @@
               </div>
             </div>
           </nav>
-        </div>
+        </div> -->
       <!-- akhir navbar pertama -->
         <!-- awal navbar kedua -->
             <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
@@ -82,8 +82,8 @@
                             <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
                             <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
                             <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
-                            <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
-                            <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
+                            <a class="nav-link text-white" href="../daftarGaleri/user/galeri.php">Galeri</a>
+                            <a class="nav-link text-white" href="../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Edit Website

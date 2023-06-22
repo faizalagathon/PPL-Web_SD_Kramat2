@@ -1,5 +1,14 @@
 <?php
 require "../../koneksi.php";
+
+if(isset($_SESSION['login'])){
+    $login = $_SESSION['login'];
+}
+else{
+    $login = false;
+}
+
+
 // NOTE $gambar as gbr && $acara as cr
 $gambar = mysqli_query($link, "SELECT * FROM galeri
 INNER JOIN kategori_acara
@@ -83,24 +92,31 @@ if(isset($_POST["cari"])){
                     <a class="nav-link text-white" aria-current="page" href="../../home.php">Home</a>
                     <a class="nav-link text-white" href="../../profile/profile.php">Profil</a>
                     <a class="nav-link text-white" href="../../daftarBerita/berita.php">Berita</a>
-                    <a class="nav-link text-white" href="#">PPDB</a>
                     <a class="nav-link text-info" href="galeri.php">Galeri</a>
-                    <a class="nav-link text-white" href="../../daftarGuru/daftar_guru.php">Daftar Guru</a>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Edit Website
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item text-white" href="#">Carousel</a></li>
-                            <li><a class="dropdown-item text-white" href="../../daftarGuru/daftar_guru.php">Guru</a></li>
-                            <li><a class="dropdown-item text-white" href="../../profile/edit_sejarah.php">Sejarah</a></li>
-                            <li><a class="dropdown-item text-white" href="../../profile/edit_visi_misi.php">Visi Misi</a></li>
-                            <li><a class="dropdown-item text-white" href="crud_eskull.html">Ekstrakulikuler</a></li>
-                            <li><a class="dropdown-item text-info" href="../galeri/admin/galeri.php">Galeri</a></li>
-                            <li><a class="dropdown-item text-white" href="../../daftarBerita/crud_berita.php">Berita</a></li>
-                        </ul>
-                    </li>
-                </div>
+                    <a class="nav-link text-white" href="../../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
+                    <?php if(isset($login) && $login != false) : ?>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Edit Website
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="../../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
+                              <li><a class="dropdown-item" href="../../daftarGuru/daftar_guru.php">Guru</a></li>
+                              <li><a class="dropdown-item" href="../../profile/edit_sejarah.php">Sejarah</a></li>
+                              <li><a class="dropdown-item" href="../../profile/edit_visi_misi.php">Visi Misi</a></li>
+                              <li><a class="dropdown-item" href="../../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+                              <li><a class="dropdown-item" href="../../daftarGaleri/admin/galeri.php">Galeri</a></li>
+                              <li><a class="dropdown-item" href="../../daftarBerita/crud_berita.php">Berita</a></li>
+                          </ul>
+                      </li>
+                    <?php endif ; ?>
+                  </div>
+                  <?php if(isset($login) && $login != false) : ?>
+                      <a href="../../login/logout.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                  <?php endif ; ?>
+                  <?php if(isset($login) && $login == false) : ?>
+                      <a href="../../login/login.php" class="nav-link text-white">Login Admin</a>
+                  <?php endif ; ?>
             </div>
         </div>
     </nav>

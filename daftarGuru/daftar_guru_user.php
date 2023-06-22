@@ -9,13 +9,7 @@ else{
     $login = false;
 }
 
-$roleGuru = [
-    'Guru Mapel',
-    'Staff',
-    'Admin'
-];
-
-// $jumlahGuru = count($roleGuru);
+$jumlahGuru = count($roleGuru);
 
 if(isset($_POST['tambahGuru'])){
 
@@ -275,15 +269,6 @@ if($jumlahDataQueryGuru == 0){
                                 </div>
                             </form>
                         </div>
-                        <?php if(isset($login) && $login != false) : ?>
-                            <div class="col text-end">
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
-                                <a href="../login/logout.php?halamanAsal=daftar_guru.php" style="display: none;" class="btn btn-secondary" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
-                            </div>
-                        <?php endif ; ?>
-                        <?php if(isset($login) && $login == false) : ?>
-                            <!-- <a href="../login/login.php" class="btn btn-info">Login Admin</a> -->
-                        <?php endif ; ?>
                     </div>
                     <h5 class="text-center mb-3">Daftar Guru :</h5>
                     <!-- SECTION KALO KOSONG KELUAR INI -->
@@ -301,13 +286,6 @@ if($jumlahDataQueryGuru == 0){
                                 <p class="fw-light">-<?= $data['role'] ?>-</p>
                                 <div class="d-flex justify-content-center">
                                     <button class="bg-transparent border-0 text-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $data['id_guru'] ?>">Profile</button>
-                                    <?php if(isset($login) && $login != false) : ?>
-                                        <button class="bg-transparent border-0 text-danger " data-bs-toggle="modal" data-bs-target="#editModal<?= $data['id_guru'] ?>">Edit</button>
-                                        <form action="" method="post">
-                                            <input type="hidden" name="id_guru" value="<?= $data['id_guru'] ?>" >
-                                            <button class="bg-transparent border-0 text-danger" name="hapus" id="hapus" onclick="return confirm('Yakin ingin menghapus guru?')">Hapus</button>
-                                        </form>
-                                    <?php endif ; ?>
                                 </div>
                             </div>
                         </div>
