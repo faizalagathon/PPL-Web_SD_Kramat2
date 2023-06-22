@@ -186,7 +186,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
               <!-- !SECTION SEMENTARA -->
             </div>
             <!-- SECTION SAMBUTAN -->
-            <div class="py-5 border-bottom border-dark border-1">
+            <div class="py-5">
               <div class="row">
                 <div class="col-md-4">
                   <div class="text-center">
