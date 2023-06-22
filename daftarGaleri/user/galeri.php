@@ -57,9 +57,18 @@ if(isset($_POST["cari"])){
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galeri Sekolah</title>
-  <!-- <link rel="stylesheet" href="../../assets/css/bootstrap-5.3.0/bootstrap.min.css"> -->
-  <link rel="stylesheet" href="../../assets/css/galeri.css">
+  <link rel="stylesheet" href="../../assets/css/bootstrap-5.3.0/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="../../assets/css/galeri.css"> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <style>
+        @font-face {
+          font-family: 'Poppins';
+          src: url(../../assets/font/font-poppins/Poppins-Regular.ttf);
+        }
+        *{
+          font-family: 'Poppins';
+        }
+  </style>
 </head>
 
 <body>
@@ -115,7 +124,7 @@ if(isset($_POST["cari"])){
                       <a href="../../login/logout.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                   <?php endif ; ?>
                   <?php if(isset($login) && $login == false) : ?>
-                      <a href="../../login/login.php" class="nav-link text-white">Login Admin</a>
+                      <a href="../../login/login.php" class="nav-link text-white ms-3">Login Admin</a>
                   <?php endif ; ?>
             </div>
         </div>
@@ -143,12 +152,12 @@ if(isset($_POST["cari"])){
       <!-- !SECTION END CARI -->
     <!--SECTION Gambar -->
     <?php foreach ($acara as $cr) : ?>
-      <div class="card border-0 gap-3">
+      <div class="card border-0 gap-3" style="width: 100%;scroll-snap-type: x mandatory;overflow:auto;display: flex;flex-direction: row;">
         <?php foreach ($gambar as $gbr) : ?>
           <?php if ($cr['id_k_acara'] == $gbr['id_k_acara']) : ?>
             <!-- SECTION FOTO -->
-            <div class="foto d-flex">
-              <img src="../../upload/<?=$gbr['gambarGaleri']?>" alt="">
+            <div class="foto">
+              <img src="../../upload/<?=$gbr['gambarGaleri']?>" alt="" style=" scroll-snap-align: start;min-width: 380px;min-height: 240px;max-width: 380px;max-height: 240px;object-fit: cover;object-position: center; padding: 0px 2px;">
             </div>
             <!-- !SECTION FOTO -->
           <?php endif; ?>
@@ -176,7 +185,7 @@ if(isset($_POST["cari"])){
       </div>
     </div>
   <!-- !SECTION FOOTER -->
-<script src="../../../assets/js/bootstrap/bootstrap.min.js"></script>
+<!-- <script src="../../../assets/js/bootstrap/bootstrap.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>

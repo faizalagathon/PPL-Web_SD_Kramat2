@@ -243,12 +243,12 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             <!-- !SECTION VISI MISI -->
             <!-- SECTION GALERI -->
             <div class="py-4 border-bottom border-dark border-1">
-            <div style="  scroll-snap-type: y mandatory;">
+            <div style="scroll-snap-type: y mandatory;">
               <h3 class="text-center">GALERI</h3>
                   <!--SECTION Gambar -->
                   <?php foreach ($acara as $cr) : ?>
                     <!-- SECTION CARD-->
-                    <div class="card border-0 py-3 gap-3" style=" width: 100%;scroll-snap-type: x mandatory;overflow:auto;display: flex;flex-direction: row;">
+                    <div class="card border-0 py-3 gap-3" style="width: 100%;scroll-snap-type: x mandatory;overflow:auto;display: flex;flex-direction: row;">
                       <?php foreach ($gambar as $gbr) : ?>
                         <?php if ($cr['id_k_acara'] == $gbr['id_k_acara']) : ?>
                           <!-- SECTION FOTO -->
