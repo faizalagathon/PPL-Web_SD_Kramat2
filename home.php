@@ -134,10 +134,10 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             </nav>
           <!-- akhir navbar kedua -->
           <div class="container-fluid">
-            <div class="py-5" style="background: url(assets/imgs/Foto_SD/hari_pgri/IMG-20221202-WA0095.jpg);background-size: cover;">
+            <div class="py-5" style="background: url(assets/imgs/Frame_8.png);background-size: cover;">
               <!-- SECTION SEMENTARA -->
               <!-- NOTE DESIGN HOME SEMENTARA -->
-              <div class="row">
+              <div class="row my-5">
                 <div class="col-md-6">
                   <div class="mt-5 pt-3 ms-5">
                     <div class="greet p-2 pb-5 text-white">
