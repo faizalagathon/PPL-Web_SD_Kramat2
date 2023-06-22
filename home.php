@@ -118,7 +118,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             </nav>
           <!-- akhir navbar kedua -->
           <div class="container-fluid">
-            <div class="" style="background: url(assets/imgs/bg4.jpg);background-size: cover;">
+            <div class="" style="background: url(assets/imgs/bg7.jpg);background-size: cover;">
               <!-- SECTION SEMENTARA -->
               <!-- NOTE DESIGN HOME SEMENTARA -->
               <div class="row">
@@ -126,10 +126,10 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                   <div class="mt-5 pt-5 ms-5">
                     <div class="greet p-2 pb-5 text-white">
                       <h2>Selamat Datang di</h2>
-                      <h1 class="fw-bold ">SDN 2 Kramat</h1>
+                      <h1 class="fw-bold text-primary">SDN 2 Kramat</h1>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, nulla?</p>
                       <div class="">
-                        <button class="btn btn-primary px-5">Jelajahi</button>
+                        <button class="btn btn-primary rounded-pill px-5">Jelajahi</button>
                         <!-- <button class="btn btn-outline-light">Jelajahi</button> -->
                       </div>
                     </div>
