@@ -80,7 +80,7 @@ if(isset($_POST['login'])){
             <div class="text-center py-4 bg-white w-50 m-auto" style="border-radius: 2rem;">
                 <h2>Selamat Datang</h2>
                 <div class="gambar mb-3">
-                    <img src="../assets/imgs/Foto SD/logoSD.png" class="p-3 mb-2" width="160px" style="border-radius: 5%;" alt="">
+                    <img src="../assets/imgs/Foto_SD/logoSD.png" class="p-3 mb-2" width="160px" style="border-radius: 5%;" alt="">
                 </div>
                 <div class="data">
                     <div class="">                        

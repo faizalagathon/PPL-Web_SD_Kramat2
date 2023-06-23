@@ -110,13 +110,13 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
     <h3 class="text-center mt-3">Profile Sekolah :</h3>
     <div class="py-5">
       <div class="text-center mb-5">
-        <img src="../assets/imgs/Foto_SD/logoSD.png" class="" width="150" height="150" alt="">
+        <img src="../assets/imgs/Foto_SD/logoSD.png" class="mb-3" width="150" height="150" alt="">
       </div>
       <!-- SECTION SEJARAH -->
       <div class="pb-4">
         <h4>Sejarah</h4>
         <?php foreach ($daftarSejarah as $data) : ?>
-          <p class="form-control" name="" id="" cols="30" rows="10">
+          <p class="" name="" id="" cols="30" rows="10">
             <?= $data['teksSejarah'] ?>
           </p>
         <?php endforeach; ?>
@@ -244,15 +244,6 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-=======
-      <div class="col ms-auto">
-        <div class="feedback sticky-top">
-          <?php include "../assets/components/form-feedback.php" ?>
-        </div>
-      </div>
-    </div>
->>>>>>> 0f34ca316432903f45c0e3a1e17d6c80ed262d2e
   </div>
   <!-- SECTION FOOTER -->
   <div class="footer">
