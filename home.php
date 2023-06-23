@@ -78,7 +78,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
 </head>
 <body>
       <!-- awal navbar pertama -->
-        <div class="navbar-pertama">
+        <!-- <div class="navbar-pertama">
           <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
             <div class="container-fluid">
               <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
@@ -88,7 +88,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
               </div>
             </div>
           </nav>
-        </div>
+        </div> -->
       <!-- akhir navbar pertama -->
         <!-- awal navbar kedua -->
             <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
@@ -358,7 +358,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                   </div>
                 </div>
                 <div class="text-center">
-                  <p class="text-white pb-3 mb-0 mt-0">
+                  <p class="text-white border-top border-white pb-3 pt-2 mx-3 mb-0 mt-0">
                     Coypright By @SD_Keramat2023
                   </p>
                 </div>
