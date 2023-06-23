@@ -2,11 +2,10 @@
 
 include '../functions.php';
 
-if(isset($_SESSION['login'])){
-    $login = $_SESSION['login'];
-}
-else{
-    $login = false;
+if (isset($_SESSION['login'])) {
+  $login = $_SESSION['login'];
+} else {
+  $login = false;
 }
 
 $daftarVisi = query("SELECT * FROM visi");
@@ -80,7 +79,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                         <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
                         <a class="nav-link text-white" href="../daftarGaleri/user/galeri.php">Galeri</a>
                         <a class="nav-link text-white" href="../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
-                        <?php if(isset($login) && $login != false) : ?>
+                        <?php if (isset($login) && $login != false) : ?>
                           <li class="nav-item dropdown">
                               <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                   Edit Website
@@ -95,14 +94,14 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                                   <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
                               </ul>
                           </li>
-                        <?php endif ; ?>
+                        <?php endif; ?>
                     </div>
-                    <?php if(isset($login) && $login != false) : ?>
+                    <?php if (isset($login) && $login != false) : ?>
                         <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
-                    <?php endif ; ?>
-                    <?php if(isset($login) && $login == false) : ?>
+                    <?php endif; ?>
+                    <?php if (isset($login) && $login == false) : ?>
                         <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
-                    <?php endif ; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </nav> -->
@@ -245,6 +244,15 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+=======
+      <div class="col ms-auto">
+        <div class="feedback sticky-top">
+          <?php include "../assets/components/form-feedback.php" ?>
+        </div>
+      </div>
+    </div>
+>>>>>>> 0f34ca316432903f45c0e3a1e17d6c80ed262d2e
   </div>
   <!-- SECTION FOOTER -->
   <div class="footer">
@@ -256,6 +264,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
   </div>
   <!-- !SECTION FOOTER -->
   <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <?php include "../assets/components/js-form-feedback.html" ?>
 </body>
 
 </html>
