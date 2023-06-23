@@ -252,7 +252,6 @@ if($jumlahDataQueryGuru == 0){
                             <?php endif ; ?>
                         </div>
                         <?php if(isset($login) && $login != false) : ?>
-                            <button class="btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
                             <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                         <?php endif ; ?>
                         <?php if(isset($login) && $login == false) : ?>
