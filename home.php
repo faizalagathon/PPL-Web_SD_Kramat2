@@ -52,10 +52,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             src: url(assets/font/font-poppins/Poppins-Regular.ttf);
         }
         @media (max-width: 425px){
-            .navbar-pertama{
-                display: none;
-            }
-            .slide .item{
+          .slide .item{
             overflow-y: hidden;
             
           }
@@ -63,6 +60,15 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
               height: 15rem;
               max-width: 100%;
               max-height: 100%;
+          }
+        }
+        @media (max-width: 1024px){
+          .karosel{
+            width: 100%;
+            scroll-snap-type: x mandatory;
+            overflow:auto;
+            display: flex;
+            flex-direction: row;
           }
         }
         /* @media (max-width: 425px){
@@ -144,14 +150,14 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                       <h1 class="fw-bold text-primary">SDN 2 Kramat</h1>
                       <p class="" style="font-style: italic;">"Jangan hanya bisa untuk bermimpi saja, tapi berusaha dan berdoa untuk menggapai mimpinya"</p>
                       <div class="">
-                        <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none me-3">
-                          <img src="assets/imgs/icon/icon_yt_primary.png" width="6%" alt="">
-                        </a>
                         <a href="https://instagram.com/sdnkramat2kotacirebon?igshid=YmMyMTA2M2Y" class="text-white text-decoration-none me-3">
-                          <img src="assets/imgs/icon/icon_ig_primary.png" width="5%" alt="">
+                          <img src="assets/imgs/icon/icon_ig_primary.png" width="40px" alt="">
                         </a>
-                        <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none">
-                          <img src="assets/imgs/icon/icon_fb_primary.png" width="5%" alt="">
+                        <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none me-3">
+                          <img src="assets/imgs/icon/icon_fb_primary.png" width="40px" alt="">
+                        </a>
+                        <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none">
+                          <img src="assets/imgs/icon/icon_yt_primary.png" width="43" alt="">
                         </a>
                       </div>
                     </div>
@@ -172,7 +178,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                             ?>
                             <div class="carousel-item <?php echo $active_class; ?>" style="max-height: 30rem;">
                                 <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block" 
-                                    style="min-width: 100%; min-height: 100%; max-width: 100%; max-height: 18rem; object-fit: cover; object-position: center;" alt="...">
+                                style="min-width: 100%; min-height: 100%; max-width: 100%; max-height: 18rem; object-fit: cover; object-position: center;" alt="...">
                             </div>
                             <?php
                                 $count++;
@@ -194,7 +200,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
               </div>
             </div>
             <!-- SECTION SAMBUTAN -->
-            <div class="py-5">
+            <div class="py-3">
               <div class="row">
                 <div class="col-md-4">
                   <div class="text-center">
@@ -211,25 +217,26 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                   </div>
                 </div>
               </div>
-              <!-- <a href="#">Read More ></a> -->
             </div>
             <!-- !SECTION SAMBUTAN -->
             <!-- SECTION VISI MISI -->
             <!-- NOTE MASIH PROTOTYPE -->
-            <div class="border border-dark py-5">
+            <div class="py-5">
               <div class="row">
                 <div class="col-md-6">
-                  <div class="py-3 px-5 text-start mb-3">
-                    <h4>VISI</h4>
-                    <p>
-                      <?= $dataVisi['teksVisi'] ?>
-                    </p>
-                  </div>
-                  <div class="py-3 px-5 text-start">
-                    <h4>MISI</h4>
-                    <p>
-                      <?= $dataMisi['teksMisi'] ?>
-                    </p>
+                  <div class="pt-4">
+                    <div class="py-3 px-5 text-start mb-3">
+                      <h4>VISI</h4>
+                      <p>
+                        <?= $dataVisi['teksVisi'] ?>
+                      </p>
+                    </div>
+                    <div class="py-3 px-5 text-start">
+                      <h4>MISI</h4>
+                      <p>
+                        <?= $dataMisi['teksMisi'] ?>
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 ms-auto">
@@ -241,7 +248,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             </div>
             <!-- !SECTION VISI MISI -->
             <!-- SECTION GALERI -->
-            <div class="py-4">
+            <div class="py-5">
             <div style="scroll-snap-type: y mandatory;">
               <h3 class="text-center">GALERI</h3>
                   <!--SECTION Gambar -->
@@ -276,9 +283,9 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             </div>
             <!-- !SECTION GALERI -->
             <!-- SECTION BERITA -->
-            <div class="">
+            <div class="py-3">
               <div class="m-auto">
-                  <h3 class="pt-4 text-center mb-3">BERITA</h3>
+                  <h3 class="pt-3 text-center mb-3">BERITA</h3>
                   <div class="d-flex flex-wrap justify-content-center mb-3 gap-4">
                     <div class="card" style="width: 15rem;">
                       <img src="assets/imgs/Foto_SD/IMG-20221202-WA0079.jpg" class="card-img-top" alt="..." style="min-width: 100%;min-height: 100px;max-width: 100%;max-height: 130px;object-fit: cover;object-position: center;">
@@ -311,29 +318,9 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                       </div>
                     </div>
                   </div>
-                    <!-- <div class="card mb-3 m-auto">
-                      <div class="row">
-                        <div class="col-md-4">
-                          <img src="sample_img/b1.jpg" class="img-fluid" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                          <div class="card-body">
-                            <small>29 Desember 2022</small>
-                            <h5 class="card-title">Judul berita</h5>
-                            <p>
-                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, 
-                              quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque 
-                            </p>
-                          </div>
-                          <div class="card-footer bg-white border-0">
-                            <a href="daftarberita/detail_berita.php">Selengkapnya></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
-                  </div>
                 </div>
-              <div class="text-center mb-3">
+              </div>
+              <div class="text-center mb-5">
                 <a href="daftarBerita/berita.php" class="">Read More ></a>
               </div>
               <!-- SECTION FOOTER -->
