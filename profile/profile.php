@@ -48,8 +48,6 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
 
 <body>
 
-  <?php include "../assets/components/header.php" ?>
-
   <!-- SECTION awal navbar pertama -->
   <!-- <div class="navbar-pertama">
             <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
@@ -64,7 +62,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
         </div>  -->
   <!-- !SECTION akhir navbar pertama -->
   <!-- SECTION awal navbar kedua -->
-  <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
             <div class="container-fluid ">
                 <a class="navbar-brand p-0" href="home.html">
                     <img src="../assets/imgs/Foto_SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
@@ -104,124 +102,146 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                     <?php endif; ?>
                 </div>
             </div>
-        </nav> -->
+        </nav>
   <!-- !SECTION akhir navbar kedua -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="">
-          <h3 class="text-center mt-3">Profile Sekolah :</h3>
-          <div class="text-center mb-5">
-            <img src="../assets/imgs/Foto_SD/logoSD.png" class="" width="150" height="150" alt="">
-          </div>
-          <!-- SECTION SEJARAH -->
-          <div class="border-bottom border-dark pb-4">
-            <h4>Sejarah</h4>
-            <?php foreach ($daftarSejarah as $data) : ?>
-              <p class="form-control" name="" id="" cols="30" rows="10">
-                <?= $data['teksSejarah'] ?>
+  <div class="container">
+    <h3 class="text-center mt-3">Profile Sekolah :</h3>
+    <div class="py-5">
+      <div class="text-center mb-5">
+        <img src="../assets/imgs/Foto_SD/logoSD.png" class="mb-3" width="150" height="150" alt="">
+      </div>
+      <!-- SECTION SEJARAH -->
+      <div class="pb-4">
+        <h4>Sejarah</h4>
+        <?php foreach ($daftarSejarah as $data) : ?>
+          <p class="" name="" id="" cols="30" rows="10">
+            <?= $data['teksSejarah'] ?>
+          </p>
+        <?php endforeach; ?>
+      </div>
+      <!-- !SECTION SEJARAH -->
+    </div>
+    <div class="py-5">
+      <!-- SECTION VISI MISI -->
+      <div class="row text-center">
+        <div class="col-md-6">
+          <div class="py-5 px-5">
+            <h4>VISI</h4>
+            <?php foreach ($daftarVisi as $data) : ?>
+              <p class="form-control">
+                <?= $data['teksVisi'] ?>
               </p>
             <?php endforeach; ?>
           </div>
-          <!-- !SECTION SEJARAH -->
-          <!-- SECTION VISI MISI -->
-          <div class="row text-center py-5 border-bottom border-dark border-1 mb-5">
-            <div class="col-md-6">
-              <div class="py-5 px-5">
-                <h4>VISI</h4>
-                <?php foreach ($daftarVisi as $data) : ?>
-                  <p class="form-control">
-                    <?= $data['teksVisi'] ?>
-                  </p>
-                <?php endforeach; ?>
-              </div>
-            </div>
-            <div class="col-md-6 ms-auto">
-              <div class="py-5 px-5">
-                <h4>MISI</h4>
-                <?php foreach ($daftarMisi as $data) : ?>
-                  <p class="form-control">
-                    <?= $data['teksMisi'] ?>
-                  </p>
-                <?php endforeach; ?>
-              </div>
-            </div>
+        </div>
+        <div class="col-md-6 ms-auto">
+          <div class="py-5 px-5">
+            <h4>MISI</h4>
+            <?php foreach ($daftarMisi as $data) : ?>
+              <p class="form-control">
+                <?= $data['teksMisi'] ?>
+              </p>
+            <?php endforeach; ?>
           </div>
-          <!-- !SECTION VISI MISI -->
-          <!-- SECTION STATISTIC -->
-          <div class="card-group border border-5 overflow-hidden text-white" style="border-radius: 2rem;">
-            <div class="card border-0 bg-info">
-              <div class="text-center">
-                <img src="../assets/imgs/icon/icon_p_yellow.png" class="card-img-top w-50" alt="...">
-              </div>
-              <div class="card-body text-center">
-                <h5 class="card-title">Pengajar</h5>
-                <h3 class="fw-bold">20</h3>
-              </div>
-            </div>
-            <div class="card border-0 bg-info">
-              <div class="text-center">
-                <img src="../assets/imgs/icon/icon_a_yellow.png" class="card-img-top w-50" alt="...">
-              </div>
-              <div class="card-body text-center">
-                <h5 class="card-title">Akreditasi</h5>
-                <h3 class="fw-bold">B</h3>
-              </div>
-            </div>
-            <div class="card border-0 bg-info">
-              <div class="text-center">
-                <img src="../assets/imgs/icon/icon_m_yellow.png" class="card-img-top w-50" alt="...">
-              </div>
-              <div class="card-body text-center">
-                <h5 class="card-title">Jumlah Murid</h5>
-                <h3 class="fw-bold">80</h3>
-              </div>
-            </div>
+        </div>
+      </div>
+      <!-- !SECTION VISI MISI -->
+    </div>
+    <div class="">
+      <!-- SECTION STATISTIC -->
+      <div class="card-group border border-5 overflow-hidden text-white" style="border-radius: 2rem;">
+        <div class="card border-0 bg-info">
+          <div class="text-center">
+            <img src="../assets/imgs/icon/icon_p_yellow.png" class="card-img-top w-50" alt="...">
           </div>
-          <!-- !SECTION STATISTIC -->
-          <!-- SECTION ESKULL -->
-          <div class="">
-            <h3 class="pt-4 mb-4">Ekstrakulikuler :</h3>
-            <div class="d-flex flex-wrap">
-              <?php foreach ($daftarEkskul as $ekskul) : ?>
-                <div class="card mb-3 m-auto">
-                  <div class="row">
-                    <div class="col-md-3">
-                      <!-- <img src="../sample_img/b1.jpg" class="img-fluid" alt="..."> -->
-                      <?php if ($ekskul['gambarEkskul'] == '') : ?>
-                        <img src="../assets/imgs/ekskul/noImg.png" class="img-fluid" alt="...">
-                      <?php else : ?>
-                        <img src="../assets/imgs/ekskul/<?= $ekskul['gambarEkskul'] ?>" class="img-fluid" alt="...">
-                      <?php endif ?>
-                    </div>
-                    <div class="col-md-9">
-                      <div class="card-body">
-                        <h5 class="card-title"><?= $ekskul['namaEkskul'] ?></h5>
-                        <p>
-                          <?= $ekskul['jadwalHari'] ?> - <?= $ekskul['nama_guru'] ?>
-                        </p>
-                      </div>
-                      <div class="card-footer bg-white border-0">
-                        <a href="../daftarEskull/detail_eskull.php?ekskul=<?= $ekskul['idEkskul'] ?>">Selengkapnya></a>
-                      </div>
-                    </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Pengajar</h5>
+            <h3 class="fw-bold">20</h3>
+          </div>
+        </div>
+        <div class="card border-0 bg-info">
+          <div class="text-center">
+            <img src="../assets/imgs/icon/icon_a_yellow.png" class="card-img-top w-50" alt="...">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Akreditasi</h5>
+            <h3 class="fw-bold">B</h3>
+          </div>
+        </div>
+        <div class="card border-0 bg-info">
+          <div class="text-center">
+            <img src="../assets/imgs/icon/icon_m_yellow.png" class="card-img-top w-50" alt="...">
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Jumlah Murid</h5>
+            <h3 class="fw-bold">80</h3>
+          </div>
+        </div>
+      </div>
+      <!-- !SECTION STATISTIC -->
+    </div>
+    <div class="py-5">
+      <!-- SECTION ESKULL -->
+      <div class="">
+        <h3 class="pt-4 mb-4">Ekstrakulikuler :</h3>
+        <div class="d-flex flex-wrap">
+          <?php foreach ($daftarEkskul as $ekskul) : ?>
+            <div class="card mb-3 m-auto">
+              <div class="row">
+                <div class="col-md-3">
+                  <!-- <img src="../sample_img/b1.jpg" class="img-fluid" alt="..."> -->
+                  <?php if ($ekskul['gambarEkskul'] == '') : ?>
+                    <img src="../assets/imgs/ekskul/noImg.png" class="img-fluid" alt="...">
+                  <?php else : ?>
+                    <img src="../assets/imgs/ekskul/<?= $ekskul['gambarEkskul'] ?>" class="img-fluid" alt="...">
+                  <?php endif ?>
+                </div>
+                <div class="col-md-9">
+                  <div class="card-body">
+                    <h5 class="card-title"><?= $ekskul['namaEkskul'] ?></h5>
+                    <p>
+                      <?= $ekskul['jadwalHari'] ?> - <?= $ekskul['nama_guru'] ?>
+                    </p>
+                  </div>
+                  <div class="card-footer bg-white border-0">
+                    <a href="../daftarEskull/detail_eskull.php?ekskul=<?= $ekskul['idEkskul'] ?>">Selengkapnya></a>
                   </div>
                 </div>
-              <?php endforeach ?>
+              </div>
             </div>
-            <div class="text-center mb-3">
-              <a href="../daftarEskull/read_eskull.php" class="">Read More ></a>
+          <?php endforeach ?>
+        </div>
+        <div class="text-center mb-3">
+          <a href="../daftarEskull/read_eskull.php" class="">Read More ></a>
+        </div>
+      </div>
+      <!-- !SECTION ESKULL -->
+    </div>
+      <div class="py-5">
+        <div class="row" style="background: url(../assets/imgs/bg5.jpg);background-size: cover; border-radius: 2rem;">
+          <div class="col-md-6">
+  
+          </div>
+          <div class="col-md-6 ms-auto">
+            <div class="feedback">
+              <form action="" class="m-auto mt-3 p-3" method="POST">
+                <h3 class="border-bottom border-2 border-dark mb-5">FeedBack</h3>
+                <div class="mb-2">
+                  <label class="form-label" for="username" style="display: block;">Email :</label>
+                  <input type="text" class="form-control" name="username" id="username">
+                </div>
+                <div class="mb-4">
+                  <label class="form-label" for="password" style="display: block;">Pesan :</label>
+                  <textarea class="form-control" name="" id="" cols="30" rows="6"></textarea>
+                </div>
+                <div class="text-end">
+                  <button type="submit" class="btn btn-primary rounded-pill px-5 border-0 fw-bold mb-3" data-bs-target="#pesan" data-bs-toggle="modal" style="background: linear-gradient(120deg,#00ccff,#0036cb);" name="login">Kirim</button>
+                </div>
+              </form>
             </div>
           </div>
-          <!-- !SECTION ESKULL -->
         </div>
       </div>
-      <div class="col ms-auto">
-        <div class="feedback sticky-top">
-          <?php include "../assets/components/form-feedback.php" ?>
-        </div>
-      </div>
-    </div>
   </div>
   <!-- SECTION FOOTER -->
   <div class="footer">
