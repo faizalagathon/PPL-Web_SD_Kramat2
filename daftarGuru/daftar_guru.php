@@ -20,18 +20,18 @@ $roleGuru = [
 if(isset($_POST['tambahGuru'])){
 
     if(tambah($_POST) > 0){
-        echo "
-        <script>
-        alert('Data berhasil ditambahkan');
-        document.location.href = 'daftar_guru.php'; 
-        </script>";
+        // echo "
+        // <script>
+        // alert('Data berhasil ditambahkan');
+        // document.location.href = 'daftar_guru.php'; 
+        // </script>";
     }
     else{
-        echo "
-        <script>
-        alert('Ada kesalahan saat menginput data');
-        document.location.href = 'daftar_guru.php'; 
-        </script>";
+        // echo "
+        // <script>
+        // alert('Ada kesalahan saat menginput data');
+        // document.location.href = 'daftar_guru.php'; 
+        // </script>";
     }
     
 }
@@ -39,18 +39,18 @@ if(isset($_POST['tambahGuru'])){
 if(isset($_POST['ubahGuru'])){
 
     if(ubah($_POST) > 0){
-        echo "
-        <script>
-        alert('Data berhasil diubah');
-        document.location.href = 'daftar_guru.php'; 
-        </script>";
+        // echo "
+        // <script>
+        // alert('Data berhasil diubah');
+        // document.location.href = 'daftar_guru.php'; 
+        // </script>";
     }
     else{
-        echo "
-        <script>
-        alert('Ada kesalahan saat menginput data');
-        document.location.href = 'daftar_guru.php'; 
-        </script>";
+        // echo "
+        // <script>
+        // alert('Ada kesalahan saat menginput data');
+        // document.location.href = 'daftar_guru.php'; 
+        // </script>";
     }
     
 }
@@ -288,14 +288,16 @@ if($jumlahDataQueryGuru == 0){
                     <h5 class="text-center mb-3">Daftar Guru :</h5>
                     <!-- SECTION KALO KOSONG KELUAR INI -->
                     <?php if(isset($dataGuruKosong) && $dataGuruKosong == true) : ?>
-                        <h3 class="text-center">Tidak Ada Data Guru</h3>
+                        <div>
+                            <img src="../assets/imgs/illustrasi/logo 2.1.png" style="width: 90%;" alt="Tidak Data Guru">
+                        </div>
                     <?php endif ; ?>
                     
                     <!-- SECTION CARD DAFTAR GURU -->
                     <div class="guru d-flex flex-wrap justify-content-center gap-5">
                         <?php foreach($dataGuru as $data) : ?>
                         <div class="card border-2 text-center border-dark" style="width: 11rem;">
-                            <img src="../assets/imgs/Foto SD/Foto Guru/<?= $data['gambar'] ?>" class="card-img-top" alt="...">
+                            <img src="../assets/imgs/Foto_SD/Foto_Guru/<?= $data['gambar'] ?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5><?= $data['nama_guru'] ?></h5>
                                 <p class="fw-light">-<?= $data['role'] ?>-</p>
@@ -325,7 +327,7 @@ if($jumlahDataQueryGuru == 0){
                                     <!-- isi -->
                                     <div class="detail row" id="modal">
                                     <div class="col-md-4" id="detail_kanan">
-                                        <img src="../assets/imgs/Foto SD/Foto Guru/<?= $data['gambar'] ?>" class="m-auto mb-2 w-100" alt="">
+                                        <img src="../assets/imgs/Foto_SD/Foto_Guru/<?= $data['gambar'] ?>" class="m-auto mb-2 w-100" alt="">
                                     </div>
                                     <div class="col ms-auto" id="detail_kiri">
                                         <h5><?= $data['nama_guru'] ?></h5>
