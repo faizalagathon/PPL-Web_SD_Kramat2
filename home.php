@@ -40,11 +40,12 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Beranda</title>
-    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <style>
         @font-face {
             font-family: 'Poppins';
@@ -155,20 +156,23 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                   <div class="px-5 py-4">
                     <!-- SECTION CAROUSEL -->
                       <div id="carouselExampleControls" data-bs-ride="carousel" class="carousel slide auto">
-                        <div class="carousel-indicators">
-                          <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                          <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                          <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
+
                         <!-- NOTE Maksimal Tinggi Gambar Carousel diatas 500px -->
                         <!-- ini yg tadi ilang -->
-                        <div class="carousel-inner slide">
-                          <?php while($d = mysqli_fetch_assoc($datacarousel)) : ?>
-                            <div class="carousel-item active" style="max-height: 30rem;">
-                              <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block " 
-                              style="min-width: 100%;min-height: 100%;max-width: 100%;max-height: 280px;object-fit: cover;object-position: center;" alt="...">
+                        <div class="carousel-inner">
+                            <?php
+                            $count = 0;
+                            while ($d = mysqli_fetch_array($datacarousel)) {
+                                $active_class = ($count == 0) ? 'active' : '';
+                            ?>
+                            <div class="carousel-item <?php echo $active_class; ?>" style="max-height: 30rem;">
+                                <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block" 
+                                    style="min-width: 100%; min-height: 100%; max-width: 100%; max-height: 15rem; object-fit: cover; object-position: center;" alt="...">
                             </div>
-                          <?php endwhile; ?>
+                            <?php
+                                $count++;
+                            }
+                            ?>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
