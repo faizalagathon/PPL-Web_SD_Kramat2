@@ -82,15 +82,15 @@
                     <form action="tambah_act_berita.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="" class="form-label">Sertakan Gambar :</label>
-                            <input type="file" name="foto" class="form-control w-25">
+                            <input type="file" name="foto" class="form-control w-25" required>
                         </div>
                         <div class="mb-3">                            
                             <label for="" class="form-label">judul :</label>
-                            <input type="text" class="form-control" name="judul">
+                            <input type="text" class="form-control" name="judul" required>
                         </div>
                         <div class="mb-3">                            
                             <label for="" class="form-label">Isi Berita :</label>
-                            <textarea name="isi" class="form-control" id="" cols="30" rows="5"></textarea>
+                            <textarea name="isi" class="form-control" id="" cols="30" rows="5" required></textarea>
                         </div>
                         <div class="text-end">
                             <button type="submit" class="btn btn-warning text-white">Batal</button>
