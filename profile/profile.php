@@ -2,11 +2,10 @@
 
 include '../functions.php';
 
-if(isset($_SESSION['login'])){
-    $login = $_SESSION['login'];
-}
-else{
-    $login = false;
+if (isset($_SESSION['login'])) {
+  $login = $_SESSION['login'];
+} else {
+  $login = false;
 }
 
 $daftarVisi = query("SELECT * FROM visi");
@@ -80,7 +79,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                         <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
                         <a class="nav-link text-white" href="../daftarGaleri/user/galeri.php">Galeri</a>
                         <a class="nav-link text-white" href="../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
-                        <?php if(isset($login) && $login != false) : ?>
+                        <?php if (isset($login) && $login != false) : ?>
                           <li class="nav-item dropdown">
                               <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                   Edit Website
@@ -95,14 +94,14 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                                   <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
                               </ul>
                           </li>
-                        <?php endif ; ?>
+                        <?php endif; ?>
                     </div>
-                    <?php if(isset($login) && $login != false) : ?>
+                    <?php if (isset($login) && $login != false) : ?>
                         <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
-                    <?php endif ; ?>
-                    <?php if(isset($login) && $login == false) : ?>
+                    <?php endif; ?>
+                    <?php if (isset($login) && $login == false) : ?>
                         <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
-                    <?php endif ; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </nav> -->
@@ -210,38 +209,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
       </div>
       <div class="col ms-auto">
         <div class="feedback sticky-top">
-          <form action="" class="m-auto mt-3 p-3 bg-dark border border-white border-2" method="POST">
-            <h3 class="text-white border-bottom border-2 border-white mb-5">FeedBack</h3>
-            <div class="mb-2">
-              <label class="form-label text-white" for="username" style="display: block;">Email :</label>
-              <input type="text" class="form-control" name="username" id="username">
-            </div>
-            <div class="mb-4">
-              <label class="form-label text-white" for="password" style="display: block;">Pesan :</label>
-              <textarea class="form-control" name="" id="" cols="30" rows="6"></textarea>
-            </div>
-            <div class="mb-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-              </svg>
-            </div>
-            <button type="submit" class="btn btn-primary rounded-pill w-100 border-0 fw-bold mb-3" data-bs-target="#pesan" data-bs-toggle="modal" style="background: linear-gradient(120deg,#00ccff,#0036cb);" name="login">Kirim</button>
-          </form>
+          <?php include "../assets/components/form-feedback.php" ?>
         </div>
       </div>
     </div>
@@ -256,6 +224,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
   </div>
   <!-- !SECTION FOOTER -->
   <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <?php include "../assets/components/js-form-feedback.html" ?>
 </body>
 
 </html>
