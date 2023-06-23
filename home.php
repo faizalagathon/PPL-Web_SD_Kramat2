@@ -51,6 +51,35 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             font-family: 'Poppins';
             src: url(assets/font/font-poppins/Poppins-Regular.ttf);
         }
+        /* MOBILE LAPTOP */
+        @media (max-width: 1024px){
+          .karosel{
+            width: 100%;
+            scroll-snap-type: x mandatory;
+            overflow:auto;
+            display: flex;
+            flex-direction: row;
+          }
+        }
+        @media (max-width: 768px){
+          *{
+            font-size: small;
+          }
+          .footer .sd .navbar img{
+            width: 100px;
+          }
+          .container-fluid #atas #karosel #gambar{
+            max-height: 30rem;
+          }
+          .container-fluid #atas #karosel #gambar img{
+            min-width: 100%; 
+            min-height: 100%; 
+            max-width: 100%; 
+            max-height: 18rem; 
+            object-fit: cover; 
+            object-position: center;
+          }
+        }
         @media (max-width: 425px){
           .slide .item{
             overflow-y: hidden;
@@ -60,15 +89,6 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
               height: 15rem;
               max-width: 100%;
               max-height: 100%;
-          }
-        }
-        @media (max-width: 1024px){
-          .karosel{
-            width: 100%;
-            scroll-snap-type: x mandatory;
-            overflow:auto;
-            display: flex;
-            flex-direction: row;
           }
         }
         /* @media (max-width: 425px){
@@ -141,7 +161,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             </nav>
           <!-- akhir navbar kedua -->
           <div class="container-fluid">
-            <div class="py-5" style="background: url(assets/imgs/Frame_8.png);background-size: cover;">
+            <div class="py-5" id="atas" style="background: url(assets/imgs/Frame_8.png);background-size: cover;">
               <div class="row my-5">
                 <div class="col-md-6">
                   <div class="mt-5 pt-3 ms-5">
@@ -164,10 +184,9 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                   </div>
                 </div>
                 <div class="col-md-6 ms-auto">
-                  <div class="px-5 py-4">
+                  <div class="px-5 py-4" id="karosel">
                     <!-- SECTION CAROUSEL -->
                       <div id="carouselExampleControls" data-bs-ride="carousel" class="carousel slide auto">
-
                         <!-- NOTE Maksimal Tinggi Gambar Carousel diatas 500px -->
                         <!-- ini yg tadi ilang -->
                         <div class="carousel-inner">
@@ -176,8 +195,8 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                             while ($d = mysqli_fetch_array($datacarousel)) {
                                 $active_class = ($count == 0) ? 'active' : '';
                             ?>
-                            <div class="carousel-item <?php echo $active_class; ?>" style="max-height: 30rem;">
-                                <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block" 
+                            <div class="carousel-item <?php echo $active_class; ?>" style="max-height: 30rem;" id="gambar">
+                                <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block" id="gambar2"
                                 style="min-width: 100%; min-height: 100%; max-width: 100%; max-height: 18rem; object-fit: cover; object-position: center;" alt="...">
                             </div>
                             <?php
@@ -202,12 +221,12 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             <!-- SECTION SAMBUTAN -->
             <div class="py-3">
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-5">
                   <div class="text-center">
-                    <img src="assets/imgs/illustrasi/illustrasi_a2.png" width="500px" height="500px" alt="">
+                    <img src="assets/imgs/illustrasi/illustrasi_a2.png" width="430px" height="430px" alt="">
                   </div>
                 </div>
-                <div class="col-md-8 ms-auto">
+                <div class="col-md-7 ms-auto">
                   <div class="pt-5">
                     <h3 class="pt-5 mb-3 fw-bold">Sambutan</h3>
                     <p>
@@ -220,7 +239,6 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             </div>
             <!-- !SECTION SAMBUTAN -->
             <!-- SECTION VISI MISI -->
-            <!-- NOTE MASIH PROTOTYPE -->
             <div class="py-5">
               <div class="row">
                 <div class="col-md-6">
@@ -319,48 +337,52 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="text-center mb-5">
-                <a href="daftarBerita/berita.php" class="">Read More ></a>
+                <div class="text-center mb-5">
+                  <a href="daftarBerita/berita.php" class="">Read More ></a>
+                </div>
               </div>
               <!-- SECTION FOOTER -->
-              <div class="footer bg-dark">
+              <div class="footer bg-dark" style="background: url(assets/imgs/Frame_9.png);background-size: cover;">
                 <div class="row p-5">
                   <div class="col-md-4 p-3">
-                    <div class="">
+                    <div class="sd text-center">
                       <a class="navbar-brand p-0" href="home.html">
-                          <img src="assets/imgs/Foto_SD/logo light2.png" alt="Logo" width="300" class="m-0 mb-3 d-inline-block align-text-top">
+                          <img src="assets/imgs/logo_footer.png" alt="Logo" width="200" class="">
                       </a>
-                      <p class="text-white fs-6 ms-4">"Jangan hanya bisa untuk bermimpi saja, tapi berusaha dan berdoa untuk menggapai mimpinya"</p>
+                      <p class="text-white fs-6 ms-4">Jangan hanya bisa untuk bermimpi saja, tapi berusaha dan berdoa untuk menggapai mimpinya</p>
                       <!-- SECTION SOSMED -->
-                      <div class="d-flex ms-4">
-                          <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none">
-                            <img src="assets/imgs/icon/icon_yt_primary.png" width="20%" alt=""> Youtube
-                          </a>
-                          <a href="https://instagram.com/sdnkramat2kotacirebon?igshid=YmMyMTA2M2Y" class="text-white text-decoration-none">
-                            <img src="assets/imgs/icon/icon_ig_primary.png" width="20%" alt=""> Instagram
-                          </a>
-                          <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none">
-                            <img src="assets/imgs/icon/icon_fb_primary.png" width="20%" alt=""> Facebook
-                          </a>
+                      <div class="ms-4">
+                        <a href="https://instagram.com/sdnkramat2kotacirebon?igshid=YmMyMTA2M2Y" class="text-white text-decoration-none me-3 ms-auto">
+                          <img src="assets/imgs/icon/icon_ig_primary.png" width="30px" alt="">
+                        </a>
+                        <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none me-3 ms-auto">
+                          <img src="assets/imgs/icon/icon_fb_primary.png" width="30px" alt="">
+                        </a>
+                        <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none">
+                          <img src="assets/imgs/icon/icon_yt_primary.png" width="30px" alt="">
+                        </a>
                       </div>
                       <!-- !SECTION SOSMED -->
                     </div>
                   </div>
                   <div class="col-md-4 p-3 ms-auto">
-                    <div class="">
+                    <div class="kontak text-center">
                       <h5 class="text-white mb-4">Contact Us</h5>
                       <p class="text-white">Jl. Siliwangi No. 44Kota Cirebon </p>
                       <p class="text-white">Telp. (0231) 202998</p>
                     </div>
                   </div>
                   <div class="col-md-4 p-3 ms-auto">
-                    <div class="">
-                      <h5 class="text-white mb-4">Viewer Guides</h5>
+                    <div class="guide text-center">
                       <div class="">
-                        <a class="nav-link text-white" aria-current="page" href="home.php">Home</a>
-                        <a class="nav-link text-white" href="profile/profile.php">Profil</a>
-                        <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
+                          <div class="">
+                            <h5 class="text-white mb-4">Viewer Guides</h5>
+                          </div>
+                          <div class="">
+                            <a class="nav-link text-white" aria-current="page" href="home.php">Home</a>
+                            <a class="nav-link text-white" href="profile/profile.php">Profil</a>
+                            <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
+                          </div>
                       </div>
                     </div>
                   </div>
