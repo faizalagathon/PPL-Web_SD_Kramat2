@@ -50,7 +50,7 @@ if (isset($_GET["ParamAksi"])) {
 
   <!-- awal navbar kedua -->
   <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark"> -->
-  <div class="container-fluid ">
+  <!-- <div class="container-fluid ">
     <a class="navbar-brand p-0" href="home.html">
       <img src="../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
     </a>
@@ -81,12 +81,8 @@ if (isset($_GET["ParamAksi"])) {
         </li>
       </div>
     </div>
-  </div>
-  </nav>
+  </div> -->
   <!-- akhir navbar kedua -->
-  <div class="container-fluid">
-
-  </div>
   <form action="aksiedit.php?ParamAksi=ubah_foto&ParamTable=carousel" method="post" enctype="multipart/form-data">
     <div class="mt-2">
       <div class="card m-auto" style="width: 30rem;">

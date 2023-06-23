@@ -167,7 +167,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                             ?>
                             <div class="carousel-item <?php echo $active_class; ?>" style="max-height: 30rem;">
                                 <img src="assets/imgs/fotocarousel/<?= $d['gambarCarousel'] ?>" class="d-block" 
-                                    style="min-width: 100%; min-height: 100%; max-width: 100%; max-height: 15rem; object-fit: cover; object-position: center;" alt="...">
+                                    style="min-width: 100%; min-height: 100%; max-width: 100%; max-height: 18rem; object-fit: cover; object-position: center;" alt="...">
                             </div>
                             <?php
                                 $count++;
