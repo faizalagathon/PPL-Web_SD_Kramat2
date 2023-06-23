@@ -48,8 +48,11 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
 </head>
 
 <body>
-    <!-- SECTION awal navbar pertama -->
-        <div class="navbar-pertama">
+
+  <?php include "../assets/components/header.php" ?>
+
+  <!-- SECTION awal navbar pertama -->
+  <!-- <div class="navbar-pertama">
             <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
                 <div class="container-fluid">
                     <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
@@ -59,10 +62,10 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                     </div>
                 </div>
             </nav>
-        </div> 
-    <!-- !SECTION akhir navbar pertama -->
-    <!-- SECTION awal navbar kedua -->
-        <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+        </div>  -->
+  <!-- !SECTION akhir navbar pertama -->
+  <!-- SECTION awal navbar kedua -->
+  <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
             <div class="container-fluid ">
                 <a class="navbar-brand p-0" href="home.html">
                     <img src="../assets/imgs/Foto_SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
@@ -102,32 +105,32 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                     <?php endif ; ?>
                 </div>
             </div>
-        </nav>
-    <!-- !SECTION akhir navbar kedua -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="">
-                    <h3 class="text-center mt-3">Profile Sekolah :</h3>
-                    <div class="text-center mb-5">
-                        <img src="../assets/imgs/Foto_SD/logoSD.png" class="" width="150" height="150" alt="">
-                    </div>
-                    <!-- SECTION SEJARAH -->
-                    <div class="border-bottom border-dark pb-4">
-                        <h4>Sejarah</h4>
-                        <?php foreach($daftarSejarah as $data) : ?>
-                            <p class="form-control" name="" id="" cols="30" rows="10">
-                                <?= $data['teksSejarah'] ?>
-                            </p>
-                        <?php endforeach ; ?>
-                    </div>
-                    <!-- !SECTION SEJARAH -->
-                    <!-- SECTION VISI MISI -->
-                    <div class="row text-center py-5 border-bottom border-dark border-1 mb-5">
+        </nav> -->
+  <!-- !SECTION akhir navbar kedua -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="">
+          <h3 class="text-center mt-3">Profile Sekolah :</h3>
+          <div class="text-center mb-5">
+            <img src="../assets/imgs/Foto_SD/logoSD.png" class="" width="150" height="150" alt="">
+          </div>
+          <!-- SECTION SEJARAH -->
+          <div class="border-bottom border-dark pb-4">
+            <h4>Sejarah</h4>
+            <?php foreach ($daftarSejarah as $data) : ?>
+              <p class="form-control" name="" id="" cols="30" rows="10">
+                <?= $data['teksSejarah'] ?>
+              </p>
+            <?php endforeach; ?>
+          </div>
+          <!-- !SECTION SEJARAH -->
+          <!-- SECTION VISI MISI -->
+          <div class="row text-center py-5 border-bottom border-dark border-1 mb-5">
             <div class="col-md-6">
               <div class="py-5 px-5">
                 <h4>VISI</h4>
-                <?php foreach($daftarVisi as $data) : ?>
+                <?php foreach ($daftarVisi as $data) : ?>
                   <p class="form-control">
                     <?= $data['teksVisi'] ?>
                   </p>
@@ -147,23 +150,32 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           </div>
           <!-- !SECTION VISI MISI -->
           <!-- SECTION STATISTIC -->
-          <div class="row mb-4 text-white">
-            <div class="col">
-              <div class="text-center bg-info p-5 mb-3">
-                <h5>Jumlah Pengajar</h5>
-                <h3><b>20</b></h3>
+          <div class="card-group border border-5 overflow-hidden text-white" style="border-radius: 2rem;">
+            <div class="card border-0 bg-info">
+              <div class="text-center">
+                <img src="../assets/imgs/icon/icon_p_yellow.png" class="card-img-top w-50" alt="...">
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">Pengajar</h5>
+                <h3 class="fw-bold">20</h3>
               </div>
             </div>
-            <div class="col ms-auto mb-3">
-              <div class="text-center bg-info p-5">
-                <h5>Akreditasi</h5>
-                <h4><b>B</b></h4>
+            <div class="card border-0 bg-info">
+              <div class="text-center">
+                <img src="../assets/imgs/icon/icon_a_yellow.png" class="card-img-top w-50" alt="...">
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">Akreditasi</h5>
+                <h3 class="fw-bold">B</h3>
               </div>
             </div>
-            <div class="col ms-auto">
-              <div class="text-center bg-info p-5">
-                <h5>Jumlah Murid</h5>
-                <h3><b>80</b></h3>
+            <div class="card border-0 bg-info">
+              <div class="text-center">
+                <img src="../assets/imgs/icon/icon_m_yellow.png" class="card-img-top w-50" alt="...">
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">Jumlah Murid</h5>
+                <h3 class="fw-bold">80</h3>
               </div>
             </div>
           </div>

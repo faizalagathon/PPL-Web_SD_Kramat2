@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="style_navbar.css">
   </head>
   <body>
+
+  <?php include "../assets/components/header.php" ?>
+
     <!-- COPY DARI SINI -->
     <!-- awal navbar pertama -->
-    <div class="navbar-pertama">
+    <!-- <div class="navbar-pertama">
       <nav class="navbar navbar-expand-sm display1" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
         <div class="container-fluid">
           <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
@@ -20,12 +23,12 @@
           </div>
         </div>
       </nav>
-    </div>
+    </div> -->
     <!-- akhir navbar pertama -->
 
 
     <!-- awal navbar kedua -->
-      <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+      <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
         <div class="container-fluid ">
           <a class="navbar-brand" href="#">
             <img src="../WhatsApp_Image_2022-12-02_at_08.59.18.jpeg-removebg-preview.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
@@ -55,7 +58,7 @@
             </div>
           </div>
         </div>
-      </nav>
+      </nav> -->
     <!-- akhir navbar kedua -->
     <!-- COPY SAMPE SINI DAN JANGAN LUPA COPY SCRIPT JS YG DI BAWAH -->
 
