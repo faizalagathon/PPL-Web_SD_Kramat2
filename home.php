@@ -341,6 +341,19 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                           <img src="assets/imgs/Foto_SD/logo light2.png" alt="Logo" width="300" class="m-0 mb-3 d-inline-block align-text-top">
                       </a>
                       <p class="text-white fs-6 ms-4">"Jangan hanya bisa untuk bermimpi saja, tapi berusaha dan berdoa untuk menggapai mimpinya"</p>
+                      <!-- SECTION SOSMED -->
+                      <div class="d-flex ms-4">
+                          <a href="" class="text-white text-decoration-none">
+                            <img src="assets/imgs/icon/icon_yt_primary.png" width="20%" alt=""> Youtube
+                          </a>
+                          <a href="" class="text-white text-decoration-none">
+                            <img src="assets/imgs/icon/icon_ig_primary.png" width="20%" alt=""> Instagram
+                          </a>
+                          <a href="" class="text-white text-decoration-none">
+                            <img src="assets/imgs/icon/icon_fb_primary.png" width="20%" alt=""> Facebook
+                          </a>
+                      </div>
+                      <!-- !SECTION SOSMED -->
                     </div>
                   </div>
                   <div class="col-md-4 p-3 ms-auto">
