@@ -270,8 +270,8 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             <!-- SECTION BERITA -->
             <div class="">
               <div class="m-auto">
-                  <h3 class="pt-4">BERITA</h3>
-                  <div class="d-flex flex-wrap justify-content-center mb-3 gap-3">
+                  <h3 class="pt-4 text-center mb-3">BERITA</h3>
+                  <div class="d-flex flex-wrap justify-content-center mb-3 gap-4">
                     <div class="card" style="width: 15rem;">
                       <img src="assets/imgs/Foto_SD/IMG-20221202-WA0079.jpg" class="card-img-top" alt="..." style="min-width: 100%;min-height: 100px;max-width: 100%;max-height: 130px;object-fit: cover;object-position: center;">
                       <div class="card-body">
@@ -328,18 +328,44 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
               <div class="text-center mb-3">
                 <a href="daftarBerita/berita.php" class="">Read More ></a>
               </div>
+              <!-- SECTION FOOTER -->
+              <div class="footer bg-dark">
+                <div class="row p-5">
+                  <div class="col-md-4 p-3">
+                    <div class="">
+                      <a class="navbar-brand p-0" href="home.html">
+                          <img src="assets/imgs/Foto_SD/logo light2.png" alt="Logo" width="300" class="m-0 mb-3 d-inline-block align-text-top">
+                      </a>
+                      <p class="text-white fs-6 ms-4">"Jangan hanya bisa untuk bermimpi saja, tapi berusaha dan berdoa untuk menggapai mimpinya"</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4 p-3 ms-auto">
+                    <div class="">
+                      <h5 class="text-white mb-4">Contact Us</h5>
+                      <p class="text-white">Jl. Siliwangi No. 44Kota Cirebon </p>
+                      <p class="text-white">Telp. (0231) 202998</p>
+                    </div>
+                  </div>
+                  <div class="col-md-4 p-3 ms-auto">
+                    <div class="">
+                      <h5 class="text-white mb-4">Viewer Guides</h5>
+                      <div class="">
+                        <a class="nav-link text-white" aria-current="page" href="home.php">Home</a>
+                        <a class="nav-link text-white" href="profile/profile.php">Profil</a>
+                        <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <p class="text-white pb-3 mb-0 mt-0">
+                    Coypright By @SD_Keramat2023
+                  </p>
+                </div>
+              </div>
+              <!-- !SECTION FOOTER -->
             </div>
             <!-- !SECTION BERITA -->
-          </div>
-          <!-- SECTION FOOTER -->
-          <div class="footer">
-            <div class="text-center bg-dark" style="padding: 5%;">
-              <p class="text-white mb-0 mt-0">
-                Coypright By @SD_Keramat2023
-              </p>
-            </div>
-          </div>
-          <!-- !SECTION FOOTER -->
     <!-- <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
