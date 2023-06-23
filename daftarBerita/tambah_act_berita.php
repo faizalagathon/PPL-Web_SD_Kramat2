@@ -13,7 +13,7 @@ $ext = pathinfo($filename, PATHINFO_EXTENSION);
 if(!in_array($ext,$ekstensi) ) {
 	header("location:crud_berita.php?alert=gagal_ekstensi");
 }else{
-	if($ukuran < 1044070){		
+	if($ukuran < 5000000){		
 		$xx = $rand.'_'.$filename;
 		move_uploaded_file($_FILES['foto']['tmp_name'], '../assets/imgs/berita/'.$rand.'_'.$filename);
 		mysqli_query($link, "INSERT INTO berita (gambarBerita,judulBerita,isiBerita) VALUES('$xx','$judul','$isi')");
