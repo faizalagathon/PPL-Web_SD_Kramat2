@@ -163,7 +163,7 @@ function ubah($data){
       }
       $file = mysqli_fetch_assoc(mysqli_query($link,"SELECT * FROM guru WHERE id_guru='$id'"));
       if($file['gambar'] != 'default_gambar.png'){
-        unlink('../assets/imgs/Foto SD/Foto Guru/' . $file["gambar"]);
+        unlink('../assets/imgs/Foto_SD/Foto_Guru/' . $file["gambar"]);
       }
     }
   
@@ -216,7 +216,7 @@ function upload(){
   $namaFileBaru .= '.';
   $namaFileBaru .= $ekstensiGambar;
   
-  move_uploaded_file($tmpName, '../assets/imgs/Foto SD/Foto Guru/' . $namaFileBaru);
+  move_uploaded_file($tmpName, '../assets/imgs/Foto_SD/Foto_Guru/' . $namaFileBaru);
   
   return $namaFileBaru;
   
@@ -239,7 +239,7 @@ function hapus($id){
     
     $file = mysqli_fetch_assoc(mysqli_query($link,"SELECT * FROM guru WHERE id_guru='$id'"));
     if($file['gambar'] != 'default_gambar.png'){
-      unlink('../assets/imgs/Foto SD/Foto Guru/' . $file["gambar"]);
+      unlink('../assets/imgs/Foto_SD/Foto_Guru/' . $file["gambar"]);
     }
     $query = "DELETE FROM guru WHERE id_guru='$id'";
   }

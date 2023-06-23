@@ -35,7 +35,7 @@
           <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Edit Website
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu bg-dark" style="z-index: 9999;">
             <li><a class="dropdown-item text-<?= (halAktif('profile.php') != false) ? 'info' : 'white' ?>" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
             <li><a class="dropdown-item text-<?= (halAktif('daftar_guru.php') != false) ? 'info' : 'white' ?>" href="../daftarGuru/daftar_guru.php">Guru</a></li>
             <li><a class="dropdown-item text-<?= (halAktif('profile.php') != false) ? 'info' : 'white' ?>" href="../profile/profile.php">Sejarah</a></li>

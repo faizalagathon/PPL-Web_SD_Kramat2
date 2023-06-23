@@ -112,7 +112,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
         <div class="">
           <h3 class="text-center mt-3">Profile Sekolah :</h3>
           <div class="text-center mb-5">
-            <img src="../assets/imgs/Foto SD/logoSD.png" class="" width="150" height="150" alt="">
+            <img src="../assets/imgs/Foto_SD/logoSD.png" class="" width="150" height="150" alt="">
           </div>
           <!-- SECTION SEJARAH -->
           <div class="border-bottom border-dark pb-4">
@@ -149,23 +149,32 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           </div>
           <!-- !SECTION VISI MISI -->
           <!-- SECTION STATISTIC -->
-          <div class="row mb-4 text-white">
-            <div class="col">
-              <div class="text-center bg-info p-5 mb-3">
-                <h5>Jumlah Pengajar</h5>
-                <h3><b>20</b></h3>
+          <div class="card-group border border-5 overflow-hidden text-white" style="border-radius: 2rem;">
+            <div class="card border-0 bg-info">
+              <div class="text-center">
+                <img src="../assets/imgs/icon/icon_p_yellow.png" class="card-img-top w-50" alt="...">
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">Pengajar</h5>
+                <h3 class="fw-bold">20</h3>
               </div>
             </div>
-            <div class="col ms-auto mb-3">
-              <div class="text-center bg-info p-5">
-                <h5>Akreditasi</h5>
-                <h4><b>B</b></h4>
+            <div class="card border-0 bg-info">
+              <div class="text-center">
+                <img src="../assets/imgs/icon/icon_a_yellow.png" class="card-img-top w-50" alt="...">
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">Akreditasi</h5>
+                <h3 class="fw-bold">B</h3>
               </div>
             </div>
-            <div class="col ms-auto">
-              <div class="text-center bg-info p-5">
-                <h5>Jumlah Murid</h5>
-                <h3><b>80</b></h3>
+            <div class="card border-0 bg-info">
+              <div class="text-center">
+                <img src="../assets/imgs/icon/icon_m_yellow.png" class="card-img-top w-50" alt="...">
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title">Jumlah Murid</h5>
+                <h3 class="fw-bold">80</h3>
               </div>
             </div>
           </div>
