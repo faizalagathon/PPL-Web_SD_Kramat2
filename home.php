@@ -136,8 +136,6 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
           <!-- akhir navbar kedua -->
           <div class="container-fluid">
             <div class="py-5" style="background: url(assets/imgs/Frame_8.png);background-size: cover;">
-              <!-- SECTION SEMENTARA -->
-              <!-- NOTE DESIGN HOME SEMENTARA -->
               <div class="row my-5">
                 <div class="col-md-6">
                   <div class="mt-5 pt-3 ms-5">
@@ -146,8 +144,15 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                       <h1 class="fw-bold text-primary">SDN 2 Kramat</h1>
                       <p class="" style="font-style: italic;">"Jangan hanya bisa untuk bermimpi saja, tapi berusaha dan berdoa untuk menggapai mimpinya"</p>
                       <div class="">
-                        <button class="btn btn-primary rounded-pill px-5">Let Join Us</button>
-                        <!-- <button class="btn btn-outline-light">Jelajahi</button> -->
+                        <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none me-3">
+                          <img src="assets/imgs/icon/icon_yt_primary.png" width="6%" alt="">
+                        </a>
+                        <a href="https://instagram.com/sdnkramat2kotacirebon?igshid=YmMyMTA2M2Y" class="text-white text-decoration-none me-3">
+                          <img src="assets/imgs/icon/icon_ig_primary.png" width="5%" alt="">
+                        </a>
+                        <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none">
+                          <img src="assets/imgs/icon/icon_fb_primary.png" width="5%" alt="">
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -187,14 +192,13 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                   </div>
                 </div>
               </div>
-              <!-- !SECTION SEMENTARA -->
             </div>
             <!-- SECTION SAMBUTAN -->
             <div class="py-5">
               <div class="row">
                 <div class="col-md-4">
                   <div class="text-center">
-                    <img src="assets/imgs/illustrasi/logo_a1.png" width="500px" height="500px" alt="">
+                    <img src="assets/imgs/illustrasi/illustrasi_a2.png" width="500px" height="500px" alt="">
                   </div>
                 </div>
                 <div class="col-md-8 ms-auto">
@@ -212,16 +216,16 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             <!-- !SECTION SAMBUTAN -->
             <!-- SECTION VISI MISI -->
             <!-- NOTE MASIH PROTOTYPE -->
-            <div class="bg-dark text-white py-5 border-bottom border-dark border-1">
+            <div class="border border-dark py-5">
               <div class="row">
                 <div class="col-md-6">
-                  <div class="py-5 px-5 text-start mb-3">
+                  <div class="py-3 px-5 text-start mb-3">
                     <h4>VISI</h4>
                     <p>
                       <?= $dataVisi['teksVisi'] ?>
                     </p>
                   </div>
-                  <div class="py-5 px-5 text-start">
+                  <div class="py-3 px-5 text-start">
                     <h4>MISI</h4>
                     <p>
                       <?= $dataMisi['teksMisi'] ?>
@@ -230,7 +234,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                 </div>
                 <div class="col-md-6 ms-auto">
                   <div class="text-center">
-                      <img src="assets/imgs/illustrasi/illustrasi_vm.png" width="400px" height="400px" alt="">
+                      <img src="assets/imgs/illustrasi/illustrasi_vm2.png" width="400px" height="400px" alt="">
                   </div>
                 </div>
               </div>
@@ -343,13 +347,13 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                       <p class="text-white fs-6 ms-4">"Jangan hanya bisa untuk bermimpi saja, tapi berusaha dan berdoa untuk menggapai mimpinya"</p>
                       <!-- SECTION SOSMED -->
                       <div class="d-flex ms-4">
-                          <a href="" class="text-white text-decoration-none">
+                          <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none">
                             <img src="assets/imgs/icon/icon_yt_primary.png" width="20%" alt=""> Youtube
                           </a>
-                          <a href="" class="text-white text-decoration-none">
+                          <a href="https://instagram.com/sdnkramat2kotacirebon?igshid=YmMyMTA2M2Y" class="text-white text-decoration-none">
                             <img src="assets/imgs/icon/icon_ig_primary.png" width="20%" alt=""> Instagram
                           </a>
-                          <a href="" class="text-white text-decoration-none">
+                          <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none">
                             <img src="assets/imgs/icon/icon_fb_primary.png" width="20%" alt=""> Facebook
                           </a>
                       </div>
