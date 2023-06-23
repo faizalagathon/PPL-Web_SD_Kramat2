@@ -7,7 +7,13 @@ if(isset($_SESSION['login'])){
 else{
     $login = false;
 }
-
+$result=mysqli_query($link,"SELECT 	gambarBerita FROM berita ");
+if(mysqli_num_rows($result)==0){
+    $error=false;
+}else{
+    $data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC"); 
+}
+$data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC"); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,7 +107,9 @@ else{
                         <h5>berita :</h5>
                     </div>
                     <div class="text-center">
+                    <?php if (isset($error)) :?>
                         <img src="../assets/imgs/illustrasi/logo 4.png" width="50%" alt="">
+                    <?php endif;?>
                     </div>
                     <div class="">
                         <!-- SECTION BERITA -->
@@ -111,7 +119,7 @@ else{
                                     <div class="row">
                                         <div class="col-md-9">
                                         <?php
-                                            $data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC"); 
+                                           
                                             foreach ( $data as $d ) :
                                                 $part= substr($d['isiBerita'],0,50);
                                             ?>
