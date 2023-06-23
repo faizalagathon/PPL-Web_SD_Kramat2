@@ -13,7 +13,21 @@ if(mysqli_num_rows($result)==0){
 }else{
     $data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC"); 
 }
-$data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC"); 
+
+if(isset($_POST['cari'])){
+    $keyword=$_POST['keyword'];
+    $sql="SELECT * FROM berita WHERE gambarBerita LIKE '%$keyword%' OR 
+    judulBerita LIKE '%$keyword%'OR
+    isiBerita LIKE '%$keyword%' OR
+    tgldibuatBerita LIKE '%$keyword%'";
+    $result=mysqli_query($link,$sql);
+    if(mysqli_num_rows($result)==0){
+        $error=false;
+    }
+}else{
+    $sql = "SELECT * FROM berita ORDER BY idBerita ASC"; 
+}
+$data = mysqli_query($link,$sql); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,6 +114,14 @@ $data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC");
         <div class="row">
             <div class="col-md-8">
                 <div class="">
+                    <div class="col">
+                        <form action="" method="post">
+                            <div class="input-group ms-auto mt-4">
+                                <input type="text" class="form-control rounded-pill rounded-end" name="keyword" placeholder="CARI BERITA DISINI...">
+                                <button name="cari" class="btn btn-primary rounded-pill rounded-start">Cari</button>
+                            </div>
+                        </form>
+                    </div>
                     <div class="my-4">
                         <h5>berita :</h5>
                     </div>
