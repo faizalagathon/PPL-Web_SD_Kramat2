@@ -73,7 +73,7 @@ if(isset($_POST["cari"])){
 
 <body>
     <!-- awal navbar pertama -->
-    <div class="navbar-pertama">
+    <!-- <div class="navbar-pertama">
       <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
         <div class="container-fluid">
           <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
@@ -83,7 +83,7 @@ if(isset($_POST["cari"])){
           </div>
         </div>
       </nav>
-    </div>
+    </div> -->
   <!-- akhir navbar pertama -->
       
       
@@ -146,7 +146,9 @@ if(isset($_POST["cari"])){
         </div>
       </form>
       <?php if (isset($not_found)):?>
-          <img src="../../assets/imgs/illustrasi/logo 2.png" style="width: 35%; margin: auto 0rem 2rem;" alt="">
+        <div class="text-center my-4">
+          <img src="../../assets/imgs/illustrasi/logo 2.png" style="width: 30%;" alt="">
+        </div>
       <?php endif;?>
       <br>
       <!-- !SECTION END CARI -->
@@ -174,17 +176,60 @@ if(isset($_POST["cari"])){
       </div>
       <!-- SECTION CARD-->
     <?php endforeach; ?>
-  </div>
-  <!-- //!SECTION end gambar -->
-  <!-- SECTION FOOTER -->
-    <div class="footer">
-      <div class="text-center bg-dark" style="padding: 5%;">
-        <p class="text-white mb-0 mt-0">
+    <!-- SECTION FOOTER -->
+    <div class="footer bg-dark" style="background: url(../../assets/imgs/Frame_9.png);background-size: cover;">
+      <div class="row p-5">
+        <div class="col-md-4 p-3">
+          <div class="sd text-center">
+            <a class="navbar-brand p-0" href="home.html">
+                <img src="../../assets/imgs/logo_footer.png" alt="Logo" width="200" class="">
+            </a>
+            <p class="text-white fs-6 ms-4">Jangan hanya bisa untuk bermimpi saja, tapi berusaha dan berdoa untuk menggapai mimpinya</p>
+            <!-- SECTION SOSMED -->
+            <div class="ms-4">
+              <a href="https://instagram.com/sdnkramat2kotacirebon?igshid=YmMyMTA2M2Y" class="text-white text-decoration-none me-3 ms-auto">
+                <img src="assets/imgs/icon/icon_ig_primary.png" width="30px" alt="">
+              </a>
+              <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none me-3 ms-auto">
+                <img src="assets/imgs/icon/icon_fb_primary.png" width="30px" alt="">
+              </a>
+              <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none">
+                <img src="assets/imgs/icon/icon_yt_primary.png" width="30px" alt="">
+              </a>
+            </div>
+            <!-- !SECTION SOSMED -->
+          </div>
+        </div>
+        <div class="col-md-4 p-3 ms-auto">
+          <div class="kontak text-center">
+            <h5 class="text-white mb-4">Contact Us</h5>
+            <p class="text-white">Jl. Siliwangi No. 44Kota Cirebon </p>
+            <p class="text-white">Telp. (0231) 202998</p>
+          </div>
+        </div>
+        <div class="col-md-4 p-3 ms-auto">
+          <div class="guide text-center">
+            <div class="">
+                <div class="">
+                  <h5 class="text-white mb-4">Viewer Guides</h5>
+                </div>
+                <div class="">
+                  <a class="nav-link text-white" aria-current="page" href="home.php">Home</a>
+                  <a class="nav-link text-white" href="profile/profile.php">Profil</a>
+                  <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <p class="text-white border-top border-white pb-3 pt-2 mx-3 mb-0 mt-0">
           Coypright By @SD_Keramat2023
         </p>
       </div>
     </div>
-  <!-- !SECTION FOOTER -->
+    <!-- !SECTION FOOTER -->
+  </div>
 <!-- <script src="../../../assets/js/bootstrap/bootstrap.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
