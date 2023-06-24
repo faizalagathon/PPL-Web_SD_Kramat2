@@ -1,6 +1,8 @@
 <?php
 require "Koneksi.php";
 
+session_start();
+
 if(isset($_SESSION['login'])){
     $login = $_SESSION['login'];
 }
@@ -32,8 +34,11 @@ else{
     </style>
   </head>
   <body>
+
+  <?php include "../assets/components/header.php" ?>
+  
     <!-- awal navbar pertama -->
-    <div class="navbar-pertama">
+    <!-- <div class="navbar-pertama">
           <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
             <div class="container-fluid">
               <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
@@ -43,12 +48,12 @@ else{
               </div>
             </div>
           </nav>
-        </div>
+        </div> -->
       <!-- akhir navbar pertama -->
       
       
         <!-- awal navbar kedua -->
-        <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+        <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
                 <div class="container-fluid ">
                     <a class="navbar-brand p-0" href="home.html">
                         <img src="../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
@@ -88,7 +93,7 @@ else{
                         <?php endif ; ?>
                     </div>
                 </div>
-            </nav>
+            </nav> -->
   <!-- akhir navbar pertama -->
 
 

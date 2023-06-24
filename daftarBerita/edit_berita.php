@@ -1,5 +1,13 @@
 <?php
 include '../functions.php';
+
+if(isset($_SESSION['login'])){
+    $login = $_SESSION['login'];
+  }
+  else{
+    $login = false;
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -108,7 +116,7 @@ include '../functions.php';
                             <input type="text" name="id" id="" value="<?php echo $id ?>">
                         </div>
                         <div class="text-end">
-                            <button href="crud_berita.php" class="btn btn-warning text-white">Batal</button>
+                            <a href="crud_berita.php" class="btn btn-secondary">Kembali</a>
                             <button type="submit" class="btn btn-info text-white">Update</button>
                         </div>
                     </form>

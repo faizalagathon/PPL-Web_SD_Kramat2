@@ -28,7 +28,18 @@
 
 <body>
 
-  <?php include "aksi_ekskul.php" ?>
+  <?php 
+  include "aksi_ekskul.php";
+
+  if(isset($_SESSION['login'])){
+    $login = $_SESSION['login'];
+  }
+  else{
+    $login = false;
+  } 
+
+  ?>
+
   <?php include "../assets/components/header.php" ?>
 
   <!-- awal navbar pertama -->
@@ -114,7 +125,7 @@
                 <div class="card-footer bg-white border-0 text-end">
                   <a href="edit_eskull.php?idEkskul=<?= $ekskul['idEkskul'] ?>" class="btn btn-warning text-white">edit</a>
                   <form action="" method="post">
-                    <button type="submit" class="btn btn-info text-white">Hapus</button>
+                    <button type="submit" class="btn btn-info text-white" onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
                     <input type="hidden" name="delEkskul" value="<?= $ekskul['idEkskul'] ?>">
                   </form>
                 </div>

@@ -27,7 +27,16 @@
 
 <body>
 
-  <?php include "aksi_ekskul.php" ?>
+  <?php 
+    include "aksi_ekskul.php";
+
+    if(isset($_SESSION['login'])){
+      $login = $_SESSION['login'];
+    }
+    else{
+      $login = false;
+    } 
+  ?>
   <?php include "../assets/components/header.php" ?>
 
   <div class="container-fluid">

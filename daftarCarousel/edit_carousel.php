@@ -4,6 +4,14 @@ if (isset($_GET["ParamAksi"])) {
   $table = $_GET['ParamTable'];
   $cek = $_GET['ParamCek'];
 }
+session_start();
+
+if(isset($_SESSION['login'])){
+    $login = $_SESSION['login'];
+}
+else{
+    $login = false;
+}
 ?>
 
 <!doctype html>
@@ -31,6 +39,7 @@ if (isset($_GET["ParamAksi"])) {
   $sql = "SELECT * FROM carousel WHERE idCarousel like '$idcarousel'";
   $carousel = query($sql);
   ?>
+  
   <?php include "../assets/components/header.php" ?>
 
   <!-- awal navbar pertama -->

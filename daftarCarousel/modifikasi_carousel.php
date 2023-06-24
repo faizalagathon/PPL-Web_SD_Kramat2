@@ -2,6 +2,13 @@
 include "../functions.php";
 // include '../koneksi.php';
 
+if(isset($_SESSION['login'])){
+    $login = $_SESSION['login'];
+}
+else{
+    $login = false;
+}
+
 $carousel = query("SELECT * FROM carousel");
 
 if (isset($_GET['aksi']) && $_GET['aksi'] == 'hapus') {

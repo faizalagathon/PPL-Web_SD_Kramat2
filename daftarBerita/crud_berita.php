@@ -1,5 +1,13 @@
 <?php
 require '../functions.php';
+
+if(isset($_SESSION['login'])){
+    $login = $_SESSION['login'];
+  }
+  else{
+    $login = false;
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
