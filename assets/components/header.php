@@ -1,5 +1,5 @@
 <!-- SECTION awal navbar pertama -->
-<div class="navbar-pertama">
+<!-- <div class="navbar-pertama">
   <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
     <div class="container-fluid">
       <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
@@ -9,7 +9,7 @@
       </div>
     </div>
   </nav>
-</div>
+</div> -->
 <!-- !SECTION akhir navbar pertama -->
 <?php function halAktif($hal)
 {
@@ -31,6 +31,7 @@
         <a class="nav-link text-<?= (halAktif('berita.php') != false) ? 'info' : 'white' ?>" href="../daftarBerita/berita.php">Berita</a>
         <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
         <a class="nav-link text-<?= (halAktif('daftar_guru.php') != false) ? 'info' : 'white' ?>" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
+        <?php if(isset($login) && $login != false) : ?>
         <li class="nav-item dropdown">
           <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Edit Website
@@ -42,10 +43,17 @@
             <li><a class="dropdown-item text-<?= (halAktif('edit_visi_misi.php') != false) ? 'info' : 'white' ?>" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
             <li><a class="dropdown-item text-<?= (halAktif('crud_eskull.php') != false) ? 'info' : 'white' ?>" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
             <li><a class="dropdown-item text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
-            <li><a class="dropdown-item text-<?= (halAktif('berita.php') != false) ? 'info' : 'white' ?>" href="../daftarBerita/berita.php">Berita</a></li>
+            <li><a class="dropdown-item text-<?= (halAktif('berita.php') != false) ? 'info' : 'white' ?>" href="../daftarBerita/crud_berita.php">Berita</a></li>
           </ul>
         </li>
+        <?php endif ; ?>
       </div>
+      <?php if(isset($login) && $login != false) : ?>
+          <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+      <?php endif ; ?>
+      <?php if(isset($login) && $login == false) : ?>
+          <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
+      <?php endif ; ?>
     </div>
   </div>
 </nav>
