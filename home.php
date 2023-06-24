@@ -313,7 +313,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                         <p class="card-text"><?= $part ?>....</p>
                       </div>
                       <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="daftarBerita/detail_berita.php?id=<?= $datab['idBerita'] ?>" class="btn btn-primary">Go somewhere</a>
                       </div>
                     </div>
                   <?php endforeach; ?>
