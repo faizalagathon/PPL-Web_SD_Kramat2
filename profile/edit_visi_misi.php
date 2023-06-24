@@ -119,6 +119,12 @@ if (!isset($dataMisi)) {
                             <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
                         </ul>
                     </li>
+                    <?php if(isset($login) && $login != false) : ?>
+                        <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                    <?php endif ; ?>
+                    <?php if(isset($login) && $login == false) : ?>
+                        <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
+                    <?php endif ; ?>
                 </div>
             </div>
         </div>

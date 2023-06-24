@@ -7,7 +7,27 @@ if(isset($_SESSION['login'])){
 else{
     $login = false;
 }
+$result=mysqli_query($link,"SELECT 	gambarBerita FROM berita ");
+if(mysqli_num_rows($result)==0){
+    $error=false;
+}else{
+    $data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC"); 
+}
 
+if(isset($_POST['cari'])){
+    $keyword=$_POST['keyword'];
+    $sql="SELECT * FROM berita WHERE gambarBerita LIKE '%$keyword%' OR 
+    judulBerita LIKE '%$keyword%'OR
+    isiBerita LIKE '%$keyword%' OR
+    tgldibuatBerita LIKE '%$keyword%'";
+    $result=mysqli_query($link,$sql);
+    if(mysqli_num_rows($result)==0){
+        $error=false;
+    }
+}else{
+    $sql = "SELECT * FROM berita ORDER BY idBerita ASC"; 
+}
+$data = mysqli_query($link,$sql); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,10 +54,8 @@ else{
 </head>
 <body>
 
-<?php include "../assets/components/header.php" ?>
-
     <!-- SECTION awal navbar pertama -->
-    <!-- <div class="navbar-pertama">
+    <div class="navbar-pertama">
         <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
             <div class="container-fluid">
                 <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
@@ -47,10 +65,10 @@ else{
                 </div>
             </div>
         </nav>
-    </div>  -->
+    </div> 
     <!-- !SECTION akhir navbar pertama -->
     <!-- SECTION awal navbar kedua -->
-    <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
         <div class="container-fluid ">
             <a class="navbar-brand p-0" href="home.html">
                 <img src="../assets/imgs/Foto SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
@@ -83,7 +101,6 @@ else{
                     <?php endif ; ?>
                 </div>
                 <?php if(isset($login) && $login != false) : ?>
-                    <button class="btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
                     <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                 <?php endif ; ?>
                 <?php if(isset($login) && $login == false) : ?>
@@ -91,17 +108,27 @@ else{
                 <?php endif ; ?>
             </div>
         </div>
-    </nav> -->
+    </nav>
     <!-- !SECTION akhir navbar kedua -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
                 <div class="">
+                    <div class="col">
+                        <form action="" method="post">
+                            <div class="input-group ms-auto mt-4">
+                                <input type="text" class="form-control rounded-pill rounded-end" name="keyword" placeholder="CARI BERITA DISINI...">
+                                <button name="cari" class="btn btn-primary rounded-pill rounded-start">Cari</button>
+                            </div>
+                        </form>
+                    </div>
                     <div class="my-4">
                         <h5>berita :</h5>
                     </div>
                     <div class="text-center">
+                    <?php if (isset($error)) :?>
                         <img src="../assets/imgs/illustrasi/logo 4.png" width="50%" alt="">
+                    <?php endif;?>
                     </div>
                     <div class="">
                         <!-- SECTION BERITA -->
@@ -111,7 +138,7 @@ else{
                                     <div class="row">
                                         <div class="col-md-9">
                                         <?php
-                                            $data = mysqli_query($link,"SELECT * FROM berita ORDER BY idBerita ASC"); 
+                                           
                                             foreach ( $data as $d ) :
                                                 $part= substr($d['isiBerita'],0,50);
                                             ?>
@@ -146,39 +173,8 @@ else{
             </div>
             <div class="col ms-auto">
                 <div class="sticky-top">
-                    <form action="" class="m-auto mt-3 p-3 bg-dark border border-white border-2" method="POST">
-                        <h3 class="text-white border-bottom border-2 border-white mb-5">FeedBack</h3>
-                        <div class="mb-2">
-                            <label class="form-label text-white" for="username" style="display: block;">Email :</label>
-                            <input type="text" class="form-control" name="username" id="username">
-                        </div>
-                        <div class="mb-4">
-                            <label class="form-label text-white" for="password" style="display: block;">Pesan :</label>
-                            <textarea class="form-control" name="" id="" cols="30" rows="6"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                            </svg>
-                        </div>
-                        <button type="submit" class="btn btn-primary rounded-pill w-100 border-0 fw-bold mb-3" data-bs-target="#pesan" 
-                        data-bs-toggle="modal" style="background: linear-gradient(120deg,#00ccff,#0036cb);" name="login">Kirim</button>
-                    </form>
+                <?php include "../assets/components/form-feedback.php" ?>
+
                 </div>
             </div>
         </div>
@@ -193,5 +189,7 @@ else{
         </div>
     <!-- !SECTION FOOTER -->
     <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <?php include "../assets/components/js-form-feedback.html" ?>
+
 </body>
 </html>

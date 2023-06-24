@@ -1,5 +1,13 @@
 <?php
 require "Koneksi.php";
+
+if(isset($_SESSION['login'])){
+    $login = $_SESSION['login'];
+}
+else{
+    $login = false;
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -40,7 +48,7 @@ require "Koneksi.php";
       
       
         <!-- awal navbar kedua -->
-            <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
                 <div class="container-fluid ">
                     <a class="navbar-brand p-0" href="home.html">
                         <img src="../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
@@ -53,53 +61,100 @@ require "Koneksi.php";
                             <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
                             <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
                             <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
-                            <a class="nav-link text-white" href="#">PPDB</a>
-                            <a class="nav-link text-white" href="#">Galeri</a>
+                            <a class="nav-link text-white" href="../daftarGaleri/user/galeri.php">Galeri</a>
                             <a class="nav-link text-info" href="../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Edit Website
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
-                                    <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
-                                    <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
-                                    <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
-                                    <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                                    <li><a class="dropdown-item" href="#">Galeri</a></li>
-                                    <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
-                                </ul>
-                            </li>
+                            <?php if(isset($login) && $login != false) : ?>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Edit Website
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
+                                        <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
+                                        <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
+                                        <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
+                                        <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+                                        <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
+                                        <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
+                                    </ul>
+                                </li>
+                            <?php endif ; ?>
                         </div>
-                        <?php if(isset($admin) && $admin == true) : ?>
-                            <button class="btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
+                        <?php if(isset($login) && $login != false) : ?>
                             <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                         <?php endif ; ?>
-                        <?php if(isset($admin) && $admin == false) : ?>
+                        <?php if(isset($login) && $login == false) : ?>
                             <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
                         <?php endif ; ?>
                     </div>
                 </div>
             </nav>
-          <!-- akhir navbar kedua -->
+  <!-- akhir navbar pertama -->
 
-    <form method="post" class="mb-5" action="aksi_tambah_carousel.php" enctype="multipart/form-data">
-      
-          <div class="card border-1 border-dark m-3 mb-5 mt-5">
-            <div class="card-body">
-              <h5 class="card-title border-bottom border-2 mb-5 pb-2">Tambah Gambar Carousel</h5>
-              <input class="form-control" type="file" name="foto" required="required">
-              <small class="card-text" style="color: red;">*Format yang diperbolehkan .png | .jpg | .jpeg</small>
-              <div class="text-end mt-3">
-                <button class="btn btn-primary text-white" type="submit">Tambah</button>
-                <!-- <button class="btn btn-primary" type="reset" >Reset</button> -->
-                <a href="modifikasi_carousel.php" class="btn btn-secondary">Kembali</a>
-              </div>
-            </div>
-          </div>
-        </nav>
+
+  <!-- awal navbar kedua -->
+  <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+    <div class="container-fluid ">
+      <a class="navbar-brand p-0" href="home.html">
+        <img src="../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+      </a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-5 gap-4">
+          <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
+          <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
+          <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
+          <a class="nav-link text-white" href="#">PPDB</a>
+          <a class="nav-link text-white" href="#">Galeri</a>
+          <a class="nav-link text-info" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Edit Website
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
+              <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
+              <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
+              <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
+              <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+              <li><a class="dropdown-item" href="#">Galeri</a></li>
+              <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
+            </ul>
+          </li>
+        </div>
+        <?php if (isset($admin) && $admin == true) : ?>
+          <button class="btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
+          <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+        <?php endif; ?>
+        <?php if (isset($admin) && $admin == false) : ?>
+          <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
+        <?php endif; ?>
       </div>
-    </form>
+    </div>
+  </nav> -->
+  <!-- akhir navbar kedua -->
+  <form method="post" class="mb-5" action="aksi_tambah_carousel.php" enctype="multipart/form-data">
+
+    <div class="card border-1 border-dark m-3 mb-5 mt-5">
+      <!-- <img src="https://th.bing.com/th?id=OIP.cUUf67YH-hex_XPKWlnZ1QHaLF&w=204&h=305&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" class="card-img-top" alt="No-Image" style="width: 286px; height:200px;"> -->
+      <div class="card-body">
+        <h5 class="card-title border-bottom border-2 mb-5 pb-2">Tambah Gambar Carousel</h5>
+        <input class="form-control" type="file" name="foto" required="required">
+        <small class="card-text" style="color: red;">*Format yang diperbolehkan .png | .jpg | .jpeg</small>
+        <div class="text-end mt-3">
+          <button class="btn btn-primary text-white" type="submit">Tambah</button>
+          <!-- <button class="btn btn-primary" type="reset" >Reset</button> -->
+          <a href="modifikasi_carousel.php" class="btn btn-secondary">Kembali</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="">
+
+    </div>
+  </form>
 
   <!-- SECTION FOOTER -->
   <div class="footer">
