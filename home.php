@@ -305,36 +305,18 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
               <div class="m-auto">
                   <h3 class="pt-3 text-center mb-3">BERITA</h3>
                   <div class="d-flex flex-wrap justify-content-center mb-3 gap-4">
+                  <?php foreach(mysqli_query($link, 'SELECT * FROM berita limit 3') as $datab): $part= substr($datab['isiBerita'],0,50);?>
                     <div class="card" style="width: 15rem;">
-                      <img src="assets/imgs/Foto_SD/IMG-20221202-WA0079.jpg" class="card-img-top" alt="..." style="min-width: 100%;min-height: 100px;max-width: 100%;max-height: 130px;object-fit: cover;object-position: center;">
+                      <img src="assets/imgs/berita/<?= $datab['gambarBerita'] ?>" class="card-img-top" alt="..." style="min-width: 100%;min-height: 100px;max-width: 100%;max-height: 130px;object-fit: cover;object-position: center;">
                       <div class="card-body">
-                        <h5 class="card-title">Judul Berita</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title"><?= $datab["judulBerita"] ?></h5>
+                        <p class="card-text"><?= $part ?>....</p>
                       </div>
                       <div class="card-footer">
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                       </div>
                     </div>
-                    <div class="card" style="width: 15rem;">
-                      <img src="assets/imgs/Foto_SD/IMG-20221202-WA0027.jpg" class="card-img-top" alt="..." style="min-width: 100%;min-height: 100px;max-width: 100%;max-height: 130px;object-fit: cover;object-position: center;">
-                      <div class="card-body">
-                        <h5 class="card-title">Judul Berita</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      </div>
-                      <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                    <div class="card" style="width: 15rem;">
-                      <img src="assets/imgs/Foto_SD/IMG-20221202-WA0089.jpg" class="card-img-top" alt="..." style="min-width: 100%;min-height: 100px;max-width: 100%;max-height: 130px;object-fit: cover;object-position: center;">
-                      <div class="card-body">
-                        <h5 class="card-title">Judul Berita</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      </div>
-                      <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
+                  <?php endforeach; ?>
                   </div>
                 </div>
                 <div class="text-center mb-5">
