@@ -191,7 +191,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           <div class="text-center">
             <img src="../assets/imgs/icon/icon_p_yellow.png" class="card-img-top w-50" alt="...">
           </div>
-          <div class="card-body text-center">
+          <div class="card-body text-center text-white">
             <h5 class="card-title">Pengajar</h5>
             <h3 class="fw-bold">20</h3>
           </div>
@@ -200,7 +200,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           <div class="text-center">
             <img src="../assets/imgs/icon/icon_a_yellow.png" class="card-img-top w-50" alt="...">
           </div>
-          <div class="card-body text-center">
+          <div class="card-body text-center text-white">
             <h5 class="card-title">Akreditasi</h5>
             <h3 class="fw-bold">B</h3>
           </div>
@@ -209,7 +209,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           <div class="text-center">
             <img src="../assets/imgs/icon/icon_m_yellow.png" class="card-img-top w-50" alt="...">
           </div>
-          <div class="card-body text-center">
+          <div class="card-body text-center text-white">
             <h5 class="card-title">Jumlah Murid</h5>
             <h3 class="fw-bold">80</h3>
           </div>
