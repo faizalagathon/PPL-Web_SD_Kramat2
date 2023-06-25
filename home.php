@@ -15,21 +15,35 @@ ORDER by kategori_acara.nama_k_acara;
 ;");
 $acara =query('SELECT * FROM kategori_acara LIMIT 1');
 
-// Menampilkan Visi dan Misi
-$dataVisi = mysqli_fetch_assoc(mysqli_query($link, 'SELECT * FROM visi'));
-$dataMisi = mysqli_fetch_assoc(mysqli_query($link, 'SELECT * FROM misi'));
-if(!isset($dataVisi)){
-  $dataVisi = [
-      'idVisi' => 0,
-      'teksVisi' => 'Belom Menuliskan Visi',    
-  ];
+// SECTION DAFTAR VISI
+$dataVisi = query("SELECT * FROM visi")[0]['teksVisi'];
+$daftarVisi = [];
+
+preg_match_all('/\d+\./', $dataVisi, $matches);
+$nomor = $matches[0];
+
+$pola = '/\d+\./';
+$kalimat = preg_split($pola, $dataVisi, -1, PREG_SPLIT_NO_EMPTY);
+
+for ($i = 0; $i < count($kalimat); $i++) {
+  $daftarVisi[] = $nomor[$i] . $kalimat[$i];
 }
-if(!isset($dataMisi)){
-  $dataMisi = [
-      'idMisi' => 0,
-      'teksMisi' => 'Belom Menuliskan Misi',    
-  ];
+// !SECTION DAFTAR VISI
+
+// SECTION DAFTAR MISI
+$dataMisi = query("SELECT * FROM misi")[0]['teksMisi'];
+$daftarMisi = [];
+
+preg_match_all('/\d+\./', $dataMisi, $matches);
+$nomor = $matches[0];
+
+$pola = '/\d+\./';
+$kalimat = preg_split($pola, $dataMisi, -1, PREG_SPLIT_NO_EMPTY);
+
+for ($i = 0; $i < count($kalimat); $i++) {
+  $daftarMisi[] = $nomor[$i] . $kalimat[$i];
 }
+// !SECTION DAFTAR MISI
 
 //Carousel
 $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel ASC");
@@ -245,15 +259,15 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                   <div class="pt-4">
                     <div class="py-3 px-5 text-start mb-3">
                       <h4>VISI</h4>
-                      <p>
-                        <?= $dataVisi['teksVisi'] ?>
-                      </p>
+                      <?php foreach($daftarVisi as $dataVisi) : ?>
+                        <?= $dataVisi . "<br>" ?>
+                      <?php endforeach; ?>
                     </div>
                     <div class="py-3 px-5 text-start">
                       <h4>MISI</h4>
-                      <p>
-                        <?= $dataMisi['teksMisi'] ?>
-                      </p>
+                      <?php foreach($daftarMisi as $dataMisi) : ?>
+                        <?= $dataMisi . "<br>" ?>
+                      <?php endforeach; ?>
                     </div>
                   </div>
                 </div>

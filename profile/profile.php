@@ -8,8 +8,38 @@ if (isset($_SESSION['login'])) {
   $login = false;
 }
 
-$daftarVisi = query("SELECT * FROM visi");
-$daftarMisi = query("SELECT * FROM misi");
+// SECTION DAFTAR VISI
+$dataVisi = query("SELECT * FROM visi")[0]['teksVisi'];
+$daftarVisi = [];
+
+preg_match_all('/\d+\./', $dataVisi, $matches);
+$nomor = $matches[0];
+
+$pola = '/\d+\./';
+$kalimat = preg_split($pola, $dataVisi, -1, PREG_SPLIT_NO_EMPTY);
+
+for ($i = 0; $i < count($kalimat); $i++) {
+  $daftarVisi[] = $nomor[$i] . $kalimat[$i];
+}
+// !SECTION DAFTAR VISI
+
+
+// SECTION DAFTAR MISI
+$dataMisi = query("SELECT * FROM misi")[0]['teksMisi'];
+$daftarMisi = [];
+
+preg_match_all('/\d+\./', $dataMisi, $matches);
+$nomor = $matches[0];
+
+$pola = '/\d+\./';
+$kalimat = preg_split($pola, $dataMisi, -1, PREG_SPLIT_NO_EMPTY);
+
+for ($i = 0; $i < count($kalimat); $i++) {
+  $daftarMisi[] = $nomor[$i] . $kalimat[$i];
+}
+// !SECTION DAFTAR MISI
+
+
 $daftarSejarah = query("SELECT * FROM sejarah");
 $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbing = guru.id_guru");
 
@@ -134,17 +164,13 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
             <div class="px-5 pb-4">
               <h4>VISI</h4>
               <?php foreach ($daftarVisi as $data) : ?>
-                <p class="">
-                  <?= $data['teksVisi'] ?>
-                </p>
+                  <?= $data . '<br>' ?>
               <?php endforeach; ?>
             </div>
             <div class="px-5">
               <h4>MISI</h4>
               <?php foreach ($daftarMisi as $data) : ?>
-                <p class="">
-                  <?= $data['teksMisi'] ?>
-                </p>
+                  <?= $data . '<br>' ?>
               <?php endforeach; ?>
             </div>
           </div>
