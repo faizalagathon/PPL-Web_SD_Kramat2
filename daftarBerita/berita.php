@@ -114,73 +114,94 @@ $data = mysqli_query($link,$sql);
     </nav> -->
     <!-- !SECTION akhir navbar kedua -->
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8">
+        <div class="">
+            <div class="">
+                <div class="col">
+                    <form action="" method="post">
+                        <div class="input-group ms-auto mt-4">
+                            <input type="text" class="form-control rounded-pill rounded-end" name="keyword" placeholder="CARI BERITA DISINI...">
+                            <button name="cari" class="btn btn-primary rounded-pill rounded-start">Cari</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="my-4">
+                    <h5>berita :</h5>
+                </div>
+                <div class="text-center">
+                <?php if (isset($error)) :?>
+                    <img src="../assets/imgs/illustrasi/logo 4.png" width="50%" alt="">
+                <?php endif;?>
+                </div>
                 <div class="">
-                    <div class="col">
-                        <form action="" method="post">
-                            <div class="input-group ms-auto mt-4">
-                                <input type="text" class="form-control rounded-pill rounded-end" name="keyword" placeholder="CARI BERITA DISINI...">
-                                <button name="cari" class="btn btn-primary rounded-pill rounded-start">Cari</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="my-4">
-                        <h5>berita :</h5>
-                    </div>
-                    <div class="text-center">
-                    <?php if (isset($error)) :?>
-                        <img src="../assets/imgs/illustrasi/logo 4.png" width="50%" alt="">
-                    <?php endif;?>
-                    </div>
+                    <!-- SECTION BERITA -->
                     <div class="">
-                        <!-- SECTION BERITA -->
-                        <div class="">
-                            <div class="d-flex flex-wrap">
-                                <div class="card mb-3 m-auto">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                        <?php
-                                           
-                                            foreach ( $data as $d ) :
-                                                $part= substr($d['isiBerita'],0,50);
-                                            ?>
-                                            <div class="card mb-3 m-auto">
-                                                <div class="row">
-                                                <div class="col-md-3">
-                                                    <img src="../assets/imgs/berita/<?= $d['gambarBerita'] ?>" class="img-fluid" alt="...">
-                                                </div>
-                                                    <div class="col-md-9">
-                                                        <div class="card-body">
-                                                            <small><?= $d['tgldibuatBerita'] ?></small>
-                                                            <h5 class="card-title"><?= $d['judulBerita'] ?></h5>
-                                                            <p>
-                                                                <?= $part ?>...
-                                                            </p>
-                                                        </div>
-                                                        <div class="card-footer bg-white border-0">
-                                                            <a href="detail_berita.php?id=<?= $d['idBerita'] ?>">Selengkapnya></a>
-                                                        </div>
+                        <div class="d-flex flex-wrap">
+                            <div class="card mb-3 m-auto">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                    <?php
+                                        
+                                        foreach ( $data as $d ) :
+                                            $part= substr($d['isiBerita'],0,50);
+                                        ?>
+                                        <div class="card mb-3 m-auto">
+                                            <div class="row">
+                                            <div class="col-md-3">
+                                                <img src="../assets/imgs/berita/<?= $d['gambarBerita'] ?>" class="img-fluid" alt="...">
+                                            </div>
+                                                <div class="col-md-9">
+                                                    <div class="card-body">
+                                                        <small><?= $d['tgldibuatBerita'] ?></small>
+                                                        <h5 class="card-title"><?= $d['judulBerita'] ?></h5>
+                                                        <p>
+                                                            <?= $part ?>...
+                                                        </p>
+                                                    </div>
+                                                    <div class="card-footer bg-white border-0">
+                                                        <a href="detail_berita.php?id=<?= $d['idBerita'] ?>">Selengkapnya></a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <?php endforeach; ?>
                                         </div>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- !SECTION BERITA -->
                     </div>
-                </div>
-            </div>
-            <div class="col ms-auto">
-                <div class="sticky-top">
-                <?//php include "../assets/components/form-feedback.php" ?>
-
+                    <!-- !SECTION BERITA -->
                 </div>
             </div>
         </div>
+        <!-- SECTION FEEDBACK -->
+        <div class="container">
+            <div class="py-5">
+                <div class="row" style="background: url(../assets/imgs/bg5.jpg);background-size: cover; border-radius: 2rem;">
+                    <div class="col-md-6">
+    
+                    </div>
+                    <div class="col-md-6 ms-auto">
+                    <div class="feedback">
+                        <form action="" class="m-auto mt-3 p-3" method="POST">
+                        <h3 class="border-bottom border-2 border-dark mb-5">FeedBack</h3>
+                        <div class="mb-2">
+                            <label class="form-label" for="username" style="display: block;">Email :</label>
+                            <input type="email" class="form-control" name="email" id="username">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="password" style="display: block;">Pesan :</label>
+                            <textarea class="form-control" name="feedback" id="" cols="30" rows="6"></textarea>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary rounded-pill px-5 border-0 fw-bold mb-3" data-bs-target="#pesan" data-bs-toggle="modal" style="background: linear-gradient(120deg,#00ccff,#0036cb);" name="btnFeedback">Kirim</button>
+                        </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- !SECTION FEEDBACK -->
     </div>
     <!-- SECTION FOOTER -->
         <div class="footer">

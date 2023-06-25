@@ -254,6 +254,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
       </div>
       <!-- !SECTION ESKULL -->
     </div>
+    <!-- SECTION FEEDBACK -->
     <div class="py-5">
       <div class="row" style="background: url(../assets/imgs/bg5.jpg);background-size: cover; border-radius: 2rem;">
         <div class="col-md-6">
@@ -279,6 +280,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
         </div>
       </div>
     </div>
+    <!-- !SECTION FEEDBACK -->
   </div>
   <div class="container-fluid">
     <!-- SECTION FOOTER -->
@@ -293,13 +295,13 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
             <!-- SECTION SOSMED -->
             <div class="ms-4">
               <a href="https://instagram.com/sdnkramat2kotacirebon?igshid=YmMyMTA2M2Y" class="text-white text-decoration-none me-3 ms-auto">
-                <img src="assets/imgs/icon/icon_ig_primary.png" width="30px" alt="">
+                <img src="../assets/imgs/icon/icon_ig_primary.png" width="30px" alt="">
               </a>
               <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none me-3 ms-auto">
-                <img src="assets/imgs/icon/icon_fb_primary.png" width="30px" alt="">
+                <img src="../assets/imgs/icon/icon_fb_primary.png" width="30px" alt="">
               </a>
               <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none">
-                <img src="assets/imgs/icon/icon_yt_primary.png" width="30px" alt="">
+                <img src="../assets/imgs/icon/icon_yt_primary.png" width="30px" alt="">
               </a>
             </div>
             <!-- !SECTION SOSMED -->

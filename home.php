@@ -337,6 +337,35 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                   <a href="daftarBerita/berita.php" class="">Read More ></a>
                 </div>
               </div>
+              <!-- SECTION FEEDBACK -->
+              <div class="container">
+                <div class="py-5">
+                  <div class="row" style="background: url(assets/imgs/bg5.jpg);background-size: cover; border-radius: 2rem;">
+                    <div class="col-md-6">
+  
+                    </div>
+                    <div class="col-md-6 ms-auto">
+                      <div class="feedback">
+                        <form action="" class="m-auto mt-3 p-3" method="POST">
+                          <h3 class="border-bottom border-2 border-dark mb-5">FeedBack</h3>
+                          <div class="mb-2">
+                            <label class="form-label" for="username" style="display: block;">Email :</label>
+                            <input type="email" class="form-control" name="email" id="username">
+                          </div>
+                          <div class="mb-4">
+                            <label class="form-label" for="password" style="display: block;">Pesan :</label>
+                            <textarea class="form-control" name="feedback" id="" cols="30" rows="6"></textarea>
+                          </div>
+                          <div class="text-end">
+                            <button type="submit" class="btn btn-primary rounded-pill px-5 border-0 fw-bold mb-3" data-bs-target="#pesan" data-bs-toggle="modal" style="background: linear-gradient(120deg,#00ccff,#0036cb);" name="btnFeedback">Kirim</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- !SECTION FEEDBACK -->
               <!-- SECTION FOOTER -->
               <div class="footer bg-dark" style="background: url(assets/imgs/Frame_9.png);background-size: cover;">
                 <div class="row p-5">
