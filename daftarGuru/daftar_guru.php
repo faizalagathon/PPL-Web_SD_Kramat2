@@ -262,8 +262,7 @@ if($jumlahDataQueryGuru == 0){
             </nav>
           <!-- akhir navbar kedua -->
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8">
+            <div class="">
                 <div class="mt-3 py-3">
                     <div class="row mb-4">
                         <div class="col">
@@ -494,7 +493,7 @@ if($jumlahDataQueryGuru == 0){
                 <!-- !SECTION pagination peminjaman-->
                 
             </div>
-            <div class="col ms-auto">
+            <!-- <div class="col ms-auto">
                 <div class="">
                     <form action="" class="m-auto mt-3 p-3 bg-dark border border-white border-2" method="POST">
                         <h3 class="text-white border-bottom border-2 border-white mb-5">FeedBack</h3>
@@ -530,8 +529,7 @@ if($jumlahDataQueryGuru == 0){
                         data-bs-toggle="modal" style="background: linear-gradient(120deg,#00ccff,#0036cb);" name="login">Kirim</button>
                     </form>
                 </div>
-            </div>
-        </div>
+            </div> -->
         <!-- SECTION FOOTER -->
         <div class="footer bg-dark" style="background: url(../assets/imgs/Frame_9.png);background-size: cover;">
             <div class="row p-5">
