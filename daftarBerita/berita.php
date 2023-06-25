@@ -7,6 +7,7 @@ if(isset($_SESSION['login'])){
 else{
     $login = false;
 }
+
 $result=mysqli_query($link,"SELECT 	gambarBerita FROM berita ");
 if(mysqli_num_rows($result)==0){
     $error=false;
@@ -54,6 +55,8 @@ $data = mysqli_query($link,$sql);
 </head>
 <body>
 
+    <?php include "../assets/components/header.php" ?>
+
     <!-- SECTION awal navbar pertama -->
     <!-- <div class="navbar-pertama">
         <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
@@ -68,10 +71,10 @@ $data = mysqli_query($link,$sql);
     </div>  -->
     <!-- !SECTION akhir navbar pertama -->
     <!-- SECTION awal navbar kedua -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+    <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
         <div class="container-fluid ">
             <a class="navbar-brand p-0" href="home.html">
-                <img src="../assets/imgs/Foto SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+                <img src="../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -108,7 +111,7 @@ $data = mysqli_query($link,$sql);
                 <?php endif ; ?>
             </div>
         </div>
-    </nav>
+    </nav> -->
     <!-- !SECTION akhir navbar kedua -->
     <div class="container-fluid">
         <div class="row">
@@ -173,7 +176,7 @@ $data = mysqli_query($link,$sql);
             </div>
             <div class="col ms-auto">
                 <div class="sticky-top">
-                <?php include "../assets/components/form-feedback.php" ?>
+                <?//php include "../assets/components/form-feedback.php" ?>
 
                 </div>
             </div>

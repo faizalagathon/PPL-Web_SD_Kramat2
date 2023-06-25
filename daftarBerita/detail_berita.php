@@ -1,6 +1,13 @@
 <?php
 require '../functions.php';
 
+if(isset($_SESSION['login'])){
+    $login = $_SESSION['login'];
+}
+else{
+    $login = false;
+}
+
 if(isset($_GET['id'])){
     $id = ($_GET['id']);
     $data = mysqli_query($link,"SELECT * FROM berita where idBerita='$id'"); 
