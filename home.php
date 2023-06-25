@@ -132,7 +132,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                             <a class="nav-link text-white" href="profile/profile.php">Profil</a>
                             <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
                             <a class="nav-link text-white" href="daftarGaleri/user/galeri.php">Galeri</a>
-                            <a class="nav-link text-white" href="daftarGuru/daftar_guru.php">Daftar Guru</a>
+                            <a class="nav-link text-white" href="daftarGuru/daftar_guru_user.php">Daftar Guru</a>
                             <?php if(isset($login) && $login == true) : ?>
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

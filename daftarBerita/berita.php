@@ -55,7 +55,7 @@ $data = mysqli_query($link,$sql);
 <body>
 
     <!-- SECTION awal navbar pertama -->
-    <div class="navbar-pertama">
+    <!-- <div class="navbar-pertama">
         <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
             <div class="container-fluid">
                 <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
@@ -65,7 +65,7 @@ $data = mysqli_query($link,$sql);
                 </div>
             </div>
         </nav>
-    </div> 
+    </div>  -->
     <!-- !SECTION akhir navbar pertama -->
     <!-- SECTION awal navbar kedua -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
