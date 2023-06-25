@@ -176,7 +176,7 @@ $data = mysqli_query($link,$sql);
             </div>
             <div class="col ms-auto">
                 <div class="sticky-top">
-                <?php include "../assets/components/form-feedback.php" ?>
+                <?//php include "../assets/components/form-feedback.php" ?>
 
                 </div>
             </div>

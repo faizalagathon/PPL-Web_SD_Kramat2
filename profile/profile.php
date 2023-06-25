@@ -259,14 +259,14 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
               <h3 class="border-bottom border-2 border-dark mb-5">FeedBack</h3>
               <div class="mb-2">
                 <label class="form-label" for="username" style="display: block;">Email :</label>
-                <input type="text" class="form-control" name="username" id="username">
+                <input type="email" class="form-control" name="email" id="username">
               </div>
               <div class="mb-4">
                 <label class="form-label" for="password" style="display: block;">Pesan :</label>
-                <textarea class="form-control" name="" id="" cols="30" rows="6"></textarea>
+                <textarea class="form-control" name="feedback" id="" cols="30" rows="6"></textarea>
               </div>
               <div class="text-end">
-                <button type="submit" class="btn btn-primary rounded-pill px-5 border-0 fw-bold mb-3" data-bs-target="#pesan" data-bs-toggle="modal" style="background: linear-gradient(120deg,#00ccff,#0036cb);" name="login">Kirim</button>
+                <button type="submit" class="btn btn-primary rounded-pill px-5 border-0 fw-bold mb-3" data-bs-target="#pesan" data-bs-toggle="modal" style="background: linear-gradient(120deg,#00ccff,#0036cb);" name="btnFeedback">Kirim</button>
               </div>
             </form>
           </div>
