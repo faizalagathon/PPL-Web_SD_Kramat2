@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Eskull</title>
-  <link rel="stylesheet" href="../assets/css/bootstrap-5.3.0/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="../assets/css/bootstrap-5.3.0/bootstrap.min.css"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     @font-face {
@@ -56,8 +57,8 @@
               <div class="col-md-9">
                 <div class="card-body">
                   <h3 class="card-title"><?= $ekskul['namaEkskul'] ?></h3>
-                  <p>Hari : <?= $ekskul['jadwalHari'] ?></p>
-                  <p>Pembimbing : <?= $ekskul['nama_guru'] ?></p>
+                  <h6>Hari : <?= $ekskul['jadwalHari'] ?></h6>
+                  <h6>Pembimbing : <?= $ekskul['nama_guru'] ?></h6>
                 </div>
               </div>
             </div>
