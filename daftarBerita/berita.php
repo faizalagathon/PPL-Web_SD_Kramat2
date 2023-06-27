@@ -64,7 +64,7 @@ $data = mysqli_query($link,$sql);
 <body>
 
     <?php include "../assets/components/header.php" ?>
-    <div class="container-fluid">
+    <div class="container">
         <div class="">
             <div class="">
                 <div class="col">
@@ -86,7 +86,7 @@ $data = mysqli_query($link,$sql);
                 <div class="">
                     <!-- SECTION BERITA -->
                     <div class="">
-                        <div class="d-flex flex-wrap">
+                        <div class="">
                             <div class="mb-3 m-auto">
                                 <?php
                                     foreach ( $data as $d ) :
@@ -106,9 +106,9 @@ $data = mysqli_query($link,$sql);
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="card-footer bg-white border-0">
-                                            <a href="detail_berita.php?id=<?= $d['idBerita'] ?>" class="btn btn-info btn-sm w-100 text-white">Selengkapnya></a>
-                                        </div>
+                                    </div>
+                                    <div class="bg-white border-0 m-1">
+                                        <a href="detail_berita.php?id=<?= $d['idBerita'] ?>" class="btn btn-info btn-sm w-100 text-white">Selengkapnya></a>
                                     </div>
                                 </div>
                                 <?php endforeach; ?>

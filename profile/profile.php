@@ -85,10 +85,6 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
         margin-x: 5px;
       }
     }
-
-    .feedback {
-      position: sticky;
-    }
   </style>
 </head>
 
