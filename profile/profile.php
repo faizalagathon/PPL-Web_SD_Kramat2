@@ -39,6 +39,16 @@ for ($i = 0; $i < count($kalimat); $i++) {
 }
 // !SECTION DAFTAR MISI
 
+// !SECTION JUMLAH SISWA
+$jumlahsiswa = query("SELECT jumlahsiswa FROM profil");
+
+// !SECTION JUMLAH SISWA
+
+// !SECTION AKREDITASI
+$dataAkreditasi = query("SELECT akreditasi_profil FROM profil");
+
+// !SECTION AKREDITASI
+
 
 $daftarSejarah = query("SELECT * FROM sejarah");
 $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbing = guru.id_guru");
@@ -131,10 +141,10 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                         <?php endif; ?>
                     </div>
                     <?php if (isset($login) && $login != false) : ?>
-                        <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                        <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="ps-3 nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                     <?php endif; ?>
                     <?php if (isset($login) && $login == false) : ?>
-                        <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
+                        <a href="../login/login.php" class="ps-3 nav-link text-white">Login Admin</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -202,7 +212,11 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           </div>
           <div class="card-body text-center text-white">
             <h5 class="card-title">Akreditasi</h5>
-            <h3 class="fw-bold">B</h3>
+            <h3 class="fw-bold">
+                <?php foreach($dataAkreditasi as $akreditasi) : ?>
+                  <?= $akreditasi['akreditasi_profil'] ?>
+                <?php endforeach; ?>
+            </h3>
           </div>
         </div>
         <div class="card border-0 bg-info">
@@ -211,7 +225,11 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           </div>
           <div class="card-body text-center text-white">
             <h5 class="card-title">Jumlah Murid</h5>
-            <h3 class="fw-bold">80</h3>
+            <h3 class="fw-bold">
+                <?php foreach($jumlahsiswa as $jumlah) : ?>
+                  <?= $jumlah['jumlahsiswa'] ?>
+                <?php endforeach; ?>
+            </h3>
           </div>
         </div>
       </div>
@@ -239,10 +257,10 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                     <h6>Hari : <?= $ekskul['jadwalHari'] ?></h6>
                     <h6>Pembimbing : <?= $ekskul['nama_guru'] ?></h6>
                   </div>
-                  <div class="card-footer bg-white border-0">
-                    <a href="../daftarEskull/detail_eskull.php?ekskul=<?= $ekskul['idEkskul'] ?>">Selengkapnya></a>
-                  </div>
                 </div>
+              </div>
+              <div class="card-footer bg-white border-0">
+                <a href="../daftarEskull/detail_eskull.php?ekskul=<?= $ekskul['idEkskul'] ?>" class="btn btn-info btn-sm w-100 text-white">Selengkapnya></a>
               </div>
             </div>
           <?php endforeach ?>
@@ -281,9 +299,9 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
     </div>
     <!-- !SECTION FEEDBACK -->
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid p-0">
     <!-- SECTION FOOTER -->
-    <div class="footer bg-dark" style="background: url(../assets/imgs/Frame_9.png);background-size: cover;">
+    <div class="footer bg-dark">
       <div class="row p-5">
         <div class="col-md-4 p-3">
           <div class="sd text-center">

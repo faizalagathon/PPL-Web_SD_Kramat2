@@ -185,10 +185,10 @@ if($jumlahDataQueryGuru == 0){
                 </div>
                 <?php if(isset($login) && $login != false) : ?>
                     <button class="btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
-                    <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                    <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="ps-3 nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                 <?php endif ; ?>
                 <?php if(isset($login) && $login == false) : ?>
-                    <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
+                    <a href="../login/login.php" class="ps-3 nav-link text-white">Login Admin</a>
                 <?php endif ; ?>
             </div>
         </div>
@@ -436,9 +436,9 @@ if($jumlahDataQueryGuru == 0){
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
         <!-- SECTION FOOTER -->
-        <div class="footer bg-dark" style="background: url(../assets/imgs/Frame_9.png);background-size: cover;">
+        <div class="footer bg-dark">
             <div class="row p-5">
                 <div class="col-md-4 p-3">
                     <div class="sd text-center">
