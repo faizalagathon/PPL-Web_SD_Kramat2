@@ -174,7 +174,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                 </div>
             </nav>
           <!-- akhir navbar kedua -->
-          <div class="container-fluid">
+          <div class="container-fluid p-0">
             <div class="py-5" id="atas" style="background: url(assets/imgs/Frame_8.png);background-size: cover;">
               <div class="row my-5">
                 <div class="col-md-6">
@@ -367,7 +367,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
               </div>
               <!-- !SECTION FEEDBACK -->
               <!-- SECTION FOOTER -->
-              <div class="footer bg-dark" style="background: url(assets/imgs/Frame_9.png);background-size: cover;">
+              <div class="footer bg-dark m-0">
                 <div class="row p-5">
                   <div class="col-md-4 p-3">
                     <div class="sd text-center">
