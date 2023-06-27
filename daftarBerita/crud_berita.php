@@ -35,55 +35,6 @@ if(isset($_SESSION['login'])){
 <body>
 
 <?php include "../assets/components/header.php" ?>
-
-    <!-- SECTION awal navbar pertama -->
-    <!-- <div class="navbar-pertama">
-        <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
-            <div class="container-fluid">
-                <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
-                <div class="d-flex me-2">
-                    <span class="nav-link active me-4 text-light" aria-current="page">Jl. Siliwangi No. 44Kota Cirebon </span>
-                    <span class="nav-link active text-light" aria-current="page">Telp. (0231) 202998</span>
-                </div>
-            </div>
-        </nav>
-    </div>  -->
-    <!-- !SECTION akhir navbar pertama -->
-    <!-- SECTION awal navbar kedua -->
-    <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
-        <div class="container-fluid ">
-            <a class="navbar-brand p-0" href="home.html">
-                <img src="../assets/imgs/Foto SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
-            </a>
-            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>    
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-5 gap-4">
-                    <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
-                    <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
-                    <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
-                    <a class="nav-link text-white" href="../daftarGaleri/user/galeri.php">Galeri</a>
-                    <a class="nav-link text-white" href="../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Edit Website
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Carousel</a></li>
-                            <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
-                            <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
-                            <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
-                            <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                            <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
-                            <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
-                        </ul>
-                    </li>
-                </div>
-            </div>
-        </div>
-    </nav> -->
-    <!-- !SECTION akhir navbar kedua -->
     <?php 
 		if(isset($_GET['alert'])){
 			if($_GET['alert']=='gagal_ekstensi'){
@@ -105,7 +56,8 @@ if(isset($_SESSION['login'])){
 			}elseif($_GET['alert']=="berhasil"){
 				?>
 				<div class="alert alert-success alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+                    <a href="?" class="btn-close" data-dismiss="alert" aria-hidden="true"></a>
+					<!-- <button type="button" class="btn-close" data-dismiss="alert" aria-hidden="true"></button> -->
 					<h4><i class="icon fa fa-check"></i> Success</h4>
 					Berhasil Disimpan
 				</div> 								
@@ -144,11 +96,11 @@ if(isset($_SESSION['login'])){
                                     <?= $part ?>...
                                 </p>
                             </div>
-                            <div class="card-footer bg-white border-0 text-end">
-                                <a href="edit_berita.php?id=<?php echo $d['idBerita'];?>" class="btn btn-warning text-white">edit</a>
-                                <a href="hapus_berita.php?id=<?php echo $d['idBerita'];?>" class="btn btn-info text-white" onclick="return confirm('Anda yakin akan menghapus data ini?')">Hapus</a>
-                            </div>
                         </div>
+                    </div>
+                    <div class="bg-white border-0 m-2">
+                        <a href="edit_berita.php?id=<?php echo $d['idBerita'];?>" class="btn btn-warning w-100 text-white mb-1">edit</a>
+                        <a href="hapus_berita.php?id=<?php echo $d['idBerita'];?>" class="btn btn-secondary w-100 text-white" onclick="return confirm('Anda yakin akan menghapus data ini?')">Hapus</a>
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -156,9 +108,9 @@ if(isset($_SESSION['login'])){
         </div>
         <!-- !SECTION BERITA -->
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
         <!-- SECTION FOOTER -->
-        <div class="footer bg-dark" style="background: url(../assets/imgs/Frame_9.png);background-size: cover;">
+        <div class="footer bg-dark">
             <div class="row p-5">
                 <div class="col-md-4 p-3">
                     <div class="sd text-center">

@@ -113,9 +113,9 @@ if(isset($_SESSION['login'])){
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
         <!-- SECTION FOOTER -->
-        <div class="footer bg-dark" style="background: url(../assets/imgs/Frame_9.png);background-size: cover;">
+        <div class="footer bg-dark">
             <div class="row p-5">
                 <div class="col-md-4 p-3">
                     <div class="sd text-center">
