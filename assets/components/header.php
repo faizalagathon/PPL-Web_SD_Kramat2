@@ -29,8 +29,8 @@
         <a class="nav-link text-white" href="../home.php">Home</a>
         <a class="nav-link text-<?= (halAktif('profile.php') != false) ? 'info' : 'white' ?>" href="../profile/profile.php">Profil</a>
         <a class="nav-link text-<?= (halAktif('berita.php') != false) ? 'info' : 'white' ?>" href="../daftarBerita/berita.php">Berita</a>
-        <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
-        <a class="nav-link text-<?= (halAktif('daftar_guru.php') != false) ? 'info' : 'white' ?>" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
+        <a class="nav-link text-white" href="../daftarGaleri/user/galeri.php">Galeri</a>
+        <a class="nav-link text-<?= (halAktif('daftar_guru_user.php') != false) ? 'info' : 'white' ?>" href="../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
         <?php if(isset($login) && $login != false) : ?>
         <li class="nav-item dropdown">
           <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,10 +49,10 @@
         <?php endif ; ?>
       </div>
       <?php if(isset($login) && $login != false) : ?>
-          <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+          <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="ps-3 nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
       <?php endif ; ?>
       <?php if(isset($login) && $login == false) : ?>
-          <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
+          <a href="../login/login.php" class="ps-3 nav-link text-white">Login Admin</a>
       <?php endif ; ?>
     </div>
   </div>
