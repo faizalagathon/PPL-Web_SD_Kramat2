@@ -39,7 +39,7 @@ if(isset($_SESSION['login'])){
 		if(isset($_GET['alert'])){
 			if($_GET['alert']=='gagal_ekstensi'){
 				?>
-				<div class="alert alert-warning alert-dismissible">
+				<div class="alert alert-warning alert-dismissible fade show">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
 					<h4><i class="icon fa fa-warning"></i> Peringatan !</h4>
 					Ekstensi Tidak Diperbolehkan
@@ -47,8 +47,8 @@ if(isset($_SESSION['login'])){
 				<?php
 			}elseif($_GET['alert']=="gagal_ukuran"){
 				?>
-				<div class="alert alert-warning alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+				<div class="alert alert-warning alert-dismissible fade show">
+					<a href="?" type="button" class="btn-close" data-dismiss="alert" aria-hidden="true"></a>
 					<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
 					Ukuran File terlalu Besar
 				</div> 								
@@ -60,12 +60,13 @@ if(isset($_SESSION['login'])){
 					<!-- <button type="button" class="btn-close" data-dismiss="alert" aria-hidden="true"></button> -->
 					<h4><i class="icon fa fa-check"></i> Success</h4>
 					Berhasil Disimpan
+                    <!-- <a href="?">X</a> -->
 				</div> 								
 				<?php
 			}elseif($_GET['alert']=="berhasilhapus"){
 				?>
-				<div class="alert alert-success alert-dismissible">
-					<button type="button" class="btn-close" data-dismiss="alert" aria-hidden="true">X</button>
+				<div class="alert alert-success alert-dismissible fade show">
+                    <a href="?" type="button" class="btn-close" data-dismiss="alert" aria-hidden="true"></a>
 					<h4><i class="icon fa fa-check"></i> Success</h4>
 					Berhasil Dihapus
 				</div> 								
@@ -164,5 +165,11 @@ if(isset($_SESSION['login'])){
         <!-- !SECTION FOOTER -->
     </div>
     <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script>
+        // const alert = document.querySelector('.alert');
+        // alert.setInterval(() => {
+        //     alert.classList.remove('show');
+        // }, 1000);
+    </script>
 </body>
 </html>

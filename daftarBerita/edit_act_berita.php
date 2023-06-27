@@ -23,11 +23,12 @@
             move_uploaded_file($_FILES['foto']['tmp_name'], '../assets/imgs/berita/'.$rand.'_'.$filename);
             mysqli_query($link, "update berita set gambarBerita='$xx', judulBerita='$judul', isiBerita='$isi' where idBerita='$id' ");
                     
-            header("location:crud_berita.php?alert=berhasil");
+            header("Location:crud_berita.php?alert=berhasil");
         }else{
-            header("location:crud_berita.php?alert=gagal_ukuran");
+            header("Location:crud_berita.php?alert=gagal_ukuran");
         }
     }else{
         mysqli_query($link, "update berita set judulBerita='$judul', isiBerita='$isi' where idBerita='$id' ");
+        header("Location:crud_berita.php?alert=berhasil");
     }
 ?>
