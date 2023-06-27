@@ -65,7 +65,6 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             font-family: 'Poppins';
             src: url(assets/font/font-poppins/Poppins-Regular.ttf);
         }
-        /* MOBILE LAPTOP */
         @media (max-width: 1024px){
           .karosel{
             width: 100%;
@@ -83,13 +82,13 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             width: 100px;
           }
         }
+        /*  SECTION MOBILE DEVICE */
         @media (max-width: 425px){
           *{
             font-size: small;
           }
           .slide .item{
             overflow-y: hidden;
-            
           }
           .slide .item .gambar{
               height: 15rem;
@@ -112,16 +111,10 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             color: white;
           }
           #feedback{
-            margin: 5px;
+            margin-x: 5px;
           }
         }
-        /* @media (max-width: 425px){
-
-        } */
-        /* body{
-          background: url(assets/imgs/bg3.jpg);
-          background-size: cover;
-        } */
+        /* !SECTION MOBILE DEVICE */
         *{
           font-family: 'Poppins';
         }
@@ -156,11 +149,12 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                                 <li><a class="dropdown-item" href="daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
                                 <li><a class="dropdown-item" href="daftarGaleri/admin/galeri.php">Galeri</a></li>
                                 <li><a class="dropdown-item" href="daftarBerita/crud_berita.php">Berita</a></li>
+                                <li><a class="dropdown-item" href="profile/edit_jumlahsiswa_akreditasi.php">Profil Sekolah</a></li>
                             </ul>
                         </li>
                         <?php endif ; ?>
                         <?php if(isset($login) && $login != false) : ?>
-                            <a href="login/logout.php" class="ps-3 nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                            <a href="login/logout.php" class=" nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                         <?php endif ; ?>
                         <?php if(isset($login) && $login == false) : ?>
                             <a href="login/login.php" class="nav-link text-white">Login Admin</a>
@@ -314,7 +308,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             <div class="py-3">
               <div class="m-auto">
                   <h3 class="pt-3 text-center mb-3">BERITA</h3>
-                  <div class="d-flex flex-wrap justify-content-center mb-3 gap-4">
+                  <div class="d-flex flex-wrap justify-content-center mb-3 gap-5">
                   <?php foreach(mysqli_query($link, 'SELECT * FROM berita limit 3') as $datab): $part= substr($datab['isiBerita'],0,50);?>
                     <div class="card" style="width: 15rem;">
                       <img src="assets/imgs/berita/<?= $datab['gambarBerita'] ?>" class="card-img-top" alt="..." style="min-width: 100%;min-height: 100px;max-width: 100%;max-height: 130px;object-fit: cover;object-position: center;">
@@ -364,6 +358,8 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                 </div>
               </div>
               <!-- !SECTION FEEDBACK -->
+            </div>
+            <div class="container-fluid p-0">
               <!-- SECTION FOOTER -->
               <div class="footer bg-dark">
                 <div class="row p-5">
@@ -418,6 +414,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
               </div>
               <!-- !SECTION FOOTER -->
             </div>
+
             <!-- !SECTION BERITA -->
     <!-- <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

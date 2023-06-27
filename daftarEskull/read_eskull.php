@@ -32,6 +32,9 @@
   <?php include "aksi_ekskul.php" ?>
   <?php include "../assets/components/header.php" ?>
   <div class="container-fluid">
+    <div class="">
+      <a href="../profile/profile.php" class="btn btn-secondary m-2">Kembali</a>
+    </div>
     <!-- SECTION BERITA -->
     <div class="my-4">
       <div class="d-flex flex-wrap">

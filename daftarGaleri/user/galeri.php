@@ -116,12 +116,13 @@ if(isset($_POST["cari"])){
                               <li><a class="dropdown-item" href="../../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
                               <li><a class="dropdown-item" href="../../daftarGaleri/admin/galeri.php">Galeri</a></li>
                               <li><a class="dropdown-item" href="../../daftarBerita/crud_berita.php">Berita</a></li>
+                              <li><a class="dropdown-item" href="profile/edit_jumlahsiswa_akreditasi.php">Profil Sekolah</a></li>
                           </ul>
                       </li>
                     <?php endif ; ?>
                   </div>
                   <?php if(isset($login) && $login != false) : ?>
-                      <a href="../../login/logout.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                      <a href="../../login/logout.php" class="ps-3 nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                   <?php endif ; ?>
                   <?php if(isset($login) && $login == false) : ?>
                       <a href="../../login/login.php" class="nav-link text-white ms-3">Login Admin</a>

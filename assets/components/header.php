@@ -47,13 +47,13 @@
           </ul>
         </li>
         <?php endif ; ?>
+        <?php if(isset($login) && $login != false) : ?>
+            <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+        <?php endif ; ?>
+        <?php if(isset($login) && $login == false) : ?>
+            <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
+        <?php endif ; ?>
       </div>
-      <?php if(isset($login) && $login != false) : ?>
-          <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="ps-3 nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
-      <?php endif ; ?>
-      <?php if(isset($login) && $login == false) : ?>
-          <a href="../login/login.php" class="ps-3 nav-link text-white">Login Admin</a>
-      <?php endif ; ?>
     </div>
   </div>
 </nav>
