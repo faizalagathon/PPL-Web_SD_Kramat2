@@ -93,7 +93,7 @@
   <div class="container-fluid">
     <!-- SECTION BERITA -->
     <div class="mt-3">
-      <div class="d-flex mb-2 gap-2">
+      <div class="d-flex mb-2 gap-2 justify-content-end">
         <a href="tambah_eskull.php" class="btn btn-primary">Tambah Eskull</a>
         <a href="../profile/profile.php" class="btn btn-danger">Kembali</a>
       </div>
@@ -122,13 +122,13 @@
                   <p>Hari : <?= $ekskul['jadwalHari'] ?></p>
                   <p>Pembimbing : <?= $ekskul['nama_guru'] ?></p>
                 </div>
-                <div class="card-footer bg-white border-0 text-end">
-                  <a href="edit_eskull.php?idEkskul=<?= $ekskul['idEkskul'] ?>" class="btn btn-warning text-white">edit</a>
-                  <form action="" method="post">
-                    <button type="submit" class="btn btn-info text-white" onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
-                    <input type="hidden" name="delEkskul" value="<?= $ekskul['idEkskul'] ?>">
-                  </form>
-                </div>
+              </div>
+              <div class="p-3">
+                <a href="edit_eskull.php?idEkskul=<?= $ekskul['idEkskul'] ?>" class="btn btn-warning w-100 mb-2 text-white">edit</a>
+                <form action="" method="post">
+                  <button type="submit" class="btn btn-secondary w-100 text-white" onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
+                  <input type="hidden" name="delEkskul" value="<?= $ekskul['idEkskul'] ?>">
+                </form>
               </div>
             </div>
           </div>
@@ -138,15 +138,61 @@
 
     <!-- !SECTION BERITA -->
   </div>
-  <!-- SECTION FOOTER -->
-  <div class="footer">
-    <div class="text-center bg-dark" style="padding: 5%;">
-      <p class="text-white mb-0 mt-0">
-        Coypright By @SD_Keramat2023
-      </p>
+  <div class="container-fluid">
+    <!-- SECTION FOOTER -->
+    <div class="footer bg-dark" style="background: url(../assets/imgs/Frame_9.png);background-size: cover;">
+      <div class="row p-5">
+        <div class="col-md-4 p-3">
+          <div class="sd text-center">
+            <a class="navbar-brand p-0" href="home.html">
+                <img src="../assets/imgs/logo_footer.png" alt="Logo" width="200" class="">
+            </a>
+            <p class="text-white fs-6 ms-4">Jangan hanya bisa untuk bermimpi saja, tapi berusaha dan berdoa untuk menggapai mimpinya</p>
+            <!-- SECTION SOSMED -->
+            <div class="ms-4">
+              <a href="https://instagram.com/sdnkramat2kotacirebon?igshid=YmMyMTA2M2Y" class="text-white text-decoration-none me-3 ms-auto">
+                <img src="../assets/imgs/icon/icon_ig_primary.png" width="30px" alt="">
+              </a>
+              <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none me-3 ms-auto">
+                <img src="../assets/imgs/icon/icon_fb_primary.png" width="30px" alt="">
+              </a>
+              <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none">
+                <img src="../assets/imgs/icon/icon_yt_primary.png" width="30px" alt="">
+              </a>
+            </div>
+            <!-- !SECTION SOSMED -->
+          </div>
+        </div>
+        <div class="col-md-4 p-3 ms-auto">
+          <div class="kontak text-center">
+            <h5 class="text-white mb-4">Contact Us</h5>
+            <p class="text-white">Jl. Siliwangi No. 44Kota Cirebon </p>
+            <p class="text-white">Telp. (0231) 202998</p>
+          </div>
+        </div>
+        <div class="col-md-4 p-3 ms-auto">
+          <div class="guide text-center">
+            <div class="">
+                <div class="">
+                  <h5 class="text-white mb-4">Viewer Guides</h5>
+                </div>
+                <div class="">
+                  <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
+                  <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
+                  <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <p class="text-white border-top border-white pb-3 pt-2 mx-3 mb-0 mt-0">
+          Coypright By @SD_Keramat2023
+        </p>
+      </div>
     </div>
+    <!-- !SECTION FOOTER -->
   </div>
-  <!-- !SECTION FOOTER -->
   <script src="../assets/js/bootstrap-5.3.0/bootstrap.bundle.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

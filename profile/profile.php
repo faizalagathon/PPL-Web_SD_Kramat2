@@ -53,7 +53,8 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile</title>
-  <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <style>
     @font-face {
       font-family: 'Poppins';
@@ -63,6 +64,11 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
     @media (max-width: 425px) {
       .navbar-pertama {
         display: none;
+      }
+    }
+    @media (max-width: 768px){
+      *{
+        font-size: small;
       }
     }
 
@@ -185,7 +191,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           <div class="text-center">
             <img src="../assets/imgs/icon/icon_p_yellow.png" class="card-img-top w-50" alt="...">
           </div>
-          <div class="card-body text-center">
+          <div class="card-body text-center text-white">
             <h5 class="card-title">Pengajar</h5>
             <h3 class="fw-bold">20</h3>
           </div>
@@ -194,7 +200,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           <div class="text-center">
             <img src="../assets/imgs/icon/icon_a_yellow.png" class="card-img-top w-50" alt="...">
           </div>
-          <div class="card-body text-center">
+          <div class="card-body text-center text-white">
             <h5 class="card-title">Akreditasi</h5>
             <h3 class="fw-bold">B</h3>
           </div>
@@ -203,7 +209,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           <div class="text-center">
             <img src="../assets/imgs/icon/icon_m_yellow.png" class="card-img-top w-50" alt="...">
           </div>
-          <div class="card-body text-center">
+          <div class="card-body text-center text-white">
             <h5 class="card-title">Jumlah Murid</h5>
             <h3 class="fw-bold">80</h3>
           </div>
@@ -229,10 +235,9 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                 </div>
                 <div class="col-md-9">
                   <div class="card-body">
-                    <h5 class="card-title"><?= $ekskul['namaEkskul'] ?></h5>
-                    <p>
-                      <?= $ekskul['jadwalHari'] ?> - <?= $ekskul['nama_guru'] ?>
-                    </p>
+                    <h3 class="card-title"><?= $ekskul['namaEkskul'] ?></h3>
+                    <h6>Hari : <?= $ekskul['jadwalHari'] ?></h6>
+                    <h6>Pembimbing : <?= $ekskul['nama_guru'] ?></h6>
                   </div>
                   <div class="card-footer bg-white border-0">
                     <a href="../daftarEskull/detail_eskull.php?ekskul=<?= $ekskul['idEkskul'] ?>">Selengkapnya></a>
@@ -248,6 +253,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
       </div>
       <!-- !SECTION ESKULL -->
     </div>
+    <!-- SECTION FEEDBACK -->
     <div class="py-5">
       <div class="row" style="background: url(../assets/imgs/bg5.jpg);background-size: cover; border-radius: 2rem;">
         <div class="col-md-6">
@@ -273,6 +279,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
         </div>
       </div>
     </div>
+    <!-- !SECTION FEEDBACK -->
   </div>
   <div class="container-fluid">
     <!-- SECTION FOOTER -->
@@ -287,13 +294,13 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
             <!-- SECTION SOSMED -->
             <div class="ms-4">
               <a href="https://instagram.com/sdnkramat2kotacirebon?igshid=YmMyMTA2M2Y" class="text-white text-decoration-none me-3 ms-auto">
-                <img src="assets/imgs/icon/icon_ig_primary.png" width="30px" alt="">
+                <img src="../assets/imgs/icon/icon_ig_primary.png" width="30px" alt="">
               </a>
               <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none me-3 ms-auto">
-                <img src="assets/imgs/icon/icon_fb_primary.png" width="30px" alt="">
+                <img src="../assets/imgs/icon/icon_fb_primary.png" width="30px" alt="">
               </a>
               <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none">
-                <img src="assets/imgs/icon/icon_yt_primary.png" width="30px" alt="">
+                <img src="../assets/imgs/icon/icon_yt_primary.png" width="30px" alt="">
               </a>
             </div>
             <!-- !SECTION SOSMED -->

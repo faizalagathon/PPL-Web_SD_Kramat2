@@ -185,7 +185,7 @@ if(isset($_POST["cari"])){
             <a class="navbar-brand p-0" href="home.html">
                 <img src="../../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
             </a>
-            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>    
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -223,9 +223,9 @@ if(isset($_POST["cari"])){
     </nav>
     <!-- akhir navbar kedua -->
   <div class="container-fluid">
-  <div class="text-center mt-2" >
-        <h2>Galeri</h2>
-      </div>
+    <div class="text-center mt-2" >
+      <h2>Galeri</h2>
+    </div>
 
     <div class="mt-3 mb-3">
       <!-- SECTION CARI -->
@@ -421,7 +421,7 @@ if(isset($_POST["cari"])){
             </div>
             <div class="pt-3 pe-2" style="position: absolute; right: 0; z-index: 0;">
   
-              <a href="" class="btn btn-info text-white fw-semibold" type="button" data-bs-toggle="modal" data-bs-target="#ubah_kategori_acara<?=$cr['id_k_acara']?>">
+              <a href="" class="btn btn-primary text-white fw-semibold" type="button" data-bs-toggle="modal" data-bs-target="#ubah_kategori_acara<?=$cr['id_k_acara']?>">
                 <!-- <i class="fa-regular fa-pen-to-square fa-2x"></i>  --> 
                 Edit
               </a>
@@ -494,15 +494,61 @@ if(isset($_POST["cari"])){
             <?php endforeach; ?>
             </div>
         <!-- //!SECTION end gambar -->
+        <div class="container-fluid">
           <!-- SECTION FOOTER -->
-          <div class="footer">
-            <div class="text-center bg-dark" style="padding: 5%;">
-              <p class="text-white mb-0 mt-0">
+          <div class="footer bg-dark" style="background: url(../../assets/imgs/Frame_9.png);background-size: cover;">
+            <div class="row p-5">
+              <div class="col-md-4 p-3">
+                <div class="sd text-center">
+                  <a class="navbar-brand p-0" href="home.html">
+                      <img src="../../assets/imgs/logo_footer.png" alt="Logo" width="200" class="">
+                  </a>
+                  <p class="text-white fs-6 ms-4">Jangan hanya bisa untuk bermimpi saja, tapi berusaha dan berdoa untuk menggapai mimpinya</p>
+                  <!-- SECTION SOSMED -->
+                  <div class="ms-4">
+                    <a href="https://instagram.com/sdnkramat2kotacirebon?igshid=YmMyMTA2M2Y" class="text-white text-decoration-none me-3 ms-auto">
+                      <img src="../../assets/imgs/icon/icon_ig_primary.png" width="30px" alt="">
+                    </a>
+                    <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none me-3 ms-auto">
+                      <img src="../../assets/imgs/icon/icon_fb_primary.png" width="30px" alt="">
+                    </a>
+                    <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none">
+                      <img src="../../assets/imgs/icon/icon_yt_primary.png" width="30px" alt="">
+                    </a>
+                  </div>
+                  <!-- !SECTION SOSMED -->
+                </div>
+              </div>
+              <div class="col-md-4 p-3 ms-auto">
+                <div class="kontak text-center">
+                  <h5 class="text-white mb-4">Contact Us</h5>
+                  <p class="text-white">Jl. Siliwangi No. 44Kota Cirebon </p>
+                  <p class="text-white">Telp. (0231) 202998</p>
+                </div>
+              </div>
+              <div class="col-md-4 p-3 ms-auto">
+                <div class="guide text-center">
+                  <div class="">
+                      <div class="">
+                        <h5 class="text-white mb-4">Viewer Guides</h5>
+                      </div>
+                      <div class="">
+                        <a class="nav-link text-white" aria-current="page" href="home.php">Home</a>
+                        <a class="nav-link text-white" href="profile/profile.php">Profil</a>
+                        <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <p class="text-white border-top border-white pb-3 pt-2 mx-3 mb-0 mt-0">
                 Coypright By @SD_Keramat2023
               </p>
             </div>
           </div>
           <!-- !SECTION FOOTER -->
+        </div>
 <script src="../../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 
 <script>
