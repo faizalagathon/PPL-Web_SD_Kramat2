@@ -39,6 +39,16 @@ for ($i = 0; $i < count($kalimat); $i++) {
 }
 // !SECTION DAFTAR MISI
 
+// !SECTION JUMLAH SISWA
+$jumlahsiswa = query("SELECT jumlahsiswa FROM profil");
+
+// !SECTION JUMLAH SISWA
+
+// !SECTION AKREDITASI
+$dataAkreditasi = query("SELECT akreditasi_profil FROM profil");
+
+// !SECTION AKREDITASI
+
 
 $daftarSejarah = query("SELECT * FROM sejarah");
 $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbing = guru.id_guru");
@@ -202,7 +212,11 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           </div>
           <div class="card-body text-center text-white">
             <h5 class="card-title">Akreditasi</h5>
-            <h3 class="fw-bold">B</h3>
+            <h3 class="fw-bold">
+                <?php foreach($dataAkreditasi as $akreditasi) : ?>
+                  <?= $akreditasi['akreditasi_profil'] ?>
+                <?php endforeach; ?>
+            </h3>
           </div>
         </div>
         <div class="card border-0 bg-info">
@@ -211,7 +225,11 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           </div>
           <div class="card-body text-center text-white">
             <h5 class="card-title">Jumlah Murid</h5>
-            <h3 class="fw-bold">80</h3>
+            <h3 class="fw-bold">
+                <?php foreach($jumlahsiswa as $jumlah) : ?>
+                  <?= $jumlah['jumlahsiswa'] ?>
+                <?php endforeach; ?>
+            </h3>
           </div>
         </div>
       </div>
