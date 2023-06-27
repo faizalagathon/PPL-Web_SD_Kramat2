@@ -33,6 +33,9 @@
   <?php include "../assets/components/header.php" ?>
 
   <div class="container-fluid">
+    <div class="">
+      <a href="../profile/profile.php" class="btn btn-secondary m-2">Kembali</a>
+    </div>
     <!-- SECTION BERITA -->
     <div class="mt-3">
       <div class="d-flex flex-wrap">

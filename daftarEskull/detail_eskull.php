@@ -39,6 +39,9 @@
   ?>
 
   <div class="container-fluid">
+    <div class="">
+      <a href="../profile/profile.php" class="btn btn-secondary m-2">Kembali</a>
+    </div>
     <div class="justify-content-center d-flex mb-4 mt-3">
       <div class="card" style="width: 70%;">
         <?php if ($data['gambarEkskul'] == '') : ?>

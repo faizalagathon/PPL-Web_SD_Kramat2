@@ -160,6 +160,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                                     <li><a class="dropdown-item" href="daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
                                     <li><a class="dropdown-item" href="daftarGaleri/admin/galeri.php">Galeri</a></li>
                                     <li><a class="dropdown-item" href="daftarBerita/crud_berita.php">Berita</a></li>
+                                    <li><a class="dropdown-item" href="feedback/feedback.php">Feedback</a></li>
                                 </ul>
                             </li>
                             <?php endif ; ?>
@@ -366,6 +367,8 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                 </div>
               </div>
               <!-- !SECTION FEEDBACK -->
+            </div>
+            <div class="container-fluid p-0">
               <!-- SECTION FOOTER -->
               <div class="footer bg-dark m-0">
                 <div class="row p-5">
@@ -420,6 +423,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
               </div>
               <!-- !SECTION FOOTER -->
             </div>
+
             <!-- !SECTION BERITA -->
     <!-- <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
