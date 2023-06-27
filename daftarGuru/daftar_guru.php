@@ -2,6 +2,10 @@
 
 include '../functions.php';
 
+if(!isset($_SESSION['login'])){
+  header("Location: ../login/login.php");
+}
+
 if(isset($_SESSION['login'])){
     $login = $_SESSION['login'];
 }
@@ -351,17 +355,16 @@ if($jumlahDataQueryGuru == 0){
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <input type="text" class="form-control" name="id_guru" id="id_guru" aria-describedby="helpId" placeholder="Masukan id_guru Guru..." value="<?= $data['id_guru'] ?>" hidden>
                                         <div class="mb-3">
-                                          <label for="password" class="form-label">Password Guru</label>
-                                          <input type="text" class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="Masukan Password Guru..." value="<?= $data['password'] ?>" disabled>
-                                          <input type="text" class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="Masukan Password Guru..." value="<?= $data['password'] ?>" hidden>
-                                        </div>
-                                        <div class="mb-3">
                                           <label for="nama" class="form-label">Nama Guru</label>
                                           <input type="text" class="form-control" name="nama" id="nama" aria-describedby="helpId" placeholder="Masukan Nama Guru..." value="<?= $data['nama_guru'] ?>">
                                         </div>
                                         <div class="mb-3">
                                           <label for="nip" class="form-label">NIP</label>
                                           <input type="number" class="form-control" name="nip" id="nip" aria-describedby="helpId" placeholder="Masukan NIP Guru..." value="<?= $data['nip_guru'] ?>">
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="password" class="form-label">Password Guru</label>
+                                          <input type="text" class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="Masukan Password Guru...">
                                         </div>
                                         <div class="mb-3">
                                             <label for="jk" class="form-label">Jenis Kelamin</label>
@@ -423,6 +426,10 @@ if($jumlahDataQueryGuru == 0){
                                         <div class="mb-3">
                                           <label for="nip" class="form-label">NIP</label>
                                           <input type="number" class="form-control" name="nip" id="nip" aria-describedby="helpId" placeholder="Masukan NIP Guru...">
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="password" class="form-label">Password</label>
+                                          <input type="text" class="form-control" name="password" id="password" aria-describedby="helpId" placeholder="Masukan Password Guru...">
                                         </div>
                                         <div class="mb-3">
                                             <label for="jk" class="form-label">Jenis Kelamin</label>

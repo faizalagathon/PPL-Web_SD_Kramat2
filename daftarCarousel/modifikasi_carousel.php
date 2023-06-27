@@ -2,6 +2,10 @@
 include "../functions.php";
 // include '../koneksi.php';
 
+if(!isset($_SESSION['login'])){
+  header("Location: ../login/login.php");
+}
+
 if(isset($_SESSION['login'])){
     $login = $_SESSION['login'];
 }

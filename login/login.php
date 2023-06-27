@@ -7,8 +7,6 @@ if(isset($_SESSION['loginAdmin'])){
 } 
 
 if(isset($_POST['login'])){
-
-    // $result = login($_POST);
     
     if(login($_POST)){
         echo "

@@ -1,6 +1,10 @@
 <?php
 include '../functions.php';
 
+if(!isset($_SESSION['login'])){
+  header("Location: ../login/login.php");
+}
+
 if(isset($_SESSION['login'])){
     $login = $_SESSION['login'];
   }

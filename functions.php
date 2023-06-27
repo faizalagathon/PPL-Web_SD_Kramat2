@@ -23,11 +23,24 @@ function login($data){
   $username = htmlspecialchars($data['username']); 
   $password = htmlspecialchars($data['password']); 
 
-  $query = "SELECT * FROM guru WHERE nama_guru='$username' AND password='$password'";
+  $query = "SELECT * FROM guru WHERE nama_guru='$username'";
   $result = mysqli_query($link, $query);
+
+  $jumlahData = mysqli_num_rows(mysqli_query($link, "SELECT * FROM guru WHERE role = 'Admin'"));
   
-  if(mysqli_num_rows($result) === 1){
-    $role_guru = mysqli_fetch_assoc($result)['role'];
+  if(mysqli_num_rows($result) === 1){        
+        
+    // cek password
+    $row=mysqli_fetch_assoc($result);
+    if(password_verify($password,$row["password"])){
+      $role_guru = $row['role'];
+  
+      $_SESSION['login'] = $role_guru;
+      return true;
+    }
+  }
+  else if($jumlahData == 0 && $username == "Admin" && $password == "20222070"){
+    $role_guru = "Admin";
 
     $_SESSION['login'] = $role_guru;
     return true;
@@ -44,9 +57,13 @@ function tambah($data){
     $nama = htmlspecialchars($data['nama']); 
     $nip = htmlspecialchars($data['nip']); 
     $jk = htmlspecialchars($data['jk']); 
+    $password = htmlspecialchars($data['password']); 
     $alamat = htmlspecialchars($data['alamat']);
     $mapel = htmlspecialchars($data['mapel']);
     $role = htmlspecialchars($data['role']);
+
+    // enkripsi password
+    $password=password_hash($password,PASSWORD_DEFAULT);
   
     // Cek apakah NIP sudah pernah digunakan atau belom
     $cekGuru = mysqli_query($link,"SELECT * FROM guru WHERE nip_guru='$nip'");
@@ -58,16 +75,6 @@ function tambah($data){
         </script>";
         return false;
     }
-  
-    // Password Ngacak
-    $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      $randomString = '';
-   
-      for ($i = 1; $i <= 8; $i++) {
-          $index = rand(0, strlen($characters) - 1);
-          $randomString .= $characters[$index];
-      }
-    $password = $randomString;
     
     if ($_FILES['gambar']['error'] === 4) {
       $gambar = 'default_gambar.png';
@@ -138,7 +145,7 @@ function ubah($data){
     $role = htmlspecialchars($data['role']);
     $password = htmlspecialchars($data['password']);
     $gambar_lama = htmlspecialchars($data['gambar_lama']);
-  
+    
     // Cek apakah NIP sudah pernah digunakan atau belom
     $nipLama = mysqli_fetch_assoc(mysqli_query($link,"SELECT nip_guru FROM guru WHERE id_guru='$id'"))['nip_guru'];
     if($nipLama != $nip){
@@ -150,10 +157,10 @@ function ubah($data){
           document.location.href = '../daftarGuru/daftar_guru.php'; 
           </script>";
           return false;
+        }
       }
-    }
-  
-    // Bagian Gambar
+      
+      // Bagian Gambar
     if ($_FILES['gambar']['error'] === 4) {
       $gambar = $gambar_lama;
     } else {
@@ -166,8 +173,16 @@ function ubah($data){
         unlink('../assets/imgs/Foto_SD/Foto_Guru/' . $file["gambar"]);
       }
     }
+
+    // Cek password
+    if($password == ""){
+      $query = "UPDATE guru SET id_mapel=$mapel, nip_guru='$nip', nama_guru='$nama', jk_guru='$jk', alamat_guru='$alamat', role='$role', gambar='$gambar' WHERE id_guru='$id'";
+    }
+    else{
+      $password = password_hash($password,PASSWORD_DEFAULT);
+      $query = "UPDATE guru SET id_mapel=$mapel, nip_guru='$nip', nama_guru='$nama', jk_guru='$jk', password='$password', alamat_guru='$alamat', role='$role', gambar='$gambar' WHERE id_guru='$id'";
+    }
   
-    $query = "UPDATE guru SET id_mapel=$mapel, nip_guru='$nip', nama_guru='$nama', jk_guru='$jk', password='$password', alamat_guru='$alamat', role='$role', gambar='$gambar' WHERE id_guru='$id'";
   }
 
   mysqli_query($link, $query);
