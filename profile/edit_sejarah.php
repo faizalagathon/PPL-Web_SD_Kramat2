@@ -58,7 +58,6 @@ if (!isset($dataSejarah)) {
         display: none;
       }
     }
-
     * {
       font-family: 'Poppins';
     }
