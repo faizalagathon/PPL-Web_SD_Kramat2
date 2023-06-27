@@ -17,66 +17,6 @@ $roleGuru = [
 
 $jumlahGuru = count($roleGuru);
 
-if(isset($_POST['tambahGuru'])){
-
-    if(tambah($_POST) > 0){
-        echo "
-        <script>
-        alert('Data berhasil ditambahkan');
-        document.location.href = 'daftar_guru.php'; 
-        </script>";
-    }
-    else{
-        echo "
-        <script>
-        alert('Ada kesalahan saat menginput data');
-        document.location.href = 'daftar_guru.php'; 
-        </script>";
-    }
-    
-}
-
-if(isset($_POST['ubahGuru'])){
-
-    if(ubah($_POST) > 0){
-        echo "
-        <script>
-        alert('Data berhasil diubah');
-        document.location.href = 'daftar_guru.php'; 
-        </script>";
-    }
-    else{
-        echo "
-        <script>
-        alert('Ada kesalahan saat menginput data');
-        document.location.href = 'daftar_guru.php'; 
-        </script>";
-    }
-    
-}
-
-if(isset($_POST['hapus'])){
-
-    if(hapus($_POST) > 0){
-        echo "
-        <script>
-        alert('Data berhasil dihapus');
-        document.location.href = 'daftar_guru.php'; 
-        </script>";
-    }
-    else{
-        echo "
-        <script>
-        alert('Ada kesalahan saat menghapus data');
-        document.location.href = 'daftar_guru.php'; 
-        </script>";
-    }
-    
-}
-
-
-
-
 $dataMapel = query("SELECT * FROM mapel");
 
 
@@ -107,7 +47,7 @@ else{
 
 // SECTION pagination Peminjaman
     
-$dataPerhalaman = 6;
+$dataPerhalaman = 10;
 $jumlahData =  count(query($query));
 
 $jumlahHalaman = ceil($jumlahData / $dataPerhalaman);
@@ -256,7 +196,7 @@ if($jumlahDataQueryGuru == 0){
                     <div class="col">
                         <form action="" method="get">
                             <div class="input-group ms-auto">
-                                <input type="text" class="form-control rounded-pill rounded-end" name="keyword">
+                                <input type="text" class="form-control rounded-pill rounded-end" placeholder="Cari Data Guru..." name="keyword">
                                 <button name="urut" value="cari" class="btn btn-primary rounded-pill rounded-start">Cari</button>
                             </div>
                         </form>

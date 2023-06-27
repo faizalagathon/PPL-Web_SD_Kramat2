@@ -165,10 +165,10 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                             <?php endif ; ?>
                         </div>
                         <?php if(isset($login) && $login != false) : ?>
-                            <a href="login/logout.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                            <a href="login/logout.php" class="ps-3 nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                         <?php endif ; ?>
                         <?php if(isset($login) && $login == false) : ?>
-                            <a href="login/login.php" class="nav-link text-white">Login Admin</a>
+                            <a href="login/login.php" class="ps-3 nav-link text-white">Login Admin</a>
                         <?php endif ; ?>
                     </div>
                 </div>
@@ -327,7 +327,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                         <p class="card-text"><?= $part ?>....</p>
                       </div>
                       <div class="card-footer">
-                        <a href="daftarBerita/detail_berita.php?id=<?= $datab['idBerita'] ?>" class="btn btn-primary">Go somewhere</a>
+                        <a href="daftarBerita/detail_berita.php?id=<?= $datab['idBerita'] ?>" class="btn btn-primary">Selengkapnya</a>
                       </div>
                     </div>
                   <?php endforeach; ?>
