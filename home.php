@@ -149,6 +149,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                                 <li><a class="dropdown-item" href="daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
                                 <li><a class="dropdown-item" href="daftarGaleri/admin/galeri.php">Galeri</a></li>
                                 <li><a class="dropdown-item" href="daftarBerita/crud_berita.php">Berita</a></li>
+                                <li><a class="dropdown-item" href="profile/edit_jumlahsiswa_akreditasi.php">Profil Sekolah</a></li>
                             </ul>
                         </li>
                         <?php endif ; ?>
