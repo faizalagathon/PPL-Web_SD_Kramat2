@@ -1,6 +1,6 @@
 <?php
 
-include '../functions.php';
+include '../koneksi.php';
 
 if(isset($_SESSION['login'])){
     $login = $_SESSION['login'];
@@ -9,40 +9,45 @@ else{
     $login = false;
 }
 
-if(isset($_POST['ubahVisi']) || isset($_POST['ubahMisi'])){
 
-  if (ubah($_POST) > 0) {
-    echo "
-        <script>
-        alert('Data berhasil diubah');
-        document.location.href = 'edit_visi_misi.php'; 
-        </script>";
-  } else {
-    echo "
-        <script>
-        alert('Ada kesalahan saat menginput data');
-        document.location.href = 'edit_visi_misi.php'; 
-        </script>";
-  }
+
+if (isset($_POST['ubahjumlah'])) {
+  $jumlahsiswa = $_POST['jumlah'];
+  mysqli_query($link, "UPDATE profil SET jumlahsiswa = '$jumlahsiswa'");
+  echo "
+  <script>
+  alert('Jumlah Siswa Berhasil di Ubah');
+  window.location.href = 'edit_jumlahsiswa_akreditasi.php';
+  </script>
+  ";
 }
 
-// $daftarVisi = query("SELECT * FROM visi");
-// $daftarMisi = query("SELECT * FROM misi");
+if (isset($_POST['ubahakreditasi'])) {
+  $Akreditasi = $_POST['akreditasi'];
+  mysqli_query($link, "UPDATE profil SET akreditasi_profil = '$Akreditasi'");
+  echo "
+  <script>
+  alert('Akreditasi Berhasil di Ubah');
+  window.location.href = 'edit_jumlahsiswa_akreditasi.php';
+  </script>
+  ";
+}
 
-$dataVisi = mysqli_fetch_assoc(mysqli_query($link, 'SELECT * FROM visi'));
-$dataMisi = mysqli_fetch_assoc(mysqli_query($link, 'SELECT * FROM misi'));
 
-if (!isset($dataVisi)) {
-  $dataVisi = [
-    'idVisi' => 0,
-    'teksVisi' => 'Belom Menuliskan Visi',
+$dataJumlahSiswa = mysqli_fetch_assoc(mysqli_query($link, 'SELECT jumlahsiswa FROM profil'));
+$dataAkreditasi = mysqli_fetch_assoc(mysqli_query($link, 'SELECT akreditasi_profil FROM profil'));
+
+if (!isset($dataJumlahSiswa)) {
+  $dataJumlahSiswa = [
+    'jumlahsiswa' => 0,
+    'teksJumlahSiswa' => 'Belom Menuliskan Jumlah Siswa',
   ];
 }
 
-if (!isset($dataMisi)) {
-  $dataMisi = [
-    'idMisi' => 0,
-    'teksMisi' => 'Belom Menuliskan Misi',
+if (!isset($dataAkreditasi)) {
+  $dataAkreditasi = [
+    'akreditasi_profil' =>NULL,
+    'Akreditasi' => 'Belom Menuliskan Akreditasi Sekolah',
   ];
 }
 
@@ -77,20 +82,31 @@ if (!isset($dataMisi)) {
 </head>
 
 <body>
+
 <?php include "../assets/components/header.php" ?>
+  
+    
+    <?php if(isset($login) && $login != false) : ?>
+        <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+    <?php endif ; ?>
+    <?php if(isset($login) && $login == false) : ?>
+        <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
+    <?php endif ; ?>
+  
+
+
   <div class="container-fluid p-0">
     <div class="justify-content-center d-flex mb-4 mt-3">
       <div class="border-dark border rounded-3" style="width: 70%;">
-        <h3 class="border-bottom border-dark py-2 m-3">Edit Visi</h3>
+        <h3 class="border-bottom border-dark py-2 m-3">Edit Jumlah Siswa</h3>
         <div class="p-3">
           <form action="" method="post">
             <div class="mb-3">
-              <label for="teksVisi" class="form-label">Masukkan Visi :</label>
-              <input type="text" value="<?= $dataVisi['idVisi'] ?>" name="idVisi" hidden>
-              <textarea name="teksVisi" class="form-control" id="teksVisi" cols="30" rows="10"><?= $dataVisi['teksVisi'] ?></textarea>
+              <label for="teksJumlahSiswa" class="form-label">Masukkan Jumlah Siswa :</label>
+              <textarea name="jumlah" class="form-control" id="teksJumlahSiswa" cols="30" rows="10"><?= $dataJumlahSiswa['jumlahsiswa'] ?></textarea>
             </div>
             <div class="text-end">
-              <button name="ubahVisi" type="submit" class="btn btn-info text-white" onclick="return confirm('Yakin ingin Mengedit Visi Sekolah?')">Update</button>
+              <button name="ubahjumlah" type="submit" class="btn btn-info text-white" onclick="return confirm('Yakin ingin Mengedit Jumlah Siswa Sekolah?')">Update</button>
             </div>
           </form>
         </div>
@@ -98,16 +114,15 @@ if (!isset($dataMisi)) {
     </div>
     <div class="justify-content-center d-flex mb-4 mt-3">
       <div class="border-dark border rounded-3" style="width: 70%;">
-        <h3 class="border-bottom border-dark py-2 m-3">Edit Misi</h3>
+        <h3 class="border-bottom border-dark py-2 m-3">Edit Akreditasi</h3>
         <div class="p-3">
           <form action="" method="post">
             <div class="mb-3">
-              <label for="teksMisi" class="form-label">Masukkan Misi :</label>
-              <input type="text" value="<?= $dataMisi['idMisi'] ?>" name="idMisi" hidden>
-              <textarea name="teksMisi" class="form-control" id="teksMisi" cols="30" rows="10"><?= $dataMisi['teksMisi'] ?></textarea>
+              <label for="Akreditasi" class="form-label">Masukkan Akreditasi :</label>
+              <textarea name="akreditasi" class="form-control" id="Akreditasi" cols="30" rows="10"><?= $dataAkreditasi['akreditasi_profil'] ?></textarea>
             </div>
             <div class="text-end">
-              <button name="ubahMisi" type="submit" class="btn btn-info text-white" onclick="return confirm('Yakin ingin Mengedit Misi Sekolah?')">Update</button>
+              <button name="ubahakreditasi" type="submit" class="btn btn-info text-white" onclick="return confirm('Yakin ingin Mengedit Akreditasi Sekolah?')">Update</button>
             </div>
           </form>
         </div>

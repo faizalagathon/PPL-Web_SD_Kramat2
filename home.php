@@ -65,7 +65,6 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             font-family: 'Poppins';
             src: url(assets/font/font-poppins/Poppins-Regular.ttf);
         }
-        /* MOBILE LAPTOP */
         @media (max-width: 1024px){
           .karosel{
             width: 100%;
@@ -82,98 +81,88 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
           .footer .sd .navbar img{
             width: 100px;
           }
-          .container-fluid #atas #karosel #gambar{
-            max-height: 30rem;
-          }
-          .container-fluid #atas #karosel #gambar img{
-            min-width: 100%; 
-            min-height: 100%; 
-            max-width: 100%; 
-            max-height: 18rem; 
-            object-fit: cover; 
-            object-position: center;
-          }
         }
+        /*  SECTION MOBILE DEVICE */
         @media (max-width: 425px){
+          *{
+            font-size: small;
+          }
           .slide .item{
             overflow-y: hidden;
-            
           }
           .slide .item .gambar{
               height: 15rem;
               max-width: 100%;
               max-height: 100%;
           }
+          .container-fluid #atas #karosel #gambar{
+            max-height: 5rem;
+          }
+          .container-fluid #atas #karosel #gambar #gambar2{
+            min-width: 100%; 
+            min-height: 50px; 
+            max-width: 100%; 
+            max-height: 5rem; 
+            object-fit: cover; 
+            object-position: center;
+          }
+          #feedback .row{
+            backdrop-filter: blur(3px);
+            color: white;
+          }
+          #feedback{
+            margin-x: 5px;
+          }
         }
-        /* @media (max-width: 425px){
-
-        } */
-        /* body{
-          background: url(assets/imgs/bg3.jpg);
-          background-size: cover;
-        } */
+        /* !SECTION MOBILE DEVICE */
         *{
           font-family: 'Poppins';
         }
     </style>
 </head>
 <body>
-      <!-- awal navbar pertama -->
-        <!-- <div class="navbar-pertama">
-          <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
-            <div class="container-fluid">
-              <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
-              <div class="d-flex">
-                <span class="nav-link active me-4 text-light" aria-current="page">Jl. Siliwangi No. 44Kota Cirebon </span>
-                <span class="nav-link active text-light" aria-current="page">Telp. (0231) 202998</span>
-              </div>
-            </div>
-          </nav>
-        </div> -->
-      <!-- akhir navbar pertama -->
-        <!-- awal navbar kedua -->
-            <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
-                <div class="container-fluid ">
-                    <a class="navbar-brand p-0" href="home.html">
-                        <img src="assets/imgs/Foto_SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>    
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav ms-5 gap-4">
-                            <a class="nav-link text-info" aria-current="page" href="home.php">Home</a>
-                            <a class="nav-link text-white" href="profile/profile.php">Profil</a>
-                            <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
-                            <a class="nav-link text-white" href="daftarGaleri/user/galeri.php">Galeri</a>
-                            <a class="nav-link text-white" href="daftarGuru/daftar_guru_user.php">Daftar Guru</a>
-                            <?php if(isset($login) && $login == true) : ?>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Edit Website
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
-                                    <li><a class="dropdown-item" href="daftarGuru/daftar_guru.php">Guru</a></li>
-                                    <li><a class="dropdown-item" href="profile/edit_sejarah.php">Sejarah</a></li>
-                                    <li><a class="dropdown-item" href="profile/edit_visi_misi.php">Visi Misi</a></li>
-                                    <li><a class="dropdown-item" href="daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                                    <li><a class="dropdown-item" href="daftarGaleri/admin/galeri.php">Galeri</a></li>
-                                    <li><a class="dropdown-item" href="daftarBerita/crud_berita.php">Berita</a></li>
-                                    <li><a class="dropdown-item" href="feedback/feedback.php">Feedback</a></li>
-                                </ul>
-                            </li>
-                            <?php endif ; ?>
-                        </div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
+            <div class="container-fluid ">
+                <a class="navbar-brand p-0" href="home.html">
+                    <img src="assets/imgs/Foto_SD/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>    
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-5 gap-4">
+                        <a class="nav-link text-info" aria-current="page" href="home.php">Home</a>
+                        <a class="nav-link text-white" href="profile/profile.php">Profil</a>
+                        <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
+                        <a class="nav-link text-white" href="daftarGaleri/user/galeri.php">Galeri</a>
+                        <a class="nav-link text-white" href="daftarGuru/daftar_guru_user.php">Daftar Guru</a>
+                        <?php if(isset($login) && $login == true) : ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Edit Website
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
+                                <li><a class="dropdown-item" href="daftarGuru/daftar_guru.php">Guru</a></li>
+                                <li><a class="dropdown-item" href="profile/edit_sejarah.php">Sejarah</a></li>
+                                <li><a class="dropdown-item" href="profile/edit_visi_misi.php">Visi Misi</a></li>
+                                <li><a class="dropdown-item" href="daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
+                                <li><a class="dropdown-item" href="daftarGaleri/admin/galeri.php">Galeri</a></li>
+                                <li><a class="dropdown-item" href="daftarBerita/crud_berita.php">Berita</a></li>
+                                <li><a class="dropdown-item" href="profile/edit_jumlahsiswa_akreditasi.php">Profil Sekolah</a></li>
+                            </ul>
+                        </li>
+                        <?php endif ; ?>
                         <?php if(isset($login) && $login != false) : ?>
-                            <a href="login/logout.php" class="ps-3 nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                            <a href="login/logout.php" class=" nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                         <?php endif ; ?>
                         <?php if(isset($login) && $login == false) : ?>
-                            <a href="login/login.php" class="ps-3 nav-link text-white">Login Admin</a>
+                            <a href="login/login.php" class="nav-link text-white">Login Admin</a>
                         <?php endif ; ?>
                     </div>
                 </div>
-            </nav>
+            </div>
+          </nav>
           <!-- akhir navbar kedua -->
           <div class="container-fluid p-0">
             <div class="py-5" id="atas" style="background: url(assets/imgs/Frame_8.png);background-size: cover;">
@@ -243,7 +232,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                 </div>
                 <div class="col-md-7 ms-auto">
                   <div class="pt-5">
-                    <h3 class="pt-5 mb-3 fw-bold">Sambutan</h3>
+                    <h3 class="mb-3 fw-bold">Sambutan</h3>
                     <p>
                       Selamat datang di halaman Website Resmi Sekolah kami. Website ini dibuat untuk memberikan informasi yang lengkap dan terkini mengenai Kegiatan sekolah, Prestasi Siswa, Visi Misi, dan berbagai berita terkini tentang sekolah. Dan kami berkomitmen untuk memberikan pendidikan berkualitas, menciptakan lingkungan belajar yang inspiratif, serta mengembangkan potensi dan bakat setiap siswa. Kami percaya bahwa setiap individu memiliki keunikan dan kami berupaya untuk membantu mereka tumbuh dan berkembang dengan baik. <br><br>
                       Website ini adalah sumber informasi yang penting bagi orang tua, siswa, dan masyarakat sekitar. Kami mengundang Anda sekalian untuk menjelajahi setiap bagian dari website kami, mempelajari kegiatan dan prestasi yang telah kami dan murid kami capai.
@@ -281,7 +270,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             </div>
             <!-- !SECTION VISI MISI -->
             <!-- SECTION GALERI -->
-            <div class="py-5">
+            <div class="py-5 px-3">
             <div style="scroll-snap-type: y mandatory;">
               <h3 class="text-center">GALERI</h3>
                   <!--SECTION Gambar -->
@@ -319,7 +308,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             <div class="py-3">
               <div class="m-auto">
                   <h3 class="pt-3 text-center mb-3">BERITA</h3>
-                  <div class="d-flex flex-wrap justify-content-center mb-3 gap-4">
+                  <div class="d-flex flex-wrap justify-content-center mb-3 gap-5">
                   <?php foreach(mysqli_query($link, 'SELECT * FROM berita limit 3') as $datab): $part= substr($datab['isiBerita'],0,50);?>
                     <div class="card" style="width: 15rem;">
                       <img src="assets/imgs/berita/<?= $datab['gambarBerita'] ?>" class="card-img-top" alt="..." style="min-width: 100%;min-height: 100px;max-width: 100%;max-height: 130px;object-fit: cover;object-position: center;">
@@ -339,28 +328,30 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                 </div>
               </div>
               <!-- SECTION FEEDBACK -->
-              <div class="container">
+              <div class="container" id="feedback">
                 <div class="py-5">
-                  <div class="row" style="background: url(assets/imgs/bg5.jpg);background-size: cover; border-radius: 2rem;">
-                    <div class="col-md-6">
-  
-                    </div>
-                    <div class="col-md-6 ms-auto">
-                      <div class="feedback">
-                        <form action="" class="m-auto mt-3 p-3" method="POST">
-                          <h3 class="border-bottom border-2 border-dark mb-5">FeedBack</h3>
-                          <div class="mb-2">
-                            <label class="form-label" for="username" style="display: block;">Email :</label>
-                            <input type="email" class="form-control" name="email" id="username">
-                          </div>
-                          <div class="mb-4">
-                            <label class="form-label" for="password" style="display: block;">Pesan :</label>
-                            <textarea class="form-control" name="feedback" id="" cols="30" rows="6"></textarea>
-                          </div>
-                          <div class="text-end">
-                            <button type="submit" class="btn btn-primary rounded-pill px-5 border-0 fw-bold mb-3" data-bs-target="#pesan" data-bs-toggle="modal" style="background: linear-gradient(120deg,#00ccff,#0036cb);" name="btnFeedback">Kirim</button>
-                          </div>
-                        </form>
+                  <div class="" style="background: url(assets/imgs/bg5.jpg);background-size: cover; border-radius: 2rem;">
+                    <div class="row">
+                      <div class="col-md-6">
+    
+                      </div>
+                      <div class="col-md-6 ms-auto">
+                        <div class="feedback">
+                          <form action="" class="m-auto mt-3 p-3" method="POST">
+                            <h3 class="border-bottom border-2 border-dark mb-5">FeedBack</h3>
+                            <div class="mb-2">
+                              <label class="form-label" for="username" style="display: block;">Email :</label>
+                              <input type="email" class="form-control" name="email" id="username">
+                            </div>
+                            <div class="mb-4">
+                              <label class="form-label" for="password" style="display: block;">Pesan :</label>
+                              <textarea class="form-control" name="feedback" id="" cols="30" rows="6"></textarea>
+                            </div>
+                            <div class="text-end">
+                              <button type="submit" class="btn btn-primary rounded-pill px-5 border-0 fw-bold mb-3" data-bs-target="#pesan" data-bs-toggle="modal" style="background: linear-gradient(120deg,#00ccff,#0036cb);" name="btnFeedback">Kirim</button>
+                            </div>
+                          </form>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -370,7 +361,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             </div>
             <div class="container-fluid p-0">
               <!-- SECTION FOOTER -->
-              <div class="footer bg-dark m-0">
+              <div class="footer bg-dark">
                 <div class="row p-5">
                   <div class="col-md-4 p-3">
                     <div class="sd text-center">

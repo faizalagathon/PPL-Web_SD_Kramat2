@@ -39,6 +39,16 @@ for ($i = 0; $i < count($kalimat); $i++) {
 }
 // !SECTION DAFTAR MISI
 
+// !SECTION JUMLAH SISWA
+$jumlahsiswa = query("SELECT jumlahsiswa FROM profil");
+
+// !SECTION JUMLAH SISWA
+
+// !SECTION AKREDITASI
+$dataAkreditasi = query("SELECT akreditasi_profil FROM profil");
+
+// !SECTION AKREDITASI
+
 
 $daftarSejarah = query("SELECT * FROM sejarah");
 $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbing = guru.id_guru");
@@ -60,43 +70,25 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
       font-family: 'Poppins';
       src: url(../assets/font/font-poppins/Poppins-Regular.ttf);
     }
-
-    @media (max-width: 425px) {
-      .navbar-pertama {
-        display: none;
-      }
-    }
-    @media (max-width: 768px){
-      *{
-        font-size: small;
-      }
-    }
-
     * {
       font-family: 'Poppins';
     }
-
-    .feedback {
-      position: sticky;
+    @media (max-width: 425px) {
+      *{
+        font-size: small;
+      }
+      #feedback .row{
+        backdrop-filter: blur(3px);
+        color: white;
+      }
+      #feedback{
+        margin-x: 5px;
+      }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- SECTION awal navbar pertama -->
-  <!-- <div class="navbar-pertama">
-            <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
-                <div class="container-fluid">
-                    <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
-                    <div class="d-flex me-2">
-                        <span class="nav-link active me-4 text-light" aria-current="page">Jl. Siliwangi No. 44Kota Cirebon </span>
-                        <span class="nav-link active text-light" aria-current="page">Telp. (0231) 202998</span>
-                    </div>
-                </div>
-            </nav>
-        </div>  -->
-  <!-- !SECTION akhir navbar pertama -->
   <!-- SECTION awal navbar kedua -->
   <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
             <div class="container-fluid ">
@@ -126,16 +118,17 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                                   <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
                                   <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
                                   <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
+                                  <li><a class="dropdown-item" href="profile/edit_jumlahsiswa_akreditasi.php">Profil Sekolah</a></li>
                               </ul>
                           </li>
                         <?php endif; ?>
+                        <?php if (isset($login) && $login != false) : ?>
+                            <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                        <?php endif; ?>
+                        <?php if (isset($login) && $login == false) : ?>
+                            <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
+                        <?php endif; ?>
                     </div>
-                    <?php if (isset($login) && $login != false) : ?>
-                        <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
-                    <?php endif; ?>
-                    <?php if (isset($login) && $login == false) : ?>
-                        <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
-                    <?php endif; ?>
                 </div>
             </div>
         </nav>
@@ -202,7 +195,11 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           </div>
           <div class="card-body text-center text-white">
             <h5 class="card-title">Akreditasi</h5>
-            <h3 class="fw-bold">B</h3>
+            <h3 class="fw-bold">
+                <?php foreach($dataAkreditasi as $akreditasi) : ?>
+                  <?= $akreditasi['akreditasi_profil'] ?>
+                <?php endforeach; ?>
+            </h3>
           </div>
         </div>
         <div class="card border-0 bg-info">
@@ -211,7 +208,11 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
           </div>
           <div class="card-body text-center text-white">
             <h5 class="card-title">Jumlah Murid</h5>
-            <h3 class="fw-bold">80</h3>
+            <h3 class="fw-bold">
+                <?php foreach($jumlahsiswa as $jumlah) : ?>
+                  <?= $jumlah['jumlahsiswa'] ?>
+                <?php endforeach; ?>
+            </h3>
           </div>
         </div>
       </div>
@@ -239,10 +240,10 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                     <h6>Hari : <?= $ekskul['jadwalHari'] ?></h6>
                     <h6>Pembimbing : <?= $ekskul['nama_guru'] ?></h6>
                   </div>
-                  <div class="card-footer bg-white border-0">
-                    <a href="../daftarEskull/detail_eskull.php?ekskul=<?= $ekskul['idEkskul'] ?>">Selengkapnya></a>
-                  </div>
                 </div>
+              </div>
+              <div class="card-footer bg-white border-0">
+                <a href="../daftarEskull/detail_eskull.php?ekskul=<?= $ekskul['idEkskul'] ?>" class="btn btn-info btn-sm w-100 text-white">Selengkapnya></a>
               </div>
             </div>
           <?php endforeach ?>
@@ -254,36 +255,40 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
       <!-- !SECTION ESKULL -->
     </div>
     <!-- SECTION FEEDBACK -->
-    <div class="py-5">
-      <div class="row" style="background: url(../assets/imgs/bg5.jpg);background-size: cover; border-radius: 2rem;">
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-6 ms-auto">
-          <div class="feedback">
-            <form action="" class="m-auto mt-3 p-3" method="POST">
-              <h3 class="border-bottom border-2 border-dark mb-5">FeedBack</h3>
-              <div class="mb-2">
-                <label class="form-label" for="username" style="display: block;">Email :</label>
-                <input type="email" class="form-control" name="email" id="username">
+    <div class="container" id="feedback">
+      <div class="py-5">
+        <div class="" style="background: url(../assets/imgs/bg5.jpg);background-size: cover; border-radius: 2rem;">
+          <div class="row">
+            <div class="col-md-6">
+    
+            </div>
+            <div class="col-md-6 ms-auto">
+              <div class="feedback">
+                <form action="" class="m-auto mt-3 p-3" method="POST">
+                  <h3 class="border-bottom border-2 border-dark mb-5">FeedBack</h3>
+                  <div class="mb-2">
+                    <label class="form-label" for="username" style="display: block;">Email :</label>
+                    <input type="email" class="form-control" name="email" id="username">
+                  </div>
+                  <div class="mb-4">
+                    <label class="form-label" for="password" style="display: block;">Pesan :</label>
+                    <textarea class="form-control" name="feedback" id="" cols="30" rows="6"></textarea>
+                  </div>
+                  <div class="text-end">
+                    <button type="submit" class="btn btn-primary rounded-pill px-5 border-0 fw-bold mb-3" data-bs-target="#pesan" data-bs-toggle="modal" style="background: linear-gradient(120deg,#00ccff,#0036cb);" name="btnFeedback">Kirim</button>
+                  </div>
+                </form>
               </div>
-              <div class="mb-4">
-                <label class="form-label" for="password" style="display: block;">Pesan :</label>
-                <textarea class="form-control" name="feedback" id="" cols="30" rows="6"></textarea>
-              </div>
-              <div class="text-end">
-                <button type="submit" class="btn btn-primary rounded-pill px-5 border-0 fw-bold mb-3" data-bs-target="#pesan" data-bs-toggle="modal" style="background: linear-gradient(120deg,#00ccff,#0036cb);" name="btnFeedback">Kirim</button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <!-- !SECTION FEEDBACK -->
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid p-0">
     <!-- SECTION FOOTER -->
-    <div class="footer bg-dark" style="background: url(../assets/imgs/Frame_9.png);background-size: cover;">
+    <div class="footer bg-dark">
       <div class="row p-5">
         <div class="col-md-4 p-3">
           <div class="sd text-center">
