@@ -144,7 +144,7 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                         <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="ps-3 nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
                     <?php endif; ?>
                     <?php if (isset($login) && $login == false) : ?>
-                        <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
+                        <a href="../login/login.php" class="ps-3 nav-link text-white">Login Admin</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -257,10 +257,10 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                     <h6>Hari : <?= $ekskul['jadwalHari'] ?></h6>
                     <h6>Pembimbing : <?= $ekskul['nama_guru'] ?></h6>
                   </div>
-                  <div class="card-footer bg-white border-0">
-                    <a href="../daftarEskull/detail_eskull.php?ekskul=<?= $ekskul['idEkskul'] ?>">Selengkapnya></a>
-                  </div>
                 </div>
+              </div>
+              <div class="card-footer bg-white border-0">
+                <a href="../daftarEskull/detail_eskull.php?ekskul=<?= $ekskul['idEkskul'] ?>" class="btn btn-info btn-sm w-100 text-white">Selengkapnya></a>
               </div>
             </div>
           <?php endforeach ?>
@@ -299,9 +299,9 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
     </div>
     <!-- !SECTION FEEDBACK -->
   </div>
-  <div class="container-fluid">
+  <div class="container-fluid p-0">
     <!-- SECTION FOOTER -->
-    <div class="footer bg-dark" style="background: url(../assets/imgs/Frame_9.png);background-size: cover;">
+    <div class="footer bg-dark">
       <div class="row p-5">
         <div class="col-md-4 p-3">
           <div class="sd text-center">

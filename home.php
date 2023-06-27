@@ -175,7 +175,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                 </div>
             </nav>
           <!-- akhir navbar kedua -->
-          <div class="container-fluid">
+          <div class="container-fluid p-0">
             <div class="py-5" id="atas" style="background: url(assets/imgs/Frame_8.png);background-size: cover;">
               <div class="row my-5">
                 <div class="col-md-6">
@@ -243,7 +243,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
                 </div>
                 <div class="col-md-7 ms-auto">
                   <div class="pt-5">
-                    <h3 class="pt-5 mb-3 fw-bold">Sambutan</h3>
+                    <h3 class="mb-3 fw-bold">Sambutan</h3>
                     <p>
                       Selamat datang di halaman Website Resmi Sekolah kami. Website ini dibuat untuk memberikan informasi yang lengkap dan terkini mengenai Kegiatan sekolah, Prestasi Siswa, Visi Misi, dan berbagai berita terkini tentang sekolah. Dan kami berkomitmen untuk memberikan pendidikan berkualitas, menciptakan lingkungan belajar yang inspiratif, serta mengembangkan potensi dan bakat setiap siswa. Kami percaya bahwa setiap individu memiliki keunikan dan kami berupaya untuk membantu mereka tumbuh dan berkembang dengan baik. <br><br>
                       Website ini adalah sumber informasi yang penting bagi orang tua, siswa, dan masyarakat sekitar. Kami mengundang Anda sekalian untuk menjelajahi setiap bagian dari website kami, mempelajari kegiatan dan prestasi yang telah kami dan murid kami capai.
@@ -281,7 +281,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
             </div>
             <!-- !SECTION VISI MISI -->
             <!-- SECTION GALERI -->
-            <div class="py-5">
+            <div class="py-5 px-3">
             <div style="scroll-snap-type: y mandatory;">
               <h3 class="text-center">GALERI</h3>
                   <!--SECTION Gambar -->
@@ -368,7 +368,7 @@ $datacarousel = mysqli_query($link,"SELECT * FROM carousel ORDER BY idCarousel A
               </div>
               <!-- !SECTION FEEDBACK -->
               <!-- SECTION FOOTER -->
-              <div class="footer bg-dark" style="background: url(assets/imgs/Frame_9.png);background-size: cover;">
+              <div class="footer bg-dark m-0">
                 <div class="row p-5">
                   <div class="col-md-4 p-3">
                     <div class="sd text-center">
