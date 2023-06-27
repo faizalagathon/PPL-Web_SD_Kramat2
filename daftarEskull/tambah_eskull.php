@@ -40,7 +40,10 @@
   ?>
   <?php include "../assets/components/header.php" ?>
 
-  <div class="container-fluid">
+  <div class="container-fluid p-0">
+    <div class="text-end p-3">
+      <a href="crud_eskull.php" class="btn btn-secondary">Kembali</a>
+    </div>
     <div class="justify-content-center d-flex mb-4 mt-3">
       <div class="border-dark border rounded-3" style="width: 70%;">
         <h3 class="border-bottom border-dark py-2 m-3">Tambah Ekstrakulikuler</h3>
@@ -82,7 +85,7 @@
       </div>
     </div>
     <!-- SECTION FOOTER -->
-    <div class="footer bg-dark" style="background: url(../assets/imgs/Frame_9.png);background-size: cover;">
+    <div class="footer bg-dark">
       <div class="row p-5">
         <div class="col-md-4 p-3">
           <div class="sd text-center">

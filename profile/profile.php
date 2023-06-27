@@ -239,10 +239,10 @@ $daftarEkskul = query("SELECT * FROM ekskul INNER JOIN guru ON ekskul.idPembimbi
                     <h6>Hari : <?= $ekskul['jadwalHari'] ?></h6>
                     <h6>Pembimbing : <?= $ekskul['nama_guru'] ?></h6>
                   </div>
-                  <div class="card-footer bg-white border-0">
-                    <a href="../daftarEskull/detail_eskull.php?ekskul=<?= $ekskul['idEkskul'] ?>">Selengkapnya></a>
-                  </div>
                 </div>
+              </div>
+              <div class="card-footer bg-white border-0">
+                <a href="../daftarEskull/detail_eskull.php?ekskul=<?= $ekskul['idEkskul'] ?>" class="btn btn-info btn-sm w-100 text-white">Selengkapnya></a>
               </div>
             </div>
           <?php endforeach ?>
