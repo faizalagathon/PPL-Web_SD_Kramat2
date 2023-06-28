@@ -141,7 +141,7 @@ if($jumlahDataQueryGuru == 0){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <title>Guru</title>
     <style>
         /* @font-face {
@@ -188,8 +188,8 @@ if($jumlahDataQueryGuru == 0){
             font-family: 'Poppins';
         }
         @media (max-width: 425px){
-            .navbar-pertama{
-                display: none;
+            *{
+            font-size: small;
             }
         }
         .display1{
@@ -206,22 +206,6 @@ if($jumlahDataQueryGuru == 0){
     </style>
 </head>
 <body>
-        <!-- COPY DARI SINI -->
-    <!-- awal navbar pertama -->
-    <!-- <div class="navbar-pertama">
-        <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
-        <div class="container-fluid">
-            <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
-            <div class="d-flex me-2">
-            <span class="nav-link active me-4 text-light" aria-current="page">Jl. Siliwangi No. 44Kota Cirebon </span>
-            <span class="nav-link active text-light" aria-current="page">Telp. (0231) 202998</span>
-            </div>
-        </div>
-        </nav>
-    </div> -->
-    <!-- akhir navbar pertama -->
-      
-      
     <!-- awal navbar kedua -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
         <div class="container-fluid ">
@@ -254,13 +238,13 @@ if($jumlahDataQueryGuru == 0){
                             </ul>
                         </li>
                     <?php endif ; ?>
+                    <?php if(isset($login) && $login != false) : ?>
+                        <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                    <?php endif ; ?>
+                    <?php if(isset($login) && $login == false) : ?>
+                        <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
+                    <?php endif ; ?>
                 </div>
-                <?php if(isset($login) && $login != false) : ?>
-                    <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
-                <?php endif ; ?>
-                <?php if(isset($login) && $login == false) : ?>
-                    <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
-                <?php endif ; ?>
             </div>
         </div>
     </nav>
@@ -287,7 +271,7 @@ if($jumlahDataQueryGuru == 0){
                     <!-- SECTION KALO KOSONG KELUAR INI -->
                     <?php if(isset($dataGuruKosong) && $dataGuruKosong == true) : ?>
                         <div class="text-center">
-                            <img src="../assets/imgs/illustrasi/logo 2.1.png" style="width: 30%;" alt="Tidak Data Guru">
+                            <img src="../assets/imgs/illustrasi/logo 2.1.png" style="width: 300px;" alt="Tidak Data Guru">
                         </div>
                     <?php endif ; ?>
                     
@@ -513,13 +497,13 @@ if($jumlahDataQueryGuru == 0){
                             <!-- SECTION SOSMED -->
                             <div class="ms-4">
                                 <a href="https://instagram.com/sdnkramat2kotacirebon?igshid=YmMyMTA2M2Y" class="text-white text-decoration-none me-3 ms-auto">
-                                    <img src="assets/imgs/icon/icon_ig_primary.png" width="30px" alt="">
+                                    <img src="../assets/imgs/icon/icon_ig_primary.png" width="30px" alt="">
                                 </a>
                                 <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none me-3 ms-auto">
-                                    <img src="assets/imgs/icon/icon_fb_primary.png" width="30px" alt="">
+                                    <img src="../assets/imgs/icon/icon_fb_primary.png" width="30px" alt="">
                                 </a>
                                 <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none">
-                                    <img src="assets/imgs/icon/icon_yt_primary.png" width="30px" alt="">
+                                    <img src="../assets/imgs/icon/icon_yt_primary.png" width="30px" alt="">
                                 </a>
                             </div>
                             <!-- !SECTION SOSMED -->
@@ -539,9 +523,9 @@ if($jumlahDataQueryGuru == 0){
                                     <h5 class="text-white mb-4">Viewer Guides</h5>
                                 </div>
                                 <div class="">
-                                    <a class="nav-link text-white" aria-current="page" href="home.php">Home</a>
-                                    <a class="nav-link text-white" href="profile/profile.php">Profil</a>
-                                    <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
+                                    <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
+                                    <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
+                                    <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
                                 </div>
                             </div>
                         </div>

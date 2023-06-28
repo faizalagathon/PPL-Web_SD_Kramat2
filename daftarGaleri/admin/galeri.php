@@ -1,16 +1,16 @@
 <?php
 require "../../koneksi.php";
 
-// if(!isset($_SESSION['login'])){
-//   header("Location: ../../login/login.php");
-// }
+if(!isset($_SESSION['login'])){
+  header("Location: ../../login/login.php");
+}
 
-// if(isset($_SESSION['login'])){
-//   $login = $_SESSION['login'];
-// }
-// else{
-//   $login = false;
-// }
+if(isset($_SESSION['login'])){
+  $login = $_SESSION['login'];
+}
+else{
+  $login = false;
+}
 
 $gambar = mysqli_query($link, "SELECT * FROM galeri
 INNER JOIN kategori_acara
