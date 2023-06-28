@@ -6,16 +6,16 @@ if (isset($_GET["ParamAksi"])) {
 }
 session_start();
 
-if(!isset($_SESSION['login'])){
-  header("Location: ../login/login.php");
-}
+// if(!isset($_SESSION['login'])){
+//   header("Location: ../login/login.php");
+// }
 
-if(isset($_SESSION['login'])){
-    $login = $_SESSION['login'];
-}
-else{
-    $login = false;
-}
+// if(isset($_SESSION['login'])){
+//     $login = $_SESSION['login'];
+// }
+// else{
+//     $login = false;
+// }
 ?>
 
 <!doctype html>
@@ -31,6 +31,9 @@ else{
       .card {
         margin-left: -1000px;
       }
+      *{
+        font-size: small;
+      }
     }
   </style>
 </head>
@@ -45,57 +48,6 @@ else{
   ?>
   
   <?php include "../assets/components/header.php" ?>
-
-  <!-- awal navbar pertama -->
-  <!-- <div class="navbar-pertama">
-          <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
-            <div class="container-fluid">
-              <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
-              <div class="d-flex me-2">
-                <span class="nav-link active me-4 text-light" aria-current="page">Jl. Siliwangi No. 44Kota Cirebon </span>
-                <span class="nav-link active text-light" aria-current="page">Telp. (0231) 202998</span>
-              </div>
-            </div>
-          </nav>
-        </div> -->
-  <!-- akhir navbar pertama -->
-
-
-  <!-- awal navbar kedua -->
-  <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark"> -->
-  <!-- <div class="container-fluid ">
-    <a class="navbar-brand p-0" href="home.html">
-      <img src="../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
-    </a>
-    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ms-5 gap-4">
-        <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
-        <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
-        <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
-        <a class="nav-link text-white" href="#">PPDB</a>
-        <a class="nav-link text-white" href="../daftarGaleri/admin/galeri.php">Galeri</a>
-        <a class="nav-link text-white" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
-        <li class="nav-item dropdown">
-          <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Edit Website
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="modifikasi_carousel.php">Carousel</a></li>
-            <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
-            <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
-            <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
-            <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-            <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
-            <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
-          </ul>
-        </li>
-      </div>
-    </div>
-  </div> -->
-  <!-- akhir navbar kedua -->
   <div class="container">
     <div class="my-5">
       <form action="aksiedit.php?ParamAksi=ubah_foto&ParamTable=carousel" method="post" enctype="multipart/form-data">
@@ -117,44 +69,6 @@ else{
             </div>
           </div>
         </div>
-    
-        <?php
-        // if ( isset($_POST['hidden']) ){
-    
-        //     $rand = rand();
-        //     $ekstensi =  array('png','jpg','jpeg','gif');
-        //     $filename = $_FILES['foto']['name'];
-        //     $ukuran = $_FILES['foto']['size'];
-        //     $ext = pathinfo($filename, PATHINFO_EXTENSION);
-    
-        //     if ( ($filename && $ukuran) == NULL ){
-        //         echo "
-        //         <script>
-        //         alert('Data Gagal di Edit');
-        //         document.location.href = 'modifikasi_carousel.php';
-        //         </script>
-        //         ";
-    
-        //     } else {
-        //         $xx = $rand.'_'.$filename;
-        //         $sqlU= "UPDATE carousel
-        //         SET
-        //             gambarCarousel='$xx'
-        //         WHERE idCarousel = '$idcarousel'";
-        //         move_uploaded_file($_FILES['foto']['tmp_name'], 'fotocarousel/'.$xx);
-    
-        //         mysqli_query($db_link,$sqlU);
-        //         echo "
-        //         <script>
-        //         alert('Data Berhasil di Edit');
-        //                 document.location.href = 'modifikasi_carousel.php';
-        //         </script>
-        //         ";
-    
-        //     }
-        // }
-    
-        ?>
       </form>
     </div>
   </div>

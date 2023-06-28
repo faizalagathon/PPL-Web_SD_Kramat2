@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Feedback</title>
-  <link rel="stylesheet" href="../assets/css/bootstrap-5.3.0/bootstrap.css">
+  <!-- <link rel="stylesheet" href="../assets/css/bootstrap-5.3.0/bootstrap.css"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <style>
     @font-face {
       font-family: 'Poppins';
@@ -13,11 +13,10 @@
     }
 
     @media (max-width: 425px) {
-      .navbar-pertama {
-        display: none;
+      *{
+        font-size: small;
       }
     }
-
     * {
       font-family: 'Poppins';
     }
@@ -40,13 +39,13 @@ $awalData = ($jmlPerHal * $halAktif) / $jmlPerHal;
 <body>
   <?php include "../assets/components/header.php" ?>
 
-  <div class="container-fluid">
+  <div class="container p-0">
     <div class="text-center m-3">
       <h3>Feedback</h3>
     </div>
 
     <?php foreach (query("SELECT * FROM feedback LIMIT $awalData, $jmlPerHal") as $feedback) : ?>
-      <div class="card  mb-3">
+      <div class="card mb-3">
         <div class="card-body">
           <blockquote class="blockquote mb-0">
             <p><?= $feedback['pesan_feedback'] ?></p>
@@ -74,6 +73,8 @@ $awalData = ($jmlPerHal * $halAktif) / $jmlPerHal;
         </ul>
       </nav>
     </div>
+  </div>
+  <div class="container-fluid p-0">
     <!-- SECTION FOOTER -->
     <div class="footer bg-dark m-0">
       <div class="row p-5">
@@ -128,5 +129,6 @@ $awalData = ($jmlPerHal * $halAktif) / $jmlPerHal;
     </div>
     <!-- !SECTION FOOTER -->
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

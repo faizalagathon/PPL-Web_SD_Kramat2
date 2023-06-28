@@ -3,21 +3,20 @@ require "Koneksi.php";
 
 session_start();
 
-if(!isset($_SESSION['login'])){
-  header("Location: ../login/login.php");
-}
+// if(!isset($_SESSION['login'])){
+//   header("Location: ../login/login.php");
+// }
 
-if(isset($_SESSION['login'])){
-    $login = $_SESSION['login'];
-}
-else{
-    $login = false;
-}
+// if(isset($_SESSION['login'])){
+//     $login = $_SESSION['login'];
+// }
+// else{
+//     $login = false;
+// }
 
 ?>
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,125 +24,24 @@ else{
   <!-- <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css"> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <style>
-    /* body{
-            background-image: url(background_edit.jpg);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100% 100%;
-            align-content: center;
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            padding: 110px;
-        } */
-    </style>
+    @font-face {
+      font-family: 'Poppins';
+      src: url(../assets/font/font-poppins/Poppins-Regular.ttf);
+    }
+
+    @media (max-width: 425px) {
+      *{
+        font-size: small;
+      }
+    }
+    * {
+      font-family: 'Poppins';
+    }
+  </style>
   </head>
   <body>
 
   <?php include "../assets/components/header.php" ?>
-  
-    <!-- awal navbar pertama -->
-    <!-- <div class="navbar-pertama">
-          <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
-            <div class="container-fluid">
-              <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
-              <div class="d-flex me-2">
-                <span class="nav-link active me-4 text-light" aria-current="page">Jl. Siliwangi No. 44Kota Cirebon </span>
-                <span class="nav-link active text-light" aria-current="page">Telp. (0231) 202998</span>
-              </div>
-            </div>
-          </nav>
-        </div> -->
-      <!-- akhir navbar pertama -->
-      
-      
-        <!-- awal navbar kedua -->
-        <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
-                <div class="container-fluid ">
-                    <a class="navbar-brand p-0" href="home.html">
-                        <img src="../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
-                    </a>
-                    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>    
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav ms-5 gap-4">
-                            <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
-                            <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
-                            <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
-                            <a class="nav-link text-white" href="../daftarGaleri/user/galeri.php">Galeri</a>
-                            <a class="nav-link text-info" href="../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
-                            <?php if(isset($login) && $login != false) : ?>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Edit Website
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
-                                        <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
-                                        <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
-                                        <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
-                                        <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                                        <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
-                                        <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
-                                    </ul>
-                                </li>
-                            <?php endif ; ?>
-                        </div>
-                        <?php if(isset($login) && $login != false) : ?>
-                            <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
-                        <?php endif ; ?>
-                        <?php if(isset($login) && $login == false) : ?>
-                            <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
-                        <?php endif ; ?>
-                    </div>
-                </div>
-            </nav> -->
-  <!-- akhir navbar pertama -->
-
-
-  <!-- awal navbar kedua -->
-  <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
-    <div class="container-fluid ">
-      <a class="navbar-brand p-0" href="home.html">
-        <img src="../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
-      </a>
-      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-5 gap-4">
-          <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
-          <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
-          <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
-          <a class="nav-link text-white" href="#">PPDB</a>
-          <a class="nav-link text-white" href="#">Galeri</a>
-          <a class="nav-link text-info" href="../daftarGuru/daftar_guru.php">Daftar Guru</a>
-          <li class="nav-item dropdown">
-            <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Edit Website
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
-              <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
-              <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
-              <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
-              <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-              <li><a class="dropdown-item" href="#">Galeri</a></li>
-              <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
-            </ul>
-          </li>
-        </div>
-        <?php if (isset($admin) && $admin == true) : ?>
-          <button class="btn btn-primary" style="display: none;" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Data Guru</button>
-          <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
-        <?php endif; ?>
-        <?php if (isset($admin) && $admin == false) : ?>
-          <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
-        <?php endif; ?>
-      </div>
-    </div>
-  </nav> -->
-  <!-- akhir navbar kedua -->
   <div class="container">
     <div class="">
       <form method="post" class="mb-5" action="aksi_tambah_carousel.php" enctype="multipart/form-data">
