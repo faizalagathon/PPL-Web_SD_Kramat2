@@ -207,47 +207,7 @@ if($jumlahDataQueryGuru == 0){
 </head>
 <body>
     <!-- awal navbar kedua -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-kedua" data-bs-theme="dark">
-        <div class="container-fluid ">
-            <a class="navbar-brand p-0" href="home.html">
-                <img src="../assets/imgs/logo light2.png" alt="Logo" width="230" class="m-0 mb-1 d-inline-block align-text-top">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>    
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-5 gap-4">
-                    <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
-                    <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
-                    <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
-                    <a class="nav-link text-white" href="../daftarGaleri/user/galeri.php">Galeri</a>
-                    <a class="nav-link text-info" href="../daftarGuru/daftar_guru_user.php">Daftar Guru</a>
-                    <?php if(isset($login) && $login != false) : ?>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Edit Website
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../daftarCarousel/modifikasi_carousel.php">Carousel</a></li>
-                                <li><a class="dropdown-item" href="../daftarGuru/daftar_guru.php">Guru</a></li>
-                                <li><a class="dropdown-item" href="../profile/edit_sejarah.php">Sejarah</a></li>
-                                <li><a class="dropdown-item" href="../profile/edit_visi_misi.php">Visi Misi</a></li>
-                                <li><a class="dropdown-item" href="../daftarEskull/crud_eskull.php">Ekstrakulikuler</a></li>
-                                <li><a class="dropdown-item" href="../daftarGaleri/admin/galeri.php">Galeri</a></li>
-                                <li><a class="dropdown-item" href="../daftarBerita/crud_berita.php">Berita</a></li>
-                            </ul>
-                        </li>
-                    <?php endif ; ?>
-                    <?php if(isset($login) && $login != false) : ?>
-                        <a href="../login/logout.php?halamanAsal=daftar_guru.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
-                    <?php endif ; ?>
-                    <?php if(isset($login) && $login == false) : ?>
-                        <a href="../login/login.php" class="nav-link text-white">Login Admin</a>
-                    <?php endif ; ?>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php include "../assets/components/header.php" ?>
     <!-- akhir navbar kedua -->
     <div class="container">
             <div class="">
@@ -484,61 +444,7 @@ if($jumlahDataQueryGuru == 0){
                 <!-- !SECTION pagination peminjaman-->
             </div>
         </div>
-        <div class="container-fluid p-0">
-            <!-- SECTION FOOTER -->
-            <div class="footer bg-dark">
-                <div class="row p-5">
-                    <div class="col-md-4 p-3">
-                        <div class="sd text-center">
-                            <a class="navbar-brand p-0" href="home.html">
-                                <img src="../assets/imgs/logo_footer.png" alt="Logo" width="200" class="">
-                            </a>
-                            <p class="text-white fs-6 ms-4">Jangan hanya bisa untuk bermimpi saja, tapi berusaha dan berdoa untuk menggapai mimpinya</p>
-                            <!-- SECTION SOSMED -->
-                            <div class="ms-4">
-                                <a href="https://instagram.com/sdnkramat2kotacirebon?igshid=YmMyMTA2M2Y" class="text-white text-decoration-none me-3 ms-auto">
-                                    <img src="../assets/imgs/icon/icon_ig_primary.png" width="30px" alt="">
-                                </a>
-                                <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none me-3 ms-auto">
-                                    <img src="../assets/imgs/icon/icon_fb_primary.png" width="30px" alt="">
-                                </a>
-                                <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none">
-                                    <img src="../assets/imgs/icon/icon_yt_primary.png" width="30px" alt="">
-                                </a>
-                            </div>
-                            <!-- !SECTION SOSMED -->
-                        </div>
-                    </div>
-                    <div class="col-md-4 p-3 ms-auto">
-                        <div class="kontak text-center">
-                            <h5 class="text-white mb-4">Contact Us</h5>
-                            <p class="text-white">Jl. Siliwangi No. 44Kota Cirebon </p>
-                            <p class="text-white">Telp. (0231) 202998</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 p-3 ms-auto">
-                        <div class="guide text-center">
-                            <div class="">
-                                <div class="">
-                                    <h5 class="text-white mb-4">Viewer Guides</h5>
-                                </div>
-                                <div class="">
-                                    <a class="nav-link text-white" aria-current="page" href="../home.php">Home</a>
-                                    <a class="nav-link text-white" href="../profile/profile.php">Profil</a>
-                                    <a class="nav-link text-white" href="../daftarBerita/berita.php">Berita</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-white border-top border-white pb-3 pt-2 mx-3 mb-0 mt-0">
-                    Coypright By @SD_Keramat2023
-                    </p>
-                </div>
-            </div>
-            <!-- !SECTION FOOTER -->
-        </div>
+        <?php include "../assets/components/footer.php" ?>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
     <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
