@@ -58,8 +58,8 @@ if (!isset($dataSejarah)) {
     }
 
     @media (max-width: 425px) {
-      .navbar-pertama {
-        display: none;
+      *{
+        font-size: small;
       }
     }
     * {

@@ -58,6 +58,9 @@ if(isset($_POST['login'])){
             font-family: 'poppins';
         }
         @media (max-width: 425px){
+            *{
+                font-size: small;
+            }
             .gambar{
                 width: 40%;
                 margin: auto;
@@ -68,6 +71,9 @@ if(isset($_POST['login'])){
                 padding: 7%;
                 font-size: 85%;
             }
+            .container #login{
+                min-width: 100%;
+            }
         }
     </style>
 </head>
@@ -75,7 +81,7 @@ if(isset($_POST['login'])){
     
     <div class="container mb-auto">
         <form action="" class="m-auto mt-3 w-auto rounded-4" method="POST">
-            <div class="text-center py-4 bg-white w-50 m-auto" style="border-radius: 2rem;">
+            <div class="text-center py-4 bg-white w-50 m-auto" id="login" style="border-radius: 2rem;">
                 <h2>Selamat Datang</h2>
                 <div class="gambar mb-3">
                     <img src="../assets/imgs/Foto_SD/logoSD.png" class="p-3 mb-2" width="160px" style="border-radius: 5%;" alt="">
