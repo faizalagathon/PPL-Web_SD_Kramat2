@@ -68,6 +68,18 @@ if(isset($_POST["cari"])){
         *{
           font-family: 'Poppins';
         }
+        @media (max-width: 425px){
+          *{
+            font-size: small;
+          }
+          #feedback .row{
+            backdrop-filter: blur(3px);
+            color: white;
+          }
+          #feedback{
+            margin-x: 5px;
+          }
+        }
   </style>
 </head>
 
@@ -120,13 +132,13 @@ if(isset($_POST["cari"])){
                           </ul>
                       </li>
                     <?php endif ; ?>
+                    <?php if(isset($login) && $login != false) : ?>
+                        <a href="../../login/logout.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                    <?php endif ; ?>
+                    <?php if(isset($login) && $login == false) : ?>
+                        <a href="../../login/login.php" class="nav-link text-white">Login Admin</a>
+                    <?php endif ; ?>
                   </div>
-                  <?php if(isset($login) && $login != false) : ?>
-                      <a href="../../login/logout.php" class="ps-3 nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
-                  <?php endif ; ?>
-                  <?php if(isset($login) && $login == false) : ?>
-                      <a href="../../login/login.php" class="nav-link text-white ms-3">Login Admin</a>
-                  <?php endif ; ?>
             </div>
         </div>
     </nav>
@@ -135,17 +147,19 @@ if(isset($_POST["cari"])){
     <h2 style="text-align: center;" class="mt-3">Galeri</h2>
 
        <!-- SECTION CARI -->
-       <form class="mt-3 w-50 d-flex" action="" style="z-index: 0; display: block;" method="get">
-        <div class="input-group">
-          <input  type="text" class="form-control form-control-md w-50"  name="cari"  id="keyword"   placeholder="masuikan keyword pencaharian..." autocomplete="off" list="datalist">
-          <datalist id="datalist" <?=$datalist['id_k_acara']?>>
-            <?php foreach ($acara as $datalist) :?>
-            <option value="<?=$datalist['nama_k_acara']?>"></option>
-            <?php endforeach;?>
-          </datalist>
-          <button type="submit" class="btn btn-primary" id="cari">cari</button>
-        </div>
-      </form>
+       <div class="mx-3">
+         <form class="mt-3" action="" method="get">
+          <div class="input-group">
+            <input  type="text" class="form-control form-control-md w-50"  name="cari"  id="keyword"   placeholder="masuikan keyword pencaharian..." autocomplete="off" list="datalist">
+            <datalist id="datalist" <?=$datalist['id_k_acara']?>>
+              <?php foreach ($acara as $datalist) :?>
+              <option value="<?=$datalist['nama_k_acara']?>"></option>
+              <?php endforeach;?>
+            </datalist>
+            <button type="submit" class="btn btn-primary" id="cari">cari</button>
+          </div>
+        </form>
+       </div>
       <?php if (isset($not_found)):?>
         <div class="text-center my-4">
           <img src="../../assets/imgs/illustrasi/logo 2.png" style="width: 30%;" alt="">
@@ -155,7 +169,7 @@ if(isset($_POST["cari"])){
       <!-- !SECTION END CARI -->
     <!--SECTION Gambar -->
     <?php foreach ($acara as $cr) : ?>
-      <div class="card border-0 gap-3" style="width: 100%;scroll-snap-type: x mandatory;overflow:auto;display: flex;flex-direction: row;">
+      <div class="card border-0 gap-3 mx-3" style="width: 100%;scroll-snap-type: x mandatory;overflow:auto;display: flex;flex-direction: row;">
         <?php foreach ($gambar as $gbr) : ?>
           <?php if ($cr['id_k_acara'] == $gbr['id_k_acara']) : ?>
             <!-- SECTION FOTO -->
@@ -167,7 +181,7 @@ if(isset($_POST["cari"])){
         <?php endforeach; ?>
       </div>
       <!-- !SECTION CARD -->
-      <div class="judul">
+      <div class="judul mx-3">
         <h3><?= $cr['nama_k_acara'] ?></h3>
         <p class="">
           <small>
@@ -178,9 +192,10 @@ if(isset($_POST["cari"])){
       <!-- SECTION CARD-->
     <?php endforeach; ?>
     <!-- SECTION FEEDBACK -->
-    <div class="container">
+    <div class="container" id="feedback">
       <div class="py-5">
-        <div class="row" style="background: url(../../assets/imgs/bg5.jpg);background-size: cover; border-radius: 2rem;">
+        <div class="" style="background: url(../../assets/imgs/bg5.jpg);background-size: cover; border-radius: 2rem;">
+        <div class="row">
           <div class="col-md-6">
   
           </div>
@@ -203,6 +218,7 @@ if(isset($_POST["cari"])){
             </div>
           </div>
         </div>
+        </div>
       </div>
     </div>
     <!-- !SECTION FEEDBACK -->
@@ -218,13 +234,13 @@ if(isset($_POST["cari"])){
             <!-- SECTION SOSMED -->
             <div class="ms-4">
               <a href="https://instagram.com/sdnkramat2kotacirebon?igshid=YmMyMTA2M2Y" class="text-white text-decoration-none me-3 ms-auto">
-                <img src="assets/imgs/icon/icon_ig_primary.png" width="30px" alt="">
+                <img src="../../assets/imgs/icon/icon_ig_primary.png" width="30px" alt="">
               </a>
               <a href="https://www.facebook.com/sdn.kramatdua?mibextid=ZbWKwL" class="text-white text-decoration-none me-3 ms-auto">
-                <img src="assets/imgs/icon/icon_fb_primary.png" width="30px" alt="">
+                <img src="../../assets/imgs/icon/icon_fb_primary.png" width="30px" alt="">
               </a>
               <a href="https://youtube.com/@sdnkramat2cirebon649 " class="text-white text-decoration-none">
-                <img src="assets/imgs/icon/icon_yt_primary.png" width="30px" alt="">
+                <img src="../../assets/imgs/icon/icon_yt_primary.png" width="30px" alt="">
               </a>
             </div>
             <!-- !SECTION SOSMED -->
@@ -244,9 +260,9 @@ if(isset($_POST["cari"])){
                   <h5 class="text-white mb-4">Viewer Guides</h5>
                 </div>
                 <div class="">
-                  <a class="nav-link text-white" aria-current="page" href="home.php">Home</a>
-                  <a class="nav-link text-white" href="profile/profile.php">Profil</a>
-                  <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
+                  <a class="nav-link text-white" aria-current="page" href="../../home.php">Home</a>
+                  <a class="nav-link text-white" href="../../profile/profile.php">Profil</a>
+                  <a class="nav-link text-white" href="../../daftarBerita/berita.php">Berita</a>
                 </div>
             </div>
           </div>

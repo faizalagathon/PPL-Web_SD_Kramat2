@@ -1,16 +1,16 @@
 <?php
 require "../../koneksi.php";
 
-if(!isset($_SESSION['login'])){
-  header("Location: ../../login/login.php");
-}
+// if(!isset($_SESSION['login'])){
+//   header("Location: ../../login/login.php");
+// }
 
-if(isset($_SESSION['login'])){
-  $login = $_SESSION['login'];
-}
-else{
-  $login = false;
-}
+// if(isset($_SESSION['login'])){
+//   $login = $_SESSION['login'];
+// }
+// else{
+//   $login = false;
+// }
 
 $gambar = mysqli_query($link, "SELECT * FROM galeri
 INNER JOIN kategori_acara
@@ -58,11 +58,9 @@ if(isset($_POST["cari"])){
   <title>Galeri Sekolah</title>
   <link rel="stylesheet" href="../../assets/css/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="../../assets/css/galeri.css">
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
-<!-- <link rel="stylesheet" href="../asset/fontawesome/css/all.css"> -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
     @font-face {
       font-family: 'Poppins';
@@ -72,15 +70,22 @@ if(isset($_POST["cari"])){
       font-family: 'Poppins';
     }
     @media (max-width: 425px){
-      .navbar-pertama{
-          display: none;
-      }
       .popup{
         width: 50%;
       }
       .alert{
         width: 70%;
         font-size: small;
+      }
+      *{
+        font-size: small;
+      }
+      #feedback .row{
+        backdrop-filter: blur(3px);
+        color: white;
+      }
+      #feedback{
+        margin-x: 5px;
       }
     }
 </style>
@@ -215,13 +220,13 @@ if(isset($_POST["cari"])){
                           </ul>
                       </li>
                     <?php endif ; ?>
+                    <?php if(isset($login) && $login != false) : ?>
+                        <a href="../../login/logout.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
+                    <?php endif ; ?>
+                    <?php if(isset($login) && $login == false) : ?>
+                        <a href="../../login/login.php" class="nav-link text-white">Login Admin</a>
+                    <?php endif ; ?>
                   </div>
-                  <?php if(isset($login) && $login != false) : ?>
-                      <a href="../../login/logout.php" class="nav-link text-white" onclick="return confirm('Yakin ingin Logout dari Admin?')">Logout</a>
-                  <?php endif ; ?>
-                  <?php if(isset($login) && $login == false) : ?>
-                      <a href="../../login/login.php" class="nav-link text-white ms-3">Login Admin</a>
-                  <?php endif ; ?>
             </div>
         </div>
     </nav>
@@ -333,11 +338,11 @@ if(isset($_POST["cari"])){
       <!--SECTION Gambar -->
       <?php foreach ($acara as $cr) : ?>
         <!-- SECTION CARD-->
-          <div class="card border-0 gap-3">
+          <div class="card border-0 gap-3 mx-3" style="width: 100%;scroll-snap-type: x mandatory;overflow:auto;display: flex;flex-direction: row;">
           <?php foreach ($gambar as $gbr) : ?>
             <?php if ($cr['id_k_acara'] == $gbr['id_k_acara']) : ?>
               <div class="foto py-3">
-                <img src="../../upload/<?= $gbr['gambarGaleri']?>" alt="">
+                <img src="../../upload/<?= $gbr['gambarGaleri']?>" alt="" style="scroll-snap-align: start;min-width: 380px;min-height: 240px;max-width: 380px;max-height: 240px;object-fit: cover;object-position: center; padding: 0px 2px;">
                 <!-- SECTION DIV AKSI -->
                 <div class="aksi gap-4" id="aksi">
                   <a href="<?= $gbr["idGaleri"] ?>" type="button" data-bs-toggle="modal" data-bs-target="#ubah_foto<?= $gbr['idGaleri'] ?>">
@@ -418,13 +423,12 @@ if(isset($_POST["cari"])){
               <?php endif; ?>
             <?php endforeach; ?>
           </div>
-          <div class="judul d-flex">
+          <div class="judul d-flex mx-3">
             <div class="">
               <h3><?= $cr['nama_k_acara'] ?></h3>
               <p><?= $cr['tanggal_k_acara'] ?></p>
             </div>
             <div class="pt-3 pe-2" style="position: absolute; right: 0; z-index: 0;">
-  
               <a href="" class="btn btn-primary text-white fw-semibold" type="button" data-bs-toggle="modal" data-bs-target="#ubah_kategori_acara<?=$cr['id_k_acara']?>">
                 <!-- <i class="fa-regular fa-pen-to-square fa-2x"></i>  --> 
                 Edit
@@ -537,9 +541,9 @@ if(isset($_POST["cari"])){
                         <h5 class="text-white mb-4">Viewer Guides</h5>
                       </div>
                       <div class="">
-                        <a class="nav-link text-white" aria-current="page" href="home.php">Home</a>
-                        <a class="nav-link text-white" href="profile/profile.php">Profil</a>
-                        <a class="nav-link text-white" href="daftarBerita/berita.php">Berita</a>
+                        <a class="nav-link text-white" aria-current="page" href="../../home.php">Home</a>
+                        <a class="nav-link text-white" href="../../profile/profile.php">Profil</a>
+                        <a class="nav-link text-white" href="../../daftarBerita/berita.php">Berita</a>
                       </div>
                   </div>
                 </div>
