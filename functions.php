@@ -263,20 +263,20 @@ function hapus($id){
   return mysqli_affected_rows($link);
 }
 
-if(isset($_POST['btnFeedback'])){
-  $tambahFeedback = mysqli_query($link, "INSERT INTO feedback VALUES(NULL, '$_POST[email]', '$_POST[feedback]')");
-  if ($tambahFeedback === false){
-    echo "
-      <script>
-        alert('Gagal mengirim Feedback')
-      </script>
-    ";
-  }
-  echo "
-    <script>
-      alert('Berhasil mengirim Feedback')
-    </script>
-  ";
-}
+// if(isset($_POST['btnFeedback'])){
+//   $tambahFeedback = mysqli_query($link, "INSERT INTO feedback VALUES(NULL, '$_POST[email]', '$_POST[feedback]')");
+//   if ($tambahFeedback === false){
+//     echo "
+//       <script>
+//         alert('Gagal mengirim Feedback')
+//       </script>
+//     ";
+//   }
+//   echo "
+//     <script>
+//       alert('Berhasil mengirim Feedback')
+//     </script>
+//   ";
+// }
 
 ?>
