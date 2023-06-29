@@ -15,28 +15,44 @@ ON galeri.id_k_acara=kategori_acara.id_k_acara
 ORDER by kategori_acara.nama_k_acara;
 ;");
 
-if (isset($_GET['cari'])) {
-  $cari = $_GET['cari'];
-  $sql = "SELECT * FROM kategori_acara WHERE nama_k_acara LIKE '%$cari%'";
-  $result = $link->query($sql);
+// if (isset($_GET['cari'])) {
+//   $cari = $_GET['cari'];
+//   $sql = "SELECT * FROM kategori_acara WHERE nama_k_acara LIKE '%$cari%'";
+//   $result = $link->query($sql);
 
-  // Memeriksa hasil query
-  if ($result->num_rows > 0) {
-    // Nama ditemukan
-    while ($row = $result->fetch_assoc()) {
-      $sql = "SELECT * FROM kategori_acara WHERE nama_k_acara LIKE '%$cari%'";
-    }
-  } else {
-    // Nama tidak ditemukan
-    $not_found = 'not_found';
-  }
-}
-if (isset($_GET['cari'])) {
+//   // Memeriksa hasil query
+//   if ($result->num_rows > 0) {
+//     // Nama ditemukan
+//     while ($row = $result->fetch_assoc()) {
+//       $sql = "SELECT * FROM kategori_acara WHERE nama_k_acara LIKE '%$cari%'";
+//     }
+//   } else {
+//     // Nama tidak ditemukan
+//     $not_found = 'not_found';
+//   }
+// }
+$query = "SELECT * FROM kategori_acara";
+
+$jmlDataPerHal = 5;
+$jmlData = count(query("SELECT * FROM galeri
+INNER JOIN kategori_acara
+ON galeri.id_k_acara=kategori_acara.id_k_acara
+ORDER by kategori_acara.nama_k_acara"));
+$jmlHal = ceil($jmlData / $jmlDataPerHal);
+$halAktif = (isset($_GET['hal'])) ? $_GET['hal'] : 1;
+$awalData = ($jmlDataPerHal * $halAktif) - $jmlDataPerHal;
+
+if (isset($_GET['cari']) && !isset($_GET['hal'])) {
   $cari = $_GET['cari'];
   $query = "SELECT * FROM kategori_acara WHERE nama_k_acara LIKE '%$cari%'";
-} else {
-  $query = "SELECT * FROM kategori_acara";
 }
+if (isset($_GET['hal']) && !isset($_GET['cari'])) {
+  $query = "SELECT * FROM kategori_acara LIMIT $awalData, $jmlDataPerHal";
+}
+if (isset($_GET['hal']) && isset($_GET['cari'])) {
+  $query = "SELECT * FROM kategori_acara WHERE nama_k_acara LIKE '%$_GET[cari]%' LIMIT $awalData, $jmlDataPerHal";
+}
+
 $acara = query($query);
 
 if (isset($_POST["cari"])) {
@@ -97,7 +113,7 @@ if (isset($_POST["cari"])) {
     <div class="mx-3">
       <form class="mt-3" action="" method="get">
         <div class="input-group">
-          <input type="text" class="form-control form-control-md w-50" name="cari" id="keyword" placeholder="masuikan keyword pencaharian..." autocomplete="off" list="datalist">
+          <input type="text" class="form-control form-control-md w-50" name="cari" id="keyword" placeholder="masuikan keyword pencaharian..." autocomplete="off" list="datalist" value="<?= (isset($_GET['cari'])) ? $_GET['cari'] : '' ?>">
           <datalist id="datalist" <?= $datalist['id_k_acara'] ?>>
             <?php foreach ($acara as $datalist) : ?>
               <option value="<?= $datalist['nama_k_acara'] ?>"></option>
@@ -138,12 +154,31 @@ if (isset($_POST["cari"])) {
       </div>
       <!-- SECTION CARD-->
     <?php endforeach; ?>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item <?= ($halAktif == 1) ? 'disabled' : '' ?>">
+          <a class="page-link" href="?hal=<?= $halAktif - 1 ?><?= (isset($_GET['cari'])) ? "&cari=$_GET[cari]" : '' ?>" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <?php for ($i = 1; $i <= $jmlHal; $i++) : ?>
+          <li class="page-item <?= ($i == $halAktif) ? 'active' : '' ?>"><a class="page-link" href="?hal=<?=$i?><?= (isset($_GET['cari'])) ? "&cari=$_GET[cari]" : '' ?>"><?=$i?></a></li>
+        <?php endfor ?>
+        <li class="page-item <?= ($halAktif == $jmlHal) ? 'disabled' : '' ?>">
+          <a class="page-link" href="?hal=<?= $halAktif + 1 ?><?= (isset($_GET['cari'])) ? "&cari=$_GET[cari]" : '' ?>" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
     <!-- SECTION FEEDBACK -->
-    <?php include "../assets/components/form-feedback.php" ?>
+    <?php include "../../assets/components/form-feedback.php" ?>
   </div>
   <!-- !SECTION FEEDBACK -->
   <!-- SECTION FOOTER -->
-  <?php include "../assets/components/footer.php" ?>
+  <?php include "../../assets/components/footer.php" ?>
   <!-- !SECTION FOOTER -->
 
   <!-- <script src="../../../assets/js/bootstrap/bootstrap.min.js"></script> -->
