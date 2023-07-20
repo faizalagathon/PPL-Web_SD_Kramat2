@@ -1,5 +1,5 @@
 <!-- SECTION awal navbar pertama -->
-<div class="navbar-pertama">
+<!-- <div class="navbar-pertama">
   <nav class="navbar navbar-expand-sm display1 p-3" data-bs-theme="dark" style="height: 20px; background-color: #00ADEF">
     <div class="container-fluid">
       <span class="navbar-brand ukuran-selamat-datang">Selamat Datang Di Website Kami</span>
@@ -9,7 +9,7 @@
       </div>
     </div>
   </nav>
-</div>
+</div> -->
 <!-- !SECTION akhir navbar pertama -->
 <?php
 $indexTerakhir = array_key_last(explode('/', $_SERVER['REQUEST_URI']));
@@ -53,6 +53,7 @@ if (array_search('galeri.php', explode('?', explode('/', $_SERVER['REQUEST_URI']
               <li><a class="dropdown-item" href="<?= $dir ?>routing.php?admin-guru">Guru</a></li>
               <li><a class="dropdown-item" href="<?= $dir ?>routing.php?admin-sejarah">Sejarah</a></li>
               <li><a class="dropdown-item" href="<?= $dir ?>routing.php?admin-visi-misi">Visi Misi</a></li>
+              <li><a class="dropdown-item" href="<?= $dir ?>routing.php?admin-sambutan">Sambutan</a></li>
               <li><a class="dropdown-item" href="<?= $dir ?>routing.php?admin-ekskul">Ekstrakulikuler</a></li>
               <li><a class="dropdown-item" href="<?= $dir ?>routing.php?admin-galeri">Galeri</a></li>
               <li><a class="dropdown-item" href="<?= $dir ?>routing.php?admin-berita">Berita</a></li>

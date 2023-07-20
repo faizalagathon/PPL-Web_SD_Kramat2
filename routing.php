@@ -27,6 +27,9 @@ if (isset($_GET['admin-sejarah'])) {
 if (isset($_GET['admin-visi-misi'])) {
     header('Location: profile/edit_visi_misi.php');
 }
+if (isset($_GET['admin-sambutan'])) {
+    header('Location: profile/edit_sambutan.php');
+}
 if (isset($_GET['admin-ekskul'])) {
     header('Location: daftarEskull/crud_eskull.php');
 }

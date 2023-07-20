@@ -111,6 +111,19 @@ function ubah($data){
     
   }
 
+  if(isset($data['ubahSambutan'])){
+    $idSambutan = $data['idSambutan'];
+    $teksSambutan = $data['teksSambutan'];
+    
+    if($idSambutan == 0){
+      $query = "INSERT INTO sambutan VALUES(NULL, '$teksSambutan')";
+    }
+    else{
+      $query = "UPDATE sambutan SET teksSambutan = '$teksSambutan' WHERE idSambutan='$idSambutan'";
+    }
+    
+  }
+
   if(isset($data['ubahVisi'])){
     $idVisi = $data['idVisi'];
     $teksVisi = $data['teksVisi'];

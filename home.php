@@ -44,6 +44,14 @@ for ($i = 0; $i < count($kalimat); $i++) {
 }
 // !SECTION DAFTAR MISI
 
+// SECTION SAMBUTAN
+
+$dataSambutan = query("SELECT * FROM sambutan")[0]['teksSambutan'];
+
+$dataSambutan = explode("\n", $dataSambutan);
+
+// !SECTION SAMBUTAN
+
 //Carousel
 $datacarousel = mysqli_query($link, "SELECT * FROM carousel ORDER BY idCarousel ASC");
 
@@ -204,10 +212,11 @@ $datacarousel = mysqli_query($link, "SELECT * FROM carousel ORDER BY idCarousel 
                 <div class="col-md-7 ms-auto">
                     <div class="pt-5">
                         <h3 class="mb-3 fw-bold">Sambutan</h3>
-                        <p>
-                            Selamat datang di halaman Website Resmi Sekolah kami. Website ini dibuat untuk memberikan informasi yang lengkap dan terkini mengenai Kegiatan sekolah, Prestasi Siswa, Visi Misi, dan berbagai berita terkini tentang sekolah. Dan kami berkomitmen untuk memberikan pendidikan berkualitas, menciptakan lingkungan belajar yang inspiratif, serta mengembangkan potensi dan bakat setiap siswa. Kami percaya bahwa setiap individu memiliki keunikan dan kami berupaya untuk membantu mereka tumbuh dan berkembang dengan baik. <br><br>
-                            Website ini adalah sumber informasi yang penting bagi orang tua, siswa, dan masyarakat sekitar. Kami mengundang Anda sekalian untuk menjelajahi setiap bagian dari website kami, mempelajari kegiatan dan prestasi yang telah kami dan murid kami capai.
-                        </p>
+                        <?php foreach($dataSambutan as $data) : ?>
+                            <p>
+                                <?= $data ?>
+                            </p>
+                        <?php endforeach ; ?>
                     </div>
                 </div>
             </div>
